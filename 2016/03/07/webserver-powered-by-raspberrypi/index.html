@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.ico?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="折腾笔记,Linux,Raspberry Pi,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Bwael's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="先决条件很简单，树莓派或是其他开发板甚至是LinuxPC，路由器。 我使用的是一代树莓派b+，内存512M加上超频到极限的单核处理器，实在是无法与树莓派2相媲美，不得已只好选择相对轻量的环境完成这项尝试。说道Web服务器，大家也许都会想到 Apache、MySql 等等，非常常见的组合LAMP（Linux+Apache+Mysql/MariaDB+Perl/PHP/Python） ，但是考虑到树莓">
+<meta name="keywords" content="折腾笔记,Linux,Raspberry Pi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="用树莓派搭建你自己的Web服务器,以及一个可以外网访问的Blog">
+<meta property="og:url" content="http://bwael.com/2016/03/07/webserver-powered-by-raspberrypi/index.html">
+<meta property="og:site_name" content="Bwael&#39;s Blog">
+<meta property="og:description" content="先决条件很简单，树莓派或是其他开发板甚至是LinuxPC，路由器。 我使用的是一代树莓派b+，内存512M加上超频到极限的单核处理器，实在是无法与树莓派2相媲美，不得已只好选择相对轻量的环境完成这项尝试。说道Web服务器，大家也许都会想到 Apache、MySql 等等，非常常见的组合LAMP（Linux+Apache+Mysql/MariaDB+Perl/PHP/Python） ，但是考虑到树莓">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2016-03-07T15:52:57.976Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="用树莓派搭建你自己的Web服务器,以及一个可以外网访问的Blog">
+<meta name="twitter:description" content="先决条件很简单，树莓派或是其他开发板甚至是LinuxPC，路由器。 我使用的是一代树莓派b+，内存512M加上超频到极限的单核处理器，实在是无法与树莓派2相媲美，不得已只好选择相对轻量的环境完成这项尝试。说道Web服务器，大家也许都会想到 Apache、MySql 等等，非常常见的组合LAMP（Linux+Apache+Mysql/MariaDB+Perl/PHP/Python） ，但是考虑到树莓">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://bwael.com/2016/03/07/webserver-powered-by-raspberrypi/">
+
+
+
+
+
+  <title>用树莓派搭建你自己的Web服务器,以及一个可以外网访问的Blog | Bwael's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?f5173f5bbe801bf5ef06f87efe7bb40d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Bwael's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/07/webserver-powered-by-raspberrypi/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">用树莓派搭建你自己的Web服务器,以及一个可以外网访问的Blog</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-07T22:50:57+08:00">
+                2016-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/折腾笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">折腾笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/07/webserver-powered-by-raspberrypi/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/07/webserver-powered-by-raspberrypi/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>先决条件很简单，树莓派或是其他开发板甚至是LinuxPC，路由器。</p>
+<p>我使用的是一代树莓派b+，内存512M加上超频到极限的单核处理器，实在是无法与树莓派2相媲美，不得已只好选择相对轻量的环境完成这项尝试。说道Web服务器，大家也许都会想到 Apache、MySql 等等，非常常见的组合LAMP（Linux+Apache+Mysql/MariaDB+Perl/PHP/Python） ，但是考虑到树莓派的性能有一个非常合适的组合 nginx + sqlite + php对了还有php博客程序，我选择Z-blog。</p>
+<h2 id="首先，要搭建一个Web服务器："><a href="#首先，要搭建一个Web服务器：" class="headerlink" title="首先，要搭建一个Web服务器："></a><strong>首先，要搭建一个Web服务器：</strong></h2><p>介绍一下   nginx 是个轻量级的高性能Web服务器，并不比Apache差，好像淘宝就广泛的使用它。<br>sqlite 是个非常轻量级的数据库，常用于嵌入式领域，许多Android应用用的也是它。<br>php 非常常用Web脚本语言，就不必介绍了。</p>
+<p>不如直接切到root下工作</p>
+<h3 id="安装nginx-web服务器-约6MB"><a href="#安装nginx-web服务器-约6MB" class="headerlink" title="安装nginx  web服务器 (约6MB)"></a>安装nginx  web服务器 (约6MB)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure>
+<h3 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nginx start</span><br></pre></td></tr></table></figure>
+<p>nginx的www根目录默认在 /usr/share/nginx/www中，稍后的blog程序可以放到该目录下</p>
+<h3 id="安装php和sqlite-约9MB"><a href="#安装php和sqlite-约9MB" class="headerlink" title="安装php和sqlite(约9MB)"></a>安装php和sqlite(约9MB)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php5-fpm php5-sqlite</span><br></pre></td></tr></table></figure>
+<h3 id="修改nginx的配置文件"><a href="#修改nginx的配置文件" class="headerlink" title="修改nginx的配置文件"></a>修改nginx的配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/sites-available/default</span><br></pre></td></tr></table></figure>
+<h4 id="找到listen行，将其前面的-号注释去掉，修改后内容如下"><a href="#找到listen行，将其前面的-号注释去掉，修改后内容如下" class="headerlink" title="找到listen行，将其前面的#号注释去掉，修改后内容如下"></a>找到listen行，将其前面的#号注释去掉，修改后内容如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">listen 80; ## listen for ipv4.</span><br></pre></td></tr></table></figure>
+<p>在路由器的内网环境下80端口并不是一个好的选择，因为绝大多数路由器不会开放例如80这样的常用端口，我设置成8888，看个人爱好咯</p>
+<h4 id="找到index行，加入index-php，修改后内容如下"><a href="#找到index行，加入index-php，修改后内容如下" class="headerlink" title="找到index行，加入index.php，修改后内容如下"></a>找到index行，加入index.php，修改后内容如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index index.php index.html index.htm</span><br></pre></td></tr></table></figure>
+<h4 id="找到php的定义段，将这些行的注释去掉-，修改后内容如下"><a href="#找到php的定义段，将这些行的注释去掉-，修改后内容如下" class="headerlink" title="找到php的定义段，将这些行的注释去掉 ，修改后内容如下"></a>找到php的定义段，将这些行的注释去掉 ，修改后内容如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">fastcgi_pass unix:/var/run/php5-fpm.sock;</span><br><span class="line">fastcgi_index index.php;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="重新加载nginx的配置"><a href="#重新加载nginx的配置" class="headerlink" title="重新加载nginx的配置"></a>重新加载nginx的配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nginx reload</span><br></pre></td></tr></table></figure>
+<p>上面的操作很关键，是通用的步骤，但没接触过nginx的我在其中栽了好多跟头</p>
+<h3 id="检验一下"><a href="#检验一下" class="headerlink" title="检验一下"></a>检验一下</h3><h4 id="接下来我们访问一下试试，我的树莓派静态ip地址是-192-168-1-110（一定要设置好），刚才设置了监听端口8888，浏览器访问-192-168-1-110-8888"><a href="#接下来我们访问一下试试，我的树莓派静态ip地址是-192-168-1-110（一定要设置好），刚才设置了监听端口8888，浏览器访问-192-168-1-110-8888" class="headerlink" title="接下来我们访问一下试试，我的树莓派静态ip地址是 192.168.1.110（一定要设置好），刚才设置了监听端口8888，浏览器访问 192.168.1.110:8888"></a>接下来我们访问一下试试，我的树莓派静态ip地址是 192.168.1.110（一定要设置好），刚才设置了监听端口8888，浏览器访问 192.168.1.110:8888</h4><blockquote>
+<p>出现Welcome to nginx!</p>
+</blockquote>
+<p>说明我的nginx服务已经启动成功。</p>
+<h4 id="然后在树莓派中生成一php文件，测试一下php"><a href="#然后在树莓派中生成一php文件，测试一下php" class="headerlink" title="然后在树莓派中生成一php文件，测试一下php"></a>然后在树莓派中生成一php文件，测试一下php</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /usr/share/nginx/www/test.php</span><br></pre></td></tr></table></figure>
+<p>在文件中输入以下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?  phpinfo(); ?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Ctrl+X然后Yes存盘退出</p>
+<p>再来访问一下，PHP  OK</p>
+<blockquote>
+<p>出现PHP页面</p>
+</blockquote>
+<hr>
+<h2 id="使你的树莓派能够从外网访问："><a href="#使你的树莓派能够从外网访问：" class="headerlink" title="使你的树莓派能够从外网访问："></a><strong>使你的树莓派能够从外网访问：</strong></h2><h3 id="你得申请一个免费的动态域名解析，由于我用的是FAST的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开-http-www-oray-com-点击顶部的“注册”，申请一个花生壳域名。"><a href="#你得申请一个免费的动态域名解析，由于我用的是FAST的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开-http-www-oray-com-点击顶部的“注册”，申请一个花生壳域名。" class="headerlink" title="你得申请一个免费的动态域名解析，由于我用的是ＦＡＳＴ的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开 http://www.oray.com ,点击顶部的“注册”，申请一个花生壳域名。"></a>你得申请一个免费的动态域名解析，由于我用的是ＦＡＳＴ的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开 <a href="http://www.oray.com" target="_blank" rel="noopener">http://www.oray.com</a> ,点击顶部的“注册”，申请一个花生壳域名。</h3><blockquote>
+<p>有很多二级域名可以选择</p>
+</blockquote>
+<p>i ok la是不是很好记</p>
+<h3 id="进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存"><a href="#进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存" class="headerlink" title="进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存"></a>进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存</h3><blockquote>
+<p>大部分国产路由器都支持花生壳，记得Tenda不支持</p>
+</blockquote>
+<h3 id="接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192-168-1-110"><a href="#接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192-168-1-110" class="headerlink" title="接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192.168.1.110"></a>接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192.168.1.110</h3><h3 id="然后添加端口转发，到192-168-1-110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。"><a href="#然后添加端口转发，到192-168-1-110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。" class="headerlink" title="然后添加端口转发，到192.168.1.110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。"></a>然后添加端口转发，到192.168.1.110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。</h3><blockquote>
+<p>22,443端口都可以开启</p>
+</blockquote>
+<p>现在可以试着用外网访问一下 你的花生壳域名，别忘了加上“:”+端口号。</p>
+<p>到这里基本上已经大功告成，只消几分钟你的blog就可以运作起来了。</p>
+<hr>
+<h2 id="Blog程序安装"><a href="#Blog程序安装" class="headerlink" title="Blog程序安装:"></a><strong>Blog程序安装:</strong></h2><p>选用同样轻量的Z-blog，完美支持我们前面搭建的平台；如果使用WordPress未尝不可，但是它不完全支持sqlite，可以参考（<a href="http://www.tuicool.com/articles/fuiyQb" target="_blank" rel="noopener">http://www.tuicool.com/articles/fuiyQb</a> ）。</p>
+<p>简单说过一下吧！太困了</p>
+<h3 id="进-usr-share-nginx-www-下，"><a href="#进-usr-share-nginx-www-下，" class="headerlink" title="进/usr/share/nginx/www/下，"></a>进/usr/share/nginx/www/下，</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/zblogcn/Release/raw/master/zip/Z-BlogPHP_1_4_Deeplue_150101.zip</span><br></pre></td></tr></table></figure>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="通过浏览器访问Release下的index-php或者install-php进入安装步骤，后面就一路点下去-后台出现"><a href="#通过浏览器访问Release下的index-php或者install-php进入安装步骤，后面就一路点下去-后台出现" class="headerlink" title="通过浏览器访问Release下的index.php或者install.php进入安装步骤，后面就一路点下去,后台出现"></a>通过浏览器访问Release下的index.php或者install.php进入安装步骤，后面就一路点下去,后台出现</h3><blockquote>
+<p>大功告成</p>
+</blockquote>
+<p>我的主页 <a href="http://bwael.iok.la:8888/" target="_blank" rel="noopener">http://bwael.iok.la:8888/</a>  近期会一直开放</p>
+<blockquote>
+<p>原文是有图的 : <a href="http://www.bwael.com/uncategorized/%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E5%A4%96%E7%BD%91.html" target="_blank" rel="noopener">原文</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    bwael
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://bwael.com/2016/03/07/webserver-powered-by-raspberrypi/" title="用树莓派搭建你自己的Web服务器,以及一个可以外网访问的Blog">http://bwael.com/2016/03/07/webserver-powered-by-raspberrypi/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/折腾笔记/" rel="tag"># 折腾笔记</a>
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/Raspberry-Pi/" rel="tag"># Raspberry Pi</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/07/ALG-1/" rel="next" title="【算法学习笔记】NP完全性理论，让我看晕了/递归策略的排列问题">
+                <i class="fa fa-chevron-left"></i> 【算法学习笔记】NP完全性理论，让我看晕了/递归策略的排列问题
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/08/ALG-2/" rel="prev" title="【算法学习笔记】棋盘覆盖问题演示程序">
+                【算法学习笔记】棋盘覆盖问题演示程序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.png" alt="bwael">
+            
+              <p class="site-author-name" itemprop="name">bwael</p>
+              <p class="site-description motion-element" itemprop="description">学习总结 思考感悟 知识管理</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/bwael" target="_blank" title="github">
+                      
+                        <i class="fa fa-fw fa-globe"></i>github</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://coding.net/u/bwael" target="_blank" title="coding">
+                      
+                        <i class="fa fa-fw fa-globe"></i>coding</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/bwael211" target="_blank" title="twitter">
+                      
+                        <i class="fa fa-fw fa-globe"></i>twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://www.zhihu.com/people/bwael" target="_blank" title="zhihu">
+                      
+                        <i class="fa fa-fw fa-globe"></i>zhihu</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+            <div class="cc-license motion-element" itemprop="license">
+              <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+                <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons">
+              </a>
+            </div>
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bwael.com/" title="Main Site" target="_blank">Main Site</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tongyijia.github.io/" title="Tonglele" target="_blank">Tonglele</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先，要搭建一个Web服务器："><span class="nav-number">1.</span> <span class="nav-text">首先，要搭建一个Web服务器：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装nginx-web服务器-约6MB"><span class="nav-number">1.1.</span> <span class="nav-text">安装nginx  web服务器 (约6MB)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动nginx"><span class="nav-number">1.2.</span> <span class="nav-text">启动nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装php和sqlite-约9MB"><span class="nav-number">1.3.</span> <span class="nav-text">安装php和sqlite(约9MB)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改nginx的配置文件"><span class="nav-number">1.4.</span> <span class="nav-text">修改nginx的配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#找到listen行，将其前面的-号注释去掉，修改后内容如下"><span class="nav-number">1.4.1.</span> <span class="nav-text">找到listen行，将其前面的#号注释去掉，修改后内容如下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找到index行，加入index-php，修改后内容如下"><span class="nav-number">1.4.2.</span> <span class="nav-text">找到index行，加入index.php，修改后内容如下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找到php的定义段，将这些行的注释去掉-，修改后内容如下"><span class="nav-number">1.4.3.</span> <span class="nav-text">找到php的定义段，将这些行的注释去掉 ，修改后内容如下</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重新加载nginx的配置"><span class="nav-number">1.5.</span> <span class="nav-text">重新加载nginx的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检验一下"><span class="nav-number">1.6.</span> <span class="nav-text">检验一下</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接下来我们访问一下试试，我的树莓派静态ip地址是-192-168-1-110（一定要设置好），刚才设置了监听端口8888，浏览器访问-192-168-1-110-8888"><span class="nav-number">1.6.1.</span> <span class="nav-text">接下来我们访问一下试试，我的树莓派静态ip地址是 192.168.1.110（一定要设置好），刚才设置了监听端口8888，浏览器访问 192.168.1.110:8888</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#然后在树莓派中生成一php文件，测试一下php"><span class="nav-number">1.6.2.</span> <span class="nav-text">然后在树莓派中生成一php文件，测试一下php</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使你的树莓派能够从外网访问："><span class="nav-number">2.</span> <span class="nav-text">使你的树莓派能够从外网访问：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#你得申请一个免费的动态域名解析，由于我用的是FAST的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开-http-www-oray-com-点击顶部的“注册”，申请一个花生壳域名。"><span class="nav-number">2.1.</span> <span class="nav-text">你得申请一个免费的动态域名解析，由于我用的是ＦＡＳＴ的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开 http://www.oray.com ,点击顶部的“注册”，申请一个花生壳域名。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存"><span class="nav-number">2.2.</span> <span class="nav-text">进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192-168-1-110"><span class="nav-number">2.3.</span> <span class="nav-text">接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192.168.1.110</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#然后添加端口转发，到192-168-1-110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。"><span class="nav-number">2.4.</span> <span class="nav-text">然后添加端口转发，到192.168.1.110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Blog程序安装"><span class="nav-number">3.</span> <span class="nav-text">Blog程序安装:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进-usr-share-nginx-www-下，"><span class="nav-number">3.1.</span> <span class="nav-text">进/usr/share/nginx/www/下，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压"><span class="nav-number">3.2.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过浏览器访问Release下的index-php或者install-php进入安装步骤，后面就一路点下去-后台出现"><span class="nav-number">3.3.</span> <span class="nav-text">通过浏览器访问Release下的index.php或者install.php进入安装步骤，后面就一路点下去,后台出现</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">bwael</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'UBigG4UUiUQqG57v1PKM4DXr-gzGzoHsz',
+        appKey: 'iaWXFBjP8qb6l94cCWWol7BW',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
