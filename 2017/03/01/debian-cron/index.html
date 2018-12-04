@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="折腾笔记,Linux,Raspberry Pi,">
+  <meta name="keywords" content="学习笔记,linux,">
 
 
 
@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="先决条件很简单，树莓派或是其他开发板甚至是LinuxPC，路由器。 我使用的是一代树莓派b+，内存512M加上超频到极限的单核处理器，实在是无法与树莓派2相媲美，不得已只好选择相对轻量的环境完成这项尝试。说道Web服务器，大家也许都会想到 Apache、MySql 等等，非常常见的组合LAMP（Linux+Apache+Mysql/MariaDB+Perl/PHP/Python） ，但是考虑到树莓">
-<meta name="keywords" content="折腾笔记,Linux,Raspberry Pi">
+<meta name="description" content="Install1apt-get install cron Create a scheduled task 键入 crontab  -e 编辑 crontab 服务文件 用 crontab -u username  -l 命令,查看该用户下的crontab服务是否创建成功 用 ps -ax | grep cron 查看服务是否已经运行  初始化 cron 进程，使用 systemctl 进行管理的发">
+<meta name="keywords" content="学习笔记,linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用树莓派搭建你自己的Web服务器,以及一个可以外网访问的Blog">
-<meta property="og:url" content="http://bwael.com/2016/03/07/webserver-powered-by-raspberrypi/index.html">
+<meta property="og:title" content="debian系Cron定时任务">
+<meta property="og:url" content="http://bwael.com/2017/03/01/debian-cron/index.html">
 <meta property="og:site_name" content="Bwael&#39;s Blog">
-<meta property="og:description" content="先决条件很简单，树莓派或是其他开发板甚至是LinuxPC，路由器。 我使用的是一代树莓派b+，内存512M加上超频到极限的单核处理器，实在是无法与树莓派2相媲美，不得已只好选择相对轻量的环境完成这项尝试。说道Web服务器，大家也许都会想到 Apache、MySql 等等，非常常见的组合LAMP（Linux+Apache+Mysql/MariaDB+Perl/PHP/Python） ，但是考虑到树莓">
+<meta property="og:description" content="Install1apt-get install cron Create a scheduled task 键入 crontab  -e 编辑 crontab 服务文件 用 crontab -u username  -l 命令,查看该用户下的crontab服务是否创建成功 用 ps -ax | grep cron 查看服务是否已经运行  初始化 cron 进程，使用 systemctl 进行管理的发">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2016-03-07T15:52:57.976Z">
+<meta property="og:updated_time" content="2018-12-04T13:16:03.908Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用树莓派搭建你自己的Web服务器,以及一个可以外网访问的Blog">
-<meta name="twitter:description" content="先决条件很简单，树莓派或是其他开发板甚至是LinuxPC，路由器。 我使用的是一代树莓派b+，内存512M加上超频到极限的单核处理器，实在是无法与树莓派2相媲美，不得已只好选择相对轻量的环境完成这项尝试。说道Web服务器，大家也许都会想到 Apache、MySql 等等，非常常见的组合LAMP（Linux+Apache+Mysql/MariaDB+Perl/PHP/Python） ，但是考虑到树莓">
+<meta name="twitter:title" content="debian系Cron定时任务">
+<meta name="twitter:description" content="Install1apt-get install cron Create a scheduled task 键入 crontab  -e 编辑 crontab 服务文件 用 crontab -u username  -l 命令,查看该用户下的crontab服务是否创建成功 用 ps -ax | grep cron 查看服务是否已经运行  初始化 cron 进程，使用 systemctl 进行管理的发">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://bwael.com/2016/03/07/webserver-powered-by-raspberrypi/">
+  <link rel="canonical" href="http://bwael.com/2017/03/01/debian-cron/">
 
 
 
 
 
-  <title>用树莓派搭建你自己的Web服务器,以及一个可以外网访问的Blog | Bwael's Blog</title>
+  <title>debian系Cron定时任务 | Bwael's Blog</title>
   
 
 
@@ -297,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/07/webserver-powered-by-raspberrypi/">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2017/03/01/debian-cron/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bwael">
@@ -314,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">用树莓派搭建你自己的Web服务器,以及一个可以外网访问的Blog</h1>
+          <h1 class="post-title" itemprop="name headline">debian系Cron定时任务</h1>
         
 
         <div class="post-meta">
@@ -326,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-07T22:50:57+08:00">
-                2016-03-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-01T20:55:54+08:00">
+                2017-03-01
               </time>
             
 
@@ -349,8 +349,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/折腾笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">折腾笔记</span>
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
                   </a>
                 </span>
 
@@ -367,8 +367,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/03/07/webserver-powered-by-raspberrypi/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/07/webserver-powered-by-raspberrypi/" itemprop="commentCount"></span>
+                <a href="/2017/03/01/debian-cron/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/03/01/debian-cron/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -396,56 +396,59 @@
       
 
       
-        <p>先决条件很简单，树莓派或是其他开发板甚至是LinuxPC，路由器。</p>
-<p>我使用的是一代树莓派b+，内存512M加上超频到极限的单核处理器，实在是无法与树莓派2相媲美，不得已只好选择相对轻量的环境完成这项尝试。说道Web服务器，大家也许都会想到 Apache、MySql 等等，非常常见的组合LAMP（Linux+Apache+Mysql/MariaDB+Perl/PHP/Python） ，但是考虑到树莓派的性能有一个非常合适的组合 nginx + sqlite + php对了还有php博客程序，我选择Z-blog。</p>
-<h2 id="首先，要搭建一个Web服务器："><a href="#首先，要搭建一个Web服务器：" class="headerlink" title="首先，要搭建一个Web服务器："></a><strong>首先，要搭建一个Web服务器：</strong></h2><p>介绍一下   nginx 是个轻量级的高性能Web服务器，并不比Apache差，好像淘宝就广泛的使用它。<br>sqlite 是个非常轻量级的数据库，常用于嵌入式领域，许多Android应用用的也是它。<br>php 非常常用Web脚本语言，就不必介绍了。</p>
-<p>不如直接切到root下工作</p>
-<h3 id="安装nginx-web服务器-约6MB"><a href="#安装nginx-web服务器-约6MB" class="headerlink" title="安装nginx  web服务器 (约6MB)"></a>安装nginx  web服务器 (约6MB)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure>
-<h3 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nginx start</span><br></pre></td></tr></table></figure>
-<p>nginx的www根目录默认在 /usr/share/nginx/www中，稍后的blog程序可以放到该目录下</p>
-<h3 id="安装php和sqlite-约9MB"><a href="#安装php和sqlite-约9MB" class="headerlink" title="安装php和sqlite(约9MB)"></a>安装php和sqlite(约9MB)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php5-fpm php5-sqlite</span><br></pre></td></tr></table></figure>
-<h3 id="修改nginx的配置文件"><a href="#修改nginx的配置文件" class="headerlink" title="修改nginx的配置文件"></a>修改nginx的配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/sites-available/default</span><br></pre></td></tr></table></figure>
-<h4 id="找到listen行，将其前面的-号注释去掉，修改后内容如下"><a href="#找到listen行，将其前面的-号注释去掉，修改后内容如下" class="headerlink" title="找到listen行，将其前面的#号注释去掉，修改后内容如下"></a>找到listen行，将其前面的#号注释去掉，修改后内容如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">listen 80; ## listen for ipv4.</span><br></pre></td></tr></table></figure>
-<p>在路由器的内网环境下80端口并不是一个好的选择，因为绝大多数路由器不会开放例如80这样的常用端口，我设置成8888，看个人爱好咯</p>
-<h4 id="找到index行，加入index-php，修改后内容如下"><a href="#找到index行，加入index-php，修改后内容如下" class="headerlink" title="找到index行，加入index.php，修改后内容如下"></a>找到index行，加入index.php，修改后内容如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index index.php index.html index.htm</span><br></pre></td></tr></table></figure>
-<h4 id="找到php的定义段，将这些行的注释去掉-，修改后内容如下"><a href="#找到php的定义段，将这些行的注释去掉-，修改后内容如下" class="headerlink" title="找到php的定义段，将这些行的注释去掉 ，修改后内容如下"></a>找到php的定义段，将这些行的注释去掉 ，修改后内容如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">fastcgi_pass unix:/var/run/php5-fpm.sock;</span><br><span class="line">fastcgi_index index.php;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="重新加载nginx的配置"><a href="#重新加载nginx的配置" class="headerlink" title="重新加载nginx的配置"></a>重新加载nginx的配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nginx reload</span><br></pre></td></tr></table></figure>
-<p>上面的操作很关键，是通用的步骤，但没接触过nginx的我在其中栽了好多跟头</p>
-<h3 id="检验一下"><a href="#检验一下" class="headerlink" title="检验一下"></a>检验一下</h3><h4 id="接下来我们访问一下试试，我的树莓派静态ip地址是-192-168-1-110（一定要设置好），刚才设置了监听端口8888，浏览器访问-192-168-1-110-8888"><a href="#接下来我们访问一下试试，我的树莓派静态ip地址是-192-168-1-110（一定要设置好），刚才设置了监听端口8888，浏览器访问-192-168-1-110-8888" class="headerlink" title="接下来我们访问一下试试，我的树莓派静态ip地址是 192.168.1.110（一定要设置好），刚才设置了监听端口8888，浏览器访问 192.168.1.110:8888"></a>接下来我们访问一下试试，我的树莓派静态ip地址是 192.168.1.110（一定要设置好），刚才设置了监听端口8888，浏览器访问 192.168.1.110:8888</h4><blockquote>
-<p>出现Welcome to nginx!</p>
-</blockquote>
-<p>说明我的nginx服务已经启动成功。</p>
-<h4 id="然后在树莓派中生成一php文件，测试一下php"><a href="#然后在树莓派中生成一php文件，测试一下php" class="headerlink" title="然后在树莓派中生成一php文件，测试一下php"></a>然后在树莓派中生成一php文件，测试一下php</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /usr/share/nginx/www/test.php</span><br></pre></td></tr></table></figure>
-<p>在文件中输入以下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?  phpinfo(); ?&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Ctrl+X然后Yes存盘退出</p>
-<p>再来访问一下，PHP  OK</p>
-<blockquote>
-<p>出现PHP页面</p>
-</blockquote>
-<hr>
-<h2 id="使你的树莓派能够从外网访问："><a href="#使你的树莓派能够从外网访问：" class="headerlink" title="使你的树莓派能够从外网访问："></a><strong>使你的树莓派能够从外网访问：</strong></h2><h3 id="你得申请一个免费的动态域名解析，由于我用的是FAST的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开-http-www-oray-com-点击顶部的“注册”，申请一个花生壳域名。"><a href="#你得申请一个免费的动态域名解析，由于我用的是FAST的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开-http-www-oray-com-点击顶部的“注册”，申请一个花生壳域名。" class="headerlink" title="你得申请一个免费的动态域名解析，由于我用的是ＦＡＳＴ的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开 http://www.oray.com ,点击顶部的“注册”，申请一个花生壳域名。"></a>你得申请一个免费的动态域名解析，由于我用的是ＦＡＳＴ的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开 <a href="http://www.oray.com" target="_blank" rel="noopener">http://www.oray.com</a> ,点击顶部的“注册”，申请一个花生壳域名。</h3><blockquote>
-<p>有很多二级域名可以选择</p>
-</blockquote>
-<p>i ok la是不是很好记</p>
-<h3 id="进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存"><a href="#进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存" class="headerlink" title="进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存"></a>进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存</h3><blockquote>
-<p>大部分国产路由器都支持花生壳，记得Tenda不支持</p>
-</blockquote>
-<h3 id="接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192-168-1-110"><a href="#接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192-168-1-110" class="headerlink" title="接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192.168.1.110"></a>接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192.168.1.110</h3><h3 id="然后添加端口转发，到192-168-1-110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。"><a href="#然后添加端口转发，到192-168-1-110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。" class="headerlink" title="然后添加端口转发，到192.168.1.110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。"></a>然后添加端口转发，到192.168.1.110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。</h3><blockquote>
-<p>22,443端口都可以开启</p>
-</blockquote>
-<p>现在可以试着用外网访问一下 你的花生壳域名，别忘了加上“:”+端口号。</p>
-<p>到这里基本上已经大功告成，只消几分钟你的blog就可以运作起来了。</p>
-<hr>
-<h2 id="Blog程序安装"><a href="#Blog程序安装" class="headerlink" title="Blog程序安装:"></a><strong>Blog程序安装:</strong></h2><p>选用同样轻量的Z-blog，完美支持我们前面搭建的平台；如果使用WordPress未尝不可，但是它不完全支持sqlite，可以参考（<a href="http://www.tuicool.com/articles/fuiyQb" target="_blank" rel="noopener">http://www.tuicool.com/articles/fuiyQb</a> ）。</p>
-<p>简单说过一下吧！太困了</p>
-<h3 id="进-usr-share-nginx-www-下，"><a href="#进-usr-share-nginx-www-下，" class="headerlink" title="进/usr/share/nginx/www/下，"></a>进/usr/share/nginx/www/下，</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/zblogcn/Release/raw/master/zip/Z-BlogPHP_1_4_Deeplue_150101.zip</span><br></pre></td></tr></table></figure>
-<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="通过浏览器访问Release下的index-php或者install-php进入安装步骤，后面就一路点下去-后台出现"><a href="#通过浏览器访问Release下的index-php或者install-php进入安装步骤，后面就一路点下去-后台出现" class="headerlink" title="通过浏览器访问Release下的index.php或者install.php进入安装步骤，后面就一路点下去,后台出现"></a>通过浏览器访问Release下的index.php或者install.php进入安装步骤，后面就一路点下去,后台出现</h3><blockquote>
-<p>大功告成</p>
-</blockquote>
-<p>我的主页 <a href="http://bwael.iok.la:8888/" target="_blank" rel="noopener">http://bwael.iok.la:8888/</a>  近期会一直开放</p>
-<blockquote>
-<p>原文是有图的 : <a href="http://www.bwael.com/uncategorized/%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E5%A4%96%E7%BD%91.html" target="_blank" rel="noopener">原文</a></p>
-</blockquote>
+        <h3 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install cron</span><br></pre></td></tr></table></figure>
+<h3 id="Create-a-scheduled-task"><a href="#Create-a-scheduled-task" class="headerlink" title="Create a scheduled task"></a>Create a scheduled task</h3><ol>
+<li>键入 crontab  -e 编辑 crontab 服务文件</li>
+<li>用 crontab -u username  -l 命令,查看该用户下的crontab服务是否创建成功</li>
+<li>用 ps -ax | grep cron 查看服务是否已经运行</li>
+</ol>
+<p>初始化 cron 进程，使用 systemctl 进行管理的发行版同理</p>
+<ul>
+<li><p>启动 /etc/init.d/cron start</p>
+</li>
+<li><p>关闭 /etc/init.d/cron stop</p>
+</li>
+<li><p>重启 /etc/init.d/cron restart</p>
+</li>
+</ul>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><h4 id="1-编辑配置文件"><a href="#1-编辑配置文件" class="headerlink" title="1. 编辑配置文件"></a>1. 编辑配置文件</h4><p>　　crontab是通过读取一个crontab文件来工作，这是一个普通的文本文件，里面列出了要执行的任务。每行都含有要指定的任务的命令、参数与选项，以及要执行任务的时间。（cron 软件在后台运行并且经常检查 /etc/crontab 文件。cron 软件也检查 /var/cron/tabs 目录，搜索新的 crontab 文件。这些 crontab 文件存储一些 cron 在特定时间执行任务的信息。）</p>
+<p>　　crontab的基本格式：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* * * * * <span class="built_in">command</span></span><br></pre></td></tr></table></figure>
+<p>几个星号分别为：分 时 日 月 周，最后是要执行的命令。</p>
+<ul>
+<li>分：0~59</li>
+<li>时：0~23</li>
+<li>日：1~31</li>
+<li>月：1~12</li>
+<li>周：0～6（0表示星期天）</li>
+</ul>
+<p>除了数字还有几个个特殊的符号就是* / - ：</p>
+<ul>
+<li>* 代表所有的取值范围内的数字</li>
+<li>/ 代表每的意思</li>
+<li>*/5 表示每5个单位</li>
+<li>- 代表从某个数字到某个数字</li>
+<li>, 分开几个离散的数字</li>
+</ul>
+<p>配置文件的一些例子：</p>
+<ul>
+<li>0 3 <em> </em> * /root/test.sh 每天凌晨3点执行test.sh文件</li>
+<li>* 23-7/1 <em> </em> * /root/lnmp restart 晚上11点到早上7点之间，每隔一小时重启lnmp套件</li>
+<li><em>/30 </em> <em> </em> * /usr/sbin/ntpdate 每半小时同步一下时间</li>
+<li>0 23 <em> </em> 6 /lnmp restart 每星期六的11 : 00 pm重启重启lnmp套件。</li>
+<li><em>/1 </em> <em> </em> * echo “i am running.”&gt;&gt;/tmp/running.txt 每隔1分钟向/tmp/running.txt写一个”i am running.”字符串。</li>
+</ul>
+<h4 id="2-直接用crontab命令编辑"><a href="#2-直接用crontab命令编辑" class="headerlink" title="2. 直接用crontab命令编辑"></a>2. 直接用crontab命令编辑</h4><p>cron服务提供crontab命令来设定cron服务的，以下是这个命令的一些参数与说明：</p>
+<p>crontab -u //设定某个用户的cron服务，一般root用户在执行这个命令的时候需要此参数</p>
+<p>crontab -l //列出某个用户cron服务的详细内容</p>
+<p>crontab -r //删除每个用户的cron服务</p>
+<p>crontab -e //编辑某个用户的cron服务</p>
+<p>比如说root查看自己的cron设置：</p>
+<p>crontab -u root -l</p>
+<p>再例如，root想删除fred的cron设置：</p>
+<p>crontab -u fred -r</p>
+<p>在编辑cron服务时，编辑的内容有一些格式和约定，输入：</p>
+<p>crontab -u root -e</p>
 
       
     </div>
@@ -466,7 +469,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://bwael.com/2016/03/07/webserver-powered-by-raspberrypi/" title="用树莓派搭建你自己的Web服务器,以及一个可以外网访问的Blog">http://bwael.com/2016/03/07/webserver-powered-by-raspberrypi/</a>
+    <a href="http://bwael.com/2017/03/01/debian-cron/" title="debian系Cron定时任务">http://bwael.com/2017/03/01/debian-cron/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -481,11 +484,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/折腾笔记/" rel="tag"># 折腾笔记</a>
+            <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
           
-            <a href="/tags/Linux/" rel="tag"># Linux</a>
-          
-            <a href="/tags/Raspberry-Pi/" rel="tag"># Raspberry Pi</a>
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
         </div>
       
@@ -513,8 +514,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/07/ALG-1/" rel="next" title="【算法学习笔记】NP完全性理论，让我看晕了/递归策略的排列问题">
-                <i class="fa fa-chevron-left"></i> 【算法学习笔记】NP完全性理论，让我看晕了/递归策略的排列问题
+              <a href="/2017/02/13/microblog-develop-documentation-05/" rel="next" title="基于flask的microBlog开发笔记（五）">
+                <i class="fa fa-chevron-left"></i> 基于flask的microBlog开发笔记（五）
               </a>
             
           </div>
@@ -522,10 +523,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/08/ALG-2/" rel="prev" title="【算法学习笔记】棋盘覆盖问题演示程序">
-                【算法学习笔记】棋盘覆盖问题演示程序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -721,7 +718,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先，要搭建一个Web服务器："><span class="nav-number">1.</span> <span class="nav-text">首先，要搭建一个Web服务器：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装nginx-web服务器-约6MB"><span class="nav-number">1.1.</span> <span class="nav-text">安装nginx  web服务器 (约6MB)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动nginx"><span class="nav-number">1.2.</span> <span class="nav-text">启动nginx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装php和sqlite-约9MB"><span class="nav-number">1.3.</span> <span class="nav-text">安装php和sqlite(约9MB)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改nginx的配置文件"><span class="nav-number">1.4.</span> <span class="nav-text">修改nginx的配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#找到listen行，将其前面的-号注释去掉，修改后内容如下"><span class="nav-number">1.4.1.</span> <span class="nav-text">找到listen行，将其前面的#号注释去掉，修改后内容如下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找到index行，加入index-php，修改后内容如下"><span class="nav-number">1.4.2.</span> <span class="nav-text">找到index行，加入index.php，修改后内容如下</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#找到php的定义段，将这些行的注释去掉-，修改后内容如下"><span class="nav-number">1.4.3.</span> <span class="nav-text">找到php的定义段，将这些行的注释去掉 ，修改后内容如下</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重新加载nginx的配置"><span class="nav-number">1.5.</span> <span class="nav-text">重新加载nginx的配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检验一下"><span class="nav-number">1.6.</span> <span class="nav-text">检验一下</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#接下来我们访问一下试试，我的树莓派静态ip地址是-192-168-1-110（一定要设置好），刚才设置了监听端口8888，浏览器访问-192-168-1-110-8888"><span class="nav-number">1.6.1.</span> <span class="nav-text">接下来我们访问一下试试，我的树莓派静态ip地址是 192.168.1.110（一定要设置好），刚才设置了监听端口8888，浏览器访问 192.168.1.110:8888</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#然后在树莓派中生成一php文件，测试一下php"><span class="nav-number">1.6.2.</span> <span class="nav-text">然后在树莓派中生成一php文件，测试一下php</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使你的树莓派能够从外网访问："><span class="nav-number">2.</span> <span class="nav-text">使你的树莓派能够从外网访问：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#你得申请一个免费的动态域名解析，由于我用的是FAST的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开-http-www-oray-com-点击顶部的“注册”，申请一个花生壳域名。"><span class="nav-number">2.1.</span> <span class="nav-text">你得申请一个免费的动态域名解析，由于我用的是ＦＡＳＴ的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开 http://www.oray.com ,点击顶部的“注册”，申请一个花生壳域名。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存"><span class="nav-number">2.2.</span> <span class="nav-text">进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192-168-1-110"><span class="nav-number">2.3.</span> <span class="nav-text">接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192.168.1.110</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#然后添加端口转发，到192-168-1-110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。"><span class="nav-number">2.4.</span> <span class="nav-text">然后添加端口转发，到192.168.1.110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Blog程序安装"><span class="nav-number">3.</span> <span class="nav-text">Blog程序安装:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进-usr-share-nginx-www-下，"><span class="nav-number">3.1.</span> <span class="nav-text">进/usr/share/nginx/www/下，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压"><span class="nav-number">3.2.</span> <span class="nav-text">解压</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过浏览器访问Release下的index-php或者install-php进入安装步骤，后面就一路点下去-后台出现"><span class="nav-number">3.3.</span> <span class="nav-text">通过浏览器访问Release下的index.php或者install.php进入安装步骤，后面就一路点下去,后台出现</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Install"><span class="nav-number">1.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-scheduled-task"><span class="nav-number">2.</span> <span class="nav-text">Create a scheduled task</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Configuration"><span class="nav-number">3.</span> <span class="nav-text">Configuration</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-编辑配置文件"><span class="nav-number">3.1.</span> <span class="nav-text">1. 编辑配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-直接用crontab命令编辑"><span class="nav-number">3.2.</span> <span class="nav-text">2. 直接用crontab命令编辑</span></a></li></ol></li></ol></div>
             
 
           </div>
