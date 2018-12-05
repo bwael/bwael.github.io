@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="Bwael&#39;s Blog">
 <meta property="og:description" content="Install1apt-get install cron Create a scheduled task 键入 crontab  -e 编辑 crontab 服务文件 用 crontab -u username  -l 命令,查看该用户下的crontab服务是否创建成功 用 ps -ax | grep cron 查看服务是否已经运行  初始化 cron 进程，使用 systemctl 进行管理的发">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-12-04T13:16:03.908Z">
+<meta property="og:updated_time" content="2018-12-05T03:57:05.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="debian系Cron定时任务">
 <meta name="twitter:description" content="Install1apt-get install cron Create a scheduled task 键入 crontab  -e 编辑 crontab 服务文件 用 crontab -u username  -l 命令,查看该用户下的crontab服务是否创建成功 用 ps -ax | grep cron 查看服务是否已经运行  初始化 cron 进程，使用 systemctl 进行管理的发">
@@ -413,6 +413,7 @@
 </ul>
 <h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><h4 id="1-编辑配置文件"><a href="#1-编辑配置文件" class="headerlink" title="1. 编辑配置文件"></a>1. 编辑配置文件</h4><p>　　crontab是通过读取一个crontab文件来工作，这是一个普通的文本文件，里面列出了要执行的任务。每行都含有要指定的任务的命令、参数与选项，以及要执行任务的时间。（cron 软件在后台运行并且经常检查 /etc/crontab 文件。cron 软件也检查 /var/cron/tabs 目录，搜索新的 crontab 文件。这些 crontab 文件存储一些 cron 在特定时间执行任务的信息。）</p>
 <p>　　crontab的基本格式：</p>
+<a id="more"></a>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* * * * * <span class="built_in">command</span></span><br></pre></td></tr></table></figure>
 <p>几个星号分别为：分 时 日 月 周，最后是要执行的命令。</p>
 <ul>

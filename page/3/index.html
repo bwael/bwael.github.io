@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/21/OSnote-2/">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/05/01/pynote05/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bwael">
@@ -315,7 +315,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/03/21/OSnote-2/" itemprop="url">【OS学习笔记】处理器管理——单处理器调度算法 / 线程</a></h1>
+                <a class="post-title-link" href="/2016/05/01/pynote05/" itemprop="url">python学习笔记05----函数</a></h1>
         
 
         <div class="post-meta">
@@ -327,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-21T16:10:40+08:00">
-                2016-03-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-01T09:48:33+08:00">
+                2016-05-01
               </time>
             
 
@@ -368,8 +368,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/03/21/OSnote-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/21/OSnote-2/" itemprop="commentCount"></span>
+                <a href="/2016/05/01/pynote05/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/05/01/pynote05/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -399,66 +399,52 @@
       
         
           
-            <h2 id="常用调度算法"><a href="#常用调度算法" class="headerlink" title="常用调度算法"></a>常用调度算法</h2><h3 id="一、先来先服务（FCFS）"><a href="#一、先来先服务（FCFS）" class="headerlink" title="一、先来先服务（FCFS）"></a>一、先来先服务（FCFS）</h3><h3 id="二、短作业-短进程优先（SJF-SPF"><a href="#二、短作业-短进程优先（SJF-SPF" class="headerlink" title="二、短作业/短进程优先（SJF/SPF)"></a>二、短作业/短进程优先（SJF/SPF)</h3><h3 id="三、时间片轮转（RR）"><a href="#三、时间片轮转（RR）" class="headerlink" title="三、时间片轮转（RR）"></a>三、时间片轮转（RR）</h3><p>时间片轮转调度是一种最古老，最简单，最公平且使用最广的算法。每个进程被分配一个时间段，称作它的时间片，即该进程允许运行的时间。如果在时间片结束时进程还在运行，则CPU将被剥夺并分配给另一个进程。如果进程在时间片结束前阻塞或结束，则CPU当即进行切换。调度程序所要做的就是维护一张就绪进程列表，当进程用完它的时间片后，它被移到队列的末尾。</p>
-<h3 id="四、高响应比优先（HRRF）"><a href="#四、高响应比优先（HRRF）" class="headerlink" title="四、高响应比优先（HRRF）"></a>四、高响应比优先（HRRF）</h3><p>高响应比优先调度算法的基本思想是把CPU分配给就绪队列中响应比最高的进程。<br>高响应比优先调度算法既考虑作业的执行时间也考虑作业的等待时间，综合了先来先服务和最短作业优先两种算法的特点。<br>该算法中的响应比是指作业等待时间与运行比值，响应比公式定义如下：<br>响应比 =（等待时间+要求服务时间）/ 要求服务时间,即RR=（w+s）/s=1+w/s，因此响应比一定是大于1的。</p>
-<h3 id="五、优先级调度"><a href="#五、优先级调度" class="headerlink" title="五、优先级调度"></a>五、优先级调度</h3><p>既可用于高级调度，又可用于低级调度，还可用于实时系统。当该算法用于作业调度时，系统从后备作业队列中选择若干个优先级最高的，且系统能满足资源要求的作业装入内存运行。当该算法用于进程调度时，将把处理机分配给就绪进程队列中优先级最高的进程。</p>
-<h4 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h4><h5 id="1-静态优先级：静态优先级是在创建进程时确定进程的优先级，并且规定它在进程的整个运行期间保持不变。"><a href="#1-静态优先级：静态优先级是在创建进程时确定进程的优先级，并且规定它在进程的整个运行期间保持不变。" class="headerlink" title="1.静态优先级：静态优先级是在创建进程时确定进程的优先级，并且规定它在进程的整个运行期间保持不变。"></a>1.静态优先级：静态优先级是在创建进程时确定进程的优先级，并且规定它在进程的整个运行期间保持不变。</h5><h5 id="2-动态优先级：动态优先级是在创建进程时赋予该进程一个初始优先级，然后其优先级随着进程的执行情况的变化而改变，以便获得更好的调度性能。"><a href="#2-动态优先级：动态优先级是在创建进程时赋予该进程一个初始优先级，然后其优先级随着进程的执行情况的变化而改变，以便获得更好的调度性能。" class="headerlink" title="2.动态优先级：动态优先级是在创建进程时赋予该进程一个初始优先级，然后其优先级随着进程的执行情况的变化而改变，以便获得更好的调度性能。"></a>2.动态优先级：动态优先级是在创建进程时赋予该进程一个初始优先级，然后其优先级随着进程的执行情况的变化而改变，以便获得更好的调度性能。</h5><h4 id="在采用优先级法的低级调度中，分为抢占式和非抢占式"><a href="#在采用优先级法的低级调度中，分为抢占式和非抢占式" class="headerlink" title="在采用优先级法的低级调度中，分为抢占式和非抢占式"></a>在采用优先级法的低级调度中，分为抢占式和非抢占式</h4><ol>
-<li>非抢占式优先级算法<br>在这种调度方式下，系统一旦把处理机分配给就绪队列中优先级最高的进程后，该进程就能一直执行下去，直至完成；或因等待某事件的发生使该进程不得不放弃处理机时，系统才能将处理机分配给另一个优先级高的就绪进程。</li>
-<li>抢占式优先级算法<br>在这种调度方式下，进程调度程序把处理机分配给当时优先级最高的就绪进程，使之执行。一旦出现了另一个优先级更高的就绪进程时，进程调度程序就停止正在执行的进程，将处理机分配给新出现的优先级最高的就绪进程。</li>
+            <h2 id="函数的定义和调用"><a href="#函数的定义和调用" class="headerlink" title="函数的定义和调用"></a>函数的定义和调用</h2><p>函数通过def关键字定义。def关键字后跟一个函数的标识符名称，然后跟一对圆括号。圆括号之中可以包括一些变量名，该行以冒号结尾。接下来是一块语句，它们是函数体。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sayHi</span><span class="params">()</span>:</span>                  <span class="comment">#无参函数的定义，且没有返回值。函数将自动返回None。None是Python中的一个特别的数据类型，用来表示什么都没有，相当于C中的NULL。  </span></span><br><span class="line">    print(<span class="string">"你好我是王尼玛"</span>)   <span class="comment">#注意缩进  </span></span><br><span class="line">sayHi()                       <span class="comment">#函数调用</span></span><br></pre></td></tr></table></figure>
+<p>输出为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>  </span><br><span class="line">你好我是王尼玛</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">squareSum</span><span class="params">(a,b)</span>:</span>            <span class="comment">#带形参的函数定义（a,b即为形参）  </span></span><br><span class="line">    c = a**<span class="number">2</span> + b**<span class="number">2</span>            <span class="comment">#a**2表示a的平方  </span></span><br><span class="line">    <span class="keyword">return</span> c                   <span class="comment">#将c的值返回，与java不同的是，Python可以返回多个值，且以元组的形式返回  </span></span><br><span class="line">print(squareSum(<span class="number">3</span>,<span class="number">2</span>))          <span class="comment">#函数调用，将数值3，2带入函数</span></span><br></pre></td></tr></table></figure>
+<p>输出为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">13</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="带默认形参的函数"><a href="#带默认形参的函数" class="headerlink" title="带默认形参的函数"></a>带默认形参的函数</h4><p>我们可在定义形参的时候直接给参数加一个默认值。值得注意的是带有默认值的形参要放在右边。比如“def say(message, times = 1):”是正确的而“def say(times=1,message):”是错误的！<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">(message, times = <span class="number">1</span>)</span>:</span>  </span><br><span class="line">    <span class="keyword">print</span> ((message+<span class="string">" "</span>) * times)         <span class="comment">#字符串可以通过+号连接  </span></span><br><span class="line">  </span><br><span class="line">say(<span class="string">'Hello'</span>)  </span><br><span class="line">say(<span class="string">'World'</span>, <span class="number">3</span>)</span><br></pre></td></tr></table></figure></p>
+<p>输出结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hello   </span><br><span class="line">World World World</span><br></pre></td></tr></table></figure></p>
+<h4 id="关键参数赋值"><a href="#关键参数赋值" class="headerlink" title="关键参数赋值"></a>关键参数赋值</h4><p>再调用函数的时候，我们可以直接通过形参名给形参赋值<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(a, b=<span class="number">2</span>, c=<span class="number">3</span>)</span>:</span>  </span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"a、b、c的值分别为"</span>,a,b,c)      </span><br><span class="line">  </span><br><span class="line">func(<span class="number">1</span>,<span class="number">3</span>)  </span><br><span class="line">func(<span class="number">1</span>, c=<span class="number">24</span>)  </span><br><span class="line">func(c=<span class="number">50</span>, a=<span class="number">100</span>)</span><br></pre></td></tr></table></figure></p>
+<p>输出<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a、b、c的值分别为 <span class="number">1</span> <span class="number">3</span> <span class="number">3</span>  </span><br><span class="line">a、b、c的值分别为 <span class="number">1</span> <span class="number">2</span> <span class="number">24</span>  </span><br><span class="line">a、b、c的值分别为 <span class="number">100</span> <span class="number">2</span> <span class="number">50</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="文档字符串❤"><a href="#文档字符串❤" class="headerlink" title="文档字符串❤"></a>文档字符串❤</h4><p>在函数的第一个逻辑行的字符串是这个函数的 文档字符串 。注意，DocStrings也适用于模块和类（虽然还没学到那…..委屈）。文档字符串主要用于给函数示意。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">sayHi</span><span class="params">()</span>:</span>  </span><br><span class="line">    <span class="string">""" 这个函数的作用是王尼玛勾搭妹子问候语"""</span>    <span class="comment">#只能通过三引号的行出，用井号不行  </span></span><br><span class="line">    <span class="string">"""本条语句也是不能作为函数字符串的！"""</span>  </span><br><span class="line">    print(<span class="string">"你好我是王尼玛"</span>)  </span><br><span class="line">sayHi()  </span><br><span class="line">  </span><br><span class="line">print(sayHi.__doc__)                               <span class="comment">#函数名后不需要括号，doc两边的是双下划线  </span></span><br><span class="line">help(sayHi)                                        <span class="comment">#内置的help函数其实就是读取的doc</span></span><br></pre></td></tr></table></figure></p>
+<p>输出<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">你好我是王尼玛  </span><br><span class="line"> 这个函数的作用是王尼玛勾搭妹子问候语  </span><br><span class="line">Help on function sayHi <span class="keyword">in</span> module __main__:  </span><br><span class="line">  </span><br><span class="line">sayHi()  </span><br><span class="line">    这个函数的作用是王尼玛勾搭妹子问候语</span><br></pre></td></tr></table></figure></p>
+<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><pre><code>定义在函数内部的变量叫做局部变量，不管局部变量的值在函数内部如何变化，都不会影响到函数外的同名变量。即变量名称对于函数来说是局部 的。这称为变量的作用域 。所有变量的作用域是它们被定义时所在的块。
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span>  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">changeNum</span><span class="params">(a)</span>:</span>                               <span class="comment">#整数变量传递给函数，函数对它进行操作，但原整数变量a不发生变化。  </span></span><br><span class="line">    a = a + <span class="number">1</span>  </span><br><span class="line">    <span class="keyword">return</span> a  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">print</span> (<span class="string">"函数返回值为"</span>,changeNum(a))  </span><br><span class="line"><span class="keyword">print</span> (<span class="string">"a的值为"</span>,a)</span><br></pre></td></tr></table></figure>
+<p>输出结果：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">函数返回值为 <span class="number">2</span>  </span><br><span class="line">a的值为 <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="4-使用global语句"><a href="#4-使用global语句" class="headerlink" title="4.使用global语句"></a>4.使用global语句</h3><p>如果你想要在函数外为一个定义在函数内的变量赋值，那么你就得通过global语句告诉Python这个变量名不是局部的，而是全局的。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">()</span>:</span>  </span><br><span class="line">    <span class="keyword">global</span> x  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">print</span> (<span class="string">"函数中x的值为"</span>,x)  </span><br><span class="line">    x = <span class="number">2</span>  </span><br><span class="line">    <span class="keyword">return</span> x  </span><br><span class="line">  </span><br><span class="line">x = <span class="number">50</span>                                              <span class="comment">#在函数外为一个定义在函数内的变量赋值  </span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">'x的值为'</span>, x)  </span><br><span class="line">print(<span class="string">"函数返回值为"</span>,func())</span><br></pre></td></tr></table></figure></p>
+<p>输出结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x的值为 <span class="number">50</span>  </span><br><span class="line">函数中x的值为 <span class="number">50</span>  </span><br><span class="line">函数返回值为 <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h3 id="lambda函数"><a href="#lambda函数" class="headerlink" title="lambda函数"></a>lambda函数</h3><p>lambda函数也叫匿名函数，即，函数没有具体的名称。先来看一个最简单例子：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span>  </span><br><span class="line">    <span class="keyword">return</span> x**<span class="number">2</span>  </span><br><span class="line"><span class="keyword">print</span> (f(<span class="number">4</span>))  </span><br><span class="line">  </span><br><span class="line"><span class="comment">#Python中使用lambda的话，写成这样   </span></span><br><span class="line">g = <span class="keyword">lambda</span> x : x**<span class="number">2</span>  </span><br><span class="line"><span class="keyword">print</span> (g(<span class="number">4</span>))</span><br></pre></td></tr></table></figure></p>
+<p>lambda生成一个函数对象。该函数参数为x,，返回值为x的平方。函数对象赋给g。g的调用与正常函数无异。</p>
+<h3 id="函数作为参数传递"><a href="#函数作为参数传递" class="headerlink" title="函数作为参数传递"></a>函数作为参数传递</h3><p>函数可以作为一个对象，进行参数传递。函数名(比如func)即该对象。比如说:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(x)</span>:</span>  </span><br><span class="line">    <span class="keyword">return</span> x**<span class="number">2</span>  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(fx, a)</span>:</span>                           <span class="comment">#将函数作为参数传递  </span></span><br><span class="line">    <span class="keyword">print</span> (<span class="string">'%d的平方为'</span> % a,end=<span class="string">""</span>)  </span><br><span class="line">    <span class="keyword">print</span> (fx(a))  </span><br><span class="line">  </span><br><span class="line">test(f, <span class="number">4</span>)</span><br></pre></td></tr></table></figure></p>
+<p>上面的程序可以改写为<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(fx, a)</span>:</span>                             </span><br><span class="line">    <span class="keyword">print</span> (<span class="string">'%d的平方为'</span> % a,end=<span class="string">""</span>)  </span><br><span class="line">    <span class="keyword">print</span> (fx(a))  </span><br><span class="line">  </span><br><span class="line">test(<span class="keyword">lambda</span> x:x**<span class="number">2</span>, <span class="number">4</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="map-函数"><a href="#map-函数" class="headerlink" title="map()函数"></a>map()函数</h3><p>map函数的定义：</p>
+<p>map(function, sequence[, sequence, …]) -&gt; list<br>通过定义可以看到，这个函数的第一个参数是一个函数，剩下的参数是一个或多个序列，返回值是一个集合。map()将每次从两个表中分别取出一个元素，带入lambda所定义的函数。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(list(map(<span class="keyword">lambda</span> x: x ** <span class="number">2</span>, (<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>))))</span><br></pre></td></tr></table></figure></p>
+<p>输出<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(list(map(<span class="keyword">lambda</span> x, y: x + y, [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>], [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>])))</span><br></pre></td></tr></table></figure>
+<p>输出<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">3</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>, <span class="number">19</span>]</span><br></pre></td></tr></table></figure></p>
+<h3 id="filter-函数"><a href="#filter-函数" class="headerlink" title="filter()函数"></a>filter()函数</h3><p>filter函数的第一个参数也是一个函数对象。它也是将作为参数的函数对象作用于多个元素。如果函数对象返回的是True，则该次的元素被储存于返回的表中。filter通过读入的函数来筛选数据。同样，在Python 3.X中，filter返回的不是表，而是循环对象。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(a)</span>:</span>  </span><br><span class="line">    <span class="keyword">if</span> a &gt; <span class="number">100</span>:  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span>  </span><br><span class="line">    <span class="keyword">else</span>:  </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span>  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">print</span> (list(filter(func,[<span class="number">10</span>,<span class="number">56</span>,<span class="number">101</span>,<span class="number">500</span>])))</span><br></pre></td></tr></table></figure></p>
+<h3 id="小提示："><a href="#小提示：" class="headerlink" title="小提示："></a><strong>小提示：</strong></h3><ol>
+<li><p>指针传递使函数可以改变函数外的值！</p>
+<p> 对于基本数据类型的变量，变量传递给函数后，函数会在内存中复制一个新的变量，从而不影响原来的变量。（我们称此为值传递）</p>
+<p> 但是对于列表来说，列表传递给函数的是一个指针，指针指向序列在内存中的位置，在函数中对表的操作将在原有内存中进行，从而影响原有变量。 （我们称此为指针传递）</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">b = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  </span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">changeList</span><span class="params">(b)</span>:</span>                              <span class="comment">#我们将一个表传递给函数，函数进行操作，原来的表b发生变化。  </span></span><br><span class="line">   b[<span class="number">0</span>] = b[<span class="number">0</span>] + <span class="number">1</span>  </span><br><span class="line">   <span class="keyword">return</span> b  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">print</span> (<span class="string">"函数返回值为"</span>,changeList(b))  </span><br><span class="line"><span class="keyword">print</span> (<span class="string">"b的值为"</span>,b)</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<h3 id="六、多级反馈队列调度（MLFQ）"><a href="#六、多级反馈队列调度（MLFQ）" class="headerlink" title="六、多级反馈队列调度（MLFQ）"></a>六、多级反馈队列调度（MLFQ）</h3><p>多级反馈队列调度算法为就绪状态的进程设置多个队列，第1级队列优先度最高，但时间片最小，以下各级队列优先度依次降低而时间片依次增加。各级队列均按先来先服务的原则排序。</p>
-<ul>
-<li>优点<br>1、短进程优先处理。<br>2、系统开销不大。<br>3、对分时系统来说，交互型请求通常能在第一队列中完成。</li>
-<li>缺点<br>如果优先级高的队列一直不为空，优先级较低的队列中的进程可能长时间无法得到运行，即会导致饥饿的发生。</li>
-</ul>
-<h3 id="七、实时调度"><a href="#七、实时调度" class="headerlink" title="七、实时调度"></a>七、实时调度</h3><p>基本要求是保证计算机在规定的时间内对外部事件的请求做出响应。</p>
-<h4 id="实时调度和非实时调度的区别："><a href="#实时调度和非实时调度的区别：" class="headerlink" title="实时调度和非实时调度的区别："></a>实时调度和非实时调度的区别：</h4><h4 id="分类："><a href="#分类：" class="headerlink" title="分类："></a>分类：</h4><ul>
-<li>（1）比率单调调度算法<br>算法的任务优先级按照任务周期来确定。短任务周期的任务具有较高的优先级，周期长的任务优先级较低。<blockquote>
-<p>实现简单、系统开销小、灵活性好，实时调度基础算法，但CPU利用率低。</p>
-</blockquote>
+<p>输出结果：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">函数返回值为 [<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>]  </span><br><span class="line">b的值为 [<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
+<ol start="2">
+<li><p>Python可以返回多个值，以元组的形式返回</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">idSave</span><span class="params">()</span>:</span>  </span><br><span class="line"> 	  	a=input(<span class="string">"姓名为："</span>)  </span><br><span class="line">  	 	b=input(<span class="string">"年龄为："</span>)  </span><br><span class="line">   	c=input(<span class="string">"性别为："</span>)  </span><br><span class="line">   	<span class="keyword">return</span> a,b,c  </span><br><span class="line">  </span><br><span class="line">print(idSave())</span><br></pre></td></tr></table></figure>
 </li>
-<li>（2）最早截止时间优先调度算法<br>算法的任务优先级按照截止时间来确定。截止时间接近的任务具有较高的优先级，截止时间较晚的任务优先级较低。<blockquote>
-<p>更多用于抢占式调度算法</p>
-</blockquote>
+</ol>
+<p>输出结果：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">姓名为：王尼玛  </span><br><span class="line">年龄为：<span class="number">12</span>  </span><br><span class="line">性别为：女  </span><br><span class="line">(<span class="string">'王尼玛'</span>, <span class="string">'12'</span>, <span class="string">'女'</span>)</span><br></pre></td></tr></table></figure></p>
+<ol start="3">
+<li><p>带有默认值的形参</p>
+<p> 我们可在定义形参的时候直接给参数加一个默认值。值得注意的是带有默认值的形参要放在右边。</p>
 </li>
-<li>（3）最短空闲时间优先调度算法<br>算法的任务优先级按最短空闲时间来确定。最短空闲时间越短的任务具有较高的优先级。<blockquote>
-<p>任务空闲时间 = 任务截止时间 - 任务剩余时间 - 当前时间<br>更多用于抢占式调度算法<br>系统开销较大</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><h3 id="线程的引入"><a href="#线程的引入" class="headerlink" title="线程的引入"></a>线程的引入</h3><p><strong>线程</strong>是为了弥补进程的缺陷而提出并使用的。</p>
-<blockquote>
-<p>进程在一个时段内只能做一件事。</p>
-</blockquote>
-<h3 id="线程-1"><a href="#线程-1" class="headerlink" title="线程"></a>线程</h3><p><strong>线程</strong>可以理解为CPU调度和执行的最小单元。</p>
-<ul>
-<li>1 进程内的一个执行单元。</li>
-<li>2 进程内的一个可独立调度的实体。</li>
-<li>3 线程是进程中一个相对独立的控制流程序。</li>
-<li>4 线程是执行的上下文。</li>
-</ul>
-<p><strong>属性</strong></p>
-<ul>
-<li>1.线程属于轻型实体，基本不拥有系统资源，只拥有为保证其运行必不可少的资源。<blockquote>
-<p>例如，只有一个线程控制块<strong>（TCB）</strong>、程序计数器（PC）、一组寄存器和堆栈等。</p>
-</blockquote>
-</li>
-<li>2.线程是独立调度和分派的基本单位，是能够独立运行的基本单位。</li>
-<li>3.同一个进程中的所有线程共享该进程的全部资源。</li>
-<li>4.线程并发执行程度高，同一进程的多个线程可以并发执行，多个进程的多个线程也可并发执行。</li>
-</ul>
-<h3 id="线程和传统进程的比较"><a href="#线程和传统进程的比较" class="headerlink" title="线程和传统进程的比较"></a>线程和传统进程的比较</h3><h4 id="相似之处"><a href="#相似之处" class="headerlink" title="相似之处"></a>相似之处</h4><ul>
-<li>1.二者都有标识符（ID）、一组寄存器、状态、优先级及所要遵循的调度策略。</li>
-<li>2.进程控制块(PCB)，线程控制块（TCB）。</li>
-<li>3.进程中的线程共享该进程的资源，进程中的子进程也共享该进程的资源；线程和子线程的创建者可以对线程和子线程实施某些控制。</li>
-</ul>
-<h4 id="差异"><a href="#差异" class="headerlink" title="差异"></a>差异</h4><ul>
-<li>1.传统进程除了是调度和分派的基本单位以外，还是资源分配的基本单位。而引入线程的操作系统中，线程只是调度和分派的基本单位。</li>
-<li>2.线程并发执行的程度高于传统进程并发执行的程度。</li>
-<li>3.线程的创建和撤销时空开销小于进程，切换时间小于进程。</li>
-<li>4.</li>
-<li>5.一个线程的数据可以直接被属于同一个进程的其他线程所使用，因此数据传递既方便又快捷。</li>
-</ul>
+</ol>
 
           
         
@@ -507,7 +493,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/21/OSnote-1/">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/04/22/pynote04/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bwael">
@@ -526,7 +512,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/03/21/OSnote-1/" itemprop="url">【OS学习笔记】操作系统引论</a></h1>
+                <a class="post-title-link" href="/2016/04/22/pynote04/" itemprop="url">python学习笔记04----控制语句</a></h1>
         
 
         <div class="post-meta">
@@ -538,8 +524,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-21T14:57:01+08:00">
-                2016-03-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-22T09:33:24+08:00">
+                2016-04-22
               </time>
             
 
@@ -579,8 +565,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/03/21/OSnote-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/21/OSnote-1/" itemprop="commentCount"></span>
+                <a href="/2016/04/22/pynote04/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/04/22/pynote04/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -610,223 +596,46 @@
       
         
           
-            <h2 id="OS的定义"><a href="#OS的定义" class="headerlink" title="OS的定义"></a>OS的定义</h2><p>OS是掌控（管理）计算机上所有事情的系统软件。</p>
-<ul>
-<li>控制和管理计算机系统的所有硬件和软件资源。</li>
-<li>合理地组织计算机的工作流程，保证计算机资源的公平竞争和使用。</li>
-<li>方便用户使用计算机。</li>
-<li>防止对计算机资源的非法侵占和使用。</li>
-<li>保证OS自身的正常运转。</li>
-</ul>
-<h2 id="OS的层次模型"><a href="#OS的层次模型" class="headerlink" title="OS的层次模型"></a>OS的层次模型</h2><blockquote>
-<p>用户接口<br>（命令接口、程序接口、图形用户接口）<br>对对象操纵和管理的软件集合<br>（处理机管理软件、存储器管理软件、设备管理软件、文件管理软件）<br>操作系统对象<br>（处理机、存储器、设备、文件和作业）</p>
-</blockquote>
-<p>操作系统对象就是OS操作和管理的对象。<br>命令接口是用户和OS的接口，程序接口是应用程序和OS的接口。</p>
-<h2 id="OS的功能"><a href="#OS的功能" class="headerlink" title="OS的功能"></a>OS的功能</h2><h3 id="一、存储管理"><a href="#一、存储管理" class="headerlink" title="一、存储管理"></a>一、存储管理</h3><p>（1）、<em>内存分配</em>：为每道程序分配内存，两种方式如下：<br>静态分配：每个作业的内存空间是作业装入时确定的，装入后，不允许再申请新的内存空间，也不允许在内存中“移动”；<br>动态分配：每个作业的基本内存空间也是在装入时确定，但允许在运行中申请新的内存空间也允许“移动”<br>要完成内存空间分配应有：内存分配数据结构（记录内存使用情况）、内存分配功能（系统按内存分配算法分配）、内存回收功能（系统对用户不再需要的内存通过用户释放去完成系统的回收）<br>（2）、<em>内存保护</em>：确保每道程序都在自己的内存空间中运行互不干扰。即决不允许用户程序访问操作系统的程序和数据；也不允许转移到非共享的其它用户程序中去执行。因此需要内存保护机制，一种较为简单的内存保护机制是设置两个界限寄存器，分别用于存放正在执行程序的上届和下届。系统需对每条指令所访问的地址进行越界检查，如果发生越界，便发出越界中断请求，以停止该程序的执行。若完全用软件实现，需要增加若干指令去进行越界检查，将显著降低程序的运行速度，因此越界检查都是由硬件实现。当然对发生越界后的处理还须软件配合来完成。<br>（3）<em>地址映射</em><br>一个应用程序（源程序）.cpp经编译compile后，通常会形成若干个目标程序.obj；这些目标程序再经过连接link而形成可装入程序。这些程序地址都是从“0”开始，其他地址都是相对于起始地址计算的；由这些地址所形成的地址范围称为“地址空间”。其中的地址称为“逻辑地址”或“相对地址”。此外，由内存中的一系列单元所限定的地址范围称为“内存空间”其中的地址称为“物理地址”。<br>在多道程序环境中，地址空间中的逻辑地址和内存空间中的物理地址是不可能一致的，因此存储器管理必须提供地址映射功能，以将地址空间中的逻辑地址转换为内存空间中与之对应的物理地址，该功能也由应硬件完成。<br>（4）<em>内存扩充</em><br>由于物理内存容量有限，因此难于满足用户需要，势必影响系统的性能。这里的内存扩充是指借助虚拟存储技术，从逻辑上去扩充内存容量，使用户所感觉到的内存容量比实际内存容量大得多，可使更多用户程序能并发运行。需要内存扩充机制，实现如下功能：<br>请求调入功能：（现装现卖）允许在仅装入一部分用户程序和数据的情况下，启动该程序运行。在运行过程中对当发现继续运行所需的程序和数据尚未装入内存时，可向OS发送请求由OS将所需部分调入内存，以便继续运行。<br>置换功能：（舍不舍得）若内存中已无足够空间来装入需要调入的部分时，系统应能将内存中的一部分暂时不用的程序和数据调至磁盘上，然后将所需部分调入内存。</p>
-<h3 id="二、处理器管理"><a href="#二、处理器管理" class="headerlink" title="二、处理器管理"></a>二、处理器管理</h3><p>处理器的分配和运行都是以进程为基本单位<br>（1）<em>进程控制</em><br>创建进程为其分配资源，运行结束时撤销进程并回收资源，及控制进程在运行过程中的状态转换。在OS中通常是利用若干条进程控制原语或系统调用，来实现进程控制。（要做就做全套）原语，指用以完成特定功能、具有“原子性”的一段程序。原子性，即程序中一组动作，不被其他任何操作打断。最基本的原语有创建新进程的进程原语，撤销进程原语。<br>（2）<em>进程同步</em><br>对诸进程的运行进行协调，有如下两种协调方式：<br>进程互斥方式：指诸进程在对临界资源访问时，应采用互斥方式<br>进程同步方式：在互相合作完成共同任务的进程间，由同步机构对他们的次序加以协调。<br>最简单的实现进程互斥的机制是，为每种临界资源配一把锁，设置一对关锁原语Lock（w）和开锁原语Unlock（w）。而实现进程同步最常用的机制使信号量。<br>（3）<em>进程通信</em><br>进程相互合作去完成一共同任务时，需交换信息。<br>直接通信方式：用与进程位于同一计算机系统时。由源进程利用发生命令直接将message挂到目标进程的消息队列上，以后由目标进程利用接收命令从其消息队列中取出消息。<br>间接通信方式（找个中间人，银弹策略）：用于进程处于不同系统中时。由源进程利用发生命令将message送入一个存放消息的中间实体，以后由目标进程利用接收命令从中间实体中取走消息。该中间实体通常称为邮箱，相应的通信系统称为电子邮件系统？？？<br>（4）<em>调度</em><br>等待在后边队列上的每个作业通常要经过调度，包括作业调度和进程调度两步才能执行。<br>作业调度的基本任务，是从后备队列中按照一定的算法，选择出若干个作业，为他们分配必要的资源（首要是内存）。将他们调入内存后，变为它们建立进程，使之称为可能获得处理器的就需进程；并将他们按一定算法插入就绪队列。<br>进程调度：从进程的就绪对垒中，按一定算法选一新进程，把处理机分配给它，并为它设置运行现场，使进程投入运行。<br>这两调度算法有些是相同的如FCFS（First come First service）算法，优先权高优先调度算法。</p>
-<h3 id="三、设备管理"><a href="#三、设备管理" class="headerlink" title="三、设备管理"></a>三、设备管理</h3><p>(1)<em>缓冲管理</em><br>管理好各种类型的缓冲区，如字符缓冲区和字符块缓冲区，以缓和CPU和I/O速度不匹配的矛盾，最终达到提高CPU和I/O设备利用率，进而提高系统吞吐量。（比如串口I/O）<br>  最常见的缓冲区机制有单缓冲区机制，能实现双向同时传送数据的双缓冲机制，以及能供多个设备同时使用的公用缓冲池机制。<br>（2）<em>设备分配</em><br>根据用户的I/O请求，位置分配其所需的设备。若在CPU和I/O间还存在设备控制器和I/O通道时，还须为分配出去的设备分配响应的控制器和通道。<br> 为实现该功能，系统应配置设备控制表、控制器控制表等数据结构，用于记录设备及控制器的标识符和状态。对于独占设备（临界）的分配，还应考虑该设备被分配出去后，系统是否安全，设备用完后，还应立即回收。<br>（3）<em>设备处理</em>（设备驱动程序）<br>任务是实现CPU和设备控制器之间的通信。即由CPU向设备控制器发出I/O指令，要求它完成指定的I/O操作；并能接受由设备控制器发来的中断请求，给予及时的响应和相应的处理。<br>处理过程：<br>     首先设备处理程序检查I/O请求的合法性、了解设备的状态是否空闲、了解有关传递参数以及设置设备的工作方式。<br>      然后，便向设备控制器发出I/O命令，启动I/O设备区完成指定的I/O操作<br>  最后是及时响应由控制器发来的中断请求，并根据该中断请求的类型，调用相应的中断处理程序进行处理。<br> （4）<em>设备独立性和虚拟设备</em><br>设备独立性是指应用程序独立于物理设备，以使用户编址的程序与实际使用的物理设备无关。（就是说应用程序用的设备是OS提供的设备的接口，OS屏蔽了具体使用哪个设备?,银弹策略）可提高用户程序的可适应性，易于实现输入、输出的重定向（即I/O操作中所使用的设备科方便地重新指定）。<br>虚拟设备，是把每次仅允许一个进程使用的物理设备，改造为能同时供多个进程共享的设备。提高了设备利用率，加速了程序的运行。</p>
-<h3 id="四、文件管理"><a href="#四、文件管理" class="headerlink" title="四、文件管理"></a>四、文件管理</h3><p>（1）<em>文件存储空间的管理</em><br>系统设置相应的数据结构，用于记录文件存储空间的使用情况，以供分配存储空间时参考。<br>还应具有对存储空间进行分配和回收的功能。一般对存储空间的分配次啊用离散分配方式，以减少外存零头，并以盘块为基本分配单位。盘块的大小通常为512字节至4k字节。<br>（2）<em>目录管理</em><br>方便在外存在寻找用户所需文件。通常有系统为每个文件建立一个目录项，包含文件名、文件属性、文件在磁盘上的物理位置等，最终构成一个目录文件。目录管理的主要任务，是为每个文件建立起目录项，并对众多的目录项加以有效的组织，以实现方便的按名存取。<br>（3）<em>文件的读写管理和存取控制</em><br>由于读和写操作不会同时进行，故可合用一个读/写指针。<br>一个完善的文件系统中，可以采用多级保护设施来达到保护文件存取控制的目标。第一进行系统级存取控制，使用空灵。第二级是用户级存取控制，通过对用户分类并为其分配适当的“文件存取权限”等方法实现。第三级文件级存取控制，通过设置文件属性（只读、只执行、读/写等属性）来控制对文件的存取。</p>
-<h3 id="五、用户接口"><a href="#五、用户接口" class="headerlink" title="五、用户接口"></a>五、用户接口</h3><p>（1）<em>命令接口</em><br>分为联机用户：由一组键盘操作命令及命令解释程序所组成。用户在终端或控制台上键入一命令后，系统理解转入命令解释程序。完成指定功能后，控制又返回终端或控制台。用户可通过此实现对作业控制。<br>脱机用户接口：为批处理作业的用户提供的，由一组作业控制语言JCL组成。批处理作业的用户不能直接与自己的作业交互作用，只能委托系统代替用户对作业进行控制和干预。<br>（2）<em>程序接口</em><br>是为用户在执行中访问系统资源而设置的，是用户程序取得OS服务的唯一途径，由一组系统调用完成。<br>（3）<em>图形接口</em><br>将联机用户接口演化而来，得到图形接口，更方便直观。</p>
-<h3 id="六、网络与通信管理"><a href="#六、网络与通信管理" class="headerlink" title="六、网络与通信管理"></a>六、网络与通信管理</h3><p>（1）<em>网络资源管理</em><br>计算机联网的目的是进行资源共享，网络操作系统应能够实现网上资源共享，管理用户对资源的访问，保证网络信息资源的安全性和完整性。<br>（2）<em>数据通信管理</em><br>计算机联网后站点之间可以互相传送数据。数据通信管理为为网络应用提供必要的网络通信协议，处理网络信息传输过程中的物理细节；通过通信软件，按照网络通信协议完成网络上计算机之间的信息传输。<br>（3）<em>网络管理</em><br>包括网络性能管理、安全管理、故障管理、配置管理和日志管理。</p>
-<h2 id="OS的基本特征"><a href="#OS的基本特征" class="headerlink" title="OS的基本特征"></a>OS的基本特征</h2><h3 id="一、并发性"><a href="#一、并发性" class="headerlink" title="一、并发性"></a>一、并发性</h3><p>并发性是操作系统最重要的特征，其他特征以并发性为前提。<strong>并发性</strong>是指两个或两个以上的事情或活动在同一时间间隔内发生<strong>（不是同一时刻）</strong>。即，在计算机系统中同时存在多个进程，从宏观上看，这些进程是同时运行并向前推进着；从微观上讲，任何时刻只能有一个进程执行，单CPU条件下，则这些进程在CPU上交替执行。<br>通常的程序是静态实体（Passive Entity），它们是不能并发执行得。为了让程序并发执行，系统必须分别为每个程序建立进程（进程的来由），即在系统中能独立运行并作为资源分配的基本单位，他是一个活动实体。</p>
-<h3 id="二、共享性"><a href="#二、共享性" class="headerlink" title="二、共享性"></a>二、共享性</h3><p>在内存中并发执行的多个进程可以共同使用系统中的资源。<br><strong>互斥共享方式</strong>：有些资源如打印机，虽然可同时供多个进程使用，但一段时间内却只允许一个进程访问该资源（称为临界资源），所以需要同步的方式进行访问使用。临界资源都要求互斥地被共享。<br><strong>同时访问方式</strong>：允许在一段时间内由多个进程同时对它进行访问，这里的“同时”往往是宏观上的，微观上这些进程也可能是交替地对该资源进行访问。这种方式的典型资源是磁盘。</p>
-<h3 id="三、虚拟性（Virtual）"><a href="#三、虚拟性（Virtual）" class="headerlink" title="三、虚拟性（Virtual）"></a>三、虚拟性（Virtual）</h3><p><strong>虚拟性</strong> 的本质含义是指<strong>一个物理实体映射为多个逻辑实体</strong>。<br>例如，多道分时系统中，虽只有一个CPU，但每个终端用户却都认为是有一个CPU在专门为他服务。也可把一条物理信道虚拟为多条逻辑信道（虚信道）。在os中虚拟的实现，主要是通过分时使用的方法。如果n是某一物理设备所对应的虚拟的逻辑设备，则虚拟设备的速度必然是物理设备速度的1/n.</p>
-<h3 id="四、不确定性"><a href="#四、不确定性" class="headerlink" title="四、不确定性"></a>四、不确定性</h3><p>进程的执行由于资源等因素的限制并非“一气呵成”，而是走走停停，因此是以一部方式运行的。尽管如此，只要运行环境相同/初始数据相同，作业经多次运行，都会获得完全相同的结果，因此，异步运行是允许的。</p>
-<h2 id="OS的分类"><a href="#OS的分类" class="headerlink" title="OS的分类"></a>OS的分类</h2><p>无OS时的计算机系统：人工操作方式-à脱机输入输出方式</p>
-<h3 id="一、批处理系统（成批处理特性）"><a href="#一、批处理系统（成批处理特性）" class="headerlink" title="一、批处理系统（成批处理特性）"></a>一、批处理系统（成批处理特性）</h3><p>单道批处理系统：<br>多道批处理系统：用户所提交的作业都先存放在外存上并排成一个队列称为“后备队列”；然后由作业调度程序按一定的算法从后备队列中选择若干个作业调入内存，使他们共享CPU和系统中的各种资源，从而内存中驻留多道程序并行执行。（作业从提交到完成，需要进过两次调度：作业调度算法从外存的队列中选入内存。进程调度算法，从内存中作业中选择其一将处理器分配给其进行执行）<br>优点：<br>1.、提高CPU利用率。I/O是在准备数据，所以在I/O完成前CPU是无法完成操作的。这样显然会降低CPU的利用率。所以多道程序，可以让多个程序装入内存，可交替执行，从而当正在运行的程序因I/O而暂停执行时，系统可调度另一道程序运行，从而保持了CPU处于忙碌状态。<br>2、可提高内存和I/O设备的利用率，如果单道程序，则偌大的内存只能装入一个程序，这样必定浪费内存。<br>3、增加系统吞吐量。<br>缺点：<br>1（指作业进入系统到执行完成退出系统的时间）平均周转时间长，。由于作业要排队，依次进行处理，因而作业的周转时间较长。<br>2无交互能力，用户一旦提交作业，就不能再与自己的作业进行交互，修改和调试不方便。</p>
-<h3 id="二、分时系统（比如windows）（交互特性）"><a href="#二、分时系统（比如windows）（交互特性）" class="headerlink" title="二、分时系统（比如windows）（交互特性）"></a>二、分时系统（比如windows）（交互特性）</h3><p>指在一台主机上连接了多个带有显示器和键盘的终端，同时允许多个用户共享主机中的资源，每个用户都可通过自己的终端以交互（人机交互）的方式使用计算机。<br>实现的关键问题：及时接收（能同时接收多个终端上输入的数据，为每个终端配置一个缓冲区，用来暂存用户键入的命令），及时处理（各个用户的作业都必须在内存中，且能频繁获得处理机而运行，此目标要求所有的用户作业都直接进入内存）<br>实现方法：<br>（1）用户作业不能先进入磁盘，然后再调入内存。<br>（2）不允许一个作业长时间占用处理器直至它运行结束或发生I/O请求后，方才调度其他作业运行。应规定每个程序只运行很短的时间（通常称为时间片），然后暂停该作业的运行并立即调度下一个程序的运行。</p>
-<h3 id="三、实时系统（比如DSP中RTOS）（实时特性）"><a href="#三、实时系统（比如DSP中RTOS）（实时特性）" class="headerlink" title="三、实时系统（比如DSP中RTOS）（实时特性）"></a>三、实时系统（比如DSP中RTOS）（实时特性）</h3><p>所谓实时是指“及时”“即时”，实时系统是指在规定时间内完成对该事件的处理，并控制所有实时任务加以分类。<br>实时系统是以任务来划分，并由他们反映或控制外部时间，因而带有紧迫性。<br>划分：<br>执行任务是否呈现周期性：周期性实时任务（周期性的控制某个外部时间）、非周期性实时任务。<br>对截止时间的要求来划分：硬实时任务（必须满足任务对截止时间的要求，否则可能出现难以预测的结果）<br>软实时任务（也有个截止时间，但并不严格，错过不会有太大影响）<br>注意：实时系统也与分时系统一样具有多路性、独立性，可为多个终端服务且独立，但对实时系统而言，其多路性表现在经常对多路的现场信息进行采集或对多个对象或多个执行机构进行控制。<br>实时系统也具交互性，但仅限于访问系统中某些特定的专用服务出现，而不想分时系统那样提供数据处理服务、资源共享等服务。</p>
-<p><strong>批处理系统、分时系统和实时系统是三种基本的操作系统类型。一个实际的os可能兼有三者或其中两者的功能。</strong></p>
-<h3 id="四、微机操作系统"><a href="#四、微机操作系统" class="headerlink" title="四、微机操作系统 ~~~"></a>四、微机操作系统 ~~~</h3><h3 id="五、网络操作系统"><a href="#五、网络操作系统" class="headerlink" title="五、网络操作系统"></a>五、网络操作系统</h3><h3 id="六、多CPU操作系统"><a href="#六、多CPU操作系统" class="headerlink" title="六、多CPU操作系统"></a>六、多CPU操作系统</h3><h3 id="七、分布式操作系统"><a href="#七、分布式操作系统" class="headerlink" title="七、分布式操作系统"></a>七、分布式操作系统</h3><h3 id="八、嵌入式操作系统"><a href="#八、嵌入式操作系统" class="headerlink" title="八、嵌入式操作系统"></a>八、嵌入式操作系统</h3>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/21/pynote01/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/03/21/pynote01/" itemprop="url">python学习笔记01----Hello World！</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-21T00:10:40+08:00">
-                2016-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/21/pynote01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/21/pynote01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-Python命令行"><a href="#1-Python命令行" class="headerlink" title="1.Python命令行"></a>1.Python命令行</h3><p>在linux下输入python（windows下点击开始-&gt;程序-&gt;Python 2.3 -&gt;IDLE（Python GUI）<br>在&gt;&gt;&gt;提示符后输入print(‘Hello World!’)</p>
-<p><code>Hello World!</code></p>
-<h3 id="2-Python小程序"><a href="#2-Python小程序" class="headerlink" title="2.Python小程序"></a>2.Python小程序</h3><p>用文本编辑器写一个.py结尾的文件，比如说helloWorld.py中写入print(“Hello World”) 在命令提示符中输入Python helloWorld.py，会在窗口中显示以下结果</p>
-<p><code>Hello World!</code></p>
-<h3 id="3-Python脚本"><a href="#3-Python脚本" class="headerlink" title="3.Python脚本"></a>3.Python脚本</h3><p>下面将刚才的Python小程序改写成Python脚本</p>
-<pre><code>#!/usr/bin/env python
-print(&quot;&quot;&quot;Hello World!&quot;&quot;&quot;)
-</code></pre><p>更改helloWorld.py文件的权限</p>
-<p><code>sudo chmod 755 helloWorld.py</code></p>
-<p>输入./helloWorld.py即可之行该脚本，输入结果如下</p>
-<p><code>Hello World!</code></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><p><strong>1.单引号、双引号、多引号的区别</strong></p>
-<p>*先说双引号与3个双引号的区别，双引号所表示的字符串通常要写成一行如果要写成多行，那么就要使用\ (“连行符”)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s1 = &quot;hello,world&quot;                 # s2与s1是一样的。</span><br><span class="line">s2 = &quot;hello,\</span><br><span class="line">   world&quot;</span><br></pre></td></tr></table></figure>
-<p>如果你用3个双引号的话，就可以直接写了，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s3 = &quot;&quot;&quot;hello,                      #s3实际上就是&quot;hello,\nworld,\nhahaha.&quot;, “\n”是换行符。</span><br><span class="line">world,</span><br><span class="line">hahaha.&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
-<p>如果你的字符串里\n很多，你又不想在字符串中用\n的话，那么就可以使用3个双引号。而且使用3个双引号还可以在字符串中增加注释，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s3 = &quot;&quot;&quot;hello,                      #hoho, this is hello, 在3个双引号的字符串内可以有注释哦</span><br><span class="line">world,                              #hoho, this is world</span><br><span class="line">hahaha.&quot;&quot;&quot;</span><br><span class="line">另外，三个引号还可用于注释。例如：</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">大家好，我是注释</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>单引号与双引号的作用是相同的。但是为什么要引入单引号和双引号呢？<br>举个例子：<br>当我用单引号来表示一个字符串时，如果要表示 Let’s go 这个字符串，必须这样：</p>
-<p>  <code>s4 = &#39;Let\&#39;s go&#39;</code></p>
-<p>  注意没有，字符串中有一个’，而字符串又是用’来表示，所以这个时候就要使用转义符 \ （\，转义符应该知道吧）, 如果你的字符串中有一大堆的转义符，看起来肯定不舒服python也很好的解决了这个问题。<br>  如下：</p>
-<p>  <code>s5 = &quot;Let&#39;s go&quot;</code></p>
-<p>  这时，我们看，python知道你是用 “ 来表示字符串，所以python就把字符串中的那个单引号 ‘ , 当成普通的字符处理了，是不是很简单？<br>  对于双引号，也是一样的，下面举个例子</p>
-<p>  <code>s6 = &#39;I realy like &quot;python&quot;!&#39;</code></p>
-<p>  这就是单引号和双引号都可以表示字符串的原因了。</p>
+            <h3 id="1-if"><a href="#1-if" class="headerlink" title="1.if"></a>1.if</h3><p>if主要用于条件判断。</p>
+<h4 id="1-1-if结构"><a href="#1-1-if结构" class="headerlink" title="1.1 if结构"></a>1.1 if结构</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">1</span>  </span><br><span class="line">x = <span class="number">1</span>  </span><br><span class="line"><span class="keyword">if</span> i &gt; <span class="number">0</span>:                        <span class="comment">#注意后面的冒号必不可少！  </span></span><br><span class="line">    x = x+<span class="number">1</span>                      <span class="comment">#必须输入四个空格的缩进表示隶属关系！  </span></span><br><span class="line"><span class="keyword">print</span> x</span><br></pre></td></tr></table></figure>
+<h4 id="1-2-if-elif-else-结构"><a href="#1-2-if-elif-else-结构" class="headerlink" title="1.2 if-elif-else 结构"></a>1.2 if-elif-else 结构</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre name="code" class="python"&gt;a = input("a:")                  #这条语句的作用是在屏幕显示“a:”,并等待用户输值赋给a。  </span><br><span class="line">b = input(<span class="string">"b:"</span>)  </span><br><span class="line"><span class="keyword">if</span>(a &gt; b):  </span><br><span class="line">    <span class="keyword">print</span> (a, <span class="string">" 大于 "</span>, b)  </span><br><span class="line">    print(<span class="string">"显示1"</span>)  </span><br><span class="line"><span class="keyword">elif</span>(a==b):                      <span class="comment">#elif类似java中的else if，但要注意在末尾的冒号！  </span></span><br><span class="line">    print(a,<span class="string">"等于"</span>,b)  </span><br><span class="line">    print(<span class="string">"显示2"</span>)  </span><br><span class="line"><span class="keyword">else</span>:                            <span class="comment">#注意末尾的冒号！  </span></span><br><span class="line">    print(a,<span class="string">"小于"</span>,b)  </span><br><span class="line">    print(<span class="string">"显示3"</span>)  </span><br><span class="line">print(<span class="string">"显示4"</span>)</span><br></pre></td></tr></table></figure>
+<p>这里有三个块，分别属于if, elif, else引领。Python检测条件，如果发现if的条件为假，那么跳过后面紧跟的块，检测下一个elif的条件； 如果还是假，那么执行else块。通过上面的结构将程序分出三个分支。程序根据条件，只执行三个分支中的一个。</p>
+<h4 id="1-3-if的嵌套使用"><a href="#1-3-if的嵌套使用" class="headerlink" title="1.3 if的嵌套使用"></a>1.3 if的嵌套使用</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = input(<span class="string">"a:"</span>)  </span><br><span class="line">b = input(<span class="string">"b:"</span>)  </span><br><span class="line">c = input(<span class="string">"c:"</span>)  </span><br><span class="line"><span class="keyword">if</span>(a &gt; b):  </span><br><span class="line">    <span class="keyword">print</span> (a,<span class="string">"大于"</span>,b)  </span><br><span class="line">    <span class="keyword">if</span>(a&gt;c):                    <span class="comment">#注意这里的的if需要缩进，因为该if隶属于if（a&gt;b）  </span></span><br><span class="line">        print(a,<span class="string">"大于"</span>,c)  </span><br><span class="line">    <span class="keyword">else</span>:  </span><br><span class="line">        print(a,<span class="string">"小于"</span>,c)       <span class="comment">#注意这里的if应该与if(a&gt;c)缩进相同</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-while"><a href="#2-while" class="headerlink" title="2.while"></a>2.while</h3><p>给出一个while循环终止条件。  下例循环打印1到100<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">0</span>  </span><br><span class="line"><span class="keyword">while</span> a&lt;<span class="number">100</span>:  </span><br><span class="line">    a+=<span class="number">1</span>                     <span class="comment">#Python没有i++的写法  </span></span><br><span class="line">    print(a）  </span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"循环结束"</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-for"><a href="#3-for" class="headerlink" title="3.for"></a>3.for</h3><p>for循环需要预先设定好循环的次数(n)，然后执行隶属于for的语句n次。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">student2=[<span class="string">"王尼玛"</span>,<span class="string">"男"</span>,<span class="number">22</span>,[<span class="string">"脑袋大"</span>,<span class="string">"脖子短"</span>,<span class="string">"屁股圆"</span>]]  </span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> student2:                                                   </span><br><span class="line"><span class="comment">#循环次数为列表student2中元素的个数。  注意末尾的引号  </span></span><br><span class="line">    print(a)                                                         </span><br><span class="line">   	<span class="comment">#循环结构同样需要缩进  因为迭代（也就是循环）某范围的数字非常常见，所以有个内建的范围函数提供使用——range()</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list(range(<span class="number">10</span>))                                                      <span class="comment">#建立一个从0到9的列表(range()生成的是iterator对象。list()的作用是转换成列表)  </span></span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
+<p>我们可以这样使用range()函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">101</span>):                                               <span class="comment">#对while中的事例进行改造，打印1到100的数字  </span></span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list(range(<span class="number">1</span>,<span class="number">100</span>,<span class="number">3</span>))                                                <span class="comment">#生成从1到100间的数，步长为3  </span></span><br><span class="line"><span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">13</span>, <span class="number">16</span>, <span class="number">19</span>, <span class="number">22</span>, <span class="number">25</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">34</span>, <span class="number">37</span>, <span class="number">40</span>, <span class="number">43</span>, <span class="number">46</span>, <span class="number">49</span>, <span class="number">52</span>, <span class="number">55</span>, <span class="number">58</span>, <span class="number">61</span>, <span class="number">64</span>, <span class="number">67</span>, <span class="number">70</span>, <span class="number">73</span>, <span class="number">76</span>, <span class="number">79</span>, <span class="number">82</span>, <span class="number">85</span>, <span class="number">88</span>, <span class="number">91</span>, <span class="number">94</span>, <span class="number">97</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list(range(<span class="number">99</span>,<span class="number">1</span>,<span class="number">-3</span>))                                                 <span class="comment">#1到100间的数字，逆向排列  </span></span><br><span class="line">[<span class="number">99</span>, <span class="number">96</span>, <span class="number">93</span>, <span class="number">90</span>, <span class="number">87</span>, <span class="number">84</span>, <span class="number">81</span>, <span class="number">78</span>, <span class="number">75</span>, <span class="number">72</span>, <span class="number">69</span>, <span class="number">66</span>, <span class="number">63</span>, <span class="number">60</span>, <span class="number">57</span>, <span class="number">54</span>, <span class="number">51</span>, <span class="number">48</span>, <span class="number">45</span>, <span class="number">42</span>, <span class="number">39</span>, <span class="number">36</span>, <span class="number">33</span>, <span class="number">30</span>, <span class="number">27</span>, <span class="number">24</span>, <span class="number">21</span>, <span class="number">18</span>, <span class="number">15</span>, <span class="number">12</span>, <span class="number">9</span>, <span class="number">6</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
+<p>轻量级循环</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[x*x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)]                                            <span class="comment">#生成一个简单的  </span></span><br><span class="line"><span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>]</span><br></pre></td></tr></table></figure>
+<p><strong>enumerate()函数</strong></p>
+<p>利用enumerate()函数，可以在每次循环中同时得到下标和元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">S = <span class="string">'abcdefghijk'</span>  </span><br><span class="line"><span class="keyword">for</span> (index,char) <span class="keyword">in</span> enumerate(S):  </span><br><span class="line">    print(index)  </span><br><span class="line">    print(char)  </span><br><span class="line">zip()</span><br></pre></td></tr></table></figure></p>
+<p>如果你多个等长的序列，然后想要每次循环时从各个序列分别取出一个元素，可以利用zip()方便地实现：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ta = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  </span><br><span class="line">tb = [<span class="number">9</span>,<span class="number">8</span>,<span class="number">7</span>]  </span><br><span class="line">tc = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]  </span><br><span class="line"><span class="keyword">for</span> (a,b,c) <span class="keyword">in</span> zip(ta,tb,tc):  </span><br><span class="line">    print(a,b,c)</span><br></pre></td></tr></table></figure></p>
+<p>输出<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">9</span> a  </span><br><span class="line"><span class="number">2</span> <span class="number">8</span> b  </span><br><span class="line"><span class="number">3</span> <span class="number">7</span> c</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="string">"lucy"</span>,<span class="string">"lily"</span>,<span class="string">"tom"</span>]  </span><br><span class="line">b=[<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>]  </span><br><span class="line">print(list(zip(a,b)))</span><br></pre></td></tr></table></figure>
+<p>输出<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[(<span class="string">'lucy'</span>, <span class="number">11</span>), (<span class="string">'lily'</span>, <span class="number">12</span>), (<span class="string">'tom'</span>, <span class="number">13</span>)]</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-中断循环"><a href="#4-中断循环" class="headerlink" title="4.中断循环"></a>4.中断循环</h3><p>break——跳出循环<br>continue——跳出本次命令的之行，继续下一次循环</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nameList=[<span class="string">"王二小"</span>,<span class="string">"王小明"</span>,<span class="string">"小红"</span>,<span class="string">"小刚"</span>,<span class="string">"寒梅梅"</span>,<span class="string">"王尼玛"</span>,<span class="string">"李磊"</span>]  </span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> nameList:  </span><br><span class="line">    <span class="keyword">if</span> name==<span class="string">"王尼玛"</span>:  </span><br><span class="line">        print(<span class="string">"凶手找到啦！"</span>)  </span><br><span class="line">        <span class="keyword">break</span>  </span><br><span class="line">print(name)</span><br></pre></td></tr></table></figure>
+<p>输出为王尼玛<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nameList=[<span class="string">"王二小"</span>,<span class="string">"王小明"</span>,<span class="string">"小红"</span>,<span class="string">"小刚"</span>,<span class="string">"寒梅梅"</span>,<span class="string">"王尼玛"</span>,<span class="string">"李磊"</span>]  </span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> nameList:  </span><br><span class="line">    <span class="keyword">if</span> name==<span class="string">"王尼玛"</span>:  </span><br><span class="line">        print(<span class="string">"凶手找到啦！"</span>)  </span><br><span class="line">        <span class="keyword">continue</span>  </span><br><span class="line">print(name)</span><br></pre></td></tr></table></figure></p>
+<p>输出为李磊</p>
+<h3 id="5-注意"><a href="#5-注意" class="headerlink" title="5.注意"></a>5.注意</h3><ul>
+<li>1.Python的缩进<pre><code>空白在Python中是重要的。事实上行首的空白是重要的。它称为缩进。在逻辑行首的空白（空格和制表符）用来决定逻辑行的缩进层次，从而用来决定语句的分组。 这意味着同一层次的语句必须有相同的缩进。每一组这样的语句称为一个块。我们将在后面的章节中看到有关块的用处的例子。 你需要记住的一样东西是错误的缩进会引发错误。
+</code></pre></li>
+<li><p>2.if格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if  &lt;条件1&gt;:</span><br><span class="line">    	statement</span><br><span class="line">elif &lt;条件2&gt;:</span><br><span class="line">    	statement</span><br><span class="line">elif &lt;条件3&gt;：</span><br><span class="line">    	statement</span><br><span class="line">else:</span><br><span class="line">    	statement</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>3.while格式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while&lt;条件&gt;:</span><br><span class="line">		statement</span><br><span class="line">else:</span><br><span class="line">		statement</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4.for格式</p>
+<p>  <code>for 变量 in &lt;对象集合&gt;：</code></p>
+</li>
+<li><p>5.Python与其他语言的不同</p>
+<p>  <code>Python的while可以写else！</code></p>
 </li>
 </ul>
-<p><strong>2.在Python 2.x中，print还可以是一个关键字，可写成print ‘Hello World!’，但这在3.x中行不通。</strong></p>
-<p><strong>3.“#!/usr/bin/python”与”#!/usr/bin/env python”的区别（windows用户可以无视）</strong></p>
-<p>#!/usr/bin/python 是告诉操作系统执行这个脚本的时候，调用/usr/bin下的python解释器；相当于写死了Python的路径，如果Python的路径改变，脚本将无法执行。不推荐使用</p>
-<p>#!/usr/bin/env python 这种用法是为了防止操作系统用户没有将python装在默认的/usr/bin路径里。当系统看到这一行的时候，首先会到env设置里查找python的安装路径，再调用对应路径下的解释器程序完成操作。</p>
-<p><strong>4.如何通过直接输入helloWorld.py而不是./helloWorld来执行脚本？（windows用户请无视）</strong><br>在一般用户下输入PATH=$PATH：(注意后面的冒号)。  即可直接通过输入helloWorld.py执行脚本。<br>但是值得注意的是，千万不要用这种方法修改超级用户（一般是root）的PATH变量。这是一个安全网面 的漏洞，因为root用户管理员可能因此执行一个某个命令的伪装版本。</p>
-<p>5.<strong>如何使你的程序在任何位置执行？</strong></p>
-<pre><code>PATH=/home/userName/test:$PATH                             //将/home/userName/test加入PATH （注意中间的冒号！ PATH必须大写！）
-sudo cp helloWorld.py /home/userName/test/helloWorld
-</code></pre><p>然后输入helloWorld即可直接之行脚本</p>
-<p><strong>6.Python的注释</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#单行注释</span><br><span class="line"></span><br><span class="line">&lt;**</span><br><span class="line">多行注释1</span><br><span class="line">**&gt;</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">多行注释2</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -875,7 +684,7 @@ sudo cp helloWorld.py /home/userName/test/helloWorld
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/14/code-dream/">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/04/19/windows-for-chromebook/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bwael">
@@ -894,7 +703,7 @@ sudo cp helloWorld.py /home/userName/test/helloWorld
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2016/03/14/code-dream/" itemprop="url">关于code-dream参赛作品给新人的一些建议</a></h1>
+                <a class="post-title-link" href="/2016/04/19/windows-for-chromebook/" itemprop="url">Windows 10 64 Bit Installation Guide Acer C720, HP Chromebook 14, Toshiba CB-30, and Dell Chromebook 11</a></h1>
         
 
         <div class="post-meta">
@@ -906,346 +715,8 @@ sudo cp helloWorld.py /home/userName/test/helloWorld
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-14T19:14:00+08:00">
-                2016-03-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/14/code-dream/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/14/code-dream/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>只学习过C语言也是可以做作品来参加code dream，这是面向计院全体大一新生的比赛，所以无需发怵，六队的学弟学妹也要做的66666！</p>
-<h2 id="参赛作品要求"><a href="#参赛作品要求" class="headerlink" title="参赛作品要求"></a>参赛作品要求</h2><p>本次比赛主要分为三个项目：网页设计类、程序软件类、算法设计类。各类别参赛作品具体要求如下：</p>
-<h3 id="（1）网页设计类"><a href="#（1）网页设计类" class="headerlink" title="（1）网页设计类"></a>（1）网页设计类</h3><p>参赛选手自定一个站点名称，动态或静态网页不限，但演示成果要生成静态网页格式html。要有一定的代码量，不能<em>直接</em>套用动态网页生成程序来生成静态页面。要求主题鲜明突出，创意新颖，页面结构美观。制作软件不限制，通过合理运用网页设计的各种技术，体现良好的艺术性和实用性。页面深度必须在三层左右，以4-7个页面为宜。要求能在WinXP以上系统运行，显示分辨率800*600以上，网页采用Internet Explorer6.0以上浏览器。</p>
-<blockquote>
-<p>例如：个人博客，宣传页面，简单网页应用（实现一定的功能，不受页面深度限制）等。</p>
-</blockquote>
-<ul>
-<li>个人博客可以使用成熟的WordPress，Z-blog，hexo等博客程序构建，然后自定义其部分功能，创建新的页面，要有独创性；</li>
-<li>宣传页面即介绍某个企业，产品，或者是其他你想让人知晓的页面，可以用Dreamwave，甚至是十几年前的frontpage(曾在小学课本里看到)，so easy；</li>
-<li>网页应用可以使用一些网络服务接口来创建自己的应用，最好有一定实际价值。<br>参考 <a href="http://www.jianshu.com/p/d66f0575ba7e" target="_blank" rel="noopener">html瞬间入门</a></li>
-</ul>
-<h3 id="（2）程序软件作品"><a href="#（2）程序软件作品" class="headerlink" title="（2）程序软件作品"></a>（2）程序软件作品</h3><p>制作要求：具有一定实用价值或者娱乐价值，界面尽可能友好，使用简单，可以带有使用帮助。作品大概有这几个方面：信息管理、游戏娱乐、文体健康、学习生活等主题，内容务必积极健康向上。</p>
-<blockquote>
-<p>例如：实用小工具，游戏，学习辅助软件等。</p>
-</blockquote>
-<p><em>这是我最推荐你们去选择的题目。可以做计算器，小游戏，画图板等等。</em></p>
-<ul>
-<li>用c配合VC是可以实现图形界面的，具体会用到MFC，这个框架我并不熟悉，可以参考网上的资料自学，也可以向我索取；</li>
-<li>还有就是使用第三方的图形库，如文档很全的<a href="http://xege.org/" target="_blank" rel="noopener">EGE</a>,我曾用它实现过贪吃蛇；</li>
-<li>如果你想使用python我也是十分的支持，因为python太强大了。而且pygame是可以速成的，去找本《pygame游戏编程入门》看看，一个月做出很耐玩的游戏并不是很困难；</li>
-<li>还有一些歪门邪道的方式去做一个程序作品，我就不提了。</li>
-<li>其实，黑框框（控制台程序）也完全没问题，重要的是内涵。</li>
-</ul>
-<h3 id="（3）算法设计类"><a href="#（3）算法设计类" class="headerlink" title="（3）算法设计类"></a>（3）算法设计类</h3><p>制作要求：利用算法解决已有的或与学习生活相关的复杂问题，算法具有一定的实现难度，体现出对编程语言和简单算法的掌握。要求配有算法流程图、必要的说明，能够以简单、直观的界面展示。</p>
-<blockquote>
-<p>例如：矩阵计算，高等数学涵盖的计算，智能扫雷算法、五子棋人机对弈等。</p>
-</blockquote>
-<p>不必多说，重在算法，对其他没什么特别的要求。</p>
-<p>当然，你们能做的绝不局限于我说的这些，要开动脑筋，一旦有你想做的的东西，技术问题不会成为你最大的阻碍。有了C语言的基础，花上五六天去掌握一门新的编程语言也不是没有可能的。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/08/ALG-2/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/03/08/ALG-2/" itemprop="url">【算法学习笔记】棋盘覆盖问题演示程序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-08T16:59:17+08:00">
-                2016-03-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/08/ALG-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/08/ALG-2/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><p>棋盘覆盖问题采用的是分治策略。通过十字划分，将原问题转化为四个规模较小的棋盘覆盖问题。递归的使用这种分割，将问题最简化。</p>
-<h2 id="问题简述"><a href="#问题简述" class="headerlink" title="问题简述"></a>问题简述</h2><blockquote>
-<p>在一个 2^k <em> 2^k个方格组成的棋盘中，若恰有一个方格与其它方格不同，则称该方格为一特殊方格，称该棋盘为一特殊棋盘。显然特殊方格在棋盘上出现的位置有 4^k 种情形。因而对任何 k&gt;=0 ，有 4^k 种不同的特殊棋盘。下图所示的特殊棋盘为 k=2 时 16 个特殊棋盘中的一个。<img src="http://images.cnblogs.com/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/1_thumb.gif" alt="">在棋盘覆盖问题中，要用下图中 4 中不同形态的 L 型骨牌覆盖一个给定的特殊棋牌上除特殊方格以外的所有方格，且任何 2 个 L 型骨牌不得重叠覆盖。易知，在任何一个 2^k </em> 2^k 的棋盘中，用到的 L 型骨牌个数恰为 (4^k-1)/3 。<img src="http://images.cnblogs.com/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/2_thumb.gif" alt=""></p>
-</blockquote>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>用分治策略，可以设计解棋盘问题的一个简捷的算法。<br>当k&gt;0时，将2^k <em> 2^k棋盘分割为4个2^(k-1) </em> 2^(k-1)子棋盘，如下图所示。<br><img src="http://images.cnblogs.com/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/3_thumb.gif" alt=""><br>特殊方格必位于4个较小子棋盘之一中，其余3个子棋盘中无特殊方格。为了将这3个无特殊方格的子棋盘转化为特殊棋盘，我们可以用一个L型骨牌覆盖这3个较小的棋盘的汇合处，如下图所示，这3个子棋盘上被L型骨牌覆盖的方格就成为该棋盘上的特殊方格，从而将原问题化为4个较小规模的棋盘覆盖问题。递归的使用这种分割，直至棋盘简化为1x1棋盘。<br><img src="http://images.cnblogs.com/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/4_thumb.gif" alt=""></p>
-<h2 id="C-Code"><a href="#C-Code" class="headerlink" title="C++ Code"></a>C++ Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> tile=<span class="number">1</span>;     <span class="comment">//L型骨牌的编号(递增)</span></span><br><span class="line"><span class="keyword">int</span> board[<span class="number">100</span>][<span class="number">100</span>];    <span class="comment">//棋盘</span></span><br><span class="line"><span class="comment">/*****************************************************</span></span><br><span class="line"><span class="comment">* 递归方式实现棋盘覆盖算法</span></span><br><span class="line"><span class="comment">* 输入参数：</span></span><br><span class="line"><span class="comment">* tr--当前棋盘左上角的行号</span></span><br><span class="line"><span class="comment">* tc--当前棋盘左上角的列号</span></span><br><span class="line"><span class="comment">* dr--当前特殊方格所在的行号</span></span><br><span class="line"><span class="comment">* dc--当前特殊方格所在的列号</span></span><br><span class="line"><span class="comment">* size：当前棋盘的:2^k</span></span><br><span class="line"><span class="comment">*****************************************************/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">chessBoard</span> <span class="params">( <span class="keyword">int</span> tr, <span class="keyword">int</span> tc, <span class="keyword">int</span> dr, <span class="keyword">int</span> dc, <span class="keyword">int</span> size )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ( size==<span class="number">1</span> )    <span class="comment">//棋盘方格大小为1,说明递归到最里层</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> t=tile++;     <span class="comment">//每次递增1</span></span><br><span class="line">    <span class="keyword">int</span> s=size/<span class="number">2</span>;    <span class="comment">//棋盘中间的行、列号(相等的)</span></span><br><span class="line">    <span class="comment">//检查特殊方块是否在左上角子棋盘中</span></span><br><span class="line">    <span class="keyword">if</span> ( dr&lt;tr+s &amp;&amp; dc&lt;tc+s )              <span class="comment">//在</span></span><br><span class="line">        chessBoard ( tr, tc, dr, dc, s );</span><br><span class="line">    <span class="keyword">else</span>         <span class="comment">//不在，将该子棋盘右下角的方块视为特殊方块</span></span><br><span class="line">    &#123;</span><br><span class="line">        board[tr+s<span class="number">-1</span>][tc+s<span class="number">-1</span>]=t;</span><br><span class="line">        chessBoard ( tr, tc, tr+s<span class="number">-1</span>, tc+s<span class="number">-1</span>, s );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//检查特殊方块是否在右上角子棋盘中</span></span><br><span class="line">    <span class="keyword">if</span> ( dr&lt;tr+s &amp;&amp; dc&gt;=tc+s )               <span class="comment">//在</span></span><br><span class="line">        chessBoard ( tr, tc+s, dr, dc, s );</span><br><span class="line">    <span class="keyword">else</span>          <span class="comment">//不在，将该子棋盘左下角的方块视为特殊方块</span></span><br><span class="line">    &#123;</span><br><span class="line">        board[tr+s<span class="number">-1</span>][tc+s]=t;</span><br><span class="line">        chessBoard ( tr, tc+s, tr+s<span class="number">-1</span>, tc+s, s );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//检查特殊方块是否在左下角子棋盘中</span></span><br><span class="line">    <span class="keyword">if</span> ( dr&gt;=tr+s &amp;&amp; dc&lt;tc+s )              <span class="comment">//在</span></span><br><span class="line">        chessBoard ( tr+s, tc, dr, dc, s );</span><br><span class="line">    <span class="keyword">else</span>            <span class="comment">//不在，将该子棋盘右上角的方块视为特殊方块</span></span><br><span class="line">    &#123;</span><br><span class="line">        board[tr+s][tc+s<span class="number">-1</span>]=t;</span><br><span class="line">        chessBoard ( tr+s, tc, tr+s, tc+s<span class="number">-1</span>, s );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//检查特殊方块是否在右下角子棋盘中</span></span><br><span class="line">    <span class="keyword">if</span> ( dr&gt;=tr+s &amp;&amp; dc&gt;=tc+s )                <span class="comment">//在</span></span><br><span class="line">        chessBoard ( tr+s, tc+s, dr, dc, s );</span><br><span class="line">    <span class="keyword">else</span>         <span class="comment">//不在，将该子棋盘左上角的方块视为特殊方块</span></span><br><span class="line">    &#123;</span><br><span class="line">        board[tr+s][tc+s]=t;</span><br><span class="line">        chessBoard ( tr+s, tc+s, tr+s, tc+s, s );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"输入棋盘的size(2^n): "</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;size;</span><br><span class="line">    <span class="keyword">int</span> x,y;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"输入特殊方格位置坐标: "</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;x&gt;&gt;y;</span><br><span class="line">    chessBoard ( <span class="number">0</span>,<span class="number">0</span>,x,y,size );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i=<span class="number">0</span>; i&lt;size; i++ )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j=<span class="number">0</span>; j&lt;size; j++ )</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;board[i][j]&lt;&lt;<span class="string">"\t"</span>;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="EGE演示程序"><a href="#EGE演示程序" class="headerlink" title="EGE演示程序"></a>EGE演示程序</h2><p>我自己用EGE做了一个图形化演示，但效果并不理想，代码核心内容如上，就不贴代码了。如图<br><img src="http://t2.qpic.cn/mblogpic/efe8b9318ae06ac02158/2000" alt=""><br><img src="http://t2.qpic.cn/mblogpic/19dcf28f683ff3a9daca/2000" alt=""></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/07/webserver-powered-by-raspberrypi/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/03/07/webserver-powered-by-raspberrypi/" itemprop="url">用树莓派搭建你自己的Web服务器,以及一个可以外网访问的Blog</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-07T22:50:57+08:00">
-                2016-03-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-19T23:50:57+08:00">
+                2016-04-19
               </time>
             
 
@@ -1285,8 +756,8 @@ sudo cp helloWorld.py /home/userName/test/helloWorld
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/03/07/webserver-powered-by-raspberrypi/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/07/webserver-powered-by-raspberrypi/" itemprop="commentCount"></span>
+                <a href="/2016/04/19/windows-for-chromebook/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/04/19/windows-for-chromebook/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1316,422 +787,467 @@ sudo cp helloWorld.py /home/userName/test/helloWorld
       
         
           
-            <p>先决条件很简单，树莓派或是其他开发板甚至是LinuxPC，路由器。</p>
-<p>我使用的是一代树莓派b+，内存512M加上超频到极限的单核处理器，实在是无法与树莓派2相媲美，不得已只好选择相对轻量的环境完成这项尝试。说道Web服务器，大家也许都会想到 Apache、MySql 等等，非常常见的组合LAMP（Linux+Apache+Mysql/MariaDB+Perl/PHP/Python） ，但是考虑到树莓派的性能有一个非常合适的组合 nginx + sqlite + php对了还有php博客程序，我选择Z-blog。</p>
-<h2 id="首先，要搭建一个Web服务器："><a href="#首先，要搭建一个Web服务器：" class="headerlink" title="首先，要搭建一个Web服务器："></a><strong>首先，要搭建一个Web服务器：</strong></h2><p>介绍一下   nginx 是个轻量级的高性能Web服务器，并不比Apache差，好像淘宝就广泛的使用它。<br>sqlite 是个非常轻量级的数据库，常用于嵌入式领域，许多Android应用用的也是它。<br>php 非常常用Web脚本语言，就不必介绍了。</p>
-<p>不如直接切到root下工作</p>
-<h3 id="安装nginx-web服务器-约6MB"><a href="#安装nginx-web服务器-约6MB" class="headerlink" title="安装nginx  web服务器 (约6MB)"></a>安装nginx  web服务器 (约6MB)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure>
-<h3 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nginx start</span><br></pre></td></tr></table></figure>
-<p>nginx的www根目录默认在 /usr/share/nginx/www中，稍后的blog程序可以放到该目录下</p>
-<h3 id="安装php和sqlite-约9MB"><a href="#安装php和sqlite-约9MB" class="headerlink" title="安装php和sqlite(约9MB)"></a>安装php和sqlite(约9MB)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php5-fpm php5-sqlite</span><br></pre></td></tr></table></figure>
-<h3 id="修改nginx的配置文件"><a href="#修改nginx的配置文件" class="headerlink" title="修改nginx的配置文件"></a>修改nginx的配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/sites-available/default</span><br></pre></td></tr></table></figure>
-<h4 id="找到listen行，将其前面的-号注释去掉，修改后内容如下"><a href="#找到listen行，将其前面的-号注释去掉，修改后内容如下" class="headerlink" title="找到listen行，将其前面的#号注释去掉，修改后内容如下"></a>找到listen行，将其前面的#号注释去掉，修改后内容如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">listen 80; ## listen for ipv4.</span><br></pre></td></tr></table></figure>
-<p>在路由器的内网环境下80端口并不是一个好的选择，因为绝大多数路由器不会开放例如80这样的常用端口，我设置成8888，看个人爱好咯</p>
-<h4 id="找到index行，加入index-php，修改后内容如下"><a href="#找到index行，加入index-php，修改后内容如下" class="headerlink" title="找到index行，加入index.php，修改后内容如下"></a>找到index行，加入index.php，修改后内容如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index index.php index.html index.htm</span><br></pre></td></tr></table></figure>
-<h4 id="找到php的定义段，将这些行的注释去掉-，修改后内容如下"><a href="#找到php的定义段，将这些行的注释去掉-，修改后内容如下" class="headerlink" title="找到php的定义段，将这些行的注释去掉 ，修改后内容如下"></a>找到php的定义段，将这些行的注释去掉 ，修改后内容如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">fastcgi_pass unix:/var/run/php5-fpm.sock;</span><br><span class="line">fastcgi_index index.php;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="重新加载nginx的配置"><a href="#重新加载nginx的配置" class="headerlink" title="重新加载nginx的配置"></a>重新加载nginx的配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nginx reload</span><br></pre></td></tr></table></figure>
-<p>上面的操作很关键，是通用的步骤，但没接触过nginx的我在其中栽了好多跟头</p>
-<h3 id="检验一下"><a href="#检验一下" class="headerlink" title="检验一下"></a>检验一下</h3><h4 id="接下来我们访问一下试试，我的树莓派静态ip地址是-192-168-1-110（一定要设置好），刚才设置了监听端口8888，浏览器访问-192-168-1-110-8888"><a href="#接下来我们访问一下试试，我的树莓派静态ip地址是-192-168-1-110（一定要设置好），刚才设置了监听端口8888，浏览器访问-192-168-1-110-8888" class="headerlink" title="接下来我们访问一下试试，我的树莓派静态ip地址是 192.168.1.110（一定要设置好），刚才设置了监听端口8888，浏览器访问 192.168.1.110:8888"></a>接下来我们访问一下试试，我的树莓派静态ip地址是 192.168.1.110（一定要设置好），刚才设置了监听端口8888，浏览器访问 192.168.1.110:8888</h4><blockquote>
-<p>出现Welcome to nginx!</p>
-</blockquote>
-<p>说明我的nginx服务已经启动成功。</p>
-<h4 id="然后在树莓派中生成一php文件，测试一下php"><a href="#然后在树莓派中生成一php文件，测试一下php" class="headerlink" title="然后在树莓派中生成一php文件，测试一下php"></a>然后在树莓派中生成一php文件，测试一下php</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /usr/share/nginx/www/test.php</span><br></pre></td></tr></table></figure>
-<p>在文件中输入以下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?  phpinfo(); ?&gt;</span><br></pre></td></tr></table></figure></p>
-<p>Ctrl+X然后Yes存盘退出</p>
-<p>再来访问一下，PHP  OK</p>
-<blockquote>
-<p>出现PHP页面</p>
-</blockquote>
-<hr>
-<h2 id="使你的树莓派能够从外网访问："><a href="#使你的树莓派能够从外网访问：" class="headerlink" title="使你的树莓派能够从外网访问："></a><strong>使你的树莓派能够从外网访问：</strong></h2><h3 id="你得申请一个免费的动态域名解析，由于我用的是FAST的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开-http-www-oray-com-点击顶部的“注册”，申请一个花生壳域名。"><a href="#你得申请一个免费的动态域名解析，由于我用的是FAST的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开-http-www-oray-com-点击顶部的“注册”，申请一个花生壳域名。" class="headerlink" title="你得申请一个免费的动态域名解析，由于我用的是ＦＡＳＴ的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开 http://www.oray.com ,点击顶部的“注册”，申请一个花生壳域名。"></a>你得申请一个免费的动态域名解析，由于我用的是ＦＡＳＴ的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开 <a href="http://www.oray.com" target="_blank" rel="noopener">http://www.oray.com</a> ,点击顶部的“注册”，申请一个花生壳域名。</h3><blockquote>
-<p>有很多二级域名可以选择</p>
-</blockquote>
-<p>i ok la是不是很好记</p>
-<h3 id="进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存"><a href="#进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存" class="headerlink" title="进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存"></a>进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存</h3><blockquote>
-<p>大部分国产路由器都支持花生壳，记得Tenda不支持</p>
-</blockquote>
-<h3 id="接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192-168-1-110"><a href="#接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192-168-1-110" class="headerlink" title="接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192.168.1.110"></a>接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192.168.1.110</h3><h3 id="然后添加端口转发，到192-168-1-110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。"><a href="#然后添加端口转发，到192-168-1-110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。" class="headerlink" title="然后添加端口转发，到192.168.1.110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。"></a>然后添加端口转发，到192.168.1.110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。</h3><blockquote>
-<p>22,443端口都可以开启</p>
-</blockquote>
-<p>现在可以试着用外网访问一下 你的花生壳域名，别忘了加上“:”+端口号。</p>
-<p>到这里基本上已经大功告成，只消几分钟你的blog就可以运作起来了。</p>
-<hr>
-<h2 id="Blog程序安装"><a href="#Blog程序安装" class="headerlink" title="Blog程序安装:"></a><strong>Blog程序安装:</strong></h2><p>选用同样轻量的Z-blog，完美支持我们前面搭建的平台；如果使用WordPress未尝不可，但是它不完全支持sqlite，可以参考（<a href="http://www.tuicool.com/articles/fuiyQb" target="_blank" rel="noopener">http://www.tuicool.com/articles/fuiyQb</a> ）。</p>
-<p>简单说过一下吧！太困了</p>
-<h3 id="进-usr-share-nginx-www-下，"><a href="#进-usr-share-nginx-www-下，" class="headerlink" title="进/usr/share/nginx/www/下，"></a>进/usr/share/nginx/www/下，</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/zblogcn/Release/raw/master/zip/Z-BlogPHP_1_4_Deeplue_150101.zip</span><br></pre></td></tr></table></figure>
-<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="通过浏览器访问Release下的index-php或者install-php进入安装步骤，后面就一路点下去-后台出现"><a href="#通过浏览器访问Release下的index-php或者install-php进入安装步骤，后面就一路点下去-后台出现" class="headerlink" title="通过浏览器访问Release下的index.php或者install.php进入安装步骤，后面就一路点下去,后台出现"></a>通过浏览器访问Release下的index.php或者install.php进入安装步骤，后面就一路点下去,后台出现</h3><blockquote>
-<p>大功告成</p>
-</blockquote>
-<p>我的主页 <a href="http://bwael.iok.la:8888/" target="_blank" rel="noopener">http://bwael.iok.la:8888/</a>  近期会一直开放</p>
-<blockquote>
-<p>原文是有图的 : <a href="http://www.bwael.com/uncategorized/%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E5%A4%96%E7%BD%91.html" target="_blank" rel="noopener">原文</a></p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/07/ALG-1/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/03/07/ALG-1/" itemprop="url">【算法学习笔记】NP完全性理论，让我看晕了/递归策略的排列问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-07T19:11:24+08:00">
-                2016-03-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/07/ALG-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/07/ALG-1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><p>开学第一周，初识算法课，当头一棒，老师NP 问题云云，遂寻书溯源，不得解。</p>
-<p>突然发现《计算机算法设计与分析》这本书真是过分啊，整一册习题集，不只是哪位老师运用腾挪大法著成此书，怕了怕了。去借学神的《算法导论》一睹NP真容。</p>
-<p><strong>……欢迎批评指正</strong></p>
-<h2 id="NP"><a href="#NP" class="headerlink" title="NP"></a>NP</h2><p>我们以前接触的算法基本上都是多项式时间算法：对于规模为n的输入，在最坏的情况下的运行时间是O(n^k)，其中k为某一确定常数。      但实际上有一些问题不能在多项式时间内解决；另外，还有许多可以在多项式时间内解决的问题，但对任意常数k，它们都不能在O(n^k)时间内被解决。</p>
-<p>上面所提的后者在我的理解中就是NP问题。可以这样想想：对于下一步的动作，他们也不知道确切的应该怎么办，只能“尝试”很多种方案才能够得出一个答案，这显然是很费时的。</p>
-<p>至于NPC问题，可以这么认为，这种问题只有把解域里面的所有可能都穷举了之后才能得出答案，这样的问题是NP里面最难的问题，这种问题就是NPC问题。</p>
-<p>……</p>
-<p>总之，当我们试着去说明一个问题为NP完全问题时，我们是在陈述它是一个多么困难的问题，并不是去证明它存在某个有效算法，而是去证明不太可能存在有效的算法去解决问题。</p>
-<p>NP问题的存在，应该就是提醒我们对待复杂的问题，更好的办法是花时间开发一种近似算法或解决某种已处理问题的特例，而不是寻找求得问题确切解的一种快速算法。</p>
-<blockquote>
-<p>递归策略</p>
-</blockquote>
-<p>直接的或间接的调用自身的算法称为递归算法。</p>
-<p>递归的使用在我的印象中最深刻的是初学时完成的求n的阶乘 程序：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span> <span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>)   <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span>  n*factorial(n<span class="number">-1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>未完待续</strong></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/02/14/android-naming-conventions/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/02/14/android-naming-conventions/" itemprop="url">Android命名规范</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-14T20:08:08+08:00">
-                2016-02-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/02/14/android-naming-conventions/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/02/14/android-naming-conventions/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Java类文件"><a href="#Java类文件" class="headerlink" title="Java类文件:"></a>Java类文件:</h4><ul>
-<li>activity:以activity作为后缀.例如:PersonActivity; </li>
-<li>adapter:以adapter作为后缀.例如:PersonAdapter;  </li>
-<li>database:以db作为后缀.例如:PersonDB;</li>
-<li>Entity:以entity作为后缀.例如:PersonEntity; </li>
-<li>so on</li>
-</ul>
-<h4 id="资源文件"><a href="#资源文件" class="headerlink" title="资源文件:"></a>资源文件:</h4><h5 id="layout目录下"><a href="#layout目录下" class="headerlink" title="layout目录下:"></a>layout目录下:</h5><ol>
-<li>页面布局文件:以act_ 为前缀,模块package为中缀,去掉activity后为后缀.例如:Person模块的AddCustomActivity的布局文件命名为:act_person_addcustom.xml </li>
-<li>ListView中的Item布局文件.以item_ 为前缀,列表项的名称为后缀.控件名称为:lvUserList,Item的布局文件命名为:item_lvUserList.xml </li>
-<li>Dialog布局文件.dlg_ 为固定前缀,Dialog的功能名称为后缀.例如:dlg_hint.xml</li>
+            <p>Acer C740, Acer C910, Acer CB5-571, Toshiba Chromebook 2 and Dell Chromebook 13, see here:<a href="https://docs.google.com/document/d/1nFZmoRzQ03btPCGVSa4ku6JPQik-SxD__zOd1CoB2yg/edit" target="_blank" rel="noopener">Click</a></p>
+<h3 id="Flash-Custom-Coreboot-BIOS"><a href="#Flash-Custom-Coreboot-BIOS" class="headerlink" title="Flash Custom Coreboot BIOS"></a>Flash Custom Coreboot BIOS</h3><p><strong>Warning</strong>: this BIOS is only for the Acer C720, C720P, HP Chromebook 14, Toshiba CB-30, and Dell Chromebook 11.</p>
+<ol>
+<li><p>Please remove the write protect screw before flashing the BIOS.</p>
+</li>
+<li><p>Please check your CPU before flashing the BIOS.</p>
+</li>
+<li><p>Easy Flashing Script:<br><code>cd ~; curl -L -O https://goo.gl/1hFfO3; sudo bash 1hFfO3</code></p>
+</li>
 </ol>
-<h5 id="drawable目录文件下"><a href="#drawable目录文件下" class="headerlink" title="drawable目录文件下:"></a>drawable目录文件下:</h5><ul>
-<li>一个页面共用,用页面前缀; </li>
-<li>一个模块共用,用模块前缀; </li>
-<li>全局使用:common</li>
-</ul>
-<h4 id="java类中控件对象"><a href="#java类中控件对象" class="headerlink" title="java类中控件对象:"></a>java类中控件对象:</h4><p>控件类型缩写+控件的逻辑名称:例如:btnLogin;</p>
-<h4 id="layout中控件对象"><a href="#layout中控件对象" class="headerlink" title="layout中控件对象:"></a>layout中控件对象:</h4><p>建议和activity中相对应的控件名称保持一致.例如:R.id.btnLogin;</p>
-<h4 id="strings-xml中常量"><a href="#strings-xml中常量" class="headerlink" title="strings.xml中常量:"></a>strings.xml中常量:</h4><p>所在activity名称 + 控件名称 + 功能/描述,例如:loginActivity_btnLogin_text;<br>拆分Strings.xml:<br>strings_ + 模块名称,例如: strings_module_a.xml;</p>
-<h4 id="常量名称"><a href="#常量名称" class="headerlink" title="常量名称:"></a>常量名称:</h4><p>只能包含之母和下划线,字母全部大写并用链接;</p>
-<h3 id="Androidb编码规范"><a href="#Androidb编码规范" class="headerlink" title="Androidb编码规范"></a>Androidb编码规范</h3><ul>
-<li><p>Activity中的onCreate:是设计模式中单一职责原则的体现. </p>
-</li>
-<li><p>initVariables():初始化变量.<br>initView():初始化控件<br>  loadData():初始化数据</p>
-</li>
-<li><p>坚持使用fastJSON自定义实体来作为MobileAPI的数据载体.</p>
-</li>
-<li>页面之间传值,坚持使用Intent携带序列化实体数据的方.禁止为了省事使用全局变量进行传值.</li>
-<li>为控件添加事件,初始化下面就直接添加事件.</li>
-<li>activity中不能使用嵌套的内部类</li>
-</ul>
-<h3 id="Adapter规范"><a href="#Adapter规范" class="headerlink" title="Adapter规范:"></a>Adapter规范:</h3><ul>
-<li><p>统一放在adapter这个包中. </p>
-</li>
-<li><p>adapter绑定数据,一律为ArrayList; </p>
-</li>
-<li><p>adapter创建适合于自身列表的ViewHolder实体类,统一命名为ViewHolder.</p>
-</li>
-<li><p>不同模块的实体类不能共享.</p>
-</li>
-<li><p>为节省内存,请使用ArrayList,而不是HashMap</p>
-</li>
-</ul>
-<p>-图片的处理,统一使用ImageLoader/fresco</p>
+<p><em>Select the “Install/Update custom coreboot firmware” option.</em></p>
+<h3 id="Create-USB-Installer"><a href="#Create-USB-Installer" class="headerlink" title="Create USB Installer"></a>Create USB Installer</h3><p>Use rufus to create the Windows 10 <strong>64 bit</strong> USB installer. Select MBR for legacy BIOS and create the USB drive.</p>
+<p>You will need a USB keyboard/mouse for installation</p>
+<h3 id="Install-Chipset-Audio-WiFi-and-Bluetooth-Drivers"><a href="#Install-Chipset-Audio-WiFi-and-Bluetooth-Drivers" class="headerlink" title="Install Chipset, Audio, WiFi, and Bluetooth Drivers"></a>Install Chipset, Audio, WiFi, and Bluetooth Drivers</h3><p>Audio Driver: <a href="http://www.realtek.com.tw/downloads/downloadsCheck.aspx?Langid=1&amp;PNid=14&amp;PFid=24&amp;Level=4&amp;Conn=3&amp;DownTypeID=3&amp;GetDown=false" target="_blank" rel="noopener">Link</a></p>
+<p>Chipset Driver: Use the latest from Windows Update!</p>
+<p>WiFi Driver: Use the latest from Windows Update!</p>
+<p>Bluetooth Driver: Use the latest from Windows Update!</p>
+<p>Run the setup files for the audio and chipset drivers. For WiFi and Bluetooth, use Device Manager to update the driver.</p>
+<h3 id="Turn-on-testsigning"><a href="#Turn-on-testsigning" class="headerlink" title="Turn on testsigning"></a>Turn on testsigning</h3><p>Open Command Prompt as administrator, and type in “bcdedit /set testsigning on”. Then reboot.</p>
+<h3 id="Keyboard-Driver"><a href="#Keyboard-Driver" class="headerlink" title="Keyboard Driver"></a>Keyboard Driver</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/croskeyboard3.4.1.zip" target="_blank" rel="noopener">Link</a></p>
+<p>Open Device Manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_GGL&amp;DEV_0303” or “ACPI\GGL0303”. Under the driver tab, click “Update Driver” and browse to the croskeyboard3 driver. Then install.</p>
+<h3 id="Trackpad-Driver-Cypress-Trackpad"><a href="#Trackpad-Driver-Cypress-Trackpad" class="headerlink" title="Trackpad Driver (Cypress Trackpad)"></a>Trackpad Driver (Cypress Trackpad)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostrackpad%203%20beta%2011.zip" target="_blank" rel="noopener">Link</a></p>
+<p>Open Device manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_CYAP&amp;DEV_0000” or “ACPI\CYAP0000”. Under the driver tab, click “Update Driver” and browse to the crostrackpad3 driver. Then install.</p>
+<h3 id="Trackpad-Driver-Elan-Trackpad"><a href="#Trackpad-Driver-Elan-Trackpad" class="headerlink" title="Trackpad Driver (Elan Trackpad)"></a>Trackpad Driver (Elan Trackpad)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostrackpad%203%20beta%2011-elan.zip" target="_blank" rel="noopener">Link</a></p>
+<p>Open Device manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_ELAN&amp;DEV_0000” or “ACPI\ELAN0000”. Under the driver tab, click “Update Driver” and browse to the crostrackpad3 driver. Then install.</p>
+<h3 id="Visual-Studio-2015-Redistributable"><a href="#Visual-Studio-2015-Redistributable" class="headerlink" title="Visual Studio 2015 Redistributable:"></a>Visual Studio 2015 Redistributable:</h3><p>Download: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145" target="_blank" rel="noopener">Link</a></p>
+<h3 id="Trackpad-Driver-Helper-Utilities-Cypress-and-Elan-Trackpads"><a href="#Trackpad-Driver-Helper-Utilities-Cypress-and-Elan-Trackpads" class="headerlink" title="Trackpad Driver Helper Utilities (Cypress and Elan Trackpads)"></a>Trackpad Driver Helper Utilities (Cypress and Elan Trackpads)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostrackpad%203%20beta%2011.2%20utilities.zip" target="_blank" rel="noopener">Link</a></p>
+<p>Place the trackpad driver utility in the Windows startup folder (Start &gt; Run &gt; shell:startup) and run it after installing the driver.</p>
+<h3 id="Touch-Screen-Driver-Acer-C720P-users-only"><a href="#Touch-Screen-Driver-Acer-C720P-users-only" class="headerlink" title="Touch Screen Driver (Acer C720P users only)"></a>Touch Screen Driver (Acer C720P users only)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostouchscreen2.3.zip" target="_blank" rel="noopener">Link</a></p>
+<p>Open Device manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_ATML&amp;DEV_0001” or “ACPI\ATML0001”. Under the driver tab, click “Update Driver” and browse to the crostouchscreen2 driver. Then install.</p>
+<h3 id="Graphics-Driver"><a href="#Graphics-Driver" class="headerlink" title="Graphics Driver"></a>Graphics Driver</h3><p><strong>Grab the latest Graphics Driver from Windows Update!</strong></p>
+<h3 id="Embedded-Controller-Driver-Utility-Optional"><a href="#Embedded-Controller-Driver-Utility-Optional" class="headerlink" title="Embedded Controller Driver + Utility (Optional)"></a>Embedded Controller Driver + Utility (Optional)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/CrosPowerMan%201.1.zip" target="_blank" rel="noopener">Link</a></p>
+<h3 id="Visual-Studio-2013-Redistr"><a href="#Visual-Studio-2013-Redistr" class="headerlink" title="Visual Studio 2013 Redistr"></a>Visual Studio 2013 Redistr</h3><p>ibutable: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40784" target="_blank" rel="noopener">Download</a></p>
+<p>If you like running Windows on your chromebook, please donate if you are able to do so. I have made these drivers and the BIOS available free of charge and am relying on donations to be able to get Windows running on more chromebooks (Pixel 2, Dell Chromebook 13).<br>For support, please see <a href="https://reddit.com/r/chrultrabook" target="_blank" rel="noopener">https://reddit.com/r/chrultrabook</a><br>Please donate <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=AR25GXJD45KBW&amp;lc=US&amp;item_name=CoolStar%20Chromebook%20Dev%2e&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" target="_blank" rel="noopener">here</a>.</p>
+<p><em>from : reddit.com chrultrabook</em></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/04/12/ProE-key-terms-chapter-one/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/04/12/ProE-key-terms-chapter-one/" itemprop="url">Professional English Key Words Chapter-1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-12T22:50:57+08:00">
+                2016-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/04/12/ProE-key-terms-chapter-one/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/04/12/ProE-key-terms-chapter-one/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="application-software"><a href="#application-software" class="headerlink" title="application software"></a>application software</h5><p>Also referred to as apps. Software that can perform useful work, such as word processing, cost estimating, or accounting tasks. The user primarily interacts with application software.</p>
+<h5 id="Blu-ray"><a href="#Blu-ray" class="headerlink" title="Blu-ray"></a>Blu-ray</h5><p>A type of high-definition disc with a capacity of 25 to 50 gigabytes.</p>
+<h5 id="cloud-computing"><a href="#cloud-computing" class="headerlink" title="cloud computing"></a>cloud computing</h5><p>Data stored at a server on the Internet and available anywhere the Internet can be accessed.</p>
+<h5 id="communication-device"><a href="#communication-device" class="headerlink" title="communication device"></a>communication device</h5><p>Computer systems that communicate with other computer systems using modems. For example, it modifies computer output into a form that can be transmitted across standard telephone lines.</p>
+<h5 id="compact-disc-CD"><a href="#compact-disc-CD" class="headerlink" title="compact disc (CD)"></a>compact disc (CD)</h5><p>Widely used optical disc format. It holds 650 MB (megabytes) to 1 GB (gigabyte) of data on one side of the CD.</p>
+<h5 id="computer-competency"><a href="#computer-competency" class="headerlink" title="computer competency"></a>computer competency</h5><p>Becoming proficient in computer-related skills.</p>
+<h5 id="connectivity"><a href="#connectivity" class="headerlink" title="connectivity"></a>connectivity</h5><p>Capability of the microcomputer to use information from the world beyond one’s desk. Data and information can be sent over telephone or cable lines and through the air so that computers can talk to each other and share information.</p>
+<h5 id="data"><a href="#data" class="headerlink" title="data"></a>data</h5><p>Raw, unprocessed facts that are input to a computer system that will give compiled information when the computer processes those facts. Data is also defined as facts or observations about people, places, things, and events.</p>
+<h5 id="database-file"><a href="#database-file" class="headerlink" title="database file"></a>database file</h5><p>File containing highly structured and organized data created by database management programs.</p>
+<h5 id="desktop-computer"><a href="#desktop-computer" class="headerlink" title="desktop computer"></a>desktop computer</h5><p>Computer small enough to fit on top of or along the side of a desk and yet too big to carry around.</p>
+<h5 id="device-driver"><a href="#device-driver" class="headerlink" title="device driver"></a>device driver</h5><p>Every device that is connected to the computer has a special program associated with it called a device driver that allows communication between the operating system and the device.</p>
+<h5 id="DVD-digital-versatile-disc-or-digital-video-disc"><a href="#DVD-digital-versatile-disc-or-digital-video-disc" class="headerlink" title="DVD (digital versatile disc or digital video disc)"></a>DVD (digital versatile disc or digital video disc)</h5><p>Similar to CD-ROMs except that more data can be packed into the same amount of space. DVD drives can store a typical capacity of 4.7 GB on one side.</p>
+<h5 id="document-file"><a href="#document-file" class="headerlink" title="document file"></a>document file</h5><p>File created by a word processor to save documents such as letters, research papers, and memos.</p>
+<h5 id="end-user"><a href="#end-user" class="headerlink" title="end user"></a>end user</h5><p>Person who uses microcomputers or has access to larger computers.</p>
+<h5 id="flash-memory-card"><a href="#flash-memory-card" class="headerlink" title="flash memory card"></a>flash memory card</h5><p>A solid-state storage device widely used in notebook computers. Flash memory also is used in a variety of specialized input devices to capture and transfer data to desktop computers.</p>
+<h5 id="general-purpose-application"><a href="#general-purpose-application" class="headerlink" title="general-purpose application"></a>general-purpose application</h5><p>Application used for doing common tasks, such as browsers and word processors, spreadsheets, databases, management systems, and presentation graphics. Also known as productivity applications.</p>
+<h5 id="handheld-computer"><a href="#handheld-computer" class="headerlink" title="handheld computer"></a>handheld computer</h5><p>See personal digital assistant (PDA).</p>
+<h5 id="hard-disk"><a href="#hard-disk" class="headerlink" title="hard disk"></a>hard disk</h5><p>Enclosed disk drive containing one or more metallic disks. Hard disks use magnetic charges to record data and have large storage capacities and fast retrieval times.</p>
+<h5 id="hardware"><a href="#hardware" class="headerlink" title="hardware"></a>hardware</h5><p>Equipment that includes a keyboard, monitor, printer, the computer itself, and other devices that are controlled by software programming.</p>
+<h5 id="information"><a href="#information" class="headerlink" title="information"></a>information</h5><p>Data that has been processed by a computer system.</p>
+<h5 id="information-system"><a href="#information-system" class="headerlink" title="information system"></a>information system</h5><p>Collection of hardware, software, people, data, and procedures that work together to provide information essential to running an organization.</p>
+<h5 id="information-technology-IT"><a href="#information-technology-IT" class="headerlink" title="information technology (IT)"></a>information technology (IT)</h5><p>Computer and communication technologies, such as communication links to the Internet, that provide help and understanding to the end user.</p>
+<h5 id="input-device"><a href="#input-device" class="headerlink" title="input device"></a>input device</h5><p>Piece of equipment that translates data into a form a computer can process. The most common input devices are the keyboard and the mouse.</p>
+<h5 id="Internet"><a href="#Internet" class="headerlink" title="Internet"></a>Internet</h5><p>A huge computer network available to everyone with a microcomputer and a means to connect to it. It is the actual physical network made up of wires, cables, and satellites as opposed to the Web, which is the multimedia interface to resources available on the Internet.</p>
+<h5 id="keyboard"><a href="#keyboard" class="headerlink" title="keyboard"></a>keyboard</h5><p>Input device that looks like a typewriter keyboard but has additional keys.</p>
+<h5 id="laptop-computer"><a href="#laptop-computer" class="headerlink" title="laptop computer"></a>laptop computer</h5><p>See notebook computer and notebook system unit.</p>
+<h5 id="mainframe-computer"><a href="#mainframe-computer" class="headerlink" title="mainframe computer"></a>mainframe computer</h5><p>This computer can process several million program instructions per second. Sizeable organizations rely on these room-size systems to handle large programs and a great deal of data.</p>
+<h5 id="memory"><a href="#memory" class="headerlink" title="memory"></a>memory</h5><p>Memory is contained on chips connected to the system board and is a holding area for data instructions and information (processed data waiting to be output to secondary storage). RAM, ROM, and CMOS are three types of memory chips.</p>
+<h5 id="microcomputer"><a href="#microcomputer" class="headerlink" title="microcomputer"></a>microcomputer</h5><p>Small, low-cost computer designed for individual users. These include desktop, notebook, and personal digital assistant computers.</p>
+<h5 id="microprocessor"><a href="#microprocessor" class="headerlink" title="microprocessor"></a>microprocessor</h5><p>The central processing unit (CPU) of a microcomputer controls and manipulates data to produce information. The microprocessor is contained on a single integrated circuit chip and is the brains of the system.</p>
+<h5 id="midrange-computer"><a href="#midrange-computer" class="headerlink" title="midrange computer"></a>midrange computer</h5><p>Also known as a minicomputer.</p>
+<h5 id="mobile-app-application"><a href="#mobile-app-application" class="headerlink" title="mobile app (application)"></a>mobile app (application)</h5><p>Add-on features for a variety of mobile devices, including smartphones, netbooks, and tablets.</p>
+<h5 id="modem"><a href="#modem" class="headerlink" title="modem"></a>modem</h5><p>Short for modulator-demodulator. It is a communication device that translates the electronic signals from a computer into electronic signals that can travel over telephone lines.</p>
+<h5 id="monitor"><a href="#monitor" class="headerlink" title="monitor"></a>monitor</h5><p>Output device like a television screen that displays data processed by the computer.</p>
+<h5 id="mouse"><a href="#mouse" class="headerlink" title="mouse"></a>mouse</h5><p>Device that typically rolls on the desktop and directs the cursor on the display screen.</p>
+<h5 id="network"><a href="#network" class="headerlink" title="network"></a>network</h5><p>The arrangement in which various communications channels are connected through two or more computers. The largest network in the world is the Internet.</p>
+<h5 id="notebook-computer"><a href="#notebook-computer" class="headerlink" title="notebook computer"></a>notebook computer</h5><p>Portable computer, also known as a laptop computer, weighing between 4 and 10 pounds.</p>
+<h5 id="operating-system-OS"><a href="#operating-system-OS" class="headerlink" title="operating system (OS)"></a>operating system (OS)</h5><p>Software that interacts between application software and the computer, handling such details as running programs, storing and processing data, and coordinating all computer resources, including attached peripheral devices. It is the most important program on the computer. Windows 7, Windows Vista, and Mac OS X are examples of operating systems.</p>
+<h5 id="optical-disc"><a href="#optical-disc" class="headerlink" title="optical disc"></a>optical disc</h5><p>Storage device that can hold over 17 gigabytes of data, which is an equivalent of several million typewritten pages. Lasers are used to record and read data on the disc. The two basic types of optical discs are compact discs (CDs) and digital versatile or video discs (DVDs).</p>
+<h5 id="output-device"><a href="#output-device" class="headerlink" title="output device"></a>output device</h5><p>Equipment that translates processed information from the central processing unit into a form that can be understood by humans. The most common output devices are monitors and printers.</p>
+<h5 id="people"><a href="#people" class="headerlink" title="people"></a>people</h5><p>End users who use computers to make themselves more productive.</p>
+<h5 id="personal-digital-assistant-PDA"><a href="#personal-digital-assistant-PDA" class="headerlink" title="personal digital assistant (PDA)"></a>personal digital assistant (PDA)</h5><p>A device that typically combines pen input, writing recognition, personal organizational tools, and communication capabilities in a very small package. Also called handheld PC and palm computer.</p>
+<h5 id="presentation-file"><a href="#presentation-file" class="headerlink" title="presentation file"></a>presentation file</h5><p>A file created by presentation graphics programs to save presentation materials. For example, a file might contain audience handouts, speaker notes, and electronic slides.</p>
+<h5 id="printer"><a href="#printer" class="headerlink" title="printer"></a>printer</h5><p>Device that produces printed paper output.</p>
+<h5 id="procedures"><a href="#procedures" class="headerlink" title="procedures"></a>procedures</h5><p>Rules or guidelines to follow when using hardware, software, and data.</p>
+<h5 id="program"><a href="#program" class="headerlink" title="program"></a>program</h5><p>Instructions for the computer to follow to process data. See software.</p>
+<h5 id="random-access-memory-RAM"><a href="#random-access-memory-RAM" class="headerlink" title="random-access memory (RAM)"></a>random-access memory (RAM)</h5><p>Volatile, temporary storage that holds the program and data the CPU is presently processing. It is called temporary storage because its contents will be lost if electrical power to the computer is disrupted or the computer is turned off.</p>
+<h5 id="secondary-storage"><a href="#secondary-storage" class="headerlink" title="secondary storage"></a>secondary storage</h5><p>Permanent storage used to preserve programs and data that can be retained after the computer is turned off. These devices include floppy disks, hard disks, magnetic tape, CDs, DVDs, and more.</p>
+<h5 id="server"><a href="#server" class="headerlink" title="server"></a>server</h5><p>A host computer with a connection to the Internet that stores document files used to display web pages. Depending on the resources shared, it may be called a file server, printer server, communication server, web server, or database server.</p>
+<h5 id="smartphone"><a href="#smartphone" class="headerlink" title="smartphone"></a>smartphone</h5><p>A type of cell phone that offers a variety of advanced functionality, including Internet and e-mail.</p>
+<h5 id="software"><a href="#software" class="headerlink" title="software"></a>software</h5><p>Computer program consisting of step-by-step instructions, directing the computer on each task it will perform.</p>
+<h5 id="solid-state-drive-SSD"><a href="#solid-state-drive-SSD" class="headerlink" title="solid-state drive (SSD)"></a>solid-state drive (SSD)</h5><p>Designed to be connected inside a microcomputer system the same way an internal hard disk would be, but contains solid-state memory instead of magnetic disks to store data.</p>
+<h5 id="solid-state-storage"><a href="#solid-state-storage" class="headerlink" title="solid-state storage"></a>solid-state storage</h5><p>A secondary storage device that has no moving parts. Data is stored and retrieved electronically directly from these devices, much as they would be from conventional computer memory.</p>
+<h5 id="specialized-application"><a href="#specialized-application" class="headerlink" title="specialized application"></a>specialized application</h5><p>Programs that are narrowly focused on specific disciplines and occupations. Some of the best known are multimedia, Web authoring, graphics, virtual reality, and artificial intelligence.</p>
+<h5 id="supercomputer"><a href="#supercomputer" class="headerlink" title="supercomputer"></a>supercomputer</h5><p>Fastest calculating device ever invented, processing billions of program instructions per second. Used by very large organizations like NASA.</p>
+<h5 id="system-software"><a href="#system-software" class="headerlink" title="system software"></a>system software</h5><p>“Background” software that enables the application software to interact with the computer. System software consists of the operating system, utilities, device drivers, and language translators. It works with application software to handle the majority of technical details.</p>
+<h5 id="system-unit"><a href="#system-unit" class="headerlink" title="system unit"></a>system unit</h5><p>Part of a microcomputer that contains the CPU. Also known as the system cabinet or chassis, it is the container that houses most of the electronic components that make up the computer system.</p>
+<h5 id="tablet"><a href="#tablet" class="headerlink" title="tablet"></a>tablet</h5><p>A type of microcomputer that contains a thin system unit, most of which is the monitor. The best-known tablets are Apple’s iPad, Motorola’s Zoom, and HP’s Slate.</p>
+<h5 id="tablet-computer"><a href="#tablet-computer" class="headerlink" title="tablet computer"></a>tablet computer</h5><p>A type of notebook computer that accepts handwritten data, using a stylus or pen, that is converted to standard text and can be processed by a word processor program.</p>
+<h5 id="USB-drive"><a href="#USB-drive" class="headerlink" title="USB drive"></a>USB drive</h5><p>The size of a key chain, these hard drives connect to a computer’s USB port enabling a transfer of files; has a capacity of up to <strong><em>64GB</em></strong>.</p>
+<h5 id="utility"><a href="#utility" class="headerlink" title="utility"></a>utility</h5><p>Performs specific tasks related to managing computer resources or files. Norton Utility for virus control and system maintenance is a good example of a utility. Also known as service programs.</p>
+<h5 id="virus"><a href="#virus" class="headerlink" title="virus"></a>virus</h5><p>Hidden instructions that migrate through networks and operating systems and become embedded in different programs. They may be designed to destroy data or simply to display messages.</p>
+<h5 id="web"><a href="#web" class="headerlink" title="web"></a>web</h5><p>Introduced in 1992 and prior to the web, the Internet was all text. The Web made it possible to provide a multimedia interface that includes graphics, animations, sound, and video.</p>
+<h5 id="wireless-revolution"><a href="#wireless-revolution" class="headerlink" title="wireless revolution"></a>wireless revolution</h5><p>A revolution that is expected to dramatically affect the way we communicate and use computer technology.</p>
+<h5 id="worksheet-file"><a href="#worksheet-file" class="headerlink" title="worksheet file"></a>worksheet file</h5><p>Created by electronic spreadsheets to analyze things like budgets and to predict sales.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/04/03/install-archlinux-on-usb-storage-device/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/04/03/install-archlinux-on-usb-storage-device/" itemprop="url">Arch Linux安装到U盘上de安装教程</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-03T14:58:31+08:00">
+                2016-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/折腾笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">折腾笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/04/03/install-archlinux-on-usb-storage-device/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/04/03/install-archlinux-on-usb-storage-device/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>如果只是想单纯的安装Arch Linux</strong><br>请移步<a href="http://bbs.archlinuxcn.org/viewtopic.php?id=1037" target="_blank" rel="noopener">Arch Linux安装教程</a><br><a href="https://wiki.archlinux.org/index.php/Main_page_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="noopener">完善的中文Wiki</a>)</p>
+<h3 id="Arch-Linux简介"><a href="#Arch-Linux简介" class="headerlink" title="Arch Linux简介"></a>Arch Linux简介</h3><p>Arch Linux(或称Arch)是一种以轻量简洁为设计理念的Linux发行版。<br>Arch Linux 将简洁定义为：避免任何不必要的添加、修改和复杂增加。它提供的软件都来自原始开发者(上游)，仅进行和发行版(下游)相关的最小修改。<br>Arch向GNU/Linux用户提供了许多新特性，包括systemd初始化系统、现代的文件系统（Ext2/3/4、Reiser、XFS、JFS、BTRFS）、LVM2/EVMS、软件磁盘阵列（软RAID）、udev支持、initcpio（附带mkinitcpio）以及最新的内核（目前是4.4）。</p>
+<p><a href="http://mirrors.163.com/archlinux/iso/" target="_blank" rel="noopener">速度不错的国内镜像</a></p>
+<h3 id="基本系统安装"><a href="#基本系统安装" class="headerlink" title="基本系统安装"></a>基本系统安装</h3><h4 id="关于分区"><a href="#关于分区" class="headerlink" title="关于分区"></a>关于分区</h4><p>本想使用GPT分区表，查了一些资料，为了使这个U盘在 BIOS 和 UEFI 电脑上都能用，需要创建一个BIOS boot分区，2M大小足够，位置尽量靠前。 多系统的话还要创建一个200M的 EFI System Partition(ESP)分区。但是有大神说GPT中的NTFS分区在Win7下不认（感觉Win8、Win10应该可以） 想用这个分区作为常规U盘使用就不行了，只好再回到MBR分区表。如果是移动硬盘用 GPT 应该没有问题。</p>
+<p>所以仍然使用MBR分区，所以就要用<strong>fdisk</strong>或者cfdisk了，不能使用支持GPT的gdisk和cgdisk，4k对齐也是自动完成。<br>为了在安装过程中能更好认清我的分区，我先在Windows下用DiskGenius进行了分区，只可惜不支持ext4，之后再格式化一下就好。16G的U盘分区规划如下：</p>
+<blockquote>
+<p>第一个分区 5G的ntfs分区，为了这个U盘还能进行一些拷拷文件的工作（非必须，看具体情况来吧)<br>  第二个分区 100M的分区 /boot；<br>  第三个分区 6G的分区，作为ArchLinux根分区；<br>  第四个分区 4G的分区，作为 /home；</p>
+</blockquote>
+<h4 id="先刻录一个U盘启动盘吧"><a href="#先刻录一个U盘启动盘吧" class="headerlink" title="先刻录一个U盘启动盘吧"></a>先刻录一个U盘启动盘吧</h4><p>开始用ultraISO刻了几次都无法启动（原因是ultraISO不分青红皂白的写了syslinux引导进去），看来Arch真的是与众不同，于是用了烧录树莓派的Win32 Disk Image，成功。同理，在Linux下用dd命令应该也是可以的。<br>启动，进入Arch Linux安装界面，选择合适的版本，直接就进root了！这时可以插上你要安装的U盘。</p>
+<h4 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h4><p>启动U盘是 /dev/sdb，目标U盘就成了 /dev/sdc。下面是在Linux显示的分区，并不是我的优盘，网上找来的,仅供参考：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># fdisk /dev/sdc</span><br><span class="line"></span><br><span class="line">Disk /dev/sdc: 8022 MB, 8022982656 bytes, 15669888 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk label type: dos</span><br><span class="line">Disk identifier: 0x00000000</span><br><span class="line"></span><br><span class="line">Device Boot Start End Blocks Id System</span><br><span class="line">/dev/sdc1 2048 1804287 901120 7 HPFS/NTFS/exFAT</span><br><span class="line">/dev/sdc2 * 1804288 2009087 102400 83 Linux</span><br><span class="line">/dev/sdc3 2009088 10405887 4198400 83 Linux</span><br><span class="line">/dev/sdc4 10405888 15669887 2632000 83 Linux</span><br></pre></td></tr></table></figure></p>
+<h5 id="在root下直接重新格式化为ext4"><a href="#在root下直接重新格式化为ext4" class="headerlink" title="在root下直接重新格式化为ext4"></a>在root下直接重新格式化为ext4</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># mkfs.ntfs -f /dev/sdc1 -L f004-c</span><br><span class="line"># mkfs.ext4 -b 4096 -m 0 -i 16384 -O &apos;^has_journal&apos; /dev/sdc2 -L f004-boot</span><br><span class="line"># mkfs.ext4 -b 4096 -m 1 -i 16384 -O &apos;^has_journal&apos; /dev/sdc3 -L f004-a</span><br><span class="line"># mkfs.ext4 -b 4096 -m 0 -i 16384 -O &apos;^has_journal&apos; /dev/sdc4 -L f004-b</span><br></pre></td></tr></table></figure>
+<p>-b 4096 是每个存储块的大小。 -m 1 是指定 root 保留空间为 1%，home 区就不留了。 -i 16384 是指定多少字节的数据设置一个 inode 节点， 增加它的值会减少 inode 的总数，占用的空间会少一些， 相应的能够存储的文件数量也减少了，这个稍微注意一下就好，一般都够用。 -O ‘^has_journal’ 是关掉文件系统日志，有点小危险。</p>
+<h5 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># mount /dev/sdc3 /mnt      //没有根什么也挂不上啊</span><br><span class="line"># mkdir /mnt/boot</span><br><span class="line"># mount /dev/sdc2 /mnt/boot</span><br><span class="line"># mkdir /mnt/home</span><br><span class="line"># mount /dev/sdc4 /mnt/home</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>用df -h检查一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//显示</span><br><span class="line"># ext4</span><br><span class="line">Filesystem Size Used Avail Use% Mounted on</span><br><span class="line">/dev/sdc3 5.9G 8.1M 6.0G 1% /mnt</span><br><span class="line">/dev/sdc2 96M 48K 96M 1% /mnt</span><br><span class="line">/dev/sdc4 3.8G 3.8M 3.9G 1% /mnt/home</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="基本系统安装-1"><a href="#基本系统安装-1" class="headerlink" title="基本系统安装"></a>基本系统安装</h4><p>只讲一些必须的步骤</p>
 <ul>
-<li>SharedPreferences保存简单配置信息,对于复杂的对象,还是要存储到本地文件中<br>数据类型转换一定要进行校验.失败要有默认值,使用try-catch保护,避免空指针<br>使用常量来代替枚举类型</li>
+<li>默认网络连接：<br>  dhcpcd（有线连接）</li>
+<li><p>网络连接：<br>  无线连接：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># wifi-menu</span><br></pre></td></tr></table></figure>
+<p>  ADSL 宽带连接：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># pppoe-setup   #配置</span><br><span class="line"># systemctl start adsl  #连接</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<h5 id="pacman-软件仓库镜像服务器："><a href="#pacman-软件仓库镜像服务器：" class="headerlink" title="pacman 软件仓库镜像服务器："></a>pacman 软件仓库镜像服务器：</h5><p>选择地理位置最为接近的镜像服务器以获得更高的下载速度。pacman优先使用位置靠前的镜像地址。将选定的镜像地址置于最前以便 pacman 使用。<br>注意：该配置不仅会应用到安装环境，也会应用至新系统中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># nano /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure></p>
+<p>更新本地数据库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacman -Syy</span><br></pre></td></tr></table></figure></p>
+<p>查看中国大陆的镜像服务器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -A 1 &apos;China&apos; /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure></p>
+<p>选择所有的中国大陆的镜像服务器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sed -i &apos;/Score/&#123;/China/!&#123;n;s/^/#/&#125;&#125;&apos; /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure></p>
+<h5 id="安装基础系统"><a href="#安装基础系统" class="headerlink" title="安装基础系统"></a>安装基础系统</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacstrap -i /mnt base base-devel</span><br></pre></td></tr></table></figure>
+<p>提示共141个软件包，需要下载220.37M内容，安装完成后是 710.09M。</p>
+<blockquote>
+<p>需要等待一会，休息一下</p>
+</blockquote>
+<h5 id="生成fstab"><a href="#生成fstab" class="headerlink" title="生成fstab"></a>生成fstab</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fstab： # genfstab -p -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
+<p>然后更改fstab（系统默认一般就比较好了，不优化也行）。</p>
+<h5 id="下面的操作可以在-chroot-环境下运行"><a href="#下面的操作可以在-chroot-环境下运行" class="headerlink" title="下面的操作可以在 chroot 环境下运行"></a>下面的操作可以在 chroot 环境下运行</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># arch-chroot /mnt</span><br></pre></td></tr></table></figure>
+<h5 id="设置-hostname"><a href="#设置-hostname" class="headerlink" title="设置 hostname"></a>设置 hostname</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;nisuiyi&apos; &gt; /etc/hostname 。</span><br></pre></td></tr></table></figure>
+<h5 id="设置时区"><a href="#设置时区" class="headerlink" title="设置时区"></a>设置时区</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+<h5 id="新建-etc-locale-conf-内容为"><a href="#新建-etc-locale-conf-内容为" class="headerlink" title="新建 /etc/locale.conf 内容为"></a>新建 /etc/locale.conf 内容为</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LANG=&apos;en_US.UTF-8&apos;</span><br><span class="line">LC_COLLATE=&apos;C&apos;</span><br><span class="line">LC_MESSAGES=&apos;C&apos;</span><br></pre></td></tr></table></figure>
+<h5 id="编辑-etc-locale-gen"><a href="#编辑-etc-locale-gen" class="headerlink" title="编辑 /etc/locale.gen"></a>编辑 /etc/locale.gen</h5><p>取消 en_US.UTF-8, zh_CN.UTF-8, zh_TW.UTF-8 前面的注释，然后执行 locale-gen 命令。</p>
+<h5 id="更改-root-密码"><a href="#更改-root-密码" class="headerlink" title="更改 root 密码"></a>更改 root 密码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
+<h4 id="安装-Grub-引导系统"><a href="#安装-Grub-引导系统" class="headerlink" title="安装 Grub 引导系统"></a>安装 Grub 引导系统</h4><p>仍然在chroot环境中操作。编辑 /etc/mkinitcpio.conf，检查HOOKS段，让 block 参数紧挨着 udev 参数之后（早一点加载），然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mkinitcpio -p linux</span><br></pre></td></tr></table></figure></p>
+<p>生成img文件。</p>
+<p><strong>使用pacman安装GRUB</strong>重要！</p>
+<p>GRUB<br>BIOS：<br>安装:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S grub os-prober</span><br></pre></td></tr></table></figure></p>
+<p>格式: grub-install –recheck /dev/&lt;目标磁盘&gt;,无论是32位还是64位系统，都是使用–target=i386-pc参数，–no-floppy是不检查软驱<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># grub-install --target=i386-pc --recheck --boot-directory=/boot --no-floppy /dev/sdc</span><br></pre></td></tr></table></figure></p>
+<p>生成grub:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># grub-mkconfig -o /boot/grub/grub.cfg</span><br><span class="line"># grep &apos;set=root&apos; /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></p>
+<p>确保:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># blkid /dev/sdc2</span><br></pre></td></tr></table></figure></p>
+<p>UEFI：注意，仅UEFI使用这种方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S dosfstools grub efibootmgr</span><br><span class="line"># grub-install --target=x86_64-efi --efi-directory=&lt;EFI 分区挂载点&gt; --bootloader-id=arch_grub --recheck</span><br><span class="line"># grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></p>
+<h4 id="退出收工"><a href="#退出收工" class="headerlink" title="退出收工"></a>退出收工</h4><ul>
+<li>退出chroot，Ctrl + d 即可。</li>
+<li><p>umount</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># umount /dev/sdc3</span><br><span class="line"># umount /dev/sdc2</span><br><span class="line"># umount /dev/sdc4</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重启reboot</p>
+</li>
+</ul>
+<p>拔下启动U盘，用你的Arch Linux优盘启动吧。</p>
 
           
         
@@ -1771,7 +1287,7 @@ sudo cp helloWorld.py /home/userName/test/helloWorld
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
