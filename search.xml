@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[社区开发笔记]]></title>
+    <url>%2F2020%2F07%2F23%2Fcommunity-dev-notes-01%2F</url>
+    <content type="text"><![CDATA[先测试一下]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>java</tag>
+        <tag>SpringBoot</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[debian系Cron定时任务]]></title>
     <url>%2F2017%2F03%2F01%2Fdebian-cron%2F</url>
     <content type="text"><![CDATA[Install1apt-get install cron Create a scheduled task 键入 crontab -e 编辑 crontab 服务文件 用 crontab -u username -l 命令,查看该用户下的crontab服务是否创建成功 用 ps -ax | grep cron 查看服务是否已经运行 初始化 cron 进程，使用 systemctl 进行管理的发行版同理 启动 /etc/init.d/cron start 关闭 /etc/init.d/cron stop 重启 /etc/init.d/cron restart Configuration1. 编辑配置文件 crontab是通过读取一个crontab文件来工作，这是一个普通的文本文件，里面列出了要执行的任务。每行都含有要指定的任务的命令、参数与选项，以及要执行任务的时间。（cron 软件在后台运行并且经常检查 /etc/crontab 文件。cron 软件也检查 /var/cron/tabs 目录，搜索新的 crontab 文件。这些 crontab 文件存储一些 cron 在特定时间执行任务的信息。） crontab的基本格式： 1* * * * * command 几个星号分别为：分 时 日 月 周，最后是要执行的命令。 分：0~59 时：0~23 日：1~31 月：1~12 周：0～6（0表示星期天） 除了数字还有几个个特殊的符号就是* / - ： * 代表所有的取值范围内的数字 / 代表每的意思 */5 表示每5个单位 - 代表从某个数字到某个数字 , 分开几个离散的数字 配置文件的一些例子： 0 3 * /root/test.sh 每天凌晨3点执行test.sh文件 * 23-7/1 * /root/lnmp restart 晚上11点到早上7点之间，每隔一小时重启lnmp套件 /30 * /usr/sbin/ntpdate 每半小时同步一下时间 0 23 6 /lnmp restart 每星期六的11 : 00 pm重启重启lnmp套件。 /1 * echo “i am running.”&gt;&gt;/tmp/running.txt 每隔1分钟向/tmp/running.txt写一个”i am running.”字符串。 2. 直接用crontab命令编辑cron服务提供crontab命令来设定cron服务的，以下是这个命令的一些参数与说明： crontab -u //设定某个用户的cron服务，一般root用户在执行这个命令的时候需要此参数 crontab -l //列出某个用户cron服务的详细内容 crontab -r //删除每个用户的cron服务 crontab -e //编辑某个用户的cron服务 比如说root查看自己的cron设置： crontab -u root -l 再例如，root想删除fred的cron设置： crontab -u fred -r 在编辑cron服务时，编辑的内容有一些格式和约定，输入： crontab -u root -e]]></content>

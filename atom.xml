@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://bwael.com/"/>
-  <updated>2018-12-05T03:57:05.446Z</updated>
+  <updated>2020-07-23T12:57:32.013Z</updated>
   <id>http://bwael.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>社区开发笔记</title>
+    <link href="http://bwael.com/2020/07/23/community-dev-notes-01/"/>
+    <id>http://bwael.com/2020/07/23/community-dev-notes-01/</id>
+    <published>2020-07-23T12:52:41.000Z</published>
+    <updated>2020-07-23T12:57:32.013Z</updated>
+    
+    <content type="html"><![CDATA[<p>先测试一下</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;先测试一下&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+      <category term="学习笔记" scheme="http://bwael.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="学习笔记" scheme="http://bwael.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="java" scheme="http://bwael.com/tags/java/"/>
+    
+      <category term="SpringBoot" scheme="http://bwael.com/tags/SpringBoot/"/>
+    
+  </entry>
   
   <entry>
     <title>debian系Cron定时任务</title>
@@ -584,33 +614,6 @@
       <category term="学习笔记" scheme="http://bwael.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
       <category term="python" scheme="http://bwael.com/tags/python/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【OS学习笔记】进程同步与通信</title>
-    <link href="http://bwael.com/2016/03/21/OSnote-3/"/>
-    <id>http://bwael.com/2016/03/21/OSnote-3/</id>
-    <published>2016-03-21T08:10:40.000Z</published>
-    <updated>2016-03-28T15:01:40.897Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="进程同步与通信"><a href="#进程同步与通信" class="headerlink" title="进程同步与通信"></a>进程同步与通信</h2><h3 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h3><h4 id="并发进程的关系"><a href="#并发进程的关系" class="headerlink" title="并发进程的关系"></a>并发进程的关系</h4><ol><li>间接制约关系：一组（两个或多个）进程共享一中资源，且该资源一次仅允许一个进程使用。</li><li>直接制约关系：几个进程相互协作完成一项任务，这些进程要求必须按照规定好的顺序依次执行。<h4 id="进程的互斥与同步"><a href="#进程的互斥与同步" class="headerlink" title="进程的互斥与同步"></a>进程的互斥与同步</h4></li></ol><ul><li>1.进程同步：若干进程为为完成一个共同的任务而互相合作等待对方的消息的协调关系称为进程同步。</li><li>2.进程互斥：进程之间争夺互斥资源引起的。</li><li>2.1 饥饿：一个就绪进程所申请的资源总是被优先于自己的其他进程占有，而始终处于不能被调度执行的状态，这种情况称为饥饿。</li><li>2.2 <strong>死锁</strong>：一个进程集合中，已经占有部分资源的两个或两个以上的进程，还需要获得已被其他进程占有的资源才能继续执行；有可能出现某些进程相互之间都在等待对方的资源且无法运行的局面，即在进程集合中的这些进程处于永远的阻塞状态，这就是死锁。</li><li>3.二者相似之处<br><strong>进程互斥实质上是进程同步的一种特殊情况。</strong></li><li>4.进程同步与进程互斥的区别：~</li></ul><h4 id="临界资源与临界区"><a href="#临界资源与临界区" class="headerlink" title="临界资源与临界区"></a>临界资源与临界区</h4><ul><li>一段时间内只能允许一个进程使用的资源（即互斥资源）称为临界资源。</li><li>对临界资源的访问只能互斥进行，也即个进程对同一临界资源进行操作的程序段也应互斥执行，只有这样才能保证对临界资源的互斥访问。我们把进程中<strong>访问临界资源的代码段称为临界区</strong>。<h5 id="临界区同步机制的4条准则："><a href="#临界区同步机制的4条准则：" class="headerlink" title="临界区同步机制的4条准则："></a>临界区同步机制的4条准则：</h5>1 .空闲让进。<br>2 .忙则等待。<br>3 .有限等待。若干进程要求进入同一临界资源的临界区时，应在有限的时间内使一进程进入临界区，即不应出现各进程相互等待而都无法进入临界区的情况。<br>4 .让权等待。当进程不能进入其临界区时应立即释放所占有的CPU，以免陷入忙等（<strong>进程占用CPU的同时又一直等待</strong>）。</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;进程同步与通信&quot;&gt;&lt;a href=&quot;#进程同步与通信&quot; class=&quot;headerlink&quot; title=&quot;进程同步与通信&quot;&gt;&lt;/a&gt;进程同步与通信&lt;/h2&gt;&lt;h3 id=&quot;进程同步&quot;&gt;&lt;a href=&quot;#进程同步&quot; class=&quot;headerlink&quot; titl
-      
-    
-    </summary>
-    
-      <category term="学习笔记" scheme="http://bwael.com/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="学习笔记" scheme="http://bwael.com/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="OS" scheme="http://bwael.com/tags/OS/"/>
     
   </entry>
   
