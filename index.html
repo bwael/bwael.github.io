@@ -477,7 +477,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/24/leetcode-455/" itemprop="url">leetcode-455</a></h1>
+                <a class="post-title-link" href="/2017/08/24/leetcode-455/" itemprop="url">LeetCode 455.分配饼干</a></h1>
         
 
         <div class="post-meta">
@@ -572,7 +572,7 @@
 </ol>
 <p>在以上的解法中，我们只在每次分配时饼干时选择一种看起来是当前最优的分配方法，但无法保证这种局部最优的分配方法最后能得到全局最优解。我们假设能得到全局最优解，并使用反证法进行证明，即假设存在一种比我们使用的贪心策略更优的最优策略。如果不存在这种最优策略，表示贪心策略就是最优策略，得到的解也就是全局最优解。</p>
 <p>证明：假设在某次选择中，贪心策略选择给当前满足度最小的孩子分配第 m 个饼干，第 m 个饼干为可以满足该孩子的最小饼干。假设存在一种最优策略，可以给该孩子分配第 n 个饼干，并且 m &lt; n。我们可以发现，经过这一轮分配，贪心策略分配后剩下的饼干一定有一个比最优策略来得大。因此在后续的分配中，贪心策略一定能满足更多的孩子。也就是说不存在比贪心策略更优的策略，即贪心策略就是最优策略。</p>
-<img src="/2017/08/24/leetcode-455/e69537d2-a016-4676-b169-9ea17eeb9037.gif">
+<p><img src="e69537d2-a016-4676-b169-9ea17eeb9037.gif" alt=""></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findContentChildren</span><span class="params">(<span class="keyword">int</span>[] g, <span class="keyword">int</span>[] s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(g == <span class="keyword">null</span> || s == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//贪心方法，先排序</span></span><br><span class="line">        Arrays.sort(g);</span><br><span class="line">        Arrays.sort(s);</span><br><span class="line">        <span class="keyword">int</span> gi = <span class="number">0</span>, si = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(gi &lt; g.length &amp;&amp; si &lt; s.length)&#123;</span><br><span class="line">            <span class="keyword">if</span>(g[gi] &lt;= s[si])&#123;</span><br><span class="line">                gi++;</span><br><span class="line">            &#125;</span><br><span class="line">            si++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> gi;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
