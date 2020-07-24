@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="学习笔记,算法,">
+  <meta name="keywords" content="学习笔记,LeetCode,">
 
 
 
@@ -81,34 +81,20 @@
 
 
 
-<meta name="description" content="问题描述：给定n种物品和一背包。物品i的重量是wi，其价值为vi，背包的容量为C。问应如何选择装入背包的物品，使得装入背包中物品的总价值最大?  对于一种物品，要么装入背包，要么不装。所以对于一种物品的装入状态可以取0和1.我们设物品i的装入状态为xi,xi∈ (0,1)，此问题称为0-11背包问题。  过程分析数据：物品个数n=5,物品重量w[n]={0，2，2，6，5，4},物品价值V[n]=">
-<meta name="keywords" content="学习笔记,算法">
+<meta name="description" content="455.分配饼干 Assign Cookies (Easy) LeetCode 分发饼干 题目描述12Input: grid[1,3], size[1,2,4]Output: 2Copy to clipboardErrorCopied 题目描述：每个孩子都有一个满足度 grid，每个饼干都有一个大小 size，只有饼干的大小大于等于一个孩子的满足度，该孩子才会获得满足。求解最多可以获得满足的孩子数">
+<meta name="keywords" content="学习笔记,LeetCode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="转：【算法学习笔记】动态规划0—1背包问题">
-<meta property="og:url" content="http://bwael.com/2016/03/24/ALG-3/index.html">
+<meta property="og:title" content="leetcode-455">
+<meta property="og:url" content="http://bwael.com/2017/08/24/leetcode-455/index.html">
 <meta property="og:site_name" content="Bwael&#39;s Blog">
-<meta property="og:description" content="问题描述：给定n种物品和一背包。物品i的重量是wi，其价值为vi，背包的容量为C。问应如何选择装入背包的物品，使得装入背包中物品的总价值最大?  对于一种物品，要么装入背包，要么不装。所以对于一种物品的装入状态可以取0和1.我们设物品i的装入状态为xi,xi∈ (0,1)，此问题称为0-11背包问题。  过程分析数据：物品个数n=5,物品重量w[n]={0，2，2，6，5，4},物品价值V[n]=">
+<meta property="og:description" content="455.分配饼干 Assign Cookies (Easy) LeetCode 分发饼干 题目描述12Input: grid[1,3], size[1,2,4]Output: 2Copy to clipboardErrorCopied 题目描述：每个孩子都有一个满足度 grid，每个饼干都有一个大小 size，只有饼干的大小大于等于一个孩子的满足度，该孩子才会获得满足。求解最多可以获得满足的孩子数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64570543.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/27894142.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/50858835.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/1383357.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64404941.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/97461564.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/92409505.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/78719221.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/12275615.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/74489686.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/47520646.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/2659508.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/74515954.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/4158651.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/34478495.jpg">
-<meta property="og:updated_time" content="2016-03-24T04:33:41.261Z">
+<meta property="og:image" content="http://bwael.com/2017/08/24/leetcode-455/e69537d2-a016-4676-b169-9ea17eeb9037.gif">
+<meta property="og:updated_time" content="2020-07-24T03:41:50.284Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="转：【算法学习笔记】动态规划0—1背包问题">
-<meta name="twitter:description" content="问题描述：给定n种物品和一背包。物品i的重量是wi，其价值为vi，背包的容量为C。问应如何选择装入背包的物品，使得装入背包中物品的总价值最大?  对于一种物品，要么装入背包，要么不装。所以对于一种物品的装入状态可以取0和1.我们设物品i的装入状态为xi,xi∈ (0,1)，此问题称为0-11背包问题。  过程分析数据：物品个数n=5,物品重量w[n]={0，2，2，6，5，4},物品价值V[n]=">
-<meta name="twitter:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64570543.jpg">
+<meta name="twitter:title" content="leetcode-455">
+<meta name="twitter:description" content="455.分配饼干 Assign Cookies (Easy) LeetCode 分发饼干 题目描述12Input: grid[1,3], size[1,2,4]Output: 2Copy to clipboardErrorCopied 题目描述：每个孩子都有一个满足度 grid，每个饼干都有一个大小 size，只有饼干的大小大于等于一个孩子的满足度，该孩子才会获得满足。求解最多可以获得满足的孩子数">
+<meta name="twitter:image" content="http://bwael.com/2017/08/24/leetcode-455/e69537d2-a016-4676-b169-9ea17eeb9037.gif">
 
 
 
@@ -138,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://bwael.com/2016/03/24/ALG-3/">
+  <link rel="canonical" href="http://bwael.com/2017/08/24/leetcode-455/">
 
 
 
 
 
-  <title>转：【算法学习笔记】动态规划0—1背包问题 | Bwael's Blog</title>
+  <title>leetcode-455 | Bwael's Blog</title>
   
 
 
@@ -313,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/24/ALG-3/">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2017/08/24/leetcode-455/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bwael">
@@ -330,7 +316,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">转：【算法学习笔记】动态规划0—1背包问题</h1>
+          <h1 class="post-title" itemprop="name headline">leetcode-455</h1>
         
 
         <div class="post-meta">
@@ -342,8 +328,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-24T09:21:50+08:00">
-                2016-03-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-24T11:35:09+08:00">
+                2017-08-24
               </time>
             
 
@@ -383,8 +369,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/03/24/ALG-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/24/ALG-3/" itemprop="commentCount"></span>
+                <a href="/2017/08/24/leetcode-455/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/08/24/leetcode-455/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -412,15 +398,19 @@
       
 
       
-        <h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>给定n种物品和一背包。物品i的重量是wi，其价值为vi，背包的容量为C。问应如何选择装入背包的物品，使得装<br>入背包中物品的总价值最大?</p>
-<blockquote>
-<p>对于一种物品，要么装入背包，要么不装。所以对于一种物品的装入状态可以取0和1.我们设物品i的装入状态为xi,xi∈ (0,1)，此问题称为0-11背包问题。</p>
-</blockquote>
-<h4 id="过程分析"><a href="#过程分析" class="headerlink" title="过程分析"></a>过程分析</h4><p><strong>数据：物品个数n=5,物品重量w[n]={0，2，2，6，5，4},物品价值V[n]={0，6，3，5，4，6},<br>（第0位，置为0，不参与计算，只是便于与后面的下标进行统一，无特别用处，也可不这么处理。）总重量c=10.</strong><br>背包的最大容量为10，那么在设置数组m大小时，可以设行列值为6和11，那么，对于m(i,j)就表示可选物品为i…n背包容量为j(总重量)时背包中所放物品的最大价值。</p>
-<p><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64570543.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/27894142.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/50858835.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/1383357.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64404941.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/97461564.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/92409505.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/78719221.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/12275615.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/74489686.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/47520646.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/2659508.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/74515954.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/4158651.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/34478495.jpg" alt=""></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> c = <span class="number">10</span>;             <span class="comment">//背包的容量</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> w[] = &#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>&#125;;<span class="comment">//物品的重量，其中0号位置不使用 。</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> v[] = &#123;<span class="number">0</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">6</span>&#125;;<span class="comment">//物品对应的待加，0号位置置为空。</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> n = <span class="keyword">sizeof</span>(w)/<span class="keyword">sizeof</span>(w[<span class="number">0</span>]) - <span class="number">1</span> ; <span class="comment">//n为物品的个数</span></span><br><span class="line"><span class="keyword">int</span> x[n+<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">package0_1</span><span class="params">(<span class="keyword">int</span> m[][<span class="number">11</span>],<span class="keyword">const</span> <span class="keyword">int</span> w[],<span class="keyword">const</span> <span class="keyword">int</span> v[],<span class="keyword">const</span> <span class="keyword">int</span> n)</span><span class="comment">//n代表物品的个数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//采用从底到顶的顺序来设置m[i][j]的值</span></span><br><span class="line">    <span class="comment">//首先放w[n]</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= c; j++)</span><br><span class="line">        <span class="keyword">if</span>(j &lt; w[n]) m[n][j] = <span class="number">0</span>;     <span class="comment">//j小于w[n],所对应的值设为0，否则就为可以放置</span></span><br><span class="line">        <span class="keyword">else</span>         m[n][j] = v[n];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//对剩下的n-1个物品进行放置。</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = n<span class="number">-1</span>; i &gt;= <span class="number">1</span>; i--)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= c; j++)</span><br><span class="line">            <span class="keyword">if</span>(j &lt; w[i])</span><br><span class="line">                m[i][j] = m[i+<span class="number">1</span>][j];<span class="comment">//如果j &lt; w[i]则，当前位置就不能放置，它等于上一个位置的值。</span></span><br><span class="line">    <span class="comment">//否则，就比较到底是放置之后的值大，还是不放置的值大，选择其中较大者。</span></span><br><span class="line">            <span class="keyword">else</span>         m[i][j] = m[i+<span class="number">1</span>][j] &gt; m[i+<span class="number">1</span>][j-w[i]] + v[i]?</span><br><span class="line">                                       m[i+<span class="number">1</span>][j] : m[i+<span class="number">1</span>][j-w[i]] + v[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">answer</span><span class="params">(<span class="keyword">int</span> m[][<span class="number">11</span>],<span class="keyword">const</span> <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j = c;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt;= n<span class="number">-1</span>; i++)</span><br><span class="line">        <span class="keyword">if</span>(m[i][j] == m[i+<span class="number">1</span>][j]) x[i] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            x[i] = <span class="number">1</span>;</span><br><span class="line">            j = j - w[i];</span><br><span class="line">        &#125;</span><br><span class="line">    x[n] = m[i][j] ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m[<span class="number">6</span>][<span class="number">11</span>]= &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">    package0_1(m,w,v,n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">10</span>; j++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%2d "</span>,m[i][j]);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    answer(m,n);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"The best answer is:\n"</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; x[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="http://blog.csdn.net/dapengbusi/article/details/7463968" target="_blank" rel="noopener">原文链接</a></p>
-
+        <p><strong>455.分配饼干</strong></p>
+<p>Assign Cookies (Easy)</p>
+<p><a href="https://leetcode-cn.com/problems/assign-cookies/description/" target="_blank" rel="noopener">LeetCode 分发饼干</a></p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: grid[1,3], size[1,2,4]</span><br><span class="line">Output: 2Copy to clipboardErrorCopied</span><br></pre></td></tr></table></figure>
+<p>题目描述：每个孩子都有一个满足度 grid，每个饼干都有一个大小 size，只有饼干的大小大于等于一个孩子的满足度，该孩子才会获得满足。求解最多可以获得满足的孩子数量。</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><ol>
+<li>给一个孩子的饼干应当尽量小并且又能满足该孩子，这样大饼干才能拿来给满足度比较大的孩子。</li>
+<li>因为满足度最小的孩子最容易得到满足，所以先满足满足度最小的孩子。</li>
+</ol>
+<p>在以上的解法中，我们只在每次分配时饼干时选择一种看起来是当前最优的分配方法，但无法保证这种局部最优的分配方法最后能得到全局最优解。我们假设能得到全局最优解，并使用反证法进行证明，即假设存在一种比我们使用的贪心策略更优的最优策略。如果不存在这种最优策略，表示贪心策略就是最优策略，得到的解也就是全局最优解。</p>
+<p>证明：假设在某次选择中，贪心策略选择给当前满足度最小的孩子分配第 m 个饼干，第 m 个饼干为可以满足该孩子的最小饼干。假设存在一种最优策略，可以给该孩子分配第 n 个饼干，并且 m &lt; n。我们可以发现，经过这一轮分配，贪心策略分配后剩下的饼干一定有一个比最优策略来得大。因此在后续的分配中，贪心策略一定能满足更多的孩子。也就是说不存在比贪心策略更优的策略，即贪心策略就是最优策略。</p>
+<img src="/2017/08/24/leetcode-455/e69537d2-a016-4676-b169-9ea17eeb9037.gif">
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findContentChildren</span><span class="params">(<span class="keyword">int</span>[] g, <span class="keyword">int</span>[] s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(g == <span class="keyword">null</span> || s == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//贪心方法，先排序</span></span><br><span class="line">        Arrays.sort(g);</span><br><span class="line">        Arrays.sort(s);</span><br><span class="line">        <span class="keyword">int</span> gi = <span class="number">0</span>, si = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(gi &lt; g.length &amp;&amp; si &lt; s.length)&#123;</span><br><span class="line">            <span class="keyword">if</span>(g[gi] &lt;= s[si])&#123;</span><br><span class="line">                gi++;</span><br><span class="line">            &#125;</span><br><span class="line">            si++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> gi;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -440,7 +430,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://bwael.com/2016/03/24/ALG-3/" title="转：【算法学习笔记】动态规划0—1背包问题">http://bwael.com/2016/03/24/ALG-3/</a>
+    <a href="http://bwael.com/2017/08/24/leetcode-455/" title="leetcode-455">http://bwael.com/2017/08/24/leetcode-455/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -457,7 +447,7 @@
           
             <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
           
         </div>
       
@@ -485,8 +475,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/22/pynote03/" rel="next" title="python学习笔记03----运算符与表达式、序列">
-                <i class="fa fa-chevron-left"></i> python学习笔记03----运算符与表达式、序列
+              <a href="/2017/03/01/debian-cron/" rel="next" title="debian系Cron定时任务">
+                <i class="fa fa-chevron-left"></i> debian系Cron定时任务
               </a>
             
           </div>
@@ -495,8 +485,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/04/03/ALG-4/" rel="prev" title="【算法学习笔记】贪心算法背包问题">
-                【算法学习笔记】贪心算法背包问题 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/07/24/leetcode-435-Non-overlapping-Intervals/" rel="prev" title="LeetCode 435.无重叠的区间个数">
+                LeetCode 435.无重叠的区间个数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -693,7 +683,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述："><span class="nav-number">1.</span> <span class="nav-text">问题描述：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过程分析"><span class="nav-number">2.</span> <span class="nav-text">过程分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题思路"><span class="nav-number">2.</span> <span class="nav-text">解题思路</span></a></li></ol></div>
             
 
           </div>

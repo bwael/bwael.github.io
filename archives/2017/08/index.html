@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="学习笔记,算法,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -81,34 +81,16 @@
 
 
 
-<meta name="description" content="问题描述：给定n种物品和一背包。物品i的重量是wi，其价值为vi，背包的容量为C。问应如何选择装入背包的物品，使得装入背包中物品的总价值最大?  对于一种物品，要么装入背包，要么不装。所以对于一种物品的装入状态可以取0和1.我们设物品i的装入状态为xi,xi∈ (0,1)，此问题称为0-11背包问题。  过程分析数据：物品个数n=5,物品重量w[n]={0，2，2，6，5，4},物品价值V[n]=">
-<meta name="keywords" content="学习笔记,算法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="转：【算法学习笔记】动态规划0—1背包问题">
-<meta property="og:url" content="http://bwael.com/2016/03/24/ALG-3/index.html">
+<meta name="description" content="学习总结 思考感悟 知识管理">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bwael&#39;s Blog">
+<meta property="og:url" content="http://bwael.com/archives/2017/08/index.html">
 <meta property="og:site_name" content="Bwael&#39;s Blog">
-<meta property="og:description" content="问题描述：给定n种物品和一背包。物品i的重量是wi，其价值为vi，背包的容量为C。问应如何选择装入背包的物品，使得装入背包中物品的总价值最大?  对于一种物品，要么装入背包，要么不装。所以对于一种物品的装入状态可以取0和1.我们设物品i的装入状态为xi,xi∈ (0,1)，此问题称为0-11背包问题。  过程分析数据：物品个数n=5,物品重量w[n]={0，2，2，6，5，4},物品价值V[n]=">
+<meta property="og:description" content="学习总结 思考感悟 知识管理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64570543.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/27894142.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/50858835.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/1383357.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64404941.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/97461564.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/92409505.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/78719221.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/12275615.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/74489686.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/47520646.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/2659508.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/74515954.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/4158651.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/34478495.jpg">
-<meta property="og:updated_time" content="2016-03-24T04:33:41.261Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="转：【算法学习笔记】动态规划0—1背包问题">
-<meta name="twitter:description" content="问题描述：给定n种物品和一背包。物品i的重量是wi，其价值为vi，背包的容量为C。问应如何选择装入背包的物品，使得装入背包中物品的总价值最大?  对于一种物品，要么装入背包，要么不装。所以对于一种物品的装入状态可以取0和1.我们设物品i的装入状态为xi,xi∈ (0,1)，此问题称为0-11背包问题。  过程分析数据：物品个数n=5,物品重量w[n]={0，2，2，6，5，4},物品价值V[n]=">
-<meta name="twitter:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64570543.jpg">
+<meta name="twitter:title" content="Bwael&#39;s Blog">
+<meta name="twitter:description" content="学习总结 思考感悟 知识管理">
 
 
 
@@ -138,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://bwael.com/2016/03/24/ALG-3/">
+  <link rel="canonical" href="http://bwael.com/archives/2017/08/">
 
 
 
 
 
-  <title>转：【算法学习笔记】动态规划0—1背包问题 | Bwael's Blog</title>
+  <title>归档 | Bwael's Blog</title>
   
 
 
@@ -173,7 +155,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-archive">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -299,225 +281,72 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
+  
+  
+  
+  <div class="post-block archive">
+    <div id="posts" class="posts-collapse">
+      <span class="archive-move-on"></span>
 
-  
+      <span class="archive-page-counter">
+        
+        
+        
+          
+        
+        嗯..! 目前共计 30 篇日志。 继续努力。
+      </span>
 
-  
-  
-  
+      
+
+        
+        
+        
+
+        
+          
+          <div class="collection-title">
+            <h1 class="archive-year" id="archive-year-2017">2017</h1>
+          </div>
+        
+        
+
+        
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/24/ALG-3/">
+    <header class="post-header">
 
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
+      <h2 class="post-title">
         
+            <a class="post-title-link" href="/2017/08/24/leetcode-455/" itemprop="url">
+              
+                <span itemprop="name">leetcode-455</span>
+              
+            </a>
         
-          <h1 class="post-title" itemprop="name headline">转：【算法学习笔记】动态规划0—1背包问题</h1>
-        
+      </h2>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-24T09:21:50+08:00">
-                2016-03-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/24/ALG-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/24/ALG-3/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>给定n种物品和一背包。物品i的重量是wi，其价值为vi，背包的容量为C。问应如何选择装入背包的物品，使得装<br>入背包中物品的总价值最大?</p>
-<blockquote>
-<p>对于一种物品，要么装入背包，要么不装。所以对于一种物品的装入状态可以取0和1.我们设物品i的装入状态为xi,xi∈ (0,1)，此问题称为0-11背包问题。</p>
-</blockquote>
-<h4 id="过程分析"><a href="#过程分析" class="headerlink" title="过程分析"></a>过程分析</h4><p><strong>数据：物品个数n=5,物品重量w[n]={0，2，2，6，5，4},物品价值V[n]={0，6，3，5，4，6},<br>（第0位，置为0，不参与计算，只是便于与后面的下标进行统一，无特别用处，也可不这么处理。）总重量c=10.</strong><br>背包的最大容量为10，那么在设置数组m大小时，可以设行列值为6和11，那么，对于m(i,j)就表示可选物品为i…n背包容量为j(总重量)时背包中所放物品的最大价值。</p>
-<p><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64570543.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/27894142.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/50858835.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/1383357.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64404941.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/97461564.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/92409505.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/78719221.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/12275615.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/74489686.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/47520646.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/2659508.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/74515954.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/4158651.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/34478495.jpg" alt=""></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> c = <span class="number">10</span>;             <span class="comment">//背包的容量</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> w[] = &#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>&#125;;<span class="comment">//物品的重量，其中0号位置不使用 。</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> v[] = &#123;<span class="number">0</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">6</span>&#125;;<span class="comment">//物品对应的待加，0号位置置为空。</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> n = <span class="keyword">sizeof</span>(w)/<span class="keyword">sizeof</span>(w[<span class="number">0</span>]) - <span class="number">1</span> ; <span class="comment">//n为物品的个数</span></span><br><span class="line"><span class="keyword">int</span> x[n+<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">package0_1</span><span class="params">(<span class="keyword">int</span> m[][<span class="number">11</span>],<span class="keyword">const</span> <span class="keyword">int</span> w[],<span class="keyword">const</span> <span class="keyword">int</span> v[],<span class="keyword">const</span> <span class="keyword">int</span> n)</span><span class="comment">//n代表物品的个数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//采用从底到顶的顺序来设置m[i][j]的值</span></span><br><span class="line">    <span class="comment">//首先放w[n]</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= c; j++)</span><br><span class="line">        <span class="keyword">if</span>(j &lt; w[n]) m[n][j] = <span class="number">0</span>;     <span class="comment">//j小于w[n],所对应的值设为0，否则就为可以放置</span></span><br><span class="line">        <span class="keyword">else</span>         m[n][j] = v[n];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//对剩下的n-1个物品进行放置。</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = n<span class="number">-1</span>; i &gt;= <span class="number">1</span>; i--)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= c; j++)</span><br><span class="line">            <span class="keyword">if</span>(j &lt; w[i])</span><br><span class="line">                m[i][j] = m[i+<span class="number">1</span>][j];<span class="comment">//如果j &lt; w[i]则，当前位置就不能放置，它等于上一个位置的值。</span></span><br><span class="line">    <span class="comment">//否则，就比较到底是放置之后的值大，还是不放置的值大，选择其中较大者。</span></span><br><span class="line">            <span class="keyword">else</span>         m[i][j] = m[i+<span class="number">1</span>][j] &gt; m[i+<span class="number">1</span>][j-w[i]] + v[i]?</span><br><span class="line">                                       m[i+<span class="number">1</span>][j] : m[i+<span class="number">1</span>][j-w[i]] + v[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">answer</span><span class="params">(<span class="keyword">int</span> m[][<span class="number">11</span>],<span class="keyword">const</span> <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j = c;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt;= n<span class="number">-1</span>; i++)</span><br><span class="line">        <span class="keyword">if</span>(m[i][j] == m[i+<span class="number">1</span>][j]) x[i] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            x[i] = <span class="number">1</span>;</span><br><span class="line">            j = j - w[i];</span><br><span class="line">        &#125;</span><br><span class="line">    x[n] = m[i][j] ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m[<span class="number">6</span>][<span class="number">11</span>]= &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">    package0_1(m,w,v,n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">10</span>; j++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%2d "</span>,m[i][j]);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    answer(m,n);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"The best answer is:\n"</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; x[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="http://blog.csdn.net/dapengbusi/article/details/7463968" target="_blank" rel="noopener">原文链接</a></p>
-
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-      <div>
-        <ul class="post-copyright">
-  <li class="post-copyright-author">
-    <strong>本文作者：</strong>
-    bwael
-  </li>
-  <li class="post-copyright-link">
-    <strong>本文链接：</strong>
-    <a href="http://bwael.com/2016/03/24/ALG-3/" title="转：【算法学习笔记】动态规划0—1背包问题">http://bwael.com/2016/03/24/ALG-3/</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>
-    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
-  </li>
-</ul>
-
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2017-08-24T11:35:09+08:00" content="2017-08-24">
+          08-24
+        </time>
       </div>
-    
 
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
-          
-            <a href="/tags/算法/" rel="tag"># 算法</a>
-          
-        </div>
-      
-
-      
-      
-        <div class="post-widgets">
-        
-
-        
-
-        
-          
-          <div id="needsharebutton-postbottom">
-            <span class="btn">
-              <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </span>
-          </div>
-        
-        </div>
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/03/22/pynote03/" rel="next" title="python学习笔记03----运算符与表达式、序列">
-                <i class="fa fa-chevron-left"></i> python学习笔记03----运算符与表达式、序列
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/03/ALG-4/" rel="prev" title="【算法学习笔记】贪心算法背包问题">
-                【算法学习笔记】贪心算法背包问题 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
+    </header>
   </article>
 
 
 
-    <div class="post-spread">
       
+
     </div>
   </div>
+  
+  
+  
+
+  
+
 
 
           </div>
@@ -525,13 +354,6 @@
 
 
           
-
-  
-    <div class="comments" id="comments">
-    </div>
-  
-
-
 
         </div>
         
@@ -552,17 +374,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -683,22 +496,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述："><span class="nav-number">1.</span> <span class="nav-text">问题描述：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过程分析"><span class="nav-number">2.</span> <span class="nav-text">过程分析</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -835,10 +632,6 @@
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
