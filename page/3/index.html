@@ -296,6 +296,363 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/06/04/pynote08/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/06/04/pynote08/" itemprop="url">python学习笔记08----文件操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-04T16:18:52+08:00">
+                2016-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/06/04/pynote08/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/06/04/pynote08/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>文本文件的读写主要通过open()所构建的文件对象来实现。</p>
+<p><strong>基本格式</strong></p>
+<p>f = open(文件名，模式)</p>
+<p><strong>最常用的模式有：</strong></p>
+<ol>
+<li>“r”       # 只读</li>
+<li>“w”     # 写入                                                               —-&gt;如果文件中已经有内容，会把内容抹掉，如果不存在该文件，会新建文件</li>
+<li>“a”      #追加模式                                                       —–&gt;在已有的文字后添加文字</li>
+<li>“b”      #二进制模式（还在其他模式中追加使用）—–&gt;一般在处理音频、图像等文件的时候使用</li>
+<li>“+”      #读/写模式(可在其他模式中追加使用)        —–&gt;r+、w+ 可读可写</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">f = open(<span class="string">'test1.txt'</span>, <span class="string">'w'</span>)       <span class="comment">#创建一个名为f的类文件对象，对test1.txt进行写操作</span></span><br><span class="line">f.write(<span class="string">"大家好，我是王尼玛"</span>)    <span class="comment">#像文件中写入字符串</span></span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'test1.txt'</span>)            <span class="comment">#如果不写模式，默认为读模式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    line = f.readline()          <span class="comment">#一次读一行</span></span><br><span class="line">    <span class="keyword">if</span> len(line) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">print</span> (line,end=<span class="string">""</span>)          <span class="comment">#不换行</span></span><br><span class="line"></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">大家好，我是王尼玛</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">f=open(<span class="string">"test.txt"</span>,<span class="string">"w"</span>)</span><br><span class="line">f.write(<span class="string">"0123456789"</span>)</span><br><span class="line">f.seek(<span class="number">4</span>)                     <span class="comment">#跳到第4个字节</span></span><br><span class="line">f.write(<span class="string">"Hello"</span>)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">f=open(<span class="string">"test.txt"</span>,<span class="string">"r"</span>)</span><br><span class="line">print(f.read())               <span class="comment">#把字符串全部输出</span></span><br><span class="line">f.seek(<span class="number">2</span>)                     <span class="comment">#跳回到第2个字符</span></span><br><span class="line">print(f.read(<span class="number">5</span>))              <span class="comment">#输出接下来的5个字节</span></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0123</span>Hello9</span><br><span class="line"><span class="number">23</span>Hel</span><br></pre></td></tr></table></figure>
+<h3 id="Tips："><a href="#Tips：" class="headerlink" title="Tips："></a>Tips：</h3><p>1.<br>以上所讲的仅仅是Python最基本的文件读写功能。更加丰富的文件读写功能由Python的标准库提供。<br>2.<br>read() readline()以及readlines()用法<br>read() 每次读取整个文件，它通常用于将文件内容放到一个字符串变量中。然而 .read() 生成文件内容最直接的字符串表示，但对于连续的面向行的处理，它却是不必要的，并且如果文件大于可用内存，则不可能实现这种处理。</p>
+<p>.readline() 和 .readlines() 非常相似。它们都在类似于以下的结构中使用：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fh = open(<span class="string">'c:\\autoexec.bat'</span>)</span><br><span class="line"><span class="keyword">for</span>  line <span class="keyword">in</span>  fh.readlines():</span><br><span class="line">     <span class="keyword">print</span>（line）</span><br></pre></td></tr></table></figure></p>
+<p>.readline() 和 .readlines() 之间的差异是后者一次读取整个文件，象 .read() 一样。.readlines() 自动将文件内容分析成一个行的列表，该列表可以由 Python 的for … in …结构进行处理。另一方面，.readline() 每次只读取一行，通常比 .readlines() 慢得多。仅当没有足够内存可以一次读取整个文件时，才应该使用 .readline()。（readlines()的输出格式[“I’ll write this message for you\n”, “hehe,that’s will be ok.\n”]）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/06/02/pynote07/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/06/02/pynote07/" itemprop="url">python学习笔记07----面向对象（类与对象）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-02T19:38:22+08:00">
+                2016-06-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/06/02/pynote07/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/06/02/pynote07/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>虽然Python是解释性语言，但是它是面向对象的，能够进行对象编程。下面就来了解一下如何在Python中进行对象编程。</p>
+<p>类是对现实世界中一些事物的封装。在人类认知中，会根据属性相近把东西归类，并且给类别命名。比如说，鸟类的共同属性是有羽毛，通过产卵生育后代。而且，这些鸟还有共同的行为，如飞行、名叫。任何一只特别的鸟都在鸟类的原型基础上的。接下来以鸟为例来介绍类的用法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bird</span>:</span>                                                 <span class="comment">#创建类--鸟</span></span><br><span class="line">    have_feather = <span class="keyword">True</span>                                     <span class="comment">#定义类的属性（have_feather、way_of_reproduction、song均是该类的属性）</span></span><br><span class="line">    way_of_reproduction  = <span class="string">"egg"</span></span><br><span class="line">    song=<span class="string">"叽叽喳喳"</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sing</span><span class="params">(self)</span>:</span>                                         <span class="comment">#定义类的方法（self必不可少）</span></span><br><span class="line">        print(self.song)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"飞飞飞飞飞"</span>)</span><br><span class="line">mybird=Bird()                                               <span class="comment">#实例化类的对象，可以使用这个对象访问类中的方法和属性</span></span><br><span class="line">mybird.sing()                                               <span class="comment">#访问类中的方法（对象名.方法）</span></span><br><span class="line">print(<span class="string">"mybird通过"</span>+mybird.way_of_reproduction+<span class="string">"繁殖"</span>)       <span class="comment">#访问类中的属性（+号的作用是连接字符串）</span></span><br></pre></td></tr></table></figure>
+<p>输出结果为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">叽叽喳喳</span><br><span class="line">mybird通过egg繁殖</span><br></pre></td></tr></table></figure>
+<p>小小的总结一下，我们定义了一个类（class），就是鸟（Bird）。在该类中，我们定义了三个变量，一个是有羽毛（have_feather），一个是生殖方式（way_of_reproduction）,还有一个是叫声（叽叽喳喳），这几个变量就是类的属性（attribute）。我们还定义个两个函数，一个是鸣叫(sing(self))，另一个是移动(move(self)),这两个函数就是类的方法（method）。</p>
+<p>类建好了之后，我将类实例化为一个叫mybird的对象，并利用这个对象对类的属性和方法进行访问。</p>
+<h3 id="子类"><a href="#子类" class="headerlink" title="子类"></a>子类</h3><p>鸟可以继续细分为鸡、鸭、鹅…..这就是所谓的子类。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chicken</span><span class="params">(Bird)</span>:</span>                                           <span class="comment">#继承上例中的Bird</span></span><br><span class="line">    song=<span class="string">"喔喔喔喔喔！"</span>                                        <span class="comment">#重写父类中的属性</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(self)</span>:</span>                                            <span class="comment">#重写父类中的方法</span></span><br><span class="line">        print(<span class="string">"这种移动方式已经废弃"</span>,end=<span class="string">"---&gt;"</span>)               <span class="comment">#end的作用是把字符串末尾的换行符替换为“---&gt;”</span></span><br><span class="line">        super().move()                                         <span class="comment">#调用父类中的方法(对象是没有super()的)</span></span><br><span class="line">        print(<span class="string">"跑跑跑跑跑"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">myChicken=Chicken()</span><br><span class="line">myChicken.move()</span><br><span class="line">myChicken.sing()</span><br></pre></td></tr></table></figure></p>
+<h3 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calculator</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">calculate</span><span class="params">(self,expression)</span>:</span></span><br><span class="line">        self.value=eval(expression)                         <span class="comment">#计算字符串中的表达式</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Talker</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">talk</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"结果为"</span>,self.value)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TalkCalculator</span><span class="params">(Calculator,Talker)</span>:</span>                    <span class="comment">#本类不做任何事情，但是同时继承两个子类，这种行为叫做多重继承</span></span><br><span class="line">    <span class="keyword">pass</span>                                                    <span class="comment">#pass是空语句，是为了保持程序结构的完整性。</span></span><br><span class="line"></span><br><span class="line">myCal=TalkCalculator()</span><br><span class="line">myCal.calculate(<span class="string">"4+2"</span>)</span><br><span class="line">myCal.talk()</span><br></pre></td></tr></table></figure>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><h4 id="1-多态、封装与继承"><a href="#1-多态、封装与继承" class="headerlink" title="1.多态、封装与继承"></a>1.多态、封装与继承</h4><p>多态：意味着可以对不同类的对象进行相同的操作。</p>
+<p>封装：对外部世界隐藏类的细节。</p>
+<p>继承：以普通的类为基础建立专门的类的对象。</p>
+<h4 id="2-面向对象概念"><a href="#2-面向对象概念" class="headerlink" title="2.面向对象概念"></a>2.面向对象概念</h4><p>类(Class): 用来描述具有相同的属性和方法的对象的集合。它定义了该集合中每个对象所共有的属性和方法。对象是类的实例。</p>
+<p>类变量：类变量在整个实例化的对象中是公用的。类变量定义在类中且在函数体之外。类变量通常不作为实例变量使用。</p>
+<p>数据成员：类变量或者实例变量用于处理类及其实例对象的相关的数据。</p>
+<p>方法重载：如果从父类继承的方法不能满足子类的需求，可以对其进行改写，这个过程叫方法的覆盖（override），也称为方法的重载。</p>
+<p>实例变量：定义在方法中的变量，只作用于当前实例的类。</p>
+<p>继承：即一个派生类（derived class）继承基类（base class）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待。例如，有这样一个设计：一个Dog类型的对象派生自Animal类，这是模拟”是一个（is-a）”关系（例图，Dog是一个Animal）。</p>
+<p>实例化：创建一个类的实例，类的具体对象。</p>
+<p>方法：类中定义的函数。</p>
+<p>对象：通过类定义的数据结构实例。对象包括两个数据成员（类变量和实例变量）和方法。</p>
+<h4 id="3-子类如何调用父类中的方法"><a href="#3-子类如何调用父类中的方法" class="headerlink" title="3.子类如何调用父类中的方法"></a>3.子类如何调用父类中的方法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">method</span><span class="params">(self, arg)</span>:</span></span><br><span class="line"><span class="comment">#        A.method(self,arg)                 #1直接写类名调用</span></span><br><span class="line"><span class="comment">#        super(B, self).method(arg)         #2用 super(type, obj).method(arg)方法调用</span></span><br><span class="line">         super().method(arg)                <span class="comment">#3在类定义中调用本类的父类方法，可以直接super().method(arg)</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-方法中的self"><a href="#4-方法中的self" class="headerlink" title="4.方法中的self"></a>4.方法中的self</h4><p>类的方法与普通的函数只有一个特别的区别——它们必须有一个额外的第一个参数名称，但是在调用这个方法的时候你不为这个参数赋值，Python会提供这个值。这个特别的变量指对象本身，按照惯例它的名称是self。</p>
+<h2 id="面向对象之续"><a href="#面向对象之续" class="headerlink" title="面向对象之续"></a>面向对象之续</h2><h3 id="特殊的方法"><a href="#特殊的方法" class="headerlink" title="特殊的方法"></a>特殊的方法</h3><h4 id="init方法"><a href="#init方法" class="headerlink" title="init方法"></a><strong>init</strong>方法</h4><p><strong>init</strong>方法在类的一个对象被建立时，马上运行。你可以利用这个方法对对象进行初始化。<strong>init</strong>方法类似于C++、C#和Java中的 constructor 。（注意：init的两边各有两条下划线）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span>                               <span class="comment">#在__init__中初始化name</span></span><br><span class="line">        self.name = name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sayHi</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> (<span class="string">"大家好，我是人贱人爱的"</span>, self.name)</span><br><span class="line">p = Person(<span class="string">"王尼玛"</span>)</span><br><span class="line">p.sayHi()</span><br></pre></td></tr></table></figure></p>
+<h4 id="del方法"><a href="#del方法" class="headerlink" title="del方法"></a><strong>del</strong>方法</h4><p><strong>del</strong>在对象消逝的时候被调用。对象消逝即对象不再被使用，它所占用的内存将返回给系统作它用。<strong>del</strong>方法与 destructor 的概念类似。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>:</span></span><br><span class="line">    <span class="string">'''Represents a person.'''</span>                       <span class="comment">#通过Person.__doc__查看</span></span><br><span class="line">    population = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        <span class="string">'''Initializes the person's data.'''</span></span><br><span class="line">        self.name = name</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'(Initializing %s)'</span> % self.name)      <span class="comment">#格式化输出字符串.</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># When this person is created, he/she</span></span><br><span class="line">        <span class="comment"># adds to the population</span></span><br><span class="line">        Person.population += <span class="number">1</span>                       <span class="comment">#类的变量在引用的时候是 类名.类变量</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''I am dying.'''</span></span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'%s says bye.'</span> % self.name)</span><br><span class="line"></span><br><span class="line">        Person.population -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> Person.population == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">'I am the last one.'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">'There are still %d people left.'</span> % Person.population)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sayHi</span><span class="params">(self)</span>:</span>                                 <span class="comment">#可通过Person.sayHi.__doc__查看</span></span><br><span class="line">        <span class="string">'''Greeting by the person.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Really, that's all it does.'''</span></span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'Hi, my name is %s.'</span> % self.name)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">howMany</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''Prints the current population.'''</span></span><br><span class="line">        <span class="keyword">if</span> Person.population == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">'I am the only person here.'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">'We have %d persons here.'</span> % Person.population)</span><br><span class="line"></span><br><span class="line">swaroop = Person(<span class="string">'Swaroop'</span>)</span><br><span class="line">swaroop.sayHi()</span><br><span class="line">swaroop.howMany()</span><br><span class="line"></span><br><span class="line">kalam = Person(<span class="string">'Abdul Kalam'</span>)</span><br><span class="line">kalam.sayHi()</span><br><span class="line">kalam.howMany()</span><br><span class="line">print(kalam.name)                                    <span class="comment">#对象变量</span></span><br><span class="line"></span><br><span class="line">swaroop.sayHi()</span><br><span class="line">swaroop.howMany()</span><br><span class="line">print(swaroop.name)</span><br></pre></td></tr></table></figure></p>
+<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">(Initializing Swaroop)</span><br><span class="line">Hi, my name is Swaroop.</span><br><span class="line">I am the only person here.</span><br><span class="line">(Initializing Abdul Kalam)</span><br><span class="line">Hi, my name is Abdul Kalam.</span><br><span class="line">We have 2 persons here.</span><br><span class="line">Abdul Kalam</span><br><span class="line">Hi, my name is Swaroop.</span><br><span class="line">We have 2 persons here.</span><br><span class="line">Swaroop</span><br></pre></td></tr></table></figure></p>
+<h3 id="小提示"><a href="#小提示" class="headerlink" title="小提示"></a>小提示</h3><p><strong>1.类成员的访问权限</strong></p>
+<p>Python中所有的类成员都是公共的，所有的方法都是有效的。<br>只有一个例外：如果你使用的数据成员名称以双下划线前缀比如__privatevar，Python的名称管理体系会有效地把它作为私有变量。<br>还有这样就有一个惯例，如果某个变量只想在类或对象中使用，就应该以单下划线前缀。而其他的名称都将作为公共的，可以被其他类/对象使用。记住这只是一个惯例，并不是Python所要求的（与双下划线前缀不同）。</p>
+<p><strong>2.类的变量与对象的变量</strong></p>
+<p>类的变量：由一个类的所有对象（实例）共享使用。当某个对象对类的变量做了改动的时候，这个改动会反映到所有其他的实例上。（ 类名.类变量）<br>对象的变量：由类的每个对象/实例拥有。因此每个对象有自己对这个域的一份拷贝，即它们不是共享的，在同一个类的不同实例中，虽然对象的变量有相同的名称，但是是互不相关的。（对象名.变量）</p>
+<p><strong>3.print的格式化输出</strong></p>
+<p>支持参数格式化，与C语言的printf类似。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>strHello = <span class="string">"the length of (%s) is %d"</span> %(<span class="string">'Hello World'</span>,len(<span class="string">'Hello World'</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> (strHello)</span><br></pre></td></tr></table></figure></p>
+<p>输出<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">the length of (Hello World) <span class="keyword">is</span> <span class="number">11</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">"你好我的名字是%s,我今年%d岁了！"</span> % (<span class="string">"王尼玛"</span>,<span class="number">2</span>))                    <span class="comment">#注意，字符串与后面变量之间没有逗号！</span></span><br></pre></td></tr></table></figure>
+<p>输出<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你好我的名字是王尼玛,我今年<span class="number">2</span>岁了！</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/06/01/pynote06/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -845,413 +1202,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/04/19/windows-for-chromebook/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/04/19/windows-for-chromebook/" itemprop="url">Windows 10 64 Bit Installation Guide Acer C720, HP Chromebook 14, Toshiba CB-30, and Dell Chromebook 11</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-19T23:50:57+08:00">
-                2016-04-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/折腾笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">折腾笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/04/19/windows-for-chromebook/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/04/19/windows-for-chromebook/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Acer C740, Acer C910, Acer CB5-571, Toshiba Chromebook 2 and Dell Chromebook 13, see here:<a href="https://docs.google.com/document/d/1nFZmoRzQ03btPCGVSa4ku6JPQik-SxD__zOd1CoB2yg/edit" target="_blank" rel="noopener">Click</a></p>
-<h3 id="Flash-Custom-Coreboot-BIOS"><a href="#Flash-Custom-Coreboot-BIOS" class="headerlink" title="Flash Custom Coreboot BIOS"></a>Flash Custom Coreboot BIOS</h3><p><strong>Warning</strong>: this BIOS is only for the Acer C720, C720P, HP Chromebook 14, Toshiba CB-30, and Dell Chromebook 11.</p>
-<ol>
-<li><p>Please remove the write protect screw before flashing the BIOS.</p>
-</li>
-<li><p>Please check your CPU before flashing the BIOS.</p>
-</li>
-<li><p>Easy Flashing Script:<br><code>cd ~; curl -L -O https://goo.gl/1hFfO3; sudo bash 1hFfO3</code></p>
-</li>
-</ol>
-<p><em>Select the “Install/Update custom coreboot firmware” option.</em></p>
-<h3 id="Create-USB-Installer"><a href="#Create-USB-Installer" class="headerlink" title="Create USB Installer"></a>Create USB Installer</h3><p>Use rufus to create the Windows 10 <strong>64 bit</strong> USB installer. Select MBR for legacy BIOS and create the USB drive.</p>
-<p>You will need a USB keyboard/mouse for installation</p>
-<h3 id="Install-Chipset-Audio-WiFi-and-Bluetooth-Drivers"><a href="#Install-Chipset-Audio-WiFi-and-Bluetooth-Drivers" class="headerlink" title="Install Chipset, Audio, WiFi, and Bluetooth Drivers"></a>Install Chipset, Audio, WiFi, and Bluetooth Drivers</h3><p>Audio Driver: <a href="http://www.realtek.com.tw/downloads/downloadsCheck.aspx?Langid=1&amp;PNid=14&amp;PFid=24&amp;Level=4&amp;Conn=3&amp;DownTypeID=3&amp;GetDown=false" target="_blank" rel="noopener">Link</a></p>
-<p>Chipset Driver: Use the latest from Windows Update!</p>
-<p>WiFi Driver: Use the latest from Windows Update!</p>
-<p>Bluetooth Driver: Use the latest from Windows Update!</p>
-<p>Run the setup files for the audio and chipset drivers. For WiFi and Bluetooth, use Device Manager to update the driver.</p>
-<h3 id="Turn-on-testsigning"><a href="#Turn-on-testsigning" class="headerlink" title="Turn on testsigning"></a>Turn on testsigning</h3><p>Open Command Prompt as administrator, and type in “bcdedit /set testsigning on”. Then reboot.</p>
-<h3 id="Keyboard-Driver"><a href="#Keyboard-Driver" class="headerlink" title="Keyboard Driver"></a>Keyboard Driver</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/croskeyboard3.4.1.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Open Device Manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_GGL&amp;DEV_0303” or “ACPI\GGL0303”. Under the driver tab, click “Update Driver” and browse to the croskeyboard3 driver. Then install.</p>
-<h3 id="Trackpad-Driver-Cypress-Trackpad"><a href="#Trackpad-Driver-Cypress-Trackpad" class="headerlink" title="Trackpad Driver (Cypress Trackpad)"></a>Trackpad Driver (Cypress Trackpad)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostrackpad%203%20beta%2011.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Open Device manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_CYAP&amp;DEV_0000” or “ACPI\CYAP0000”. Under the driver tab, click “Update Driver” and browse to the crostrackpad3 driver. Then install.</p>
-<h3 id="Trackpad-Driver-Elan-Trackpad"><a href="#Trackpad-Driver-Elan-Trackpad" class="headerlink" title="Trackpad Driver (Elan Trackpad)"></a>Trackpad Driver (Elan Trackpad)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostrackpad%203%20beta%2011-elan.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Open Device manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_ELAN&amp;DEV_0000” or “ACPI\ELAN0000”. Under the driver tab, click “Update Driver” and browse to the crostrackpad3 driver. Then install.</p>
-<h3 id="Visual-Studio-2015-Redistributable"><a href="#Visual-Studio-2015-Redistributable" class="headerlink" title="Visual Studio 2015 Redistributable:"></a>Visual Studio 2015 Redistributable:</h3><p>Download: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145" target="_blank" rel="noopener">Link</a></p>
-<h3 id="Trackpad-Driver-Helper-Utilities-Cypress-and-Elan-Trackpads"><a href="#Trackpad-Driver-Helper-Utilities-Cypress-and-Elan-Trackpads" class="headerlink" title="Trackpad Driver Helper Utilities (Cypress and Elan Trackpads)"></a>Trackpad Driver Helper Utilities (Cypress and Elan Trackpads)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostrackpad%203%20beta%2011.2%20utilities.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Place the trackpad driver utility in the Windows startup folder (Start &gt; Run &gt; shell:startup) and run it after installing the driver.</p>
-<h3 id="Touch-Screen-Driver-Acer-C720P-users-only"><a href="#Touch-Screen-Driver-Acer-C720P-users-only" class="headerlink" title="Touch Screen Driver (Acer C720P users only)"></a>Touch Screen Driver (Acer C720P users only)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostouchscreen2.3.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Open Device manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_ATML&amp;DEV_0001” or “ACPI\ATML0001”. Under the driver tab, click “Update Driver” and browse to the crostouchscreen2 driver. Then install.</p>
-<h3 id="Graphics-Driver"><a href="#Graphics-Driver" class="headerlink" title="Graphics Driver"></a>Graphics Driver</h3><p><strong>Grab the latest Graphics Driver from Windows Update!</strong></p>
-<h3 id="Embedded-Controller-Driver-Utility-Optional"><a href="#Embedded-Controller-Driver-Utility-Optional" class="headerlink" title="Embedded Controller Driver + Utility (Optional)"></a>Embedded Controller Driver + Utility (Optional)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/CrosPowerMan%201.1.zip" target="_blank" rel="noopener">Link</a></p>
-<h3 id="Visual-Studio-2013-Redistr"><a href="#Visual-Studio-2013-Redistr" class="headerlink" title="Visual Studio 2013 Redistr"></a>Visual Studio 2013 Redistr</h3><p>ibutable: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40784" target="_blank" rel="noopener">Download</a></p>
-<p>If you like running Windows on your chromebook, please donate if you are able to do so. I have made these drivers and the BIOS available free of charge and am relying on donations to be able to get Windows running on more chromebooks (Pixel 2, Dell Chromebook 13).<br>For support, please see <a href="https://reddit.com/r/chrultrabook" target="_blank" rel="noopener">https://reddit.com/r/chrultrabook</a><br>Please donate <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=AR25GXJD45KBW&amp;lc=US&amp;item_name=CoolStar%20Chromebook%20Dev%2e&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" target="_blank" rel="noopener">here</a>.</p>
-<p><em>from : reddit.com chrultrabook</em></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/04/12/ProE-key-terms-chapter-one/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/04/12/ProE-key-terms-chapter-one/" itemprop="url">Professional English Key Words Chapter-1</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-12T22:50:57+08:00">
-                2016-04-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/04/12/ProE-key-terms-chapter-one/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/04/12/ProE-key-terms-chapter-one/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="application-software"><a href="#application-software" class="headerlink" title="application software"></a>application software</h5><p>Also referred to as apps. Software that can perform useful work, such as word processing, cost estimating, or accounting tasks. The user primarily interacts with application software.</p>
-<h5 id="Blu-ray"><a href="#Blu-ray" class="headerlink" title="Blu-ray"></a>Blu-ray</h5><p>A type of high-definition disc with a capacity of 25 to 50 gigabytes.</p>
-<h5 id="cloud-computing"><a href="#cloud-computing" class="headerlink" title="cloud computing"></a>cloud computing</h5><p>Data stored at a server on the Internet and available anywhere the Internet can be accessed.</p>
-<h5 id="communication-device"><a href="#communication-device" class="headerlink" title="communication device"></a>communication device</h5><p>Computer systems that communicate with other computer systems using modems. For example, it modifies computer output into a form that can be transmitted across standard telephone lines.</p>
-<h5 id="compact-disc-CD"><a href="#compact-disc-CD" class="headerlink" title="compact disc (CD)"></a>compact disc (CD)</h5><p>Widely used optical disc format. It holds 650 MB (megabytes) to 1 GB (gigabyte) of data on one side of the CD.</p>
-<h5 id="computer-competency"><a href="#computer-competency" class="headerlink" title="computer competency"></a>computer competency</h5><p>Becoming proficient in computer-related skills.</p>
-<h5 id="connectivity"><a href="#connectivity" class="headerlink" title="connectivity"></a>connectivity</h5><p>Capability of the microcomputer to use information from the world beyond one’s desk. Data and information can be sent over telephone or cable lines and through the air so that computers can talk to each other and share information.</p>
-<h5 id="data"><a href="#data" class="headerlink" title="data"></a>data</h5><p>Raw, unprocessed facts that are input to a computer system that will give compiled information when the computer processes those facts. Data is also defined as facts or observations about people, places, things, and events.</p>
-<h5 id="database-file"><a href="#database-file" class="headerlink" title="database file"></a>database file</h5><p>File containing highly structured and organized data created by database management programs.</p>
-<h5 id="desktop-computer"><a href="#desktop-computer" class="headerlink" title="desktop computer"></a>desktop computer</h5><p>Computer small enough to fit on top of or along the side of a desk and yet too big to carry around.</p>
-<h5 id="device-driver"><a href="#device-driver" class="headerlink" title="device driver"></a>device driver</h5><p>Every device that is connected to the computer has a special program associated with it called a device driver that allows communication between the operating system and the device.</p>
-<h5 id="DVD-digital-versatile-disc-or-digital-video-disc"><a href="#DVD-digital-versatile-disc-or-digital-video-disc" class="headerlink" title="DVD (digital versatile disc or digital video disc)"></a>DVD (digital versatile disc or digital video disc)</h5><p>Similar to CD-ROMs except that more data can be packed into the same amount of space. DVD drives can store a typical capacity of 4.7 GB on one side.</p>
-<h5 id="document-file"><a href="#document-file" class="headerlink" title="document file"></a>document file</h5><p>File created by a word processor to save documents such as letters, research papers, and memos.</p>
-<h5 id="end-user"><a href="#end-user" class="headerlink" title="end user"></a>end user</h5><p>Person who uses microcomputers or has access to larger computers.</p>
-<h5 id="flash-memory-card"><a href="#flash-memory-card" class="headerlink" title="flash memory card"></a>flash memory card</h5><p>A solid-state storage device widely used in notebook computers. Flash memory also is used in a variety of specialized input devices to capture and transfer data to desktop computers.</p>
-<h5 id="general-purpose-application"><a href="#general-purpose-application" class="headerlink" title="general-purpose application"></a>general-purpose application</h5><p>Application used for doing common tasks, such as browsers and word processors, spreadsheets, databases, management systems, and presentation graphics. Also known as productivity applications.</p>
-<h5 id="handheld-computer"><a href="#handheld-computer" class="headerlink" title="handheld computer"></a>handheld computer</h5><p>See personal digital assistant (PDA).</p>
-<h5 id="hard-disk"><a href="#hard-disk" class="headerlink" title="hard disk"></a>hard disk</h5><p>Enclosed disk drive containing one or more metallic disks. Hard disks use magnetic charges to record data and have large storage capacities and fast retrieval times.</p>
-<h5 id="hardware"><a href="#hardware" class="headerlink" title="hardware"></a>hardware</h5><p>Equipment that includes a keyboard, monitor, printer, the computer itself, and other devices that are controlled by software programming.</p>
-<h5 id="information"><a href="#information" class="headerlink" title="information"></a>information</h5><p>Data that has been processed by a computer system.</p>
-<h5 id="information-system"><a href="#information-system" class="headerlink" title="information system"></a>information system</h5><p>Collection of hardware, software, people, data, and procedures that work together to provide information essential to running an organization.</p>
-<h5 id="information-technology-IT"><a href="#information-technology-IT" class="headerlink" title="information technology (IT)"></a>information technology (IT)</h5><p>Computer and communication technologies, such as communication links to the Internet, that provide help and understanding to the end user.</p>
-<h5 id="input-device"><a href="#input-device" class="headerlink" title="input device"></a>input device</h5><p>Piece of equipment that translates data into a form a computer can process. The most common input devices are the keyboard and the mouse.</p>
-<h5 id="Internet"><a href="#Internet" class="headerlink" title="Internet"></a>Internet</h5><p>A huge computer network available to everyone with a microcomputer and a means to connect to it. It is the actual physical network made up of wires, cables, and satellites as opposed to the Web, which is the multimedia interface to resources available on the Internet.</p>
-<h5 id="keyboard"><a href="#keyboard" class="headerlink" title="keyboard"></a>keyboard</h5><p>Input device that looks like a typewriter keyboard but has additional keys.</p>
-<h5 id="laptop-computer"><a href="#laptop-computer" class="headerlink" title="laptop computer"></a>laptop computer</h5><p>See notebook computer and notebook system unit.</p>
-<h5 id="mainframe-computer"><a href="#mainframe-computer" class="headerlink" title="mainframe computer"></a>mainframe computer</h5><p>This computer can process several million program instructions per second. Sizeable organizations rely on these room-size systems to handle large programs and a great deal of data.</p>
-<h5 id="memory"><a href="#memory" class="headerlink" title="memory"></a>memory</h5><p>Memory is contained on chips connected to the system board and is a holding area for data instructions and information (processed data waiting to be output to secondary storage). RAM, ROM, and CMOS are three types of memory chips.</p>
-<h5 id="microcomputer"><a href="#microcomputer" class="headerlink" title="microcomputer"></a>microcomputer</h5><p>Small, low-cost computer designed for individual users. These include desktop, notebook, and personal digital assistant computers.</p>
-<h5 id="microprocessor"><a href="#microprocessor" class="headerlink" title="microprocessor"></a>microprocessor</h5><p>The central processing unit (CPU) of a microcomputer controls and manipulates data to produce information. The microprocessor is contained on a single integrated circuit chip and is the brains of the system.</p>
-<h5 id="midrange-computer"><a href="#midrange-computer" class="headerlink" title="midrange computer"></a>midrange computer</h5><p>Also known as a minicomputer.</p>
-<h5 id="mobile-app-application"><a href="#mobile-app-application" class="headerlink" title="mobile app (application)"></a>mobile app (application)</h5><p>Add-on features for a variety of mobile devices, including smartphones, netbooks, and tablets.</p>
-<h5 id="modem"><a href="#modem" class="headerlink" title="modem"></a>modem</h5><p>Short for modulator-demodulator. It is a communication device that translates the electronic signals from a computer into electronic signals that can travel over telephone lines.</p>
-<h5 id="monitor"><a href="#monitor" class="headerlink" title="monitor"></a>monitor</h5><p>Output device like a television screen that displays data processed by the computer.</p>
-<h5 id="mouse"><a href="#mouse" class="headerlink" title="mouse"></a>mouse</h5><p>Device that typically rolls on the desktop and directs the cursor on the display screen.</p>
-<h5 id="network"><a href="#network" class="headerlink" title="network"></a>network</h5><p>The arrangement in which various communications channels are connected through two or more computers. The largest network in the world is the Internet.</p>
-<h5 id="notebook-computer"><a href="#notebook-computer" class="headerlink" title="notebook computer"></a>notebook computer</h5><p>Portable computer, also known as a laptop computer, weighing between 4 and 10 pounds.</p>
-<h5 id="operating-system-OS"><a href="#operating-system-OS" class="headerlink" title="operating system (OS)"></a>operating system (OS)</h5><p>Software that interacts between application software and the computer, handling such details as running programs, storing and processing data, and coordinating all computer resources, including attached peripheral devices. It is the most important program on the computer. Windows 7, Windows Vista, and Mac OS X are examples of operating systems.</p>
-<h5 id="optical-disc"><a href="#optical-disc" class="headerlink" title="optical disc"></a>optical disc</h5><p>Storage device that can hold over 17 gigabytes of data, which is an equivalent of several million typewritten pages. Lasers are used to record and read data on the disc. The two basic types of optical discs are compact discs (CDs) and digital versatile or video discs (DVDs).</p>
-<h5 id="output-device"><a href="#output-device" class="headerlink" title="output device"></a>output device</h5><p>Equipment that translates processed information from the central processing unit into a form that can be understood by humans. The most common output devices are monitors and printers.</p>
-<h5 id="people"><a href="#people" class="headerlink" title="people"></a>people</h5><p>End users who use computers to make themselves more productive.</p>
-<h5 id="personal-digital-assistant-PDA"><a href="#personal-digital-assistant-PDA" class="headerlink" title="personal digital assistant (PDA)"></a>personal digital assistant (PDA)</h5><p>A device that typically combines pen input, writing recognition, personal organizational tools, and communication capabilities in a very small package. Also called handheld PC and palm computer.</p>
-<h5 id="presentation-file"><a href="#presentation-file" class="headerlink" title="presentation file"></a>presentation file</h5><p>A file created by presentation graphics programs to save presentation materials. For example, a file might contain audience handouts, speaker notes, and electronic slides.</p>
-<h5 id="printer"><a href="#printer" class="headerlink" title="printer"></a>printer</h5><p>Device that produces printed paper output.</p>
-<h5 id="procedures"><a href="#procedures" class="headerlink" title="procedures"></a>procedures</h5><p>Rules or guidelines to follow when using hardware, software, and data.</p>
-<h5 id="program"><a href="#program" class="headerlink" title="program"></a>program</h5><p>Instructions for the computer to follow to process data. See software.</p>
-<h5 id="random-access-memory-RAM"><a href="#random-access-memory-RAM" class="headerlink" title="random-access memory (RAM)"></a>random-access memory (RAM)</h5><p>Volatile, temporary storage that holds the program and data the CPU is presently processing. It is called temporary storage because its contents will be lost if electrical power to the computer is disrupted or the computer is turned off.</p>
-<h5 id="secondary-storage"><a href="#secondary-storage" class="headerlink" title="secondary storage"></a>secondary storage</h5><p>Permanent storage used to preserve programs and data that can be retained after the computer is turned off. These devices include floppy disks, hard disks, magnetic tape, CDs, DVDs, and more.</p>
-<h5 id="server"><a href="#server" class="headerlink" title="server"></a>server</h5><p>A host computer with a connection to the Internet that stores document files used to display web pages. Depending on the resources shared, it may be called a file server, printer server, communication server, web server, or database server.</p>
-<h5 id="smartphone"><a href="#smartphone" class="headerlink" title="smartphone"></a>smartphone</h5><p>A type of cell phone that offers a variety of advanced functionality, including Internet and e-mail.</p>
-<h5 id="software"><a href="#software" class="headerlink" title="software"></a>software</h5><p>Computer program consisting of step-by-step instructions, directing the computer on each task it will perform.</p>
-<h5 id="solid-state-drive-SSD"><a href="#solid-state-drive-SSD" class="headerlink" title="solid-state drive (SSD)"></a>solid-state drive (SSD)</h5><p>Designed to be connected inside a microcomputer system the same way an internal hard disk would be, but contains solid-state memory instead of magnetic disks to store data.</p>
-<h5 id="solid-state-storage"><a href="#solid-state-storage" class="headerlink" title="solid-state storage"></a>solid-state storage</h5><p>A secondary storage device that has no moving parts. Data is stored and retrieved electronically directly from these devices, much as they would be from conventional computer memory.</p>
-<h5 id="specialized-application"><a href="#specialized-application" class="headerlink" title="specialized application"></a>specialized application</h5><p>Programs that are narrowly focused on specific disciplines and occupations. Some of the best known are multimedia, Web authoring, graphics, virtual reality, and artificial intelligence.</p>
-<h5 id="supercomputer"><a href="#supercomputer" class="headerlink" title="supercomputer"></a>supercomputer</h5><p>Fastest calculating device ever invented, processing billions of program instructions per second. Used by very large organizations like NASA.</p>
-<h5 id="system-software"><a href="#system-software" class="headerlink" title="system software"></a>system software</h5><p>“Background” software that enables the application software to interact with the computer. System software consists of the operating system, utilities, device drivers, and language translators. It works with application software to handle the majority of technical details.</p>
-<h5 id="system-unit"><a href="#system-unit" class="headerlink" title="system unit"></a>system unit</h5><p>Part of a microcomputer that contains the CPU. Also known as the system cabinet or chassis, it is the container that houses most of the electronic components that make up the computer system.</p>
-<h5 id="tablet"><a href="#tablet" class="headerlink" title="tablet"></a>tablet</h5><p>A type of microcomputer that contains a thin system unit, most of which is the monitor. The best-known tablets are Apple’s iPad, Motorola’s Zoom, and HP’s Slate.</p>
-<h5 id="tablet-computer"><a href="#tablet-computer" class="headerlink" title="tablet computer"></a>tablet computer</h5><p>A type of notebook computer that accepts handwritten data, using a stylus or pen, that is converted to standard text and can be processed by a word processor program.</p>
-<h5 id="USB-drive"><a href="#USB-drive" class="headerlink" title="USB drive"></a>USB drive</h5><p>The size of a key chain, these hard drives connect to a computer’s USB port enabling a transfer of files; has a capacity of up to <strong><em>64GB</em></strong>.</p>
-<h5 id="utility"><a href="#utility" class="headerlink" title="utility"></a>utility</h5><p>Performs specific tasks related to managing computer resources or files. Norton Utility for virus control and system maintenance is a good example of a utility. Also known as service programs.</p>
-<h5 id="virus"><a href="#virus" class="headerlink" title="virus"></a>virus</h5><p>Hidden instructions that migrate through networks and operating systems and become embedded in different programs. They may be designed to destroy data or simply to display messages.</p>
-<h5 id="web"><a href="#web" class="headerlink" title="web"></a>web</h5><p>Introduced in 1992 and prior to the web, the Internet was all text. The Web made it possible to provide a multimedia interface that includes graphics, animations, sound, and video.</p>
-<h5 id="wireless-revolution"><a href="#wireless-revolution" class="headerlink" title="wireless revolution"></a>wireless revolution</h5><p>A revolution that is expected to dramatically affect the way we communicate and use computer technology.</p>
-<h5 id="worksheet-file"><a href="#worksheet-file" class="headerlink" title="worksheet file"></a>worksheet file</h5><p>Created by electronic spreadsheets to analyze things like budgets and to predict sales.</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1299,7 +1254,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1321,7 +1276,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
