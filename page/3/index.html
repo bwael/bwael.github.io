@@ -296,6 +296,369 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/09/03/C-Network-1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/09/03/C-Network-1/" itemprop="url">计算机网络笔记01</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-03T10:46:01+08:00">
+                2016-09-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/09/03/C-Network-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/09/03/C-Network-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>计算机网络是通过通信设施将地理上分散的具有自治功能的多个计算机系统互联起来，进行信息交换，实现资源共享、互操作和协同工作的系统。<br>简明的定义：自治的计算机的互联集合。</p>
+<h3 id="OSI参考模型与TCP-IP参考模型"><a href="#OSI参考模型与TCP-IP参考模型" class="headerlink" title="OSI参考模型与TCP/IP参考模型"></a>OSI参考模型与TCP/IP参考模型</h3><h4 id="OSI七层网络模型"><a href="#OSI七层网络模型" class="headerlink" title="OSI七层网络模型"></a>OSI七层网络模型</h4><ol>
+<li>应用层（Application</li>
+<li>表示层（Presentation</li>
+<li>会话层（Session</li>
+<li>传输层（Transport    </li>
+<li>网络层（Network</li>
+<li>数据链路层（Data Link</li>
+<li>物理层（Physical</li>
+</ol>
+<h4 id="TCP-IP四层概念模型"><a href="#TCP-IP四层概念模型" class="headerlink" title="TCP/IP四层概念模型"></a>TCP/IP四层概念模型</h4><ol>
+<li>应用层（对应 应用层、表示层、会话层</li>
+<li>传输层（对应 传输层</li>
+<li>网络层（对应 网络层</li>
+<li>网络接口层（对应 数据链路层、物理层</li>
+</ol>
+<h3 id="OSI模型描述计算机网络通信中数据传输的过程"><a href="#OSI模型描述计算机网络通信中数据传输的过程" class="headerlink" title="OSI模型描述计算机网络通信中数据传输的过程"></a>OSI模型描述计算机网络通信中数据传输的过程</h3><ol>
+<li>封装：在发送方，数据从上到下逐层传递过程中，每层要加上适当的控制信息。</li>
+<li>传输：到最底层，数据成为二进制比特流，再转换为电信号<strong>通过物理介质传输到接收方</strong>。</li>
+<li>拆封：在接收方，数据从下到上，要逐层剥去发送方相应层加上的控制信息。</li>
+</ol>
+<h3 id="传输效率的计算"><a href="#传输效率的计算" class="headerlink" title="传输效率的计算"></a>传输效率的计算</h3><blockquote>
+<p>长度为100字节的应用层数据交给运输层传送，需加上20字节的TCP首部。再交给网络层传送，需加上20字节的IP首部。最后交给数据链路层的以太网传送，加上首部和尾部18字节。试求数据的<strong>传输效率</strong>。<br>若应用层数据长度为1000字节，数据的传输效率是多少？</p>
+</blockquote>
+<p><strong>答</strong>：数据长度为100字节时<br>传输效率=100/（100+20+20+18）=63.3%</p>
+<p>数据长度为1000字节时，<br>传输效率=1000/（1000+20+20+18）=94.5%</p>
+<h3 id="计算机网络的分类"><a href="#计算机网络的分类" class="headerlink" title="计算机网络的分类"></a>计算机网络的分类</h3><ul>
+<li><p>（1）从网络结点分布范围来看，可分为局域网（Local Area Network，LAN）、广域网（Wide Area Network，WAN）和城域网（Metropolitan Area Network，MAN）。以及个人区域网（Personal Area Network，PAN）</p>
+</li>
+<li><p>（2）按交换方式可分为电路交换网络（Circurt Switching）、报文交换网络（Message Switching）和分组交换网络（Packet Switching）。 </p>
+</li>
+<li><p>（3）按网络拓扑结构可分为星型网络、树型网络、总线型网络、环型网络和网状网络（不规则型网络）。</p>
+</li>
+<li><p>（4）按传输介质可以分为有线网络和无线网络。</p>
+</li>
+</ul>
+<h3 id="计算机网络相关性能指标"><a href="#计算机网络相关性能指标" class="headerlink" title="计算机网络相关性能指标"></a>计算机网络相关性能指标</h3><h4 id="传输速率"><a href="#传输速率" class="headerlink" title="传输速率"></a>传输速率</h4><p>每秒钟通过信道传输的信息量称为比特传输速率，记作rb。单位是比特/秒（b/s或bit/s），简称比特率。也可写为bps(bit per second)</p>
+<h4 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h4><p>原指某个信号具有的频带宽度。带宽也表示通信线路所能传送数据的能力。即在单位时间内从网络中的某一点到另一点所能通过的“最高数据率”。又是b/s。</p>
+<h4 id="传播速率"><a href="#传播速率" class="headerlink" title="传播速率"></a>传播速率</h4><p>MDZZ</p>
+<h4 id="传输时延"><a href="#传输时延" class="headerlink" title="传输时延"></a>传输时延</h4><p>发送数据帧所需要的时间。<br><strong>发送时延 = 数据帧长度（b）/ 发送速率（b/s）</strong></p>
+<h4 id="发送时延-传输时延"><a href="#发送时延-传输时延" class="headerlink" title="发送时延==传输时延"></a>发送时延==传输时延</h4><h4 id="传播时延"><a href="#传播时延" class="headerlink" title="传播时延"></a>传播时延</h4><p>电磁波在信道中传播一定距离需要花费的时间。<br><strong>传播时延 = 信道长度（m） / 电磁波在信道上的传输速率（m/s)</strong></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/06/04/pynote08/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/06/04/pynote08/" itemprop="url">python学习笔记08----文件操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-04T16:18:52+08:00">
+                2016-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/06/04/pynote08/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/06/04/pynote08/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>文本文件的读写主要通过open()所构建的文件对象来实现。</p>
+<p><strong>基本格式</strong></p>
+<p>f = open(文件名，模式)</p>
+<p><strong>最常用的模式有：</strong></p>
+<ol>
+<li>“r”       # 只读</li>
+<li>“w”     # 写入                                                               —-&gt;如果文件中已经有内容，会把内容抹掉，如果不存在该文件，会新建文件</li>
+<li>“a”      #追加模式                                                       —–&gt;在已有的文字后添加文字</li>
+<li>“b”      #二进制模式（还在其他模式中追加使用）—–&gt;一般在处理音频、图像等文件的时候使用</li>
+<li>“+”      #读/写模式(可在其他模式中追加使用)        —–&gt;r+、w+ 可读可写</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">f = open(<span class="string">'test1.txt'</span>, <span class="string">'w'</span>)       <span class="comment">#创建一个名为f的类文件对象，对test1.txt进行写操作</span></span><br><span class="line">f.write(<span class="string">"大家好，我是王尼玛"</span>)    <span class="comment">#像文件中写入字符串</span></span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'test1.txt'</span>)            <span class="comment">#如果不写模式，默认为读模式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    line = f.readline()          <span class="comment">#一次读一行</span></span><br><span class="line">    <span class="keyword">if</span> len(line) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">print</span> (line,end=<span class="string">""</span>)          <span class="comment">#不换行</span></span><br><span class="line"></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">大家好，我是王尼玛</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">f=open(<span class="string">"test.txt"</span>,<span class="string">"w"</span>)</span><br><span class="line">f.write(<span class="string">"0123456789"</span>)</span><br><span class="line">f.seek(<span class="number">4</span>)                     <span class="comment">#跳到第4个字节</span></span><br><span class="line">f.write(<span class="string">"Hello"</span>)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">f=open(<span class="string">"test.txt"</span>,<span class="string">"r"</span>)</span><br><span class="line">print(f.read())               <span class="comment">#把字符串全部输出</span></span><br><span class="line">f.seek(<span class="number">2</span>)                     <span class="comment">#跳回到第2个字符</span></span><br><span class="line">print(f.read(<span class="number">5</span>))              <span class="comment">#输出接下来的5个字节</span></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0123</span>Hello9</span><br><span class="line"><span class="number">23</span>Hel</span><br></pre></td></tr></table></figure>
+<h3 id="Tips："><a href="#Tips：" class="headerlink" title="Tips："></a>Tips：</h3><p>1.<br>以上所讲的仅仅是Python最基本的文件读写功能。更加丰富的文件读写功能由Python的标准库提供。<br>2.<br>read() readline()以及readlines()用法<br>read() 每次读取整个文件，它通常用于将文件内容放到一个字符串变量中。然而 .read() 生成文件内容最直接的字符串表示，但对于连续的面向行的处理，它却是不必要的，并且如果文件大于可用内存，则不可能实现这种处理。</p>
+<p>.readline() 和 .readlines() 非常相似。它们都在类似于以下的结构中使用：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fh = open(<span class="string">'c:\\autoexec.bat'</span>)</span><br><span class="line"><span class="keyword">for</span>  line <span class="keyword">in</span>  fh.readlines():</span><br><span class="line">     <span class="keyword">print</span>（line）</span><br></pre></td></tr></table></figure></p>
+<p>.readline() 和 .readlines() 之间的差异是后者一次读取整个文件，象 .read() 一样。.readlines() 自动将文件内容分析成一个行的列表，该列表可以由 Python 的for … in …结构进行处理。另一方面，.readline() 每次只读取一行，通常比 .readlines() 慢得多。仅当没有足够内存可以一次读取整个文件时，才应该使用 .readline()。（readlines()的输出格式[“I’ll write this message for you\n”, “hehe,that’s will be ok.\n”]）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/06/02/pynote07/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -840,388 +1203,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/04/22/pynote04/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/04/22/pynote04/" itemprop="url">python学习笔记04----控制语句</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-22T09:33:24+08:00">
-                2016-04-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/04/22/pynote04/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/04/22/pynote04/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-if"><a href="#1-if" class="headerlink" title="1.if"></a>1.if</h3><p>if主要用于条件判断。</p>
-<h4 id="1-1-if结构"><a href="#1-1-if结构" class="headerlink" title="1.1 if结构"></a>1.1 if结构</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">1</span>  </span><br><span class="line">x = <span class="number">1</span>  </span><br><span class="line"><span class="keyword">if</span> i &gt; <span class="number">0</span>:                        <span class="comment">#注意后面的冒号必不可少！  </span></span><br><span class="line">    x = x+<span class="number">1</span>                      <span class="comment">#必须输入四个空格的缩进表示隶属关系！  </span></span><br><span class="line"><span class="keyword">print</span> x</span><br></pre></td></tr></table></figure>
-<h4 id="1-2-if-elif-else-结构"><a href="#1-2-if-elif-else-结构" class="headerlink" title="1.2 if-elif-else 结构"></a>1.2 if-elif-else 结构</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;pre name="code" class="python"&gt;a = input("a:")                  #这条语句的作用是在屏幕显示“a:”,并等待用户输值赋给a。  </span><br><span class="line">b = input(<span class="string">"b:"</span>)  </span><br><span class="line"><span class="keyword">if</span>(a &gt; b):  </span><br><span class="line">    <span class="keyword">print</span> (a, <span class="string">" 大于 "</span>, b)  </span><br><span class="line">    print(<span class="string">"显示1"</span>)  </span><br><span class="line"><span class="keyword">elif</span>(a==b):                      <span class="comment">#elif类似java中的else if，但要注意在末尾的冒号！  </span></span><br><span class="line">    print(a,<span class="string">"等于"</span>,b)  </span><br><span class="line">    print(<span class="string">"显示2"</span>)  </span><br><span class="line"><span class="keyword">else</span>:                            <span class="comment">#注意末尾的冒号！  </span></span><br><span class="line">    print(a,<span class="string">"小于"</span>,b)  </span><br><span class="line">    print(<span class="string">"显示3"</span>)  </span><br><span class="line">print(<span class="string">"显示4"</span>)</span><br></pre></td></tr></table></figure>
-<p>这里有三个块，分别属于if, elif, else引领。Python检测条件，如果发现if的条件为假，那么跳过后面紧跟的块，检测下一个elif的条件； 如果还是假，那么执行else块。通过上面的结构将程序分出三个分支。程序根据条件，只执行三个分支中的一个。</p>
-<h4 id="1-3-if的嵌套使用"><a href="#1-3-if的嵌套使用" class="headerlink" title="1.3 if的嵌套使用"></a>1.3 if的嵌套使用</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = input(<span class="string">"a:"</span>)  </span><br><span class="line">b = input(<span class="string">"b:"</span>)  </span><br><span class="line">c = input(<span class="string">"c:"</span>)  </span><br><span class="line"><span class="keyword">if</span>(a &gt; b):  </span><br><span class="line">    <span class="keyword">print</span> (a,<span class="string">"大于"</span>,b)  </span><br><span class="line">    <span class="keyword">if</span>(a&gt;c):                    <span class="comment">#注意这里的的if需要缩进，因为该if隶属于if（a&gt;b）  </span></span><br><span class="line">        print(a,<span class="string">"大于"</span>,c)  </span><br><span class="line">    <span class="keyword">else</span>:  </span><br><span class="line">        print(a,<span class="string">"小于"</span>,c)       <span class="comment">#注意这里的if应该与if(a&gt;c)缩进相同</span></span><br></pre></td></tr></table></figure>
-<h3 id="2-while"><a href="#2-while" class="headerlink" title="2.while"></a>2.while</h3><p>给出一个while循环终止条件。  下例循环打印1到100<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">0</span>  </span><br><span class="line"><span class="keyword">while</span> a&lt;<span class="number">100</span>:  </span><br><span class="line">    a+=<span class="number">1</span>                     <span class="comment">#Python没有i++的写法  </span></span><br><span class="line">    print(a）  </span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">"循环结束"</span>)</span><br></pre></td></tr></table></figure></p>
-<h3 id="3-for"><a href="#3-for" class="headerlink" title="3.for"></a>3.for</h3><p>for循环需要预先设定好循环的次数(n)，然后执行隶属于for的语句n次。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">student2=[<span class="string">"王尼玛"</span>,<span class="string">"男"</span>,<span class="number">22</span>,[<span class="string">"脑袋大"</span>,<span class="string">"脖子短"</span>,<span class="string">"屁股圆"</span>]]  </span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> student2:                                                   </span><br><span class="line"><span class="comment">#循环次数为列表student2中元素的个数。  注意末尾的引号  </span></span><br><span class="line">    print(a)                                                         </span><br><span class="line">   	<span class="comment">#循环结构同样需要缩进  因为迭代（也就是循环）某范围的数字非常常见，所以有个内建的范围函数提供使用——range()</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list(range(<span class="number">10</span>))                                                      <span class="comment">#建立一个从0到9的列表(range()生成的是iterator对象。list()的作用是转换成列表)  </span></span><br><span class="line">[<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
-<p>我们可以这样使用range()函数</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">101</span>):                                               <span class="comment">#对while中的事例进行改造，打印1到100的数字  </span></span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list(range(<span class="number">1</span>,<span class="number">100</span>,<span class="number">3</span>))                                                <span class="comment">#生成从1到100间的数，步长为3  </span></span><br><span class="line"><span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>, <span class="number">10</span>, <span class="number">13</span>, <span class="number">16</span>, <span class="number">19</span>, <span class="number">22</span>, <span class="number">25</span>, <span class="number">28</span>, <span class="number">31</span>, <span class="number">34</span>, <span class="number">37</span>, <span class="number">40</span>, <span class="number">43</span>, <span class="number">46</span>, <span class="number">49</span>, <span class="number">52</span>, <span class="number">55</span>, <span class="number">58</span>, <span class="number">61</span>, <span class="number">64</span>, <span class="number">67</span>, <span class="number">70</span>, <span class="number">73</span>, <span class="number">76</span>, <span class="number">79</span>, <span class="number">82</span>, <span class="number">85</span>, <span class="number">88</span>, <span class="number">91</span>, <span class="number">94</span>, <span class="number">97</span>]</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">list(range(<span class="number">99</span>,<span class="number">1</span>,<span class="number">-3</span>))                                                 <span class="comment">#1到100间的数字，逆向排列  </span></span><br><span class="line">[<span class="number">99</span>, <span class="number">96</span>, <span class="number">93</span>, <span class="number">90</span>, <span class="number">87</span>, <span class="number">84</span>, <span class="number">81</span>, <span class="number">78</span>, <span class="number">75</span>, <span class="number">72</span>, <span class="number">69</span>, <span class="number">66</span>, <span class="number">63</span>, <span class="number">60</span>, <span class="number">57</span>, <span class="number">54</span>, <span class="number">51</span>, <span class="number">48</span>, <span class="number">45</span>, <span class="number">42</span>, <span class="number">39</span>, <span class="number">36</span>, <span class="number">33</span>, <span class="number">30</span>, <span class="number">27</span>, <span class="number">24</span>, <span class="number">21</span>, <span class="number">18</span>, <span class="number">15</span>, <span class="number">12</span>, <span class="number">9</span>, <span class="number">6</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure>
-<p>轻量级循环</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[x*x <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">10</span>)]                                            <span class="comment">#生成一个简单的  </span></span><br><span class="line"><span class="number">0</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">16</span>, <span class="number">25</span>, <span class="number">36</span>, <span class="number">49</span>, <span class="number">64</span>, <span class="number">81</span>]</span><br></pre></td></tr></table></figure>
-<p><strong>enumerate()函数</strong></p>
-<p>利用enumerate()函数，可以在每次循环中同时得到下标和元素：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">S = <span class="string">'abcdefghijk'</span>  </span><br><span class="line"><span class="keyword">for</span> (index,char) <span class="keyword">in</span> enumerate(S):  </span><br><span class="line">    print(index)  </span><br><span class="line">    print(char)  </span><br><span class="line">zip()</span><br></pre></td></tr></table></figure></p>
-<p>如果你多个等长的序列，然后想要每次循环时从各个序列分别取出一个元素，可以利用zip()方便地实现：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ta = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]  </span><br><span class="line">tb = [<span class="number">9</span>,<span class="number">8</span>,<span class="number">7</span>]  </span><br><span class="line">tc = [<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>]  </span><br><span class="line"><span class="keyword">for</span> (a,b,c) <span class="keyword">in</span> zip(ta,tb,tc):  </span><br><span class="line">    print(a,b,c)</span><br></pre></td></tr></table></figure></p>
-<p>输出<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">9</span> a  </span><br><span class="line"><span class="number">2</span> <span class="number">8</span> b  </span><br><span class="line"><span class="number">3</span> <span class="number">7</span> c</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="string">"lucy"</span>,<span class="string">"lily"</span>,<span class="string">"tom"</span>]  </span><br><span class="line">b=[<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>]  </span><br><span class="line">print(list(zip(a,b)))</span><br></pre></td></tr></table></figure>
-<p>输出<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[(<span class="string">'lucy'</span>, <span class="number">11</span>), (<span class="string">'lily'</span>, <span class="number">12</span>), (<span class="string">'tom'</span>, <span class="number">13</span>)]</span><br></pre></td></tr></table></figure></p>
-<h3 id="4-中断循环"><a href="#4-中断循环" class="headerlink" title="4.中断循环"></a>4.中断循环</h3><p>break——跳出循环<br>continue——跳出本次命令的之行，继续下一次循环</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nameList=[<span class="string">"王二小"</span>,<span class="string">"王小明"</span>,<span class="string">"小红"</span>,<span class="string">"小刚"</span>,<span class="string">"寒梅梅"</span>,<span class="string">"王尼玛"</span>,<span class="string">"李磊"</span>]  </span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> nameList:  </span><br><span class="line">    <span class="keyword">if</span> name==<span class="string">"王尼玛"</span>:  </span><br><span class="line">        print(<span class="string">"凶手找到啦！"</span>)  </span><br><span class="line">        <span class="keyword">break</span>  </span><br><span class="line">print(name)</span><br></pre></td></tr></table></figure>
-<p>输出为王尼玛<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">nameList=[<span class="string">"王二小"</span>,<span class="string">"王小明"</span>,<span class="string">"小红"</span>,<span class="string">"小刚"</span>,<span class="string">"寒梅梅"</span>,<span class="string">"王尼玛"</span>,<span class="string">"李磊"</span>]  </span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> nameList:  </span><br><span class="line">    <span class="keyword">if</span> name==<span class="string">"王尼玛"</span>:  </span><br><span class="line">        print(<span class="string">"凶手找到啦！"</span>)  </span><br><span class="line">        <span class="keyword">continue</span>  </span><br><span class="line">print(name)</span><br></pre></td></tr></table></figure></p>
-<p>输出为李磊</p>
-<h3 id="5-注意"><a href="#5-注意" class="headerlink" title="5.注意"></a>5.注意</h3><ul>
-<li>1.Python的缩进<pre><code>空白在Python中是重要的。事实上行首的空白是重要的。它称为缩进。在逻辑行首的空白（空格和制表符）用来决定逻辑行的缩进层次，从而用来决定语句的分组。 这意味着同一层次的语句必须有相同的缩进。每一组这样的语句称为一个块。我们将在后面的章节中看到有关块的用处的例子。 你需要记住的一样东西是错误的缩进会引发错误。
-</code></pre></li>
-<li><p>2.if格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">if  &lt;条件1&gt;:</span><br><span class="line">    	statement</span><br><span class="line">elif &lt;条件2&gt;:</span><br><span class="line">    	statement</span><br><span class="line">elif &lt;条件3&gt;：</span><br><span class="line">    	statement</span><br><span class="line">else:</span><br><span class="line">    	statement</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.while格式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">while&lt;条件&gt;:</span><br><span class="line">		statement</span><br><span class="line">else:</span><br><span class="line">		statement</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>4.for格式</p>
-<p>  <code>for 变量 in &lt;对象集合&gt;：</code></p>
-</li>
-<li><p>5.Python与其他语言的不同</p>
-<p>  <code>Python的while可以写else！</code></p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/04/19/windows-for-chromebook/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/04/19/windows-for-chromebook/" itemprop="url">Windows 10 64 Bit Installation Guide Acer C720, HP Chromebook 14, Toshiba CB-30, and Dell Chromebook 11</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-19T23:50:57+08:00">
-                2016-04-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/折腾笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">折腾笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/04/19/windows-for-chromebook/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/04/19/windows-for-chromebook/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Acer C740, Acer C910, Acer CB5-571, Toshiba Chromebook 2 and Dell Chromebook 13, see here:<a href="https://docs.google.com/document/d/1nFZmoRzQ03btPCGVSa4ku6JPQik-SxD__zOd1CoB2yg/edit" target="_blank" rel="noopener">Click</a></p>
-<h3 id="Flash-Custom-Coreboot-BIOS"><a href="#Flash-Custom-Coreboot-BIOS" class="headerlink" title="Flash Custom Coreboot BIOS"></a>Flash Custom Coreboot BIOS</h3><p><strong>Warning</strong>: this BIOS is only for the Acer C720, C720P, HP Chromebook 14, Toshiba CB-30, and Dell Chromebook 11.</p>
-<ol>
-<li><p>Please remove the write protect screw before flashing the BIOS.</p>
-</li>
-<li><p>Please check your CPU before flashing the BIOS.</p>
-</li>
-<li><p>Easy Flashing Script:<br><code>cd ~; curl -L -O https://goo.gl/1hFfO3; sudo bash 1hFfO3</code></p>
-</li>
-</ol>
-<p><em>Select the “Install/Update custom coreboot firmware” option.</em></p>
-<h3 id="Create-USB-Installer"><a href="#Create-USB-Installer" class="headerlink" title="Create USB Installer"></a>Create USB Installer</h3><p>Use rufus to create the Windows 10 <strong>64 bit</strong> USB installer. Select MBR for legacy BIOS and create the USB drive.</p>
-<p>You will need a USB keyboard/mouse for installation</p>
-<h3 id="Install-Chipset-Audio-WiFi-and-Bluetooth-Drivers"><a href="#Install-Chipset-Audio-WiFi-and-Bluetooth-Drivers" class="headerlink" title="Install Chipset, Audio, WiFi, and Bluetooth Drivers"></a>Install Chipset, Audio, WiFi, and Bluetooth Drivers</h3><p>Audio Driver: <a href="http://www.realtek.com.tw/downloads/downloadsCheck.aspx?Langid=1&amp;PNid=14&amp;PFid=24&amp;Level=4&amp;Conn=3&amp;DownTypeID=3&amp;GetDown=false" target="_blank" rel="noopener">Link</a></p>
-<p>Chipset Driver: Use the latest from Windows Update!</p>
-<p>WiFi Driver: Use the latest from Windows Update!</p>
-<p>Bluetooth Driver: Use the latest from Windows Update!</p>
-<p>Run the setup files for the audio and chipset drivers. For WiFi and Bluetooth, use Device Manager to update the driver.</p>
-<h3 id="Turn-on-testsigning"><a href="#Turn-on-testsigning" class="headerlink" title="Turn on testsigning"></a>Turn on testsigning</h3><p>Open Command Prompt as administrator, and type in “bcdedit /set testsigning on”. Then reboot.</p>
-<h3 id="Keyboard-Driver"><a href="#Keyboard-Driver" class="headerlink" title="Keyboard Driver"></a>Keyboard Driver</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/croskeyboard3.4.1.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Open Device Manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_GGL&amp;DEV_0303” or “ACPI\GGL0303”. Under the driver tab, click “Update Driver” and browse to the croskeyboard3 driver. Then install.</p>
-<h3 id="Trackpad-Driver-Cypress-Trackpad"><a href="#Trackpad-Driver-Cypress-Trackpad" class="headerlink" title="Trackpad Driver (Cypress Trackpad)"></a>Trackpad Driver (Cypress Trackpad)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostrackpad%203%20beta%2011.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Open Device manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_CYAP&amp;DEV_0000” or “ACPI\CYAP0000”. Under the driver tab, click “Update Driver” and browse to the crostrackpad3 driver. Then install.</p>
-<h3 id="Trackpad-Driver-Elan-Trackpad"><a href="#Trackpad-Driver-Elan-Trackpad" class="headerlink" title="Trackpad Driver (Elan Trackpad)"></a>Trackpad Driver (Elan Trackpad)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostrackpad%203%20beta%2011-elan.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Open Device manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_ELAN&amp;DEV_0000” or “ACPI\ELAN0000”. Under the driver tab, click “Update Driver” and browse to the crostrackpad3 driver. Then install.</p>
-<h3 id="Visual-Studio-2015-Redistributable"><a href="#Visual-Studio-2015-Redistributable" class="headerlink" title="Visual Studio 2015 Redistributable:"></a>Visual Studio 2015 Redistributable:</h3><p>Download: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145" target="_blank" rel="noopener">Link</a></p>
-<h3 id="Trackpad-Driver-Helper-Utilities-Cypress-and-Elan-Trackpads"><a href="#Trackpad-Driver-Helper-Utilities-Cypress-and-Elan-Trackpads" class="headerlink" title="Trackpad Driver Helper Utilities (Cypress and Elan Trackpads)"></a>Trackpad Driver Helper Utilities (Cypress and Elan Trackpads)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostrackpad%203%20beta%2011.2%20utilities.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Place the trackpad driver utility in the Windows startup folder (Start &gt; Run &gt; shell:startup) and run it after installing the driver.</p>
-<h3 id="Touch-Screen-Driver-Acer-C720P-users-only"><a href="#Touch-Screen-Driver-Acer-C720P-users-only" class="headerlink" title="Touch Screen Driver (Acer C720P users only)"></a>Touch Screen Driver (Acer C720P users only)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostouchscreen2.3.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Open Device manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_ATML&amp;DEV_0001” or “ACPI\ATML0001”. Under the driver tab, click “Update Driver” and browse to the crostouchscreen2 driver. Then install.</p>
-<h3 id="Graphics-Driver"><a href="#Graphics-Driver" class="headerlink" title="Graphics Driver"></a>Graphics Driver</h3><p><strong>Grab the latest Graphics Driver from Windows Update!</strong></p>
-<h3 id="Embedded-Controller-Driver-Utility-Optional"><a href="#Embedded-Controller-Driver-Utility-Optional" class="headerlink" title="Embedded Controller Driver + Utility (Optional)"></a>Embedded Controller Driver + Utility (Optional)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/CrosPowerMan%201.1.zip" target="_blank" rel="noopener">Link</a></p>
-<h3 id="Visual-Studio-2013-Redistr"><a href="#Visual-Studio-2013-Redistr" class="headerlink" title="Visual Studio 2013 Redistr"></a>Visual Studio 2013 Redistr</h3><p>ibutable: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40784" target="_blank" rel="noopener">Download</a></p>
-<p>If you like running Windows on your chromebook, please donate if you are able to do so. I have made these drivers and the BIOS available free of charge and am relying on donations to be able to get Windows running on more chromebooks (Pixel 2, Dell Chromebook 13).<br>For support, please see <a href="https://reddit.com/r/chrultrabook" target="_blank" rel="noopener">https://reddit.com/r/chrultrabook</a><br>Please donate <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=AR25GXJD45KBW&amp;lc=US&amp;item_name=CoolStar%20Chromebook%20Dev%2e&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" target="_blank" rel="noopener">here</a>.</p>
-<p><em>from : reddit.com chrultrabook</em></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1269,7 +1255,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1291,7 +1277,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
