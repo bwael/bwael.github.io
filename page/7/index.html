@@ -296,6 +296,365 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/08/ALG-2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/08/ALG-2/" itemprop="url">【算法学习笔记】棋盘覆盖问题演示程序</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-08T16:59:17+08:00">
+                2016-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/08/ALG-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/08/ALG-2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><p>棋盘覆盖问题采用的是分治策略。通过十字划分，将原问题转化为四个规模较小的棋盘覆盖问题。递归的使用这种分割，将问题最简化。</p>
+<h2 id="问题简述"><a href="#问题简述" class="headerlink" title="问题简述"></a>问题简述</h2><blockquote>
+<p>在一个 2^k <em> 2^k个方格组成的棋盘中，若恰有一个方格与其它方格不同，则称该方格为一特殊方格，称该棋盘为一特殊棋盘。显然特殊方格在棋盘上出现的位置有 4^k 种情形。因而对任何 k&gt;=0 ，有 4^k 种不同的特殊棋盘。下图所示的特殊棋盘为 k=2 时 16 个特殊棋盘中的一个。<img src="http://images.cnblogs.com/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/1_thumb.gif" alt="">在棋盘覆盖问题中，要用下图中 4 中不同形态的 L 型骨牌覆盖一个给定的特殊棋牌上除特殊方格以外的所有方格，且任何 2 个 L 型骨牌不得重叠覆盖。易知，在任何一个 2^k </em> 2^k 的棋盘中，用到的 L 型骨牌个数恰为 (4^k-1)/3 。<img src="http://images.cnblogs.com/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/2_thumb.gif" alt=""></p>
+</blockquote>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>用分治策略，可以设计解棋盘问题的一个简捷的算法。<br>当k&gt;0时，将2^k <em> 2^k棋盘分割为4个2^(k-1) </em> 2^(k-1)子棋盘，如下图所示。<br><img src="http://images.cnblogs.com/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/3_thumb.gif" alt=""><br>特殊方格必位于4个较小子棋盘之一中，其余3个子棋盘中无特殊方格。为了将这3个无特殊方格的子棋盘转化为特殊棋盘，我们可以用一个L型骨牌覆盖这3个较小的棋盘的汇合处，如下图所示，这3个子棋盘上被L型骨牌覆盖的方格就成为该棋盘上的特殊方格，从而将原问题化为4个较小规模的棋盘覆盖问题。递归的使用这种分割，直至棋盘简化为1x1棋盘。<br><img src="http://images.cnblogs.com/cnblogs_com/lsxqw2004/WindowsLiveWriter/6e8df6c1d310_13ADF/4_thumb.gif" alt=""></p>
+<h2 id="C-Code"><a href="#C-Code" class="headerlink" title="C++ Code"></a>C++ Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> tile=<span class="number">1</span>;     <span class="comment">//L型骨牌的编号(递增)</span></span><br><span class="line"><span class="keyword">int</span> board[<span class="number">100</span>][<span class="number">100</span>];    <span class="comment">//棋盘</span></span><br><span class="line"><span class="comment">/*****************************************************</span></span><br><span class="line"><span class="comment">* 递归方式实现棋盘覆盖算法</span></span><br><span class="line"><span class="comment">* 输入参数：</span></span><br><span class="line"><span class="comment">* tr--当前棋盘左上角的行号</span></span><br><span class="line"><span class="comment">* tc--当前棋盘左上角的列号</span></span><br><span class="line"><span class="comment">* dr--当前特殊方格所在的行号</span></span><br><span class="line"><span class="comment">* dc--当前特殊方格所在的列号</span></span><br><span class="line"><span class="comment">* size：当前棋盘的:2^k</span></span><br><span class="line"><span class="comment">*****************************************************/</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">chessBoard</span> <span class="params">( <span class="keyword">int</span> tr, <span class="keyword">int</span> tc, <span class="keyword">int</span> dr, <span class="keyword">int</span> dc, <span class="keyword">int</span> size )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ( size==<span class="number">1</span> )    <span class="comment">//棋盘方格大小为1,说明递归到最里层</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> t=tile++;     <span class="comment">//每次递增1</span></span><br><span class="line">    <span class="keyword">int</span> s=size/<span class="number">2</span>;    <span class="comment">//棋盘中间的行、列号(相等的)</span></span><br><span class="line">    <span class="comment">//检查特殊方块是否在左上角子棋盘中</span></span><br><span class="line">    <span class="keyword">if</span> ( dr&lt;tr+s &amp;&amp; dc&lt;tc+s )              <span class="comment">//在</span></span><br><span class="line">        chessBoard ( tr, tc, dr, dc, s );</span><br><span class="line">    <span class="keyword">else</span>         <span class="comment">//不在，将该子棋盘右下角的方块视为特殊方块</span></span><br><span class="line">    &#123;</span><br><span class="line">        board[tr+s<span class="number">-1</span>][tc+s<span class="number">-1</span>]=t;</span><br><span class="line">        chessBoard ( tr, tc, tr+s<span class="number">-1</span>, tc+s<span class="number">-1</span>, s );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//检查特殊方块是否在右上角子棋盘中</span></span><br><span class="line">    <span class="keyword">if</span> ( dr&lt;tr+s &amp;&amp; dc&gt;=tc+s )               <span class="comment">//在</span></span><br><span class="line">        chessBoard ( tr, tc+s, dr, dc, s );</span><br><span class="line">    <span class="keyword">else</span>          <span class="comment">//不在，将该子棋盘左下角的方块视为特殊方块</span></span><br><span class="line">    &#123;</span><br><span class="line">        board[tr+s<span class="number">-1</span>][tc+s]=t;</span><br><span class="line">        chessBoard ( tr, tc+s, tr+s<span class="number">-1</span>, tc+s, s );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//检查特殊方块是否在左下角子棋盘中</span></span><br><span class="line">    <span class="keyword">if</span> ( dr&gt;=tr+s &amp;&amp; dc&lt;tc+s )              <span class="comment">//在</span></span><br><span class="line">        chessBoard ( tr+s, tc, dr, dc, s );</span><br><span class="line">    <span class="keyword">else</span>            <span class="comment">//不在，将该子棋盘右上角的方块视为特殊方块</span></span><br><span class="line">    &#123;</span><br><span class="line">        board[tr+s][tc+s<span class="number">-1</span>]=t;</span><br><span class="line">        chessBoard ( tr+s, tc, tr+s, tc+s<span class="number">-1</span>, s );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//检查特殊方块是否在右下角子棋盘中</span></span><br><span class="line">    <span class="keyword">if</span> ( dr&gt;=tr+s &amp;&amp; dc&gt;=tc+s )                <span class="comment">//在</span></span><br><span class="line">        chessBoard ( tr+s, tc+s, dr, dc, s );</span><br><span class="line">    <span class="keyword">else</span>         <span class="comment">//不在，将该子棋盘左上角的方块视为特殊方块</span></span><br><span class="line">    &#123;</span><br><span class="line">        board[tr+s][tc+s]=t;</span><br><span class="line">        chessBoard ( tr+s, tc+s, tr+s, tc+s, s );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> size;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"输入棋盘的size(2^n): "</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;size;</span><br><span class="line">    <span class="keyword">int</span> x,y;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="string">"输入特殊方格位置坐标: "</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;x&gt;&gt;y;</span><br><span class="line">    chessBoard ( <span class="number">0</span>,<span class="number">0</span>,x,y,size );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i=<span class="number">0</span>; i&lt;size; i++ )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j=<span class="number">0</span>; j&lt;size; j++ )</span><br><span class="line">            <span class="built_in">cout</span>&lt;&lt;board[i][j]&lt;&lt;<span class="string">"\t"</span>;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="EGE演示程序"><a href="#EGE演示程序" class="headerlink" title="EGE演示程序"></a>EGE演示程序</h2><p>我自己用EGE做了一个图形化演示，但效果并不理想，代码核心内容如上，就不贴代码了。如图<br><img src="http://t2.qpic.cn/mblogpic/efe8b9318ae06ac02158/2000" alt=""><br><img src="http://t2.qpic.cn/mblogpic/19dcf28f683ff3a9daca/2000" alt=""></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/07/webserver-powered-by-raspberrypi/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/07/webserver-powered-by-raspberrypi/" itemprop="url">用树莓派搭建你自己的Web服务器,以及一个可以外网访问的Blog</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-07T22:50:57+08:00">
+                2016-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/折腾笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">折腾笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/07/webserver-powered-by-raspberrypi/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/07/webserver-powered-by-raspberrypi/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>先决条件很简单，树莓派或是其他开发板甚至是LinuxPC，路由器。</p>
+<p>我使用的是一代树莓派b+，内存512M加上超频到极限的单核处理器，实在是无法与树莓派2相媲美，不得已只好选择相对轻量的环境完成这项尝试。说道Web服务器，大家也许都会想到 Apache、MySql 等等，非常常见的组合LAMP（Linux+Apache+Mysql/MariaDB+Perl/PHP/Python） ，但是考虑到树莓派的性能有一个非常合适的组合 nginx + sqlite + php对了还有php博客程序，我选择Z-blog。</p>
+<h2 id="首先，要搭建一个Web服务器："><a href="#首先，要搭建一个Web服务器：" class="headerlink" title="首先，要搭建一个Web服务器："></a><strong>首先，要搭建一个Web服务器：</strong></h2><p>介绍一下   nginx 是个轻量级的高性能Web服务器，并不比Apache差，好像淘宝就广泛的使用它。<br>sqlite 是个非常轻量级的数据库，常用于嵌入式领域，许多Android应用用的也是它。<br>php 非常常用Web脚本语言，就不必介绍了。</p>
+<p>不如直接切到root下工作</p>
+<h3 id="安装nginx-web服务器-约6MB"><a href="#安装nginx-web服务器-约6MB" class="headerlink" title="安装nginx  web服务器 (约6MB)"></a>安装nginx  web服务器 (约6MB)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure>
+<h3 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nginx start</span><br></pre></td></tr></table></figure>
+<p>nginx的www根目录默认在 /usr/share/nginx/www中，稍后的blog程序可以放到该目录下</p>
+<h3 id="安装php和sqlite-约9MB"><a href="#安装php和sqlite-约9MB" class="headerlink" title="安装php和sqlite(约9MB)"></a>安装php和sqlite(约9MB)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install php5-fpm php5-sqlite</span><br></pre></td></tr></table></figure>
+<h3 id="修改nginx的配置文件"><a href="#修改nginx的配置文件" class="headerlink" title="修改nginx的配置文件"></a>修改nginx的配置文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /etc/nginx/sites-available/default</span><br></pre></td></tr></table></figure>
+<h4 id="找到listen行，将其前面的-号注释去掉，修改后内容如下"><a href="#找到listen行，将其前面的-号注释去掉，修改后内容如下" class="headerlink" title="找到listen行，将其前面的#号注释去掉，修改后内容如下"></a>找到listen行，将其前面的#号注释去掉，修改后内容如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">listen 80; ## listen for ipv4.</span><br></pre></td></tr></table></figure>
+<p>在路由器的内网环境下80端口并不是一个好的选择，因为绝大多数路由器不会开放例如80这样的常用端口，我设置成8888，看个人爱好咯</p>
+<h4 id="找到index行，加入index-php，修改后内容如下"><a href="#找到index行，加入index-php，修改后内容如下" class="headerlink" title="找到index行，加入index.php，修改后内容如下"></a>找到index行，加入index.php，修改后内容如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">index index.php index.html index.htm</span><br></pre></td></tr></table></figure>
+<h4 id="找到php的定义段，将这些行的注释去掉-，修改后内容如下"><a href="#找到php的定义段，将这些行的注释去掉-，修改后内容如下" class="headerlink" title="找到php的定义段，将这些行的注释去掉 ，修改后内容如下"></a>找到php的定义段，将这些行的注释去掉 ，修改后内容如下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">location ~ \.php$ &#123;</span><br><span class="line">fastcgi_pass unix:/var/run/php5-fpm.sock;</span><br><span class="line">fastcgi_index index.php;</span><br><span class="line">include fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="重新加载nginx的配置"><a href="#重新加载nginx的配置" class="headerlink" title="重新加载nginx的配置"></a>重新加载nginx的配置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nginx reload</span><br></pre></td></tr></table></figure>
+<p>上面的操作很关键，是通用的步骤，但没接触过nginx的我在其中栽了好多跟头</p>
+<h3 id="检验一下"><a href="#检验一下" class="headerlink" title="检验一下"></a>检验一下</h3><h4 id="接下来我们访问一下试试，我的树莓派静态ip地址是-192-168-1-110（一定要设置好），刚才设置了监听端口8888，浏览器访问-192-168-1-110-8888"><a href="#接下来我们访问一下试试，我的树莓派静态ip地址是-192-168-1-110（一定要设置好），刚才设置了监听端口8888，浏览器访问-192-168-1-110-8888" class="headerlink" title="接下来我们访问一下试试，我的树莓派静态ip地址是 192.168.1.110（一定要设置好），刚才设置了监听端口8888，浏览器访问 192.168.1.110:8888"></a>接下来我们访问一下试试，我的树莓派静态ip地址是 192.168.1.110（一定要设置好），刚才设置了监听端口8888，浏览器访问 192.168.1.110:8888</h4><blockquote>
+<p>出现Welcome to nginx!</p>
+</blockquote>
+<p>说明我的nginx服务已经启动成功。</p>
+<h4 id="然后在树莓派中生成一php文件，测试一下php"><a href="#然后在树莓派中生成一php文件，测试一下php" class="headerlink" title="然后在树莓派中生成一php文件，测试一下php"></a>然后在树莓派中生成一php文件，测试一下php</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano /usr/share/nginx/www/test.php</span><br></pre></td></tr></table></figure>
+<p>在文件中输入以下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?  phpinfo(); ?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Ctrl+X然后Yes存盘退出</p>
+<p>再来访问一下，PHP  OK</p>
+<blockquote>
+<p>出现PHP页面</p>
+</blockquote>
+<hr>
+<h2 id="使你的树莓派能够从外网访问："><a href="#使你的树莓派能够从外网访问：" class="headerlink" title="使你的树莓派能够从外网访问："></a><strong>使你的树莓派能够从外网访问：</strong></h2><h3 id="你得申请一个免费的动态域名解析，由于我用的是FAST的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开-http-www-oray-com-点击顶部的“注册”，申请一个花生壳域名。"><a href="#你得申请一个免费的动态域名解析，由于我用的是FAST的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开-http-www-oray-com-点击顶部的“注册”，申请一个花生壳域名。" class="headerlink" title="你得申请一个免费的动态域名解析，由于我用的是ＦＡＳＴ的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开 http://www.oray.com ,点击顶部的“注册”，申请一个花生壳域名。"></a>你得申请一个免费的动态域名解析，由于我用的是ＦＡＳＴ的路由器，只支持花生壳，所以我申请了花生壳的动态域名解析。申请花生壳很简单，打开 <a href="http://www.oray.com" target="_blank" rel="noopener">http://www.oray.com</a> ,点击顶部的“注册”，申请一个花生壳域名。</h3><blockquote>
+<p>有很多二级域名可以选择</p>
+</blockquote>
+<p>i ok la是不是很好记</p>
+<h3 id="进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存"><a href="#进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存" class="headerlink" title="进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存"></a>进入路由器，配置你的花生壳动态域名账号，别忘了DDNS，否则登不上，点击登录，保存</h3><blockquote>
+<p>大部分国产路由器都支持花生壳，记得Tenda不支持</p>
+</blockquote>
+<h3 id="接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192-168-1-110"><a href="#接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192-168-1-110" class="headerlink" title="接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192.168.1.110"></a>接下来需要配置端口了。先要确定你的树莓派在局域网内的IP，给它一个静态的IP：192.168.1.110</h3><h3 id="然后添加端口转发，到192-168-1-110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。"><a href="#然后添加端口转发，到192-168-1-110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。" class="headerlink" title="然后添加端口转发，到192.168.1.110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。"></a>然后添加端口转发，到192.168.1.110，刚才的8888端口保证她是生效的，也可以继续添加一些其他端口便于管理。</h3><blockquote>
+<p>22,443端口都可以开启</p>
+</blockquote>
+<p>现在可以试着用外网访问一下 你的花生壳域名，别忘了加上“:”+端口号。</p>
+<p>到这里基本上已经大功告成，只消几分钟你的blog就可以运作起来了。</p>
+<hr>
+<h2 id="Blog程序安装"><a href="#Blog程序安装" class="headerlink" title="Blog程序安装:"></a><strong>Blog程序安装:</strong></h2><p>选用同样轻量的Z-blog，完美支持我们前面搭建的平台；如果使用WordPress未尝不可，但是它不完全支持sqlite，可以参考（<a href="http://www.tuicool.com/articles/fuiyQb" target="_blank" rel="noopener">http://www.tuicool.com/articles/fuiyQb</a> ）。</p>
+<p>简单说过一下吧！太困了</p>
+<h3 id="进-usr-share-nginx-www-下，"><a href="#进-usr-share-nginx-www-下，" class="headerlink" title="进/usr/share/nginx/www/下，"></a>进/usr/share/nginx/www/下，</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/zblogcn/Release/raw/master/zip/Z-BlogPHP_1_4_Deeplue_150101.zip</span><br></pre></td></tr></table></figure>
+<h3 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h3><h3 id="通过浏览器访问Release下的index-php或者install-php进入安装步骤，后面就一路点下去-后台出现"><a href="#通过浏览器访问Release下的index-php或者install-php进入安装步骤，后面就一路点下去-后台出现" class="headerlink" title="通过浏览器访问Release下的index.php或者install.php进入安装步骤，后面就一路点下去,后台出现"></a>通过浏览器访问Release下的index.php或者install.php进入安装步骤，后面就一路点下去,后台出现</h3><blockquote>
+<p>大功告成</p>
+</blockquote>
+<p>我的主页 <a href="http://bwael.iok.la:8888/" target="_blank" rel="noopener">http://bwael.iok.la:8888/</a>  近期会一直开放</p>
+<blockquote>
+<p>原文是有图的 : <a href="http://www.bwael.com/uncategorized/%E7%94%A8%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E4%BD%A0%E8%87%AA%E5%B7%B1%E7%9A%84web%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E5%A4%96%E7%BD%91.html" target="_blank" rel="noopener">原文</a></p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/07/ALG-1/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -701,7 +1060,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -723,7 +1082,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

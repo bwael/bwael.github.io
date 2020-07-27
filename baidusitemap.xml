@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://bwael.com/2020/07/24/leetcode-435-Non-overlapping-Intervals/</loc>
+    <lastmod>2020-07-27T13:16:07.284Z</lastmod>
+  </url>  <url>
+    <loc>http://bwael.com/2018/08/20/leetcode-51/</loc>
+    <lastmod>2020-07-27T13:15:43.542Z</lastmod>
+  </url>  <url>
+    <loc>http://bwael.com/2020/07/27/offer-14/</loc>
+    <lastmod>2020-07-27T07:43:42.258Z</lastmod>
+  </url>  <url>
     <loc>http://bwael.com/2020/07/26/leetcode-95/</loc>
     <lastmod>2020-07-26T02:46:36.029Z</lastmod>
   </url>  <url>
@@ -9,9 +18,6 @@
   </url>  <url>
     <loc>http://bwael.com/2017/08/24/leetcode-455/</loc>
     <lastmod>2020-07-24T13:17:10.898Z</lastmod>
-  </url>  <url>
-    <loc>http://bwael.com/2020/07/24/leetcode-435-Non-overlapping-Intervals/</loc>
-    <lastmod>2020-07-24T03:26:55.384Z</lastmod>
   </url>  <url>
     <loc>http://bwael.com/2017/02/13/microblog-develop-documentation-05/</loc>
     <lastmod>2018-12-05T03:59:16.972Z</lastmod>

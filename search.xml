@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[剑指Offer 14.剪绳子（LeetCode 343.整数拆分）]]></title>
+    <url>%2F2020%2F07%2F27%2Foffer-14%2F</url>
+    <content type="text"><![CDATA[剑指Offer 14.剪绳子（LeetCode 343.整数拆分） 343.整数拆分 - LeetCode (Medium) 题目描述把一根绳子剪成多段，并且使得每段的长度乘积最大。 12345n = 2return 1 (2 = 1 + 1)n = 10return 36 (10 = 3 + 3 + 4) 解题思路贪心 尽可能多剪长度为 3 的绳子，并且不允许有长度为 1 的绳子出现。如果出现了，就从已经切好长度为 3 的绳子中拿出一段与长度为 1 的绳子重新组合，把它们切成两段长度为 2 的绳子。 证明：当 n &gt;= 5 时，3(n - 3) - n = 2n - 9 &gt; 0，且 2(n - 2) - n = n - 4 &gt; 0。因此在 n &gt;= 5 的情况下，将绳子剪成一段为 2 或者 3，得到的乘积会更大。又因为 3(n - 3) - 2(n - 2) = n - 5 &gt;= 0，所以剪成一段长度为 3 比长度为 2 得到的乘积更大。 12345678910111213public int integerBreak(int n) &#123; if (n &lt; 2) return 0; if (n == 2) return 1; if (n == 3) return 2; int timesOf3 = n / 3; if (n - timesOf3 * 3 == 1) timesOf3--; int timesOf2 = (n - timesOf3 * 3) / 2; return (int) (Math.pow(3, timesOf3)) * (int) (Math.pow(2, timesOf2));&#125; 动态规划 123456789public int integerBreak(int n) &#123; int[] dp = new int[n + 1]; dp[1] = 1; for (int i = 2; i &lt;= n; i++) for (int j = 1; j &lt; i; j++) //记录求解的历史 dp[i] = Math.max(dp[i], Math.max(j * (i - j), dp[j] * (i - j))); return dp[n];&#125;]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>LeetCode</tag>
+        <tag>剑指Offer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 95.不同的二叉搜索树 II]]></title>
     <url>%2F2020%2F07%2F26%2Fleetcode-95%2F</url>
     <content type="text"><![CDATA[95. 不同的二叉搜索树 II 95.Unique Binary Search Trees II (Medium) Leetcode / 力扣 2020-7-26 10:17:45 题目描述给定一个数字 n，要求生成所有值为 1…n 的二叉搜索树。 1234567891011121314151617Input: 3Output:[ [1,null,3,2], [3,2,null,1], [3,1,null,null,2], [2,1,3], [1,null,2,null,3]]Explanation:The above output corresponds to the 5 unique BST's shown below: 1 3 3 2 1 \ / / / \ \ 3 2 1 1 3 2 / / \ \ 2 1 2 3 解题思路12345678910111213141516171819202122232425262728293031323334353637383940414243444546/** * Definition for a binary tree node. * public class TreeNode &#123; * int val; * TreeNode left; * TreeNode right; * TreeNode() &#123;&#125; * TreeNode(int val) &#123; this.val = val; &#125; * TreeNode(int val, TreeNode left, TreeNode right) &#123; * this.val = val; * this.left = left; * this.right = right; * &#125; * &#125; */class Solution &#123; public List&lt;TreeNode&gt; generateTrees(int n) &#123; if(n &lt; 1) return new LinkedList&lt;TreeNode&gt;(); return generateSubTrees(1, n); &#125; private List&lt;TreeNode&gt; generateSubTrees(int s, int e)&#123; List&lt;TreeNode&gt; ret = new LinkedList&lt;TreeNode&gt;(); if(s &gt; e)&#123; ret.add(null); return ret; &#125; // 枚举可行根节点 for (int i = s; i &lt;= e; ++i) &#123; // 获得所有可行的左子树集合 List&lt;TreeNode&gt; leftSubtrees = generateSubTrees(s, i - 1); // 获得所有可行的右子树集合 List&lt;TreeNode&gt; rightSubtrees = generateSubTrees(i + 1, e); // 从左子树集合中选出一棵左子树，从右子树集合中选出一棵右子树，拼接到根节点上 for (TreeNode left : leftSubtrees) &#123; for (TreeNode right : rightSubtrees) &#123; TreeNode root = new TreeNode(i); root.left = left; root.right = right; ret.add(root); &#125; &#125; &#125; return ret; &#125;&#125;]]></content>
@@ -23,6 +36,19 @@
       <tags>
         <tag>学习笔记</tag>
         <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[LeetCode 51.N皇后]]></title>
+    <url>%2F2018%2F08%2F20%2Fleetcode-51%2F</url>
+    <content type="text"><![CDATA[51. N皇后 51.N-Queens (Hard) Leetcode / 力扣 题目描述 在 n*n 的矩阵中摆放 n 个皇后，并且每个皇后不能在同一行，同一列，同一对角线上，求所有的 n 皇后的解。 解题思路这个问题本质上跟全排列问题差不多，决策树的每一层表示棋盘上的每一行；每个节点可以做出的选择是，在该行的任意一列放置一个皇后。 当 N = 8 时，就是八皇后问题，数学大佬高斯穷尽一生都没有数清楚八皇后问题到底有几种可能的放置方法，但是我们的算法只需要一秒就可以算出来所有可能的结果。 不过真的不怪高斯。这个问题的复杂度确实非常高，看看我们的决策树，虽然有 isValid 函数剪枝，但是最坏时间复杂度仍然是 O(N^(N+1))，而且无法优化。如果 N = 10 的时候，计算就已经很耗时了。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263class Solution &#123; private List&lt;List&lt;String&gt;&gt; res; private static List&lt;String&gt; charToString(char[][] array) &#123; List&lt;String&gt; result = new LinkedList&lt;&gt;(); for (char[] chars : array) &#123; result.add(String.valueOf(chars)); &#125; return result; &#125; /* 输入棋盘边长 n，返回所有合法的放置 */ public List&lt;List&lt;String&gt;&gt; solveNQueens(int n) &#123; if (n &lt;= 0) return null; res = new LinkedList&lt;&gt;(); // '.' 表示空，'Q' 表示皇后，初始化空棋盘 char[][] board = new char[n][n]; for (char[] chars : board)&#123; Arrays.fill(chars, '.'); &#125; backtrack(board, 0); return res; &#125; /** * 路径：board中小于row的那些行都已经成功放置了皇后 * 可选择列表: 第row行的所有列都是放置Q的选择 * 结束条件: row超过board的最后一行 */ private void backtrack(char[][] board, int row) &#123; // 结束条件，构造输出 if (row == board.length) &#123; res.add(charToString(board)); return; &#125; int n = board[row].length; for (int col = 0; col &lt; n; col++) &#123; // 排除不合法选择 if (!isValid(board, row, col)) continue; // 做选择 board[row][col] = 'Q'; // 进入下一行决策 backtrack(board, row + 1); // 撤销选择 board[row][col] = '.'; &#125; &#125; /* 是否可以在 board[row][col] 放置皇后？ */ private boolean isValid(char[][] board, int row, int col) &#123; int rows = board.length; // check is valid in col列 for (char[] chars : board) if (chars[col] == 'Q') return false; // check is valide upright右上方 for (int i = row - 1, j = col + 1; i &gt;= 0 &amp;&amp; j &lt; rows; i--, j++) &#123; if (board[i][j] == 'Q') return false; &#125; // check is valide upleft左上方 for (int i = row - 1, j = col - 1; i &gt;= 0 &amp;&amp; j &gt;= 0; i--, j--) &#123; if (board[i][j] == 'Q') return false; &#125; return true; &#125;&#125;]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>学习笔记</tag>
+        <tag>LeetCode</tag>
+        <tag>回溯搜索</tag>
       </tags>
   </entry>
   <entry>
