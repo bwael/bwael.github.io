@@ -296,6 +296,376 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/21/pynote01/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/21/pynote01/" itemprop="url">python学习笔记01----Hello World！</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-21T00:10:40+08:00">
+                2016-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/21/pynote01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/21/pynote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-Python命令行"><a href="#1-Python命令行" class="headerlink" title="1.Python命令行"></a>1.Python命令行</h3><p>在linux下输入python（windows下点击开始-&gt;程序-&gt;Python 2.3 -&gt;IDLE（Python GUI）<br>在&gt;&gt;&gt;提示符后输入print(‘Hello World!’)</p>
+<p><code>Hello World!</code></p>
+<h3 id="2-Python小程序"><a href="#2-Python小程序" class="headerlink" title="2.Python小程序"></a>2.Python小程序</h3><p>用文本编辑器写一个.py结尾的文件，比如说helloWorld.py中写入print(“Hello World”) 在命令提示符中输入Python helloWorld.py，会在窗口中显示以下结果</p>
+<p><code>Hello World!</code></p>
+<h3 id="3-Python脚本"><a href="#3-Python脚本" class="headerlink" title="3.Python脚本"></a>3.Python脚本</h3><p>下面将刚才的Python小程序改写成Python脚本</p>
+<pre><code>#!/usr/bin/env python
+print(&quot;&quot;&quot;Hello World!&quot;&quot;&quot;)
+</code></pre><p>更改helloWorld.py文件的权限</p>
+<p><code>sudo chmod 755 helloWorld.py</code></p>
+<p>输入./helloWorld.py即可之行该脚本，输入结果如下</p>
+<p><code>Hello World!</code></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><p><strong>1.单引号、双引号、多引号的区别</strong></p>
+<p>*先说双引号与3个双引号的区别，双引号所表示的字符串通常要写成一行如果要写成多行，那么就要使用\ (“连行符”)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s1 = &quot;hello,world&quot;                 # s2与s1是一样的。</span><br><span class="line">s2 = &quot;hello,\</span><br><span class="line">   world&quot;</span><br></pre></td></tr></table></figure>
+<p>如果你用3个双引号的话，就可以直接写了，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s3 = &quot;&quot;&quot;hello,                      #s3实际上就是&quot;hello,\nworld,\nhahaha.&quot;, “\n”是换行符。</span><br><span class="line">world,</span><br><span class="line">hahaha.&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<p>如果你的字符串里\n很多，你又不想在字符串中用\n的话，那么就可以使用3个双引号。而且使用3个双引号还可以在字符串中增加注释，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s3 = &quot;&quot;&quot;hello,                      #hoho, this is hello, 在3个双引号的字符串内可以有注释哦</span><br><span class="line">world,                              #hoho, this is world</span><br><span class="line">hahaha.&quot;&quot;&quot;</span><br><span class="line">另外，三个引号还可用于注释。例如：</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">大家好，我是注释</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>单引号与双引号的作用是相同的。但是为什么要引入单引号和双引号呢？<br>举个例子：<br>当我用单引号来表示一个字符串时，如果要表示 Let’s go 这个字符串，必须这样：</p>
+<p>  <code>s4 = &#39;Let\&#39;s go&#39;</code></p>
+<p>  注意没有，字符串中有一个’，而字符串又是用’来表示，所以这个时候就要使用转义符 \ （\，转义符应该知道吧）, 如果你的字符串中有一大堆的转义符，看起来肯定不舒服python也很好的解决了这个问题。<br>  如下：</p>
+<p>  <code>s5 = &quot;Let&#39;s go&quot;</code></p>
+<p>  这时，我们看，python知道你是用 “ 来表示字符串，所以python就把字符串中的那个单引号 ‘ , 当成普通的字符处理了，是不是很简单？<br>  对于双引号，也是一样的，下面举个例子</p>
+<p>  <code>s6 = &#39;I realy like &quot;python&quot;!&#39;</code></p>
+<p>  这就是单引号和双引号都可以表示字符串的原因了。</p>
+</li>
+</ul>
+<p><strong>2.在Python 2.x中，print还可以是一个关键字，可写成print ‘Hello World!’，但这在3.x中行不通。</strong></p>
+<p><strong>3.“#!/usr/bin/python”与”#!/usr/bin/env python”的区别（windows用户可以无视）</strong></p>
+<p>#!/usr/bin/python 是告诉操作系统执行这个脚本的时候，调用/usr/bin下的python解释器；相当于写死了Python的路径，如果Python的路径改变，脚本将无法执行。不推荐使用</p>
+<p>#!/usr/bin/env python 这种用法是为了防止操作系统用户没有将python装在默认的/usr/bin路径里。当系统看到这一行的时候，首先会到env设置里查找python的安装路径，再调用对应路径下的解释器程序完成操作。</p>
+<p><strong>4.如何通过直接输入helloWorld.py而不是./helloWorld来执行脚本？（windows用户请无视）</strong><br>在一般用户下输入PATH=$PATH：(注意后面的冒号)。  即可直接通过输入helloWorld.py执行脚本。<br>但是值得注意的是，千万不要用这种方法修改超级用户（一般是root）的PATH变量。这是一个安全网面 的漏洞，因为root用户管理员可能因此执行一个某个命令的伪装版本。</p>
+<p>5.<strong>如何使你的程序在任何位置执行？</strong></p>
+<pre><code>PATH=/home/userName/test:$PATH                             //将/home/userName/test加入PATH （注意中间的冒号！ PATH必须大写！）
+sudo cp helloWorld.py /home/userName/test/helloWorld
+</code></pre><p>然后输入helloWorld即可直接之行脚本</p>
+<p><strong>6.Python的注释</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#单行注释</span><br><span class="line"></span><br><span class="line">&lt;**</span><br><span class="line">多行注释1</span><br><span class="line">**&gt;</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">多行注释2</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/14/code-dream/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/14/code-dream/" itemprop="url">关于code-dream参赛作品给新人的一些建议</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-14T19:14:00+08:00">
+                2016-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/life/" itemprop="url" rel="index">
+                    <span itemprop="name">life</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/14/code-dream/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/14/code-dream/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>只学习过C语言也是可以做作品来参加code dream，这是面向计院全体大一新生的比赛，所以无需发怵，六队的学弟学妹也要做的66666！</p>
+<h2 id="参赛作品要求"><a href="#参赛作品要求" class="headerlink" title="参赛作品要求"></a>参赛作品要求</h2><p>本次比赛主要分为三个项目：网页设计类、程序软件类、算法设计类。各类别参赛作品具体要求如下：</p>
+<h3 id="（1）网页设计类"><a href="#（1）网页设计类" class="headerlink" title="（1）网页设计类"></a>（1）网页设计类</h3><p>参赛选手自定一个站点名称，动态或静态网页不限，但演示成果要生成静态网页格式html。要有一定的代码量，不能<em>直接</em>套用动态网页生成程序来生成静态页面。要求主题鲜明突出，创意新颖，页面结构美观。制作软件不限制，通过合理运用网页设计的各种技术，体现良好的艺术性和实用性。页面深度必须在三层左右，以4-7个页面为宜。要求能在WinXP以上系统运行，显示分辨率800*600以上，网页采用Internet Explorer6.0以上浏览器。</p>
+<blockquote>
+<p>例如：个人博客，宣传页面，简单网页应用（实现一定的功能，不受页面深度限制）等。</p>
+</blockquote>
+<ul>
+<li>个人博客可以使用成熟的WordPress，Z-blog，hexo等博客程序构建，然后自定义其部分功能，创建新的页面，要有独创性；</li>
+<li>宣传页面即介绍某个企业，产品，或者是其他你想让人知晓的页面，可以用Dreamwave，甚至是十几年前的frontpage(曾在小学课本里看到)，so easy；</li>
+<li>网页应用可以使用一些网络服务接口来创建自己的应用，最好有一定实际价值。<br>参考 <a href="http://www.jianshu.com/p/d66f0575ba7e" target="_blank" rel="noopener">html瞬间入门</a></li>
+</ul>
+<h3 id="（2）程序软件作品"><a href="#（2）程序软件作品" class="headerlink" title="（2）程序软件作品"></a>（2）程序软件作品</h3><p>制作要求：具有一定实用价值或者娱乐价值，界面尽可能友好，使用简单，可以带有使用帮助。作品大概有这几个方面：信息管理、游戏娱乐、文体健康、学习生活等主题，内容务必积极健康向上。</p>
+<blockquote>
+<p>例如：实用小工具，游戏，学习辅助软件等。</p>
+</blockquote>
+<p><em>这是我最推荐你们去选择的题目。可以做计算器，小游戏，画图板等等。</em></p>
+<ul>
+<li>用c配合VC是可以实现图形界面的，具体会用到MFC，这个框架我并不熟悉，可以参考网上的资料自学，也可以向我索取；</li>
+<li>还有就是使用第三方的图形库，如文档很全的<a href="http://xege.org/" target="_blank" rel="noopener">EGE</a>,我曾用它实现过贪吃蛇；</li>
+<li>如果你想使用python我也是十分的支持，因为python太强大了。而且pygame是可以速成的，去找本《pygame游戏编程入门》看看，一个月做出很耐玩的游戏并不是很困难；</li>
+<li>还有一些歪门邪道的方式去做一个程序作品，我就不提了。</li>
+<li>其实，黑框框（控制台程序）也完全没问题，重要的是内涵。</li>
+</ul>
+<h3 id="（3）算法设计类"><a href="#（3）算法设计类" class="headerlink" title="（3）算法设计类"></a>（3）算法设计类</h3><p>制作要求：利用算法解决已有的或与学习生活相关的复杂问题，算法具有一定的实现难度，体现出对编程语言和简单算法的掌握。要求配有算法流程图、必要的说明，能够以简单、直观的界面展示。</p>
+<blockquote>
+<p>例如：矩阵计算，高等数学涵盖的计算，智能扫雷算法、五子棋人机对弈等。</p>
+</blockquote>
+<p>不必多说，重在算法，对其他没什么特别的要求。</p>
+<p>当然，你们能做的绝不局限于我说的这些，要开动脑筋，一旦有你想做的的东西，技术问题不会成为你最大的阻碍。有了C语言的基础，花上五六天去掌握一门新的编程语言也不是没有可能的。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/08/ALG-2/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -809,210 +1179,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/02/14/android-naming-conventions/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/02/14/android-naming-conventions/" itemprop="url">Android命名规范</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-14T20:08:08+08:00">
-                2016-02-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/02/14/android-naming-conventions/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/02/14/android-naming-conventions/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Java类文件"><a href="#Java类文件" class="headerlink" title="Java类文件:"></a>Java类文件:</h4><ul>
-<li>activity:以activity作为后缀.例如:PersonActivity; </li>
-<li>adapter:以adapter作为后缀.例如:PersonAdapter;  </li>
-<li>database:以db作为后缀.例如:PersonDB;</li>
-<li>Entity:以entity作为后缀.例如:PersonEntity; </li>
-<li>so on</li>
-</ul>
-<h4 id="资源文件"><a href="#资源文件" class="headerlink" title="资源文件:"></a>资源文件:</h4><h5 id="layout目录下"><a href="#layout目录下" class="headerlink" title="layout目录下:"></a>layout目录下:</h5><ol>
-<li>页面布局文件:以act_ 为前缀,模块package为中缀,去掉activity后为后缀.例如:Person模块的AddCustomActivity的布局文件命名为:act_person_addcustom.xml </li>
-<li>ListView中的Item布局文件.以item_ 为前缀,列表项的名称为后缀.控件名称为:lvUserList,Item的布局文件命名为:item_lvUserList.xml </li>
-<li>Dialog布局文件.dlg_ 为固定前缀,Dialog的功能名称为后缀.例如:dlg_hint.xml</li>
-</ol>
-<h5 id="drawable目录文件下"><a href="#drawable目录文件下" class="headerlink" title="drawable目录文件下:"></a>drawable目录文件下:</h5><ul>
-<li>一个页面共用,用页面前缀; </li>
-<li>一个模块共用,用模块前缀; </li>
-<li>全局使用:common</li>
-</ul>
-<h4 id="java类中控件对象"><a href="#java类中控件对象" class="headerlink" title="java类中控件对象:"></a>java类中控件对象:</h4><p>控件类型缩写+控件的逻辑名称:例如:btnLogin;</p>
-<h4 id="layout中控件对象"><a href="#layout中控件对象" class="headerlink" title="layout中控件对象:"></a>layout中控件对象:</h4><p>建议和activity中相对应的控件名称保持一致.例如:R.id.btnLogin;</p>
-<h4 id="strings-xml中常量"><a href="#strings-xml中常量" class="headerlink" title="strings.xml中常量:"></a>strings.xml中常量:</h4><p>所在activity名称 + 控件名称 + 功能/描述,例如:loginActivity_btnLogin_text;<br>拆分Strings.xml:<br>strings_ + 模块名称,例如: strings_module_a.xml;</p>
-<h4 id="常量名称"><a href="#常量名称" class="headerlink" title="常量名称:"></a>常量名称:</h4><p>只能包含之母和下划线,字母全部大写并用链接;</p>
-<h3 id="Androidb编码规范"><a href="#Androidb编码规范" class="headerlink" title="Androidb编码规范"></a>Androidb编码规范</h3><ul>
-<li><p>Activity中的onCreate:是设计模式中单一职责原则的体现. </p>
-</li>
-<li><p>initVariables():初始化变量.<br>initView():初始化控件<br>  loadData():初始化数据</p>
-</li>
-<li><p>坚持使用fastJSON自定义实体来作为MobileAPI的数据载体.</p>
-</li>
-<li>页面之间传值,坚持使用Intent携带序列化实体数据的方.禁止为了省事使用全局变量进行传值.</li>
-<li>为控件添加事件,初始化下面就直接添加事件.</li>
-<li>activity中不能使用嵌套的内部类</li>
-</ul>
-<h3 id="Adapter规范"><a href="#Adapter规范" class="headerlink" title="Adapter规范:"></a>Adapter规范:</h3><ul>
-<li><p>统一放在adapter这个包中. </p>
-</li>
-<li><p>adapter绑定数据,一律为ArrayList; </p>
-</li>
-<li><p>adapter创建适合于自身列表的ViewHolder实体类,统一命名为ViewHolder.</p>
-</li>
-<li><p>不同模块的实体类不能共享.</p>
-</li>
-<li><p>为节省内存,请使用ArrayList,而不是HashMap</p>
-</li>
-</ul>
-<p>-图片的处理,统一使用ImageLoader/fresco</p>
-<ul>
-<li>SharedPreferences保存简单配置信息,对于复杂的对象,还是要存储到本地文件中<br>数据类型转换一定要进行校验.失败要有默认值,使用try-catch保护,避免空指针<br>使用常量来代替枚举类型</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1060,7 +1231,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1082,7 +1253,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
