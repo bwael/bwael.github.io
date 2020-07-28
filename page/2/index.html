@@ -398,33 +398,20 @@
 
       
         
-          
-            <p><strong>※ 最长公共子序列</strong></p>
+          <p><strong>※ 最长公共子序列</strong></p>
 <p>对于两个子序列 S1 和 S2，找出它们最长的公共子序列。</p>
 <p>定义一个二维数组 dp 用来存储最长公共子序列的长度，其中$ dp[i][j] $表示 S1 的前 i 个字符与 S2 的前 j 个字符最长公共子序列的长度。考虑 $S1_i $与$ S2_j $值是否相等，分为两种情况：</p>
 <ul>
 <li>当 $S1_i==S2_j $时，那么就能在 S1 的前 i-1 个字符与 S2 的前 j-1 个字符最长公共子序列的基础上再加上$ S1_i $这个值，最长公共子序列长度加 1，即 $dp[i][j] = dp[i-1][j-1] + 1$。</li>
 <li>当 $S1_i != S2_j $时，此时最长公共子序列为 S1 的前 i-1 个字符和 S2 的前 j 个字符最长公共子序列，或者 S1 的前 i 个字符和 S2 的前 j-1 个字符最长公共子序列，取它们的最大者，即 $dp[i][j] = max({ dp[i-1][j], dp[i][j-1] })$。</li>
 </ul>
-<p>综上，最长公共子序列的状态转移方程为：<img src="ecd89a22-c075-4716-8423-e0ba89230e9a.jpg" alt=""></p>
-<p>对于长度为 N 的序列 S1 和长度为 M 的序列 S2，$dp[N][M] $就是序列 S1 和序列 S2 的最长公共子序列长度。</p>
-<p>与最长递增子序列相比，最长公共子序列有以下不同点：</p>
-<ul>
-<li>针对的是两个序列，求它们的最长公共子序列。</li>
-<li>在最长递增子序列中，$dp[i]$ 表示以 $S_i $为结尾的最长递增子序列长度，子序列必须包含 $S_i$ ；在最长公共子序列中，$dp[i][j] $表示 S1 中前 i 个字符与 S2 中前 j 个字符的最长公共子序列长度，不一定包含 $S1_i $和 $S2_j$。</li>
-<li>在求最终解时，最长公共子序列中 $dp[N][M] $就是最终解，而最长递增子序列中 $dp[N] $不是最终解，因为以 $S_N$ 为结尾的最长递增子序列不一定是整个序列最长递增子序列，需要遍历一遍 dp 数组找到最大者。</li>
-</ul>
-<p><strong>1143. 最长公共子序列</strong></p>
-<p>1143.Longest Common Subsequence</p>
-<p><a href="https://leetcode.com/problems/longest-common-subsequence/" target="_blank" rel="noopener">Leetcode</a> / <a href="https://leetcode-cn.com/problems/longest-common-subsequence/" target="_blank" rel="noopener">力扣</a></p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个字符串 text1 和 text2，返回这两个字符串的最长公共子序列的长度。</p>
-<p>一个字符串的 子序列 是指这样一个新的字符串：它是由原字符串在不改变字符的相对顺序的情况下删除某些字符（也可以不删除任何字符）后组成的新字符串。<br>例如，”ace” 是 “abcde” 的子序列，但 “aec” 不是 “abcde” 的子序列。两个字符串的「公共子序列」是这两个字符串所共同拥有的子序列。</p>
-<p>若这两个字符串没有公共子序列，则返回 0。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入：text1 = "abcde", text2 = "ace" </span><br><span class="line">输出：3 </span><br><span class="line">解释：最长公共子序列是 "ace"，它的长度为 3。</span><br></pre></td></tr></table></figure>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>同上，记住状态转移方程就可以。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestCommonSubsequence</span><span class="params">(String text1, String text2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n1 = text1.length(), n2 = text2.length();</span><br><span class="line">        <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n1 + <span class="number">1</span>][n2 + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n1; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n2; j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(text1.charAt(i - <span class="number">1</span>) == text2.charAt(j - <span class="number">1</span>))&#123;</span><br><span class="line">                    dp[i][j] = dp[i - <span class="number">1</span>][j - <span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[i][j] = Math.max(dp[i - <span class="number">1</span>][j], dp[i][j - <span class="number">1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n1][n2];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/28/leetcode-1143/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -573,8 +560,7 @@
 
       
         
-          
-            <p><strong>455.分配饼干</strong></p>
+          <p><strong>455.分配饼干</strong></p>
 <p>Assign Cookies (Easy)</p>
 <p><a href="https://leetcode-cn.com/problems/assign-cookies/description/" target="_blank" rel="noopener">LeetCode 分发饼干</a></p>
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Input: grid[1,3], size[1,2,4]</span><br><span class="line">Output: 2Copy to clipboardErrorCopied</span><br></pre></td></tr></table></figure>
@@ -583,11 +569,13 @@
 <li>给一个孩子的饼干应当尽量小并且又能满足该孩子，这样大饼干才能拿来给满足度比较大的孩子。</li>
 <li>因为满足度最小的孩子最容易得到满足，所以先满足满足度最小的孩子。</li>
 </ol>
-<p>在以上的解法中，我们只在每次分配时饼干时选择一种看起来是当前最优的分配方法，但无法保证这种局部最优的分配方法最后能得到全局最优解。我们假设能得到全局最优解，并使用反证法进行证明，即假设存在一种比我们使用的贪心策略更优的最优策略。如果不存在这种最优策略，表示贪心策略就是最优策略，得到的解也就是全局最优解。</p>
-<p>证明：假设在某次选择中，贪心策略选择给当前满足度最小的孩子分配第 m 个饼干，第 m 个饼干为可以满足该孩子的最小饼干。假设存在一种最优策略，可以给该孩子分配第 n 个饼干，并且 m &lt; n。我们可以发现，经过这一轮分配，贪心策略分配后剩下的饼干一定有一个比最优策略来得大。因此在后续的分配中，贪心策略一定能满足更多的孩子。也就是说不存在比贪心策略更优的策略，即贪心策略就是最优策略。</p>
-<p><img src="e69537d2-a016-4676-b169-9ea17eeb9037.gif" alt=""></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">findContentChildren</span><span class="params">(<span class="keyword">int</span>[] g, <span class="keyword">int</span>[] s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(g == <span class="keyword">null</span> || s == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//贪心方法，先排序</span></span><br><span class="line">        Arrays.sort(g);</span><br><span class="line">        Arrays.sort(s);</span><br><span class="line">        <span class="keyword">int</span> gi = <span class="number">0</span>, si = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(gi &lt; g.length &amp;&amp; si &lt; s.length)&#123;</span><br><span class="line">            <span class="keyword">if</span>(g[gi] &lt;= s[si])&#123;</span><br><span class="line">                gi++;</span><br><span class="line">            &#125;</span><br><span class="line">            si++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> gi;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/24/leetcode-455/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -736,14 +724,17 @@
 
       
         
-          
-            <p><strong>241.给表达式加括号</strong></p>
+          <p><strong>241.给表达式加括号</strong></p>
 <p>Different Ways to Add Parentheses (Medium)</p>
 <p><a href="https://leetcode.com/problems/different-ways-to-add-parentheses/description/" target="_blank" rel="noopener">Leetcode</a> / <a href="https://leetcode-cn.com/problems/different-ways-to-add-parentheses/description/" target="_blank" rel="noopener">力扣</a></p>
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Input: "2-1-1".</span><br><span class="line"></span><br><span class="line">((2-1)-1) = 0</span><br><span class="line">(2-(1-1)) = 2</span><br><span class="line"></span><br><span class="line">Output : [0, 2]</span><br></pre></td></tr></table></figure>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">diffWaysToCompute</span><span class="params">(String input)</span> </span>&#123;</span><br><span class="line">        List&lt;Integer&gt; ways = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        递归：以某个字符作为分隔符断开字符串，递归遍历左右两边</span></span><br><span class="line"><span class="comment">        做法类似构造二叉树，也是分割开来左右遍历，然后合并</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; input.length(); i++)&#123;</span><br><span class="line">            <span class="keyword">char</span> c = input.charAt(i);</span><br><span class="line">            <span class="keyword">if</span>(c == <span class="string">'+'</span> || c == <span class="string">'-'</span> || c == <span class="string">'*'</span>)&#123;</span><br><span class="line">                List&lt;Integer&gt; left = diffWaysToCompute(input.substring(<span class="number">0</span>, i));</span><br><span class="line">                List&lt;Integer&gt; right = diffWaysToCompute(input.substring(i + <span class="number">1</span>));</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> l : left) &#123;</span><br><span class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> r : right) &#123;</span><br><span class="line">                        <span class="keyword">switch</span> (c) &#123;</span><br><span class="line">                            <span class="keyword">case</span> <span class="string">'+'</span>:</span><br><span class="line">                                ways.add(l + r);</span><br><span class="line">                                <span class="keyword">break</span>;</span><br><span class="line">                            <span class="keyword">case</span> <span class="string">'-'</span>:</span><br><span class="line">                                ways.add(l - r);</span><br><span class="line">                                <span class="keyword">break</span>;</span><br><span class="line">                             <span class="keyword">case</span> <span class="string">'*'</span>:</span><br><span class="line">                                ways.add(l * r);</span><br><span class="line">                                <span class="keyword">break</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//纯数字</span></span><br><span class="line">        <span class="keyword">if</span> (ways.size() == <span class="number">0</span>) &#123;</span><br><span class="line">            ways.add(Integer.valueOf(input));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ways;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/26/leetcode-241/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
