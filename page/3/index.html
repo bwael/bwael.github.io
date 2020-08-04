@@ -296,6 +296,164 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2017/02/13/microblog-develop-documentation-05/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/02/13/microblog-develop-documentation-05/" itemprop="url">基于flask的microBlog开发笔记（五）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-13T11:51:46+08:00">
+                2017-02-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/13/microblog-develop-documentation-05/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/02/13/microblog-develop-documentation-05/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="5-用户首页和发布博客"><a href="#5-用户首页和发布博客" class="headerlink" title="5.用户首页和发布博客"></a>5.用户首页和发布博客</h2><p>我们已经完成了登录系统，则可以使用昵称和邮件登录，接下来要完成用户个人界面信息，在此之前先将数据库清空:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; users = User.query.all()</span><br><span class="line">&gt;&gt;&gt; <span class="keyword">for</span> u <span class="keyword">in</span> users:</span><br><span class="line">...     db.session.delete(u)</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; posts = Post.query.all()</span><br><span class="line">&gt;&gt;&gt; <span class="keyword">for</span> p <span class="keyword">in</span> posts:</span><br><span class="line">...     db.session.delete(p)</span><br><span class="line">...</span><br><span class="line">&gt;&gt;&gt; db.session.commit()</span><br></pre></td></tr></table></figure></p>
+<p>我们将创建用户信息页，显示用户信息以及最近的 blog。作为其中一部分，我们将会学习到显示用户头像。接着，我们将要用户 web 表单用来编辑用户信。</p>
+<h3 id="1-用户信息首页"><a href="#1-用户信息首页" class="headerlink" title="1.用户信息首页"></a>1.用户信息首页</h3><p>创建一个用户信息不需要引入新的概念,只要创建一个新的视图函数以及与它配套的 HTML 模版。添加用户信息类，并定义用户信息字段修改（forms.py）文件<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AboutMeForm</span><span class="params">(Form)</span>:</span></span><br><span class="line">    describe = TextAreaField(<span class="string">'about me'</span>, validators=[</span><br><span class="line">        Required(), Length(max=<span class="number">140</span>)])</span><br><span class="line">    submit = SubmitField(<span class="string">'YES!'</span>)</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/13/microblog-develop-documentation-05/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bwael.com/2017/02/11/microblog-develop-documentation-04/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -936,198 +1094,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/09/03/C-Network-1/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/09/03/C-Network-1/" itemprop="url">计算机网络笔记01</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-09-03T10:46:01+08:00">
-                2016-09-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/09/03/C-Network-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/09/03/C-Network-1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>计算机网络是通过通信设施将地理上分散的具有自治功能的多个计算机系统互联起来，进行信息交换，实现资源共享、互操作和协同工作的系统。<br>简明的定义：自治的计算机的互联集合。</p>
-<h3 id="OSI参考模型与TCP-IP参考模型"><a href="#OSI参考模型与TCP-IP参考模型" class="headerlink" title="OSI参考模型与TCP/IP参考模型"></a>OSI参考模型与TCP/IP参考模型</h3><h4 id="OSI七层网络模型"><a href="#OSI七层网络模型" class="headerlink" title="OSI七层网络模型"></a>OSI七层网络模型</h4><ol>
-<li>应用层（Application</li>
-<li>表示层（Presentation</li>
-<li>会话层（Session</li>
-<li>传输层（Transport    </li>
-<li>网络层（Network</li>
-<li>数据链路层（Data Link</li>
-<li>物理层（Physical</li>
-</ol>
-<h4 id="TCP-IP四层概念模型"><a href="#TCP-IP四层概念模型" class="headerlink" title="TCP/IP四层概念模型"></a>TCP/IP四层概念模型</h4><ol>
-<li>应用层（对应 应用层、表示层、会话层</li>
-<li>传输层（对应 传输层</li>
-<li>网络层（对应 网络层</li>
-<li>网络接口层（对应 数据链路层、物理层</li>
-</ol>
-<h3 id="OSI模型描述计算机网络通信中数据传输的过程"><a href="#OSI模型描述计算机网络通信中数据传输的过程" class="headerlink" title="OSI模型描述计算机网络通信中数据传输的过程"></a>OSI模型描述计算机网络通信中数据传输的过程</h3><ol>
-<li>封装：在发送方，数据从上到下逐层传递过程中，每层要加上适当的控制信息。</li>
-<li>传输：到最底层，数据成为二进制比特流，再转换为电信号<strong>通过物理介质传输到接收方</strong>。</li>
-<li>拆封：在接收方，数据从下到上，要逐层剥去发送方相应层加上的控制信息。</li>
-</ol>
-<h3 id="传输效率的计算"><a href="#传输效率的计算" class="headerlink" title="传输效率的计算"></a>传输效率的计算</h3><blockquote>
-<p>长度为100字节的应用层数据交给运输层传送，需加上20字节的TCP首部。再交给网络层传送，需加上20字节的IP首部。最后交给数据链路层的以太网传送，加上首部和尾部18字节。试求数据的<strong>传输效率</strong>。<br>若应用层数据长度为1000字节，数据的传输效率是多少？</p>
-</blockquote>
-<p><strong>答</strong>：数据长度为100字节时<br>传输效率=100/（100+20+20+18）=63.3%</p>
-<p>数据长度为1000字节时，<br>传输效率=1000/（1000+20+20+18）=94.5%</p>
-<h3 id="计算机网络的分类"><a href="#计算机网络的分类" class="headerlink" title="计算机网络的分类"></a>计算机网络的分类</h3><ul>
-<li><p>（1）从网络结点分布范围来看，可分为局域网（Local Area Network，LAN）、广域网（Wide Area Network，WAN）和城域网（Metropolitan Area Network，MAN）。以及个人区域网（Personal Area Network，PAN）</p>
-</li>
-<li><p>（2）按交换方式可分为电路交换网络（Circurt Switching）、报文交换网络（Message Switching）和分组交换网络（Packet Switching）。 </p>
-</li>
-<li><p>（3）按网络拓扑结构可分为星型网络、树型网络、总线型网络、环型网络和网状网络（不规则型网络）。</p>
-</li>
-<li><p>（4）按传输介质可以分为有线网络和无线网络。</p>
-</li>
-</ul>
-<h3 id="计算机网络相关性能指标"><a href="#计算机网络相关性能指标" class="headerlink" title="计算机网络相关性能指标"></a>计算机网络相关性能指标</h3><h4 id="传输速率"><a href="#传输速率" class="headerlink" title="传输速率"></a>传输速率</h4><p>每秒钟通过信道传输的信息量称为比特传输速率，记作rb。单位是比特/秒（b/s或bit/s），简称比特率。也可写为bps(bit per second)</p>
-<h4 id="带宽"><a href="#带宽" class="headerlink" title="带宽"></a>带宽</h4><p>原指某个信号具有的频带宽度。带宽也表示通信线路所能传送数据的能力。即在单位时间内从网络中的某一点到另一点所能通过的“最高数据率”。又是b/s。</p>
-<h4 id="传播速率"><a href="#传播速率" class="headerlink" title="传播速率"></a>传播速率</h4><p>MDZZ</p>
-<h4 id="传输时延"><a href="#传输时延" class="headerlink" title="传输时延"></a>传输时延</h4><p>发送数据帧所需要的时间。<br><strong>发送时延 = 数据帧长度（b）/ 发送速率（b/s）</strong></p>
-<h4 id="发送时延-传输时延"><a href="#发送时延-传输时延" class="headerlink" title="发送时延==传输时延"></a>发送时延==传输时延</h4><h4 id="传播时延"><a href="#传播时延" class="headerlink" title="传播时延"></a>传播时延</h4><p>电磁波在信道中传播一定距离需要花费的时间。<br><strong>传播时延 = 信道长度（m） / 电磁波在信道上的传输速率（m/s)</strong></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1180,7 +1146,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1202,7 +1168,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
