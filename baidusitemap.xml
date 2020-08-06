@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://bwael.com/2020/03/25/leetcode-535/</loc>
+    <lastmod>2020-08-06T14:51:54.451Z</lastmod>
+  </url>  <url>
+    <loc>http://bwael.com/2020/08/06/leetcode-739/</loc>
+    <lastmod>2020-08-06T14:26:21.447Z</lastmod>
+  </url>  <url>
     <loc>http://bwael.com/2020/08/04/leetcode-LinkedList-01-160-206-21-83/</loc>
     <lastmod>2020-08-04T08:19:32.213Z</lastmod>
   </url>  <url>
