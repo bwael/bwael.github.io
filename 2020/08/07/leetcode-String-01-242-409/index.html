@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="学习笔记,LeetCode,字符串,">
 
 
 
@@ -81,16 +81,18 @@
 
 
 
-<meta name="description" content="学习总结 思考感悟 知识管理">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Bwael&#39;s Blog">
-<meta property="og:url" content="http://bwael.com/archives/2016/02/index.html">
+<meta name="description" content="1. 字符串循环移位包含编程之美 3.1 12s1 = AABCD, s2 = CDAAReturn : true 给定两个字符串 s1 和 s2，要求判定 s2 是否能够被 s1 做循环移位得到的字符串包含。 s1 进行循环移位的结果是 s1s1 的子字符串，因此只要判断 s2 是否是 s1s1 的子字符串即可。">
+<meta name="keywords" content="学习笔记,LeetCode,字符串">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode 字符串(一) - LeetCode-242、409">
+<meta property="og:url" content="http://bwael.com/2020/08/07/leetcode-String-01-242-409/index.html">
 <meta property="og:site_name" content="Bwael&#39;s Blog">
-<meta property="og:description" content="学习总结 思考感悟 知识管理">
+<meta property="og:description" content="1. 字符串循环移位包含编程之美 3.1 12s1 = AABCD, s2 = CDAAReturn : true 给定两个字符串 s1 和 s2，要求判定 s2 是否能够被 s1 做循环移位得到的字符串包含。 s1 进行循环移位的结果是 s1s1 的子字符串，因此只要判断 s2 是否是 s1s1 的子字符串即可。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-08-08T03:06:01.563Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Bwael&#39;s Blog">
-<meta name="twitter:description" content="学习总结 思考感悟 知识管理">
+<meta name="twitter:title" content="LeetCode 字符串(一) - LeetCode-242、409">
+<meta name="twitter:description" content="1. 字符串循环移位包含编程之美 3.1 12s1 = AABCD, s2 = CDAAReturn : true 给定两个字符串 s1 和 s2，要求判定 s2 是否能够被 s1 做循环移位得到的字符串包含。 s1 进行循环移位的结果是 s1s1 的子字符串，因此只要判断 s2 是否是 s1s1 的子字符串即可。">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://bwael.com/archives/2016/02/">
+  <link rel="canonical" href="http://bwael.com/2020/08/07/leetcode-String-01-242-409/">
 
 
 
 
 
-  <title>归档 | Bwael's Blog</title>
+  <title>LeetCode 字符串(一) - LeetCode-242、409 | Bwael's Blog</title>
   
 
 
@@ -155,7 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -281,71 +283,242 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2020/08/07/leetcode-String-01-242-409/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
-         
+          <h1 class="post-title" itemprop="name headline">LeetCode 字符串(一) - LeetCode-242、409</h1>
         
-        OK! 目前共计 40 篇日志。 继续努力。
-      </span>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-07T11:02:43+08:00">
+                2020-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/08/07/leetcode-String-01-242-409/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/08/07/leetcode-String-01-242-409/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <h2 id="1-字符串循环移位包含"><a href="#1-字符串循环移位包含" class="headerlink" title="1. 字符串循环移位包含"></a>1. 字符串循环移位包含</h2><p><a href="https://cyc2018.github.io/CS-Notes/#/notes/Leetcode 题解 - 字符串?id" target="_blank" rel="noopener">编程之美 3.1</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s1 = AABCD, s2 = CDAA</span><br><span class="line">Return : true</span><br></pre></td></tr></table></figure>
+<p>给定两个字符串 s1 和 s2，要求判定 s2 是否能够被 s1 做循环移位得到的字符串包含。</p>
+<p>s1 进行循环移位的结果是 s1s1 的子字符串，因此只要判断 s2 是否是 s1s1 的子字符串即可。</p>
+<a id="more"></a>
+<h2 id="2-字符串循环移位"><a href="#2-字符串循环移位" class="headerlink" title="2. 字符串循环移位"></a>2. 字符串循环移位</h2><p><a href="https://cyc2018.github.io/CS-Notes/#/notes/Leetcode 题解 - 字符串?id" target="_blank" rel="noopener">编程之美 2.17</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = "abcd123" k = 3</span><br><span class="line">Return "123abcd"</span><br></pre></td></tr></table></figure>
+<p>将字符串向右循环移动 k 位。</p>
+<p>将 abcd123 中的 abcd 和 123 单独翻转，得到 dcba321，然后对整个字符串进行翻转，得到 123abcd。</p>
+<h2 id="3-字符串中单词的翻转"><a href="#3-字符串中单词的翻转" class="headerlink" title="3. 字符串中单词的翻转"></a>3. 字符串中单词的翻转</h2><p><a href="https://cyc2018.github.io/CS-Notes/#/notes/Leetcode 题解 - 字符串?id" target="_blank" rel="noopener">程序员代码面试指南</a></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = "I am a student"</span><br><span class="line">Return "student a am I"</span><br></pre></td></tr></table></figure>
+<p>将每个单词翻转，然后将整个字符串翻转。</p>
+<h2 id="242-两个字符串包含的字符是否完全相同"><a href="#242-两个字符串包含的字符是否完全相同" class="headerlink" title="242. 两个字符串包含的字符是否完全相同"></a>242. 两个字符串包含的字符是否完全相同</h2><p>242.Valid Anagram (Easy)</p>
+<p><a href="https://leetcode.com/problems/valid-anagram/description/" target="_blank" rel="noopener">Leetcode</a> / <a href="https://leetcode-cn.com/problems/valid-anagram/description/" target="_blank" rel="noopener">力扣</a></p>
+<p>2020-7-18 16:17:33</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s = "anagram", t = "nagaram", return true.</span><br><span class="line">s = "rat", t = "car", return false.</span><br></pre></td></tr></table></figure>
+<p>可以用 HashMap 来映射字符与出现次数，然后比较两个字符串出现的字符数量是否相同。</p>
+<p>由于本题的字符串只包含 26 个小写字符，因此可以使用长度为 26 的整型数组对字符串出现的字符进行统计，不再使用 HashMap。</p>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isAnagram</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] cnts = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c : s.toCharArray())&#123;</span><br><span class="line">            cnts[c - <span class="string">'a'</span>] ++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c : t.toCharArray())&#123;</span><br><span class="line">            cnts[c - <span class="string">'a'</span>] --;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> cnt : cnts)&#123;</span><br><span class="line">            <span class="keyword">if</span>(cnt != <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//直接排序法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isAnagram</span><span class="params">(String s, String t)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (s.length() != t.length()) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">char</span>[] str1 = s.toCharArray();</span><br><span class="line">    <span class="keyword">char</span>[] str2 = t.toCharArray();</span><br><span class="line">    Arrays.sort(str1);</span><br><span class="line">    Arrays.sort(str2);</span><br><span class="line">    <span class="keyword">return</span> Arrays.equals(str1, str2);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="409-最长回文串-计算一组字符集合可以组成的回文字符串的最大长度"><a href="#409-最长回文串-计算一组字符集合可以组成的回文字符串的最大长度" class="headerlink" title="409. 最长回文串 - 计算一组字符集合可以组成的回文字符串的最大长度"></a>409. 最长回文串 - 计算一组字符集合可以组成的回文字符串的最大长度</h2><p>409.Longest Palindrome (Easy)</p>
+<p><a href="https://leetcode.com/problems/longest-palindrome/description/" target="_blank" rel="noopener">Leetcode</a> / <a href="https://leetcode-cn.com/problems/longest-palindrome/description/" target="_blank" rel="noopener">力扣</a></p>
+<p>2020-8-7 21:35:31</p>
+<h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个包含大写字母和小写字母的字符串，找到通过这些字母构造成的最长的回文串。在构造过程中，请注意区分大小写。比如 “Aa” 不能当做一个回文字符串。</p>
+<p>注意:<br>假设字符串的长度不会超过 1010。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">示例 1:</span><br><span class="line"></span><br><span class="line">输入: "abccccdd"</span><br><span class="line">输出: 7</span><br><span class="line">解释: 我们可以构造的最长的回文串是"dccaccd", 它的长度是 7。</span><br></pre></td></tr></table></figure>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] cnts = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">256</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">char</span> c : s.toCharArray())&#123;</span><br><span class="line">            cnts[c]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> palindrome = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> cnt : cnts) &#123;</span><br><span class="line">            palindrome += (cnt / <span class="number">2</span>) * <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (palindrome &lt; s.length()) &#123;</span><br><span class="line">            palindrome++;   <span class="comment">// 这个条件下 s 中一定有单个未使用的字符存在，可以把这个字符放到回文的最中间</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> palindrome;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    bwael
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://bwael.com/2020/08/07/leetcode-String-01-242-409/" title="LeetCode 字符串(一) - LeetCode-242、409">http://bwael.com/2020/08/07/leetcode-String-01-242-409/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          
+            <a href="/tags/字符串/" rel="tag"># 字符串</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
         
-        
+
         
 
         
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2016">2016</h1>
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
           </div>
         
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/02/14/android-naming-conventions/" itemprop="url">
-              
-                <span itemprop="name">Android命名规范</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2016-02-14T20:08:08+08:00" content="2016-02-14">
-          02-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        </div>
+      
       
 
-    </div>
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/06/leetcode-739/" rel="next" title="LeetCode 739.数组中元素与下一个比它大的元素之间的距离(每日温度)">
+                <i class="fa fa-chevron-left"></i> LeetCode 739.数组中元素与下一个比它大的元素之间的距离(每日温度)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -353,6 +526,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -373,8 +553,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -495,6 +684,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-字符串循环移位包含"><span class="nav-number">1.</span> <span class="nav-text">1. 字符串循环移位包含</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-字符串循环移位"><span class="nav-number">2.</span> <span class="nav-text">2. 字符串循环移位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-字符串中单词的翻转"><span class="nav-number">3.</span> <span class="nav-text">3. 字符串中单词的翻转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#242-两个字符串包含的字符是否完全相同"><span class="nav-number">4.</span> <span class="nav-text">242. 两个字符串包含的字符是否完全相同</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">4.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-number">4.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#409-最长回文串-计算一组字符集合可以组成的回文字符串的最大长度"><span class="nav-number">5.</span> <span class="nav-text">409. 最长回文串 - 计算一组字符集合可以组成的回文字符串的最大长度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-1"><span class="nav-number">5.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-1"><span class="nav-number">5.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -631,6 +836,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

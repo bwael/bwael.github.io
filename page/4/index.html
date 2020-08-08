@@ -296,6 +296,168 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2017/02/11/microblog-develop-documentation-03/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/02/11/microblog-develop-documentation-03/" itemprop="url">基于flask的microBlog开发笔记（三）</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-11T16:21:46+08:00">
+                2017-02-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/11/microblog-develop-documentation-03/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2017/02/11/microblog-develop-documentation-03/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="3-数据库"><a href="#3-数据库" class="headerlink" title="3.数据库"></a>3.数据库</h2><h3 id="1-flask中的数据库"><a href="#1-flask中的数据库" class="headerlink" title="1.flask中的数据库"></a>1.flask中的数据库</h3><ul>
+<li><p>数据库迁移，使用 SQLAlchemy-migrate 来跟踪数据库的更新。这只是在开始建立数据库的时候比较花费工作时间，以后就再不用人工进行数据的迁移了。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">source</span> flask/bin/activate</span><br><span class="line">$ pip install SQLAlchemy-migrate</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据库配置，针对我们小型的应用，我们将采用 sqlite 数据库，sqlite 数据库是小型应用的最方便的选择，每一个数据库都是存储在单个文件里，这里对config.py进行再次配置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">basedir = os.path.abspath(os.path.dirname(__file__))</span><br><span class="line"></span><br><span class="line">sqlalchemy_database_url = <span class="string">'sqlite:///'</span> + os.path.join(basedir, <span class="string">'app.db'</span>)</span><br><span class="line">sqlalchemy_migrate_repo = os.path.join(basedir, <span class="string">'db_repository'</span>)</span><br></pre></td></tr></table></figure>
+<p>sqlalchemy_database_url是 Flask-aqlalchemy 扩展需要的，存储我们数据库文件的路径,sqlalchemy_migrate_repo 是文件夹,存储数据库文件。对<strong>init</strong>.py文件更新。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/11/microblog-develop-documentation-03/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </li></ul></div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bwael.com/2017/02/10/microblog-develop-documentation-02/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -980,192 +1142,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/06/02/pynote07/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/06/02/pynote07/" itemprop="url">python学习笔记07----面向对象（类与对象）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-02T19:38:22+08:00">
-                2016-06-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/06/02/pynote07/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/06/02/pynote07/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>虽然Python是解释性语言，但是它是面向对象的，能够进行对象编程。下面就来了解一下如何在Python中进行对象编程。</p>
-<p>类是对现实世界中一些事物的封装。在人类认知中，会根据属性相近把东西归类，并且给类别命名。比如说，鸟类的共同属性是有羽毛，通过产卵生育后代。而且，这些鸟还有共同的行为，如飞行、名叫。任何一只特别的鸟都在鸟类的原型基础上的。接下来以鸟为例来介绍类的用法。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Bird</span>:</span>                                                 <span class="comment">#创建类--鸟</span></span><br><span class="line">    have_feather = <span class="keyword">True</span>                                     <span class="comment">#定义类的属性（have_feather、way_of_reproduction、song均是该类的属性）</span></span><br><span class="line">    way_of_reproduction  = <span class="string">"egg"</span></span><br><span class="line">    song=<span class="string">"叽叽喳喳"</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sing</span><span class="params">(self)</span>:</span>                                         <span class="comment">#定义类的方法（self必不可少）</span></span><br><span class="line">        print(self.song)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"飞飞飞飞飞"</span>)</span><br><span class="line">mybird=Bird()                                               <span class="comment">#实例化类的对象，可以使用这个对象访问类中的方法和属性</span></span><br><span class="line">mybird.sing()                                               <span class="comment">#访问类中的方法（对象名.方法）</span></span><br><span class="line">print(<span class="string">"mybird通过"</span>+mybird.way_of_reproduction+<span class="string">"繁殖"</span>)       <span class="comment">#访问类中的属性（+号的作用是连接字符串）</span></span><br></pre></td></tr></table></figure>
-<p>输出结果为：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">叽叽喳喳</span><br><span class="line">mybird通过egg繁殖</span><br></pre></td></tr></table></figure>
-<p>小小的总结一下，我们定义了一个类（class），就是鸟（Bird）。在该类中，我们定义了三个变量，一个是有羽毛（have_feather），一个是生殖方式（way_of_reproduction）,还有一个是叫声（叽叽喳喳），这几个变量就是类的属性（attribute）。我们还定义个两个函数，一个是鸣叫(sing(self))，另一个是移动(move(self)),这两个函数就是类的方法（method）。</p>
-<p>类建好了之后，我将类实例化为一个叫mybird的对象，并利用这个对象对类的属性和方法进行访问。</p>
-<h3 id="子类"><a href="#子类" class="headerlink" title="子类"></a>子类</h3><p>鸟可以继续细分为鸡、鸭、鹅…..这就是所谓的子类。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chicken</span><span class="params">(Bird)</span>:</span>                                           <span class="comment">#继承上例中的Bird</span></span><br><span class="line">    song=<span class="string">"喔喔喔喔喔！"</span>                                        <span class="comment">#重写父类中的属性</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">move</span><span class="params">(self)</span>:</span>                                            <span class="comment">#重写父类中的方法</span></span><br><span class="line">        print(<span class="string">"这种移动方式已经废弃"</span>,end=<span class="string">"---&gt;"</span>)               <span class="comment">#end的作用是把字符串末尾的换行符替换为“---&gt;”</span></span><br><span class="line">        super().move()                                         <span class="comment">#调用父类中的方法(对象是没有super()的)</span></span><br><span class="line">        print(<span class="string">"跑跑跑跑跑"</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">myChicken=Chicken()</span><br><span class="line">myChicken.move()</span><br><span class="line">myChicken.sing()</span><br></pre></td></tr></table></figure></p>
-<h3 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Calculator</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">calculate</span><span class="params">(self,expression)</span>:</span></span><br><span class="line">        self.value=eval(expression)                         <span class="comment">#计算字符串中的表达式</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Talker</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">talk</span><span class="params">(self)</span>:</span></span><br><span class="line">        print(<span class="string">"结果为"</span>,self.value)</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TalkCalculator</span><span class="params">(Calculator,Talker)</span>:</span>                    <span class="comment">#本类不做任何事情，但是同时继承两个子类，这种行为叫做多重继承</span></span><br><span class="line">    <span class="keyword">pass</span>                                                    <span class="comment">#pass是空语句，是为了保持程序结构的完整性。</span></span><br><span class="line"></span><br><span class="line">myCal=TalkCalculator()</span><br><span class="line">myCal.calculate(<span class="string">"4+2"</span>)</span><br><span class="line">myCal.talk()</span><br></pre></td></tr></table></figure>
-<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><h4 id="1-多态、封装与继承"><a href="#1-多态、封装与继承" class="headerlink" title="1.多态、封装与继承"></a>1.多态、封装与继承</h4><p>多态：意味着可以对不同类的对象进行相同的操作。</p>
-<p>封装：对外部世界隐藏类的细节。</p>
-<p>继承：以普通的类为基础建立专门的类的对象。</p>
-<h4 id="2-面向对象概念"><a href="#2-面向对象概念" class="headerlink" title="2.面向对象概念"></a>2.面向对象概念</h4><p>类(Class): 用来描述具有相同的属性和方法的对象的集合。它定义了该集合中每个对象所共有的属性和方法。对象是类的实例。</p>
-<p>类变量：类变量在整个实例化的对象中是公用的。类变量定义在类中且在函数体之外。类变量通常不作为实例变量使用。</p>
-<p>数据成员：类变量或者实例变量用于处理类及其实例对象的相关的数据。</p>
-<p>方法重载：如果从父类继承的方法不能满足子类的需求，可以对其进行改写，这个过程叫方法的覆盖（override），也称为方法的重载。</p>
-<p>实例变量：定义在方法中的变量，只作用于当前实例的类。</p>
-<p>继承：即一个派生类（derived class）继承基类（base class）的字段和方法。继承也允许把一个派生类的对象作为一个基类对象对待。例如，有这样一个设计：一个Dog类型的对象派生自Animal类，这是模拟”是一个（is-a）”关系（例图，Dog是一个Animal）。</p>
-<p>实例化：创建一个类的实例，类的具体对象。</p>
-<p>方法：类中定义的函数。</p>
-<p>对象：通过类定义的数据结构实例。对象包括两个数据成员（类变量和实例变量）和方法。</p>
-<h4 id="3-子类如何调用父类中的方法"><a href="#3-子类如何调用父类中的方法" class="headerlink" title="3.子类如何调用父类中的方法"></a>3.子类如何调用父类中的方法</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(A)</span>:</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">method</span><span class="params">(self, arg)</span>:</span></span><br><span class="line"><span class="comment">#        A.method(self,arg)                 #1直接写类名调用</span></span><br><span class="line"><span class="comment">#        super(B, self).method(arg)         #2用 super(type, obj).method(arg)方法调用</span></span><br><span class="line">         super().method(arg)                <span class="comment">#3在类定义中调用本类的父类方法，可以直接super().method(arg)</span></span><br></pre></td></tr></table></figure>
-<h4 id="4-方法中的self"><a href="#4-方法中的self" class="headerlink" title="4.方法中的self"></a>4.方法中的self</h4><p>类的方法与普通的函数只有一个特别的区别——它们必须有一个额外的第一个参数名称，但是在调用这个方法的时候你不为这个参数赋值，Python会提供这个值。这个特别的变量指对象本身，按照惯例它的名称是self。</p>
-<h2 id="面向对象之续"><a href="#面向对象之续" class="headerlink" title="面向对象之续"></a>面向对象之续</h2><h3 id="特殊的方法"><a href="#特殊的方法" class="headerlink" title="特殊的方法"></a>特殊的方法</h3><h4 id="init方法"><a href="#init方法" class="headerlink" title="init方法"></a><strong>init</strong>方法</h4><p><strong>init</strong>方法在类的一个对象被建立时，马上运行。你可以利用这个方法对对象进行初始化。<strong>init</strong>方法类似于C++、C#和Java中的 constructor 。（注意：init的两边各有两条下划线）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span>                               <span class="comment">#在__init__中初始化name</span></span><br><span class="line">        self.name = name</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sayHi</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> (<span class="string">"大家好，我是人贱人爱的"</span>, self.name)</span><br><span class="line">p = Person(<span class="string">"王尼玛"</span>)</span><br><span class="line">p.sayHi()</span><br></pre></td></tr></table></figure></p>
-<h4 id="del方法"><a href="#del方法" class="headerlink" title="del方法"></a><strong>del</strong>方法</h4><p><strong>del</strong>在对象消逝的时候被调用。对象消逝即对象不再被使用，它所占用的内存将返回给系统作它用。<strong>del</strong>方法与 destructor 的概念类似。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>:</span></span><br><span class="line">    <span class="string">'''Represents a person.'''</span>                       <span class="comment">#通过Person.__doc__查看</span></span><br><span class="line">    population = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, name)</span>:</span></span><br><span class="line">        <span class="string">'''Initializes the person's data.'''</span></span><br><span class="line">        self.name = name</span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'(Initializing %s)'</span> % self.name)      <span class="comment">#格式化输出字符串.</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># When this person is created, he/she</span></span><br><span class="line">        <span class="comment"># adds to the population</span></span><br><span class="line">        Person.population += <span class="number">1</span>                       <span class="comment">#类的变量在引用的时候是 类名.类变量</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''I am dying.'''</span></span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'%s says bye.'</span> % self.name)</span><br><span class="line"></span><br><span class="line">        Person.population -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> Person.population == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">'I am the last one.'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">'There are still %d people left.'</span> % Person.population)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sayHi</span><span class="params">(self)</span>:</span>                                 <span class="comment">#可通过Person.sayHi.__doc__查看</span></span><br><span class="line">        <span class="string">'''Greeting by the person.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        Really, that's all it does.'''</span></span><br><span class="line">        <span class="keyword">print</span> (<span class="string">'Hi, my name is %s.'</span> % self.name)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">howMany</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''Prints the current population.'''</span></span><br><span class="line">        <span class="keyword">if</span> Person.population == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">'I am the only person here.'</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">print</span> (<span class="string">'We have %d persons here.'</span> % Person.population)</span><br><span class="line"></span><br><span class="line">swaroop = Person(<span class="string">'Swaroop'</span>)</span><br><span class="line">swaroop.sayHi()</span><br><span class="line">swaroop.howMany()</span><br><span class="line"></span><br><span class="line">kalam = Person(<span class="string">'Abdul Kalam'</span>)</span><br><span class="line">kalam.sayHi()</span><br><span class="line">kalam.howMany()</span><br><span class="line">print(kalam.name)                                    <span class="comment">#对象变量</span></span><br><span class="line"></span><br><span class="line">swaroop.sayHi()</span><br><span class="line">swaroop.howMany()</span><br><span class="line">print(swaroop.name)</span><br></pre></td></tr></table></figure></p>
-<p>输出：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">(Initializing Swaroop)</span><br><span class="line">Hi, my name is Swaroop.</span><br><span class="line">I am the only person here.</span><br><span class="line">(Initializing Abdul Kalam)</span><br><span class="line">Hi, my name is Abdul Kalam.</span><br><span class="line">We have 2 persons here.</span><br><span class="line">Abdul Kalam</span><br><span class="line">Hi, my name is Swaroop.</span><br><span class="line">We have 2 persons here.</span><br><span class="line">Swaroop</span><br></pre></td></tr></table></figure></p>
-<h3 id="小提示"><a href="#小提示" class="headerlink" title="小提示"></a>小提示</h3><p><strong>1.类成员的访问权限</strong></p>
-<p>Python中所有的类成员都是公共的，所有的方法都是有效的。<br>只有一个例外：如果你使用的数据成员名称以双下划线前缀比如__privatevar，Python的名称管理体系会有效地把它作为私有变量。<br>还有这样就有一个惯例，如果某个变量只想在类或对象中使用，就应该以单下划线前缀。而其他的名称都将作为公共的，可以被其他类/对象使用。记住这只是一个惯例，并不是Python所要求的（与双下划线前缀不同）。</p>
-<p><strong>2.类的变量与对象的变量</strong></p>
-<p>类的变量：由一个类的所有对象（实例）共享使用。当某个对象对类的变量做了改动的时候，这个改动会反映到所有其他的实例上。（ 类名.类变量）<br>对象的变量：由类的每个对象/实例拥有。因此每个对象有自己对这个域的一份拷贝，即它们不是共享的，在同一个类的不同实例中，虽然对象的变量有相同的名称，但是是互不相关的。（对象名.变量）</p>
-<p><strong>3.print的格式化输出</strong></p>
-<p>支持参数格式化，与C语言的printf类似。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>strHello = <span class="string">"the length of (%s) is %d"</span> %(<span class="string">'Hello World'</span>,len(<span class="string">'Hello World'</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">print</span> (strHello)</span><br></pre></td></tr></table></figure></p>
-<p>输出<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">the length of (Hello World) <span class="keyword">is</span> <span class="number">11</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">"你好我的名字是%s,我今年%d岁了！"</span> % (<span class="string">"王尼玛"</span>,<span class="number">2</span>))                    <span class="comment">#注意，字符串与后面变量之间没有逗号！</span></span><br></pre></td></tr></table></figure>
-<p>输出<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你好我的名字是王尼玛,我今年<span class="number">2</span>岁了！</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1218,7 +1194,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1240,7 +1216,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
