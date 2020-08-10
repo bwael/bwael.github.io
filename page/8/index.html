@@ -296,6 +296,374 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/21/OSnote-1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/21/OSnote-1/" itemprop="url">【OS学习笔记】操作系统引论</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-21T14:57:01+08:00">
+                2016-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/21/OSnote-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/21/OSnote-1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="OS的定义"><a href="#OS的定义" class="headerlink" title="OS的定义"></a>OS的定义</h2><p>OS是掌控（管理）计算机上所有事情的系统软件。</p>
+<ul>
+<li>控制和管理计算机系统的所有硬件和软件资源。</li>
+<li>合理地组织计算机的工作流程，保证计算机资源的公平竞争和使用。</li>
+<li>方便用户使用计算机。</li>
+<li>防止对计算机资源的非法侵占和使用。</li>
+<li>保证OS自身的正常运转。</li>
+</ul>
+<h2 id="OS的层次模型"><a href="#OS的层次模型" class="headerlink" title="OS的层次模型"></a>OS的层次模型</h2><blockquote>
+<p>用户接口<br>（命令接口、程序接口、图形用户接口）<br>对对象操纵和管理的软件集合<br>（处理机管理软件、存储器管理软件、设备管理软件、文件管理软件）<br>操作系统对象<br>（处理机、存储器、设备、文件和作业）</p>
+</blockquote>
+<p>操作系统对象就是OS操作和管理的对象。<br>命令接口是用户和OS的接口，程序接口是应用程序和OS的接口。</p>
+<h2 id="OS的功能"><a href="#OS的功能" class="headerlink" title="OS的功能"></a>OS的功能</h2><h3 id="一、存储管理"><a href="#一、存储管理" class="headerlink" title="一、存储管理"></a>一、存储管理</h3><p>（1）、<em>内存分配</em>：为每道程序分配内存，两种方式如下：<br>静态分配：每个作业的内存空间是作业装入时确定的，装入后，不允许再申请新的内存空间，也不允许在内存中“移动”；<br>动态分配：每个作业的基本内存空间也是在装入时确定，但允许在运行中申请新的内存空间也允许“移动”<br>要完成内存空间分配应有：内存分配数据结构（记录内存使用情况）、内存分配功能（系统按内存分配算法分配）、内存回收功能（系统对用户不再需要的内存通过用户释放去完成系统的回收）<br>（2）、<em>内存保护</em>：确保每道程序都在自己的内存空间中运行互不干扰。即决不允许用户程序访问操作系统的程序和数据；也不允许转移到非共享的其它用户程序中去执行。因此需要内存保护机制，一种较为简单的内存保护机制是设置两个界限寄存器，分别用于存放正在执行程序的上届和下届。系统需对每条指令所访问的地址进行越界检查，如果发生越界，便发出越界中断请求，以停止该程序的执行。若完全用软件实现，需要增加若干指令去进行越界检查，将显著降低程序的运行速度，因此越界检查都是由硬件实现。当然对发生越界后的处理还须软件配合来完成。<br>（3）<em>地址映射</em><br>一个应用程序（源程序）.cpp经编译compile后，通常会形成若干个目标程序.obj；这些目标程序再经过连接link而形成可装入程序。这些程序地址都是从“0”开始，其他地址都是相对于起始地址计算的；由这些地址所形成的地址范围称为“地址空间”。其中的地址称为“逻辑地址”或“相对地址”。此外，由内存中的一系列单元所限定的地址范围称为“内存空间”其中的地址称为“物理地址”。<br>在多道程序环境中，地址空间中的逻辑地址和内存空间中的物理地址是不可能一致的，因此存储器管理必须提供地址映射功能，以将地址空间中的逻辑地址转换为内存空间中与之对应的物理地址，该功能也由应硬件完成。<br>（4）<em>内存扩充</em><br>由于物理内存容量有限，因此难于满足用户需要，势必影响系统的性能。这里的内存扩充是指借助虚拟存储技术，从逻辑上去扩充内存容量，使用户所感觉到的内存容量比实际内存容量大得多，可使更多用户程序能并发运行。需要内存扩充机制，实现如下功能：<br>请求调入功能：（现装现卖）允许在仅装入一部分用户程序和数据的情况下，启动该程序运行。在运行过程中对当发现继续运行所需的程序和数据尚未装入内存时，可向OS发送请求由OS将所需部分调入内存，以便继续运行。<br>置换功能：（舍不舍得）若内存中已无足够空间来装入需要调入的部分时，系统应能将内存中的一部分暂时不用的程序和数据调至磁盘上，然后将所需部分调入内存。</p>
+<h3 id="二、处理器管理"><a href="#二、处理器管理" class="headerlink" title="二、处理器管理"></a>二、处理器管理</h3><p>处理器的分配和运行都是以进程为基本单位<br>（1）<em>进程控制</em><br>创建进程为其分配资源，运行结束时撤销进程并回收资源，及控制进程在运行过程中的状态转换。在OS中通常是利用若干条进程控制原语或系统调用，来实现进程控制。（要做就做全套）原语，指用以完成特定功能、具有“原子性”的一段程序。原子性，即程序中一组动作，不被其他任何操作打断。最基本的原语有创建新进程的进程原语，撤销进程原语。<br>（2）<em>进程同步</em><br>对诸进程的运行进行协调，有如下两种协调方式：<br>进程互斥方式：指诸进程在对临界资源访问时，应采用互斥方式<br>进程同步方式：在互相合作完成共同任务的进程间，由同步机构对他们的次序加以协调。<br>最简单的实现进程互斥的机制是，为每种临界资源配一把锁，设置一对关锁原语Lock（w）和开锁原语Unlock（w）。而实现进程同步最常用的机制使信号量。<br>（3）<em>进程通信</em><br>进程相互合作去完成一共同任务时，需交换信息。<br>直接通信方式：用与进程位于同一计算机系统时。由源进程利用发生命令直接将message挂到目标进程的消息队列上，以后由目标进程利用接收命令从其消息队列中取出消息。<br>间接通信方式（找个中间人，银弹策略）：用于进程处于不同系统中时。由源进程利用发生命令将message送入一个存放消息的中间实体，以后由目标进程利用接收命令从中间实体中取走消息。该中间实体通常称为邮箱，相应的通信系统称为电子邮件系统？？？<br>（4）<em>调度</em><br>等待在后边队列上的每个作业通常要经过调度，包括作业调度和进程调度两步才能执行。<br>作业调度的基本任务，是从后备队列中按照一定的算法，选择出若干个作业，为他们分配必要的资源（首要是内存）。将他们调入内存后，变为它们建立进程，使之称为可能获得处理器的就需进程；并将他们按一定算法插入就绪队列。<br>进程调度：从进程的就绪对垒中，按一定算法选一新进程，把处理机分配给它，并为它设置运行现场，使进程投入运行。<br>这两调度算法有些是相同的如FCFS（First come First service）算法，优先权高优先调度算法。</p>
+<h3 id="三、设备管理"><a href="#三、设备管理" class="headerlink" title="三、设备管理"></a>三、设备管理</h3><p>(1)<em>缓冲管理</em><br>管理好各种类型的缓冲区，如字符缓冲区和字符块缓冲区，以缓和CPU和I/O速度不匹配的矛盾，最终达到提高CPU和I/O设备利用率，进而提高系统吞吐量。（比如串口I/O）<br>  最常见的缓冲区机制有单缓冲区机制，能实现双向同时传送数据的双缓冲机制，以及能供多个设备同时使用的公用缓冲池机制。<br>（2）<em>设备分配</em><br>根据用户的I/O请求，位置分配其所需的设备。若在CPU和I/O间还存在设备控制器和I/O通道时，还须为分配出去的设备分配响应的控制器和通道。<br> 为实现该功能，系统应配置设备控制表、控制器控制表等数据结构，用于记录设备及控制器的标识符和状态。对于独占设备（临界）的分配，还应考虑该设备被分配出去后，系统是否安全，设备用完后，还应立即回收。<br>（3）<em>设备处理</em>（设备驱动程序）<br>任务是实现CPU和设备控制器之间的通信。即由CPU向设备控制器发出I/O指令，要求它完成指定的I/O操作；并能接受由设备控制器发来的中断请求，给予及时的响应和相应的处理。<br>处理过程：<br>     首先设备处理程序检查I/O请求的合法性、了解设备的状态是否空闲、了解有关传递参数以及设置设备的工作方式。<br>      然后，便向设备控制器发出I/O命令，启动I/O设备区完成指定的I/O操作<br>  最后是及时响应由控制器发来的中断请求，并根据该中断请求的类型，调用相应的中断处理程序进行处理。<br> （4）<em>设备独立性和虚拟设备</em><br>设备独立性是指应用程序独立于物理设备，以使用户编址的程序与实际使用的物理设备无关。（就是说应用程序用的设备是OS提供的设备的接口，OS屏蔽了具体使用哪个设备?,银弹策略）可提高用户程序的可适应性，易于实现输入、输出的重定向（即I/O操作中所使用的设备科方便地重新指定）。<br>虚拟设备，是把每次仅允许一个进程使用的物理设备，改造为能同时供多个进程共享的设备。提高了设备利用率，加速了程序的运行。</p>
+<h3 id="四、文件管理"><a href="#四、文件管理" class="headerlink" title="四、文件管理"></a>四、文件管理</h3><p>（1）<em>文件存储空间的管理</em><br>系统设置相应的数据结构，用于记录文件存储空间的使用情况，以供分配存储空间时参考。<br>还应具有对存储空间进行分配和回收的功能。一般对存储空间的分配次啊用离散分配方式，以减少外存零头，并以盘块为基本分配单位。盘块的大小通常为512字节至4k字节。<br>（2）<em>目录管理</em><br>方便在外存在寻找用户所需文件。通常有系统为每个文件建立一个目录项，包含文件名、文件属性、文件在磁盘上的物理位置等，最终构成一个目录文件。目录管理的主要任务，是为每个文件建立起目录项，并对众多的目录项加以有效的组织，以实现方便的按名存取。<br>（3）<em>文件的读写管理和存取控制</em><br>由于读和写操作不会同时进行，故可合用一个读/写指针。<br>一个完善的文件系统中，可以采用多级保护设施来达到保护文件存取控制的目标。第一进行系统级存取控制，使用空灵。第二级是用户级存取控制，通过对用户分类并为其分配适当的“文件存取权限”等方法实现。第三级文件级存取控制，通过设置文件属性（只读、只执行、读/写等属性）来控制对文件的存取。</p>
+<h3 id="五、用户接口"><a href="#五、用户接口" class="headerlink" title="五、用户接口"></a>五、用户接口</h3><p>（1）<em>命令接口</em><br>分为联机用户：由一组键盘操作命令及命令解释程序所组成。用户在终端或控制台上键入一命令后，系统理解转入命令解释程序。完成指定功能后，控制又返回终端或控制台。用户可通过此实现对作业控制。<br>脱机用户接口：为批处理作业的用户提供的，由一组作业控制语言JCL组成。批处理作业的用户不能直接与自己的作业交互作用，只能委托系统代替用户对作业进行控制和干预。<br>（2）<em>程序接口</em><br>是为用户在执行中访问系统资源而设置的，是用户程序取得OS服务的唯一途径，由一组系统调用完成。<br>（3）<em>图形接口</em><br>将联机用户接口演化而来，得到图形接口，更方便直观。</p>
+<h3 id="六、网络与通信管理"><a href="#六、网络与通信管理" class="headerlink" title="六、网络与通信管理"></a>六、网络与通信管理</h3><p>（1）<em>网络资源管理</em><br>计算机联网的目的是进行资源共享，网络操作系统应能够实现网上资源共享，管理用户对资源的访问，保证网络信息资源的安全性和完整性。<br>（2）<em>数据通信管理</em><br>计算机联网后站点之间可以互相传送数据。数据通信管理为为网络应用提供必要的网络通信协议，处理网络信息传输过程中的物理细节；通过通信软件，按照网络通信协议完成网络上计算机之间的信息传输。<br>（3）<em>网络管理</em><br>包括网络性能管理、安全管理、故障管理、配置管理和日志管理。</p>
+<h2 id="OS的基本特征"><a href="#OS的基本特征" class="headerlink" title="OS的基本特征"></a>OS的基本特征</h2><h3 id="一、并发性"><a href="#一、并发性" class="headerlink" title="一、并发性"></a>一、并发性</h3><p>并发性是操作系统最重要的特征，其他特征以并发性为前提。<strong>并发性</strong>是指两个或两个以上的事情或活动在同一时间间隔内发生<strong>（不是同一时刻）</strong>。即，在计算机系统中同时存在多个进程，从宏观上看，这些进程是同时运行并向前推进着；从微观上讲，任何时刻只能有一个进程执行，单CPU条件下，则这些进程在CPU上交替执行。<br>通常的程序是静态实体（Passive Entity），它们是不能并发执行得。为了让程序并发执行，系统必须分别为每个程序建立进程（进程的来由），即在系统中能独立运行并作为资源分配的基本单位，他是一个活动实体。</p>
+<h3 id="二、共享性"><a href="#二、共享性" class="headerlink" title="二、共享性"></a>二、共享性</h3><p>在内存中并发执行的多个进程可以共同使用系统中的资源。<br><strong>互斥共享方式</strong>：有些资源如打印机，虽然可同时供多个进程使用，但一段时间内却只允许一个进程访问该资源（称为临界资源），所以需要同步的方式进行访问使用。临界资源都要求互斥地被共享。<br><strong>同时访问方式</strong>：允许在一段时间内由多个进程同时对它进行访问，这里的“同时”往往是宏观上的，微观上这些进程也可能是交替地对该资源进行访问。这种方式的典型资源是磁盘。</p>
+<h3 id="三、虚拟性（Virtual）"><a href="#三、虚拟性（Virtual）" class="headerlink" title="三、虚拟性（Virtual）"></a>三、虚拟性（Virtual）</h3><p><strong>虚拟性</strong> 的本质含义是指<strong>一个物理实体映射为多个逻辑实体</strong>。<br>例如，多道分时系统中，虽只有一个CPU，但每个终端用户却都认为是有一个CPU在专门为他服务。也可把一条物理信道虚拟为多条逻辑信道（虚信道）。在os中虚拟的实现，主要是通过分时使用的方法。如果n是某一物理设备所对应的虚拟的逻辑设备，则虚拟设备的速度必然是物理设备速度的1/n.</p>
+<h3 id="四、不确定性"><a href="#四、不确定性" class="headerlink" title="四、不确定性"></a>四、不确定性</h3><p>进程的执行由于资源等因素的限制并非“一气呵成”，而是走走停停，因此是以一部方式运行的。尽管如此，只要运行环境相同/初始数据相同，作业经多次运行，都会获得完全相同的结果，因此，异步运行是允许的。</p>
+<h2 id="OS的分类"><a href="#OS的分类" class="headerlink" title="OS的分类"></a>OS的分类</h2><p>无OS时的计算机系统：人工操作方式-à脱机输入输出方式</p>
+<h3 id="一、批处理系统（成批处理特性）"><a href="#一、批处理系统（成批处理特性）" class="headerlink" title="一、批处理系统（成批处理特性）"></a>一、批处理系统（成批处理特性）</h3><p>单道批处理系统：<br>多道批处理系统：用户所提交的作业都先存放在外存上并排成一个队列称为“后备队列”；然后由作业调度程序按一定的算法从后备队列中选择若干个作业调入内存，使他们共享CPU和系统中的各种资源，从而内存中驻留多道程序并行执行。（作业从提交到完成，需要进过两次调度：作业调度算法从外存的队列中选入内存。进程调度算法，从内存中作业中选择其一将处理器分配给其进行执行）<br>优点：<br>1.、提高CPU利用率。I/O是在准备数据，所以在I/O完成前CPU是无法完成操作的。这样显然会降低CPU的利用率。所以多道程序，可以让多个程序装入内存，可交替执行，从而当正在运行的程序因I/O而暂停执行时，系统可调度另一道程序运行，从而保持了CPU处于忙碌状态。<br>2、可提高内存和I/O设备的利用率，如果单道程序，则偌大的内存只能装入一个程序，这样必定浪费内存。<br>3、增加系统吞吐量。<br>缺点：<br>1（指作业进入系统到执行完成退出系统的时间）平均周转时间长，。由于作业要排队，依次进行处理，因而作业的周转时间较长。<br>2无交互能力，用户一旦提交作业，就不能再与自己的作业进行交互，修改和调试不方便。</p>
+<h3 id="二、分时系统（比如windows）（交互特性）"><a href="#二、分时系统（比如windows）（交互特性）" class="headerlink" title="二、分时系统（比如windows）（交互特性）"></a>二、分时系统（比如windows）（交互特性）</h3><p>指在一台主机上连接了多个带有显示器和键盘的终端，同时允许多个用户共享主机中的资源，每个用户都可通过自己的终端以交互（人机交互）的方式使用计算机。<br>实现的关键问题：及时接收（能同时接收多个终端上输入的数据，为每个终端配置一个缓冲区，用来暂存用户键入的命令），及时处理（各个用户的作业都必须在内存中，且能频繁获得处理机而运行，此目标要求所有的用户作业都直接进入内存）<br>实现方法：<br>（1）用户作业不能先进入磁盘，然后再调入内存。<br>（2）不允许一个作业长时间占用处理器直至它运行结束或发生I/O请求后，方才调度其他作业运行。应规定每个程序只运行很短的时间（通常称为时间片），然后暂停该作业的运行并立即调度下一个程序的运行。</p>
+<h3 id="三、实时系统（比如DSP中RTOS）（实时特性）"><a href="#三、实时系统（比如DSP中RTOS）（实时特性）" class="headerlink" title="三、实时系统（比如DSP中RTOS）（实时特性）"></a>三、实时系统（比如DSP中RTOS）（实时特性）</h3><p>所谓实时是指“及时”“即时”，实时系统是指在规定时间内完成对该事件的处理，并控制所有实时任务加以分类。<br>实时系统是以任务来划分，并由他们反映或控制外部时间，因而带有紧迫性。<br>划分：<br>执行任务是否呈现周期性：周期性实时任务（周期性的控制某个外部时间）、非周期性实时任务。<br>对截止时间的要求来划分：硬实时任务（必须满足任务对截止时间的要求，否则可能出现难以预测的结果）<br>软实时任务（也有个截止时间，但并不严格，错过不会有太大影响）<br>注意：实时系统也与分时系统一样具有多路性、独立性，可为多个终端服务且独立，但对实时系统而言，其多路性表现在经常对多路的现场信息进行采集或对多个对象或多个执行机构进行控制。<br>实时系统也具交互性，但仅限于访问系统中某些特定的专用服务出现，而不想分时系统那样提供数据处理服务、资源共享等服务。</p>
+<p><strong>批处理系统、分时系统和实时系统是三种基本的操作系统类型。一个实际的os可能兼有三者或其中两者的功能。</strong></p>
+<h3 id="四、微机操作系统"><a href="#四、微机操作系统" class="headerlink" title="四、微机操作系统 ~~~"></a>四、微机操作系统 ~~~</h3><h3 id="五、网络操作系统"><a href="#五、网络操作系统" class="headerlink" title="五、网络操作系统"></a>五、网络操作系统</h3><h3 id="六、多CPU操作系统"><a href="#六、多CPU操作系统" class="headerlink" title="六、多CPU操作系统"></a>六、多CPU操作系统</h3><h3 id="七、分布式操作系统"><a href="#七、分布式操作系统" class="headerlink" title="七、分布式操作系统"></a>七、分布式操作系统</h3><h3 id="八、嵌入式操作系统"><a href="#八、嵌入式操作系统" class="headerlink" title="八、嵌入式操作系统"></a>八、嵌入式操作系统</h3>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/21/pynote01/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/21/pynote01/" itemprop="url">python学习笔记01----Hello World！</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-21T00:10:40+08:00">
+                2016-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/21/pynote01/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/21/pynote01/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="1-Python命令行"><a href="#1-Python命令行" class="headerlink" title="1.Python命令行"></a>1.Python命令行</h3><p>在linux下输入python（windows下点击开始-&gt;程序-&gt;Python 2.3 -&gt;IDLE（Python GUI）<br>在&gt;&gt;&gt;提示符后输入print(‘Hello World!’)</p>
+<p><code>Hello World!</code></p>
+<h3 id="2-Python小程序"><a href="#2-Python小程序" class="headerlink" title="2.Python小程序"></a>2.Python小程序</h3><p>用文本编辑器写一个.py结尾的文件，比如说helloWorld.py中写入print(“Hello World”) 在命令提示符中输入Python helloWorld.py，会在窗口中显示以下结果</p>
+<p><code>Hello World!</code></p>
+<h3 id="3-Python脚本"><a href="#3-Python脚本" class="headerlink" title="3.Python脚本"></a>3.Python脚本</h3><p>下面将刚才的Python小程序改写成Python脚本</p>
+<pre><code>#!/usr/bin/env python
+print(&quot;&quot;&quot;Hello World!&quot;&quot;&quot;)
+</code></pre><p>更改helloWorld.py文件的权限</p>
+<p><code>sudo chmod 755 helloWorld.py</code></p>
+<p>输入./helloWorld.py即可之行该脚本，输入结果如下</p>
+<p><code>Hello World!</code></p>
+<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><p><strong>1.单引号、双引号、多引号的区别</strong></p>
+<p>*先说双引号与3个双引号的区别，双引号所表示的字符串通常要写成一行如果要写成多行，那么就要使用\ (“连行符”)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s1 = &quot;hello,world&quot;                 # s2与s1是一样的。</span><br><span class="line">s2 = &quot;hello,\</span><br><span class="line">   world&quot;</span><br></pre></td></tr></table></figure>
+<p>如果你用3个双引号的话，就可以直接写了，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s3 = &quot;&quot;&quot;hello,                      #s3实际上就是&quot;hello,\nworld,\nhahaha.&quot;, “\n”是换行符。</span><br><span class="line">world,</span><br><span class="line">hahaha.&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<p>如果你的字符串里\n很多，你又不想在字符串中用\n的话，那么就可以使用3个双引号。而且使用3个双引号还可以在字符串中增加注释，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s3 = &quot;&quot;&quot;hello,                      #hoho, this is hello, 在3个双引号的字符串内可以有注释哦</span><br><span class="line">world,                              #hoho, this is world</span><br><span class="line">hahaha.&quot;&quot;&quot;</span><br><span class="line">另外，三个引号还可用于注释。例如：</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">大家好，我是注释</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>单引号与双引号的作用是相同的。但是为什么要引入单引号和双引号呢？<br>举个例子：<br>当我用单引号来表示一个字符串时，如果要表示 Let’s go 这个字符串，必须这样：</p>
+<p>  <code>s4 = &#39;Let\&#39;s go&#39;</code></p>
+<p>  注意没有，字符串中有一个’，而字符串又是用’来表示，所以这个时候就要使用转义符 \ （\，转义符应该知道吧）, 如果你的字符串中有一大堆的转义符，看起来肯定不舒服python也很好的解决了这个问题。<br>  如下：</p>
+<p>  <code>s5 = &quot;Let&#39;s go&quot;</code></p>
+<p>  这时，我们看，python知道你是用 “ 来表示字符串，所以python就把字符串中的那个单引号 ‘ , 当成普通的字符处理了，是不是很简单？<br>  对于双引号，也是一样的，下面举个例子</p>
+<p>  <code>s6 = &#39;I realy like &quot;python&quot;!&#39;</code></p>
+<p>  这就是单引号和双引号都可以表示字符串的原因了。</p>
+</li>
+</ul>
+<p><strong>2.在Python 2.x中，print还可以是一个关键字，可写成print ‘Hello World!’，但这在3.x中行不通。</strong></p>
+<p><strong>3.“#!/usr/bin/python”与”#!/usr/bin/env python”的区别（windows用户可以无视）</strong></p>
+<p>#!/usr/bin/python 是告诉操作系统执行这个脚本的时候，调用/usr/bin下的python解释器；相当于写死了Python的路径，如果Python的路径改变，脚本将无法执行。不推荐使用</p>
+<p>#!/usr/bin/env python 这种用法是为了防止操作系统用户没有将python装在默认的/usr/bin路径里。当系统看到这一行的时候，首先会到env设置里查找python的安装路径，再调用对应路径下的解释器程序完成操作。</p>
+<p><strong>4.如何通过直接输入helloWorld.py而不是./helloWorld来执行脚本？（windows用户请无视）</strong><br>在一般用户下输入PATH=$PATH：(注意后面的冒号)。  即可直接通过输入helloWorld.py执行脚本。<br>但是值得注意的是，千万不要用这种方法修改超级用户（一般是root）的PATH变量。这是一个安全网面 的漏洞，因为root用户管理员可能因此执行一个某个命令的伪装版本。</p>
+<p>5.<strong>如何使你的程序在任何位置执行？</strong></p>
+<pre><code>PATH=/home/userName/test:$PATH                             //将/home/userName/test加入PATH （注意中间的冒号！ PATH必须大写！）
+sudo cp helloWorld.py /home/userName/test/helloWorld
+</code></pre><p>然后输入helloWorld即可直接之行脚本</p>
+<p><strong>6.Python的注释</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#单行注释</span><br><span class="line"></span><br><span class="line">&lt;**</span><br><span class="line">多行注释1</span><br><span class="line">**&gt;</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">多行注释2</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/14/code-dream/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -822,377 +1190,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/07/ALG-1/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/03/07/ALG-1/" itemprop="url">【算法学习笔记】NP完全性理论，让我看晕了/递归策略的排列问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-07T19:11:24+08:00">
-                2016-03-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/07/ALG-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/07/ALG-1/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h2><p>开学第一周，初识算法课，当头一棒，老师NP 问题云云，遂寻书溯源，不得解。</p>
-<p>突然发现《计算机算法设计与分析》这本书真是过分啊，整一册习题集，不只是哪位老师运用腾挪大法著成此书，怕了怕了。去借学神的《算法导论》一睹NP真容。</p>
-<p><strong>……欢迎批评指正</strong></p>
-<h2 id="NP"><a href="#NP" class="headerlink" title="NP"></a>NP</h2><p>我们以前接触的算法基本上都是多项式时间算法：对于规模为n的输入，在最坏的情况下的运行时间是O(n^k)，其中k为某一确定常数。      但实际上有一些问题不能在多项式时间内解决；另外，还有许多可以在多项式时间内解决的问题，但对任意常数k，它们都不能在O(n^k)时间内被解决。</p>
-<p>上面所提的后者在我的理解中就是NP问题。可以这样想想：对于下一步的动作，他们也不知道确切的应该怎么办，只能“尝试”很多种方案才能够得出一个答案，这显然是很费时的。</p>
-<p>至于NPC问题，可以这么认为，这种问题只有把解域里面的所有可能都穷举了之后才能得出答案，这样的问题是NP里面最难的问题，这种问题就是NPC问题。</p>
-<p>……</p>
-<p>总之，当我们试着去说明一个问题为NP完全问题时，我们是在陈述它是一个多么困难的问题，并不是去证明它存在某个有效算法，而是去证明不太可能存在有效的算法去解决问题。</p>
-<p>NP问题的存在，应该就是提醒我们对待复杂的问题，更好的办法是花时间开发一种近似算法或解决某种已处理问题的特例，而不是寻找求得问题确切解的一种快速算法。</p>
-<blockquote>
-<p>递归策略</p>
-</blockquote>
-<p>直接的或间接的调用自身的算法称为递归算法。</p>
-<p>递归的使用在我的印象中最深刻的是初学时完成的求n的阶乘 程序：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">factorial</span> <span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>)   <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span>  n*factorial(n<span class="number">-1</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>未完待续</strong></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/02/14/android-naming-conventions/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/02/14/android-naming-conventions/" itemprop="url">Android命名规范</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-14T20:08:08+08:00">
-                2016-02-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/02/14/android-naming-conventions/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/02/14/android-naming-conventions/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="Java类文件"><a href="#Java类文件" class="headerlink" title="Java类文件:"></a>Java类文件:</h4><ul>
-<li>activity:以activity作为后缀.例如:PersonActivity; </li>
-<li>adapter:以adapter作为后缀.例如:PersonAdapter;  </li>
-<li>database:以db作为后缀.例如:PersonDB;</li>
-<li>Entity:以entity作为后缀.例如:PersonEntity; </li>
-<li>so on</li>
-</ul>
-<h4 id="资源文件"><a href="#资源文件" class="headerlink" title="资源文件:"></a>资源文件:</h4><h5 id="layout目录下"><a href="#layout目录下" class="headerlink" title="layout目录下:"></a>layout目录下:</h5><ol>
-<li>页面布局文件:以act_ 为前缀,模块package为中缀,去掉activity后为后缀.例如:Person模块的AddCustomActivity的布局文件命名为:act_person_addcustom.xml </li>
-<li>ListView中的Item布局文件.以item_ 为前缀,列表项的名称为后缀.控件名称为:lvUserList,Item的布局文件命名为:item_lvUserList.xml </li>
-<li>Dialog布局文件.dlg_ 为固定前缀,Dialog的功能名称为后缀.例如:dlg_hint.xml</li>
-</ol>
-<h5 id="drawable目录文件下"><a href="#drawable目录文件下" class="headerlink" title="drawable目录文件下:"></a>drawable目录文件下:</h5><ul>
-<li>一个页面共用,用页面前缀; </li>
-<li>一个模块共用,用模块前缀; </li>
-<li>全局使用:common</li>
-</ul>
-<h4 id="java类中控件对象"><a href="#java类中控件对象" class="headerlink" title="java类中控件对象:"></a>java类中控件对象:</h4><p>控件类型缩写+控件的逻辑名称:例如:btnLogin;</p>
-<h4 id="layout中控件对象"><a href="#layout中控件对象" class="headerlink" title="layout中控件对象:"></a>layout中控件对象:</h4><p>建议和activity中相对应的控件名称保持一致.例如:R.id.btnLogin;</p>
-<h4 id="strings-xml中常量"><a href="#strings-xml中常量" class="headerlink" title="strings.xml中常量:"></a>strings.xml中常量:</h4><p>所在activity名称 + 控件名称 + 功能/描述,例如:loginActivity_btnLogin_text;<br>拆分Strings.xml:<br>strings_ + 模块名称,例如: strings_module_a.xml;</p>
-<h4 id="常量名称"><a href="#常量名称" class="headerlink" title="常量名称:"></a>常量名称:</h4><p>只能包含之母和下划线,字母全部大写并用链接;</p>
-<h3 id="Androidb编码规范"><a href="#Androidb编码规范" class="headerlink" title="Androidb编码规范"></a>Androidb编码规范</h3><ul>
-<li><p>Activity中的onCreate:是设计模式中单一职责原则的体现. </p>
-</li>
-<li><p>initVariables():初始化变量.<br>initView():初始化控件<br>  loadData():初始化数据</p>
-</li>
-<li><p>坚持使用fastJSON自定义实体来作为MobileAPI的数据载体.</p>
-</li>
-<li>页面之间传值,坚持使用Intent携带序列化实体数据的方.禁止为了省事使用全局变量进行传值.</li>
-<li>为控件添加事件,初始化下面就直接添加事件.</li>
-<li>activity中不能使用嵌套的内部类</li>
-</ul>
-<h3 id="Adapter规范"><a href="#Adapter规范" class="headerlink" title="Adapter规范:"></a>Adapter规范:</h3><ul>
-<li><p>统一放在adapter这个包中. </p>
-</li>
-<li><p>adapter绑定数据,一律为ArrayList; </p>
-</li>
-<li><p>adapter创建适合于自身列表的ViewHolder实体类,统一命名为ViewHolder.</p>
-</li>
-<li><p>不同模块的实体类不能共享.</p>
-</li>
-<li><p>为节省内存,请使用ArrayList,而不是HashMap</p>
-</li>
-</ul>
-<p>-图片的处理,统一使用ImageLoader/fresco</p>
-<ul>
-<li>SharedPreferences保存简单配置信息,对于复杂的对象,还是要存储到本地文件中<br>数据类型转换一定要进行校验.失败要有默认值,使用try-catch保护,避免空指针<br>使用常量来代替枚举类型</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1240,7 +1242,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1262,7 +1264,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
