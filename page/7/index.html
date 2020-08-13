@@ -296,6 +296,177 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/04/03/ALG-4/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/04/03/ALG-4/" itemprop="url">【算法学习笔记】贪心算法背包问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-03T13:59:11+08:00">
+                2016-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/04/03/ALG-4/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/04/03/ALG-4/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>贪心算法是我们在《计算机算法设计与分析》这门课中学习的几种重要的算法之一，顾名思义，贪心算法总是做出在当前看来最好的选择。也就是该算法并不从整体最优考虑，它所作出的选择只是在某种意义上的从局部的最优选择，寻找到解决问题的次优解的方法。虽然我们希望贪心算法得到的最终结果也是整体最优的，但是在某些情况下，该算法得到的只是问题的最优解的近似。</p>
+</blockquote>
+<h3 id="贪心算法思路"><a href="#贪心算法思路" class="headerlink" title="贪心算法思路"></a>贪心算法思路</h3><p>————问题通常以自顶向下的方式进行，以迭代的方式做出相继的贪心选择，每做一次贪心选择就将所求问题简化为规模更小的子问题。当达到算法中的某一步（不可简化的子问题）不能再继续前进时，算法停止。<br>该算法存在的短板：</p>
+<ol>
+<li>不能保证求得的最后解是最佳的；</li>
+<li>不能用来求最大或最小解问题；</li>
+<li>只能求满足某些约束条件的可行解的范围。</li>
+</ol>
+<blockquote>
+<p>实现该算法的过程：<br> Begin 从问题的某一初始解出发；<br> while 能朝给定总目标前进一步<br> do 求出可行解的一个解元素；<br> end 由所有解元素组合成问题的一个可行解</p>
+</blockquote>
+<h3 id="背包问题描述"><a href="#背包问题描述" class="headerlink" title="背包问题描述"></a>背包问题描述</h3><ol>
+<li>0-1背包问题：给定n种物品和一个背包。物品i的重量是Wi，其价值为Vi，背包的容量为C。应如何选择装入背包的物品，使得装入背包中物品的总价值最大? 在选择装入背包的物品时，对每种物品i只有2种选择，即装入背包（1）或不装入背包（0）。不能将物品i装入背包多次，也不能只装入部分的物品i。</li>
+<li>背包问题：与0-1背包问题类似，所不同的是在选择物品i装入背包时，可以选择物品i的一部分，而不一定要全部装入背包，1≤i≤n。背包问题可以定义如下：给出n个大小为w1,w2,…,wn,值为v1,v2,…,vn的项目，并设背包容量为C，要找到非负实数x1,x2,…,xn, 使和在约束下最大。</li>
+</ol>
+<h3 id="贪心算法解决背包问题有几种策略："><a href="#贪心算法解决背包问题有几种策略：" class="headerlink" title="贪心算法解决背包问题有几种策略："></a>贪心算法解决背包问题有几种策略：</h3><h4 id="i-一种贪婪准则为："><a href="#i-一种贪婪准则为：" class="headerlink" title="(i) 一种贪婪准则为："></a>(i) 一种贪婪准则为：</h4><p>从剩余的物品中，选出可以装入背包的价值最大的物品，利用这种规则，价值最大的物品首先被装入（假设有足够容量），然后是下一个价值最大的物品，如此继续下去。这种策略不能保证得到最优解。例如，考虑n=2, w=[100,10,10], v =[20,15,15], c = 105。当利用价值贪婪准则时，获得的解为x= [ 1 , 0 , 0 ]，这种方案的总价值为2 0。而最优解为[ 0 , 1 , 1 ]，其总价值为3 0。</p>
+<h4 id="ii-另一种方案是重量贪婪准则是："><a href="#ii-另一种方案是重量贪婪准则是：" class="headerlink" title="(ii) 另一种方案是重量贪婪准则是："></a>(ii) 另一种方案是重量贪婪准则是：</h4><p>从剩下的物品中选择可装入背包的重量最小的物品。虽然这种规则对于前面的例子能产生最优解，但在一般情况下则不一定能得到最优解。考虑n= 2 ,w=[10,20], v=[5,100], c= 2 5。当利用重量贪婪策略时，获得的解为x =[1,0], 比最优解[ 0 , 1 ]要差。</p>
+<h4 id="iii-还有一种贪婪准则，就是我们教材上提到的："><a href="#iii-还有一种贪婪准则，就是我们教材上提到的：" class="headerlink" title="(iii) 还有一种贪婪准则，就是我们教材上提到的："></a>(iii) 还有一种贪婪准则，就是我们教材上提到的：</h4><p>认为，每一项计算yi=vi/si,即该项值和大小的比，再按比值的降序来排序，从第一项开始装背包，然后是第二项，依次类推，尽可能的多放，直到装满背包。有的参考资料也称为价值密度pi/wi贪婪算法。这种策略也不能保证得到最优解。利用此策略试解n= 3 ,w=[20,15,15], v=[40,25,25], c=30 时的最优解。虽然按pi /wi 非递减的次序装入物品不能保证得到最优解，但它是一个直觉上近似的解。而且这是解决普通背包问题的最优解，因为在选择物品i装入背包时，可以选择物品i的一部分，而不一定要全部装入背包，1≤i≤n。</p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> c = <span class="number">10</span>;    <span class="comment">//背包容量</span></span><br><span class="line"><span class="keyword">float</span> w[] = &#123;<span class="number">0</span>,<span class="number">10</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>&#125;;    <span class="comment">//物品质量</span></span><br><span class="line"><span class="keyword">float</span> v[] = &#123;<span class="number">0</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">6</span>&#125;;    <span class="comment">//物品价值</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> n = <span class="keyword">sizeof</span>(w)/<span class="keyword">sizeof</span>(w[<span class="number">0</span>]) - <span class="number">1</span> ;    <span class="comment">//物品品种数</span></span><br><span class="line"><span class="keyword">float</span> x[n+<span class="number">1</span>];    <span class="comment">//背包中某种物品的质量（结果）</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sort</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">float</span> v[],<span class="keyword">float</span> w[])</span>    <span class="comment">//对物品的单位价值排序</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = i;j &lt;= n;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(v[i]/w[i] &lt; v[j]/w[j])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">float</span> tempv = v[i];</span><br><span class="line">                v[i] = v[j];</span><br><span class="line">                v[j]=tempv;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">float</span> tempw = w[i];</span><br><span class="line">                w[i] = w[j];</span><br><span class="line">                w[j] = tempw;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printSort</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">float</span> v[],<span class="keyword">float</span> w[])</span>    <span class="comment">//输出排序后结果</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">     &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"v:"</span>&lt;&lt;<span class="string">" "</span>&lt;&lt;v[i]&lt;&lt;<span class="string">"    "</span>;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"w:"</span>&lt;&lt;<span class="string">" "</span>&lt;&lt;w[i]&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Knapsack</span><span class="params">(<span class="keyword">int</span> n,<span class="keyword">float</span> c,<span class="keyword">float</span> v[],<span class="keyword">float</span> w[],<span class="keyword">float</span> x[])</span>    <span class="comment">//贪心选择</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Sort(n,v,w);</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">        x[i] = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//float c = M;</span></span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">         <span class="keyword">if</span>(w[i] &gt; c)</span><br><span class="line">             <span class="keyword">break</span>;</span><br><span class="line">         x[i] = <span class="number">1</span>;</span><br><span class="line">         c-=w[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i &lt;= n)</span><br><span class="line">        x[i]= c/w[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Knapsack(n,c,v,w,x);</span><br><span class="line">    printSort(n,v,w);</span><br><span class="line">    <span class="comment">//输出结果</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"The best answer is:\n"</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j =<span class="number">1</span>; j &lt;= <span class="number">5</span>; j++)</span><br><span class="line">    &#123;</span><br><span class="line">         <span class="built_in">cout</span> &lt;&lt; v[j] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; x[i] * w[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    <span class="comment">//system("pause");</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/24/ALG-3/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1068,173 +1239,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/21/OSnote-3/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/03/21/OSnote-3/" itemprop="url">【OS学习笔记】进程同步与通信</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-21T16:10:40+08:00">
-                2016-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/21/OSnote-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/21/OSnote-3/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="进程同步与通信"><a href="#进程同步与通信" class="headerlink" title="进程同步与通信"></a>进程同步与通信</h2><h3 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h3><h4 id="并发进程的关系"><a href="#并发进程的关系" class="headerlink" title="并发进程的关系"></a>并发进程的关系</h4><ol>
-<li>间接制约关系：一组（两个或多个）进程共享一中资源，且该资源一次仅允许一个进程使用。</li>
-<li>直接制约关系：几个进程相互协作完成一项任务，这些进程要求必须按照规定好的顺序依次执行。<h4 id="进程的互斥与同步"><a href="#进程的互斥与同步" class="headerlink" title="进程的互斥与同步"></a>进程的互斥与同步</h4></li>
-</ol>
-<ul>
-<li>1.进程同步：若干进程为为完成一个共同的任务而互相合作等待对方的消息的协调关系称为进程同步。</li>
-<li>2.进程互斥：进程之间争夺互斥资源引起的。</li>
-<li>2.1 饥饿：一个就绪进程所申请的资源总是被优先于自己的其他进程占有，而始终处于不能被调度执行的状态，这种情况称为饥饿。</li>
-<li>2.2 <strong>死锁</strong>：一个进程集合中，已经占有部分资源的两个或两个以上的进程，还需要获得已被其他进程占有的资源才能继续执行；有可能出现某些进程相互之间都在等待对方的资源且无法运行的局面，即在进程集合中的这些进程处于永远的阻塞状态，这就是死锁。</li>
-<li>3.二者相似之处<br><strong>进程互斥实质上是进程同步的一种特殊情况。</strong></li>
-<li>4.进程同步与进程互斥的区别：~</li>
-</ul>
-<h4 id="临界资源与临界区"><a href="#临界资源与临界区" class="headerlink" title="临界资源与临界区"></a>临界资源与临界区</h4><ul>
-<li>一段时间内只能允许一个进程使用的资源（即互斥资源）称为临界资源。</li>
-<li>对临界资源的访问只能互斥进行，也即个进程对同一临界资源进行操作的程序段也应互斥执行，只有这样才能保证对临界资源的互斥访问。我们把进程中<strong>访问临界资源的代码段称为临界区</strong>。<h5 id="临界区同步机制的4条准则："><a href="#临界区同步机制的4条准则：" class="headerlink" title="临界区同步机制的4条准则："></a>临界区同步机制的4条准则：</h5>1 .空闲让进。<br>2 .忙则等待。<br>3 .有限等待。若干进程要求进入同一临界资源的临界区时，应在有限的时间内使一进程进入临界区，即不应出现各进程相互等待而都无法进入临界区的情况。<br>4 .让权等待。当进程不能进入其临界区时应立即释放所占有的CPU，以免陷入忙等（<strong>进程占用CPU的同时又一直等待</strong>）。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1287,7 +1291,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
