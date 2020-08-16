@@ -296,6 +296,180 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/06/01/pynote06/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/06/01/pynote06/" itemprop="url">python学习笔记06----模块</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-01T07:58:33+08:00">
+                2016-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/06/01/pynote06/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/06/01/pynote06/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>如果你想要在其他程序中重用很多函数，那么你该如何编写程序呢？答案是使用模块。模块是一个包含了所有你定义的函数和变量以.py结尾的文件。</p>
+<h3 id="定义并载入模块"><a href="#定义并载入模块" class="headerlink" title="定义并载入模块"></a>定义并载入模块</h3><p>首先来学习如何使用模块。<br>我在c:\test存放一个文件：Hello.py。存放的代码是：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"Hello"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>接着我们执行下面代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys                         <span class="comment">#import的作用是导入模块，这里我们导入了sys模块</span></span><br><span class="line">sys.path.append(<span class="string">"c:\\test"</span>)        <span class="comment">#这条语句的作用是告诉解释器从哪里寻找模块。   路径还可以这样写sys.path.append("c:/test")</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Hello                       <span class="comment">#这时我们就可以导入自己的模块Hello(模块名为文件名)</span></span><br></pre></td></tr></table></figure></p>
+<p>输出结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello</span><br></pre></td></tr></table></figure></p>
+<p>这是可以在c:/test文件夹下看到多了一个新的文件夹<strong>pycache</strong>，在这个文件夹中出现了文件Hello.cpython-34.pyc。这个文件是与平台无关，且已经经过编译处理的。</p>
+<h3 id="包含函数的模块"><a href="#包含函数的模块" class="headerlink" title="包含函数的模块"></a>包含函数的模块</h3><p>我在c:\test存放一个文件：sayHello.py。存放的代码是：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"hello"</span>);</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cry</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    <span class="title">print</span><span class="params">(<span class="string">"55555555"</span>)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>我们执行下面的代码：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">"c:\\test"</span>)         <span class="comment">#如果被导入的模块与输入他的程序在同一个目录中，则不需要sys.path.append了</span></span><br><span class="line"><span class="keyword">import</span> sayHello</span><br><span class="line"></span><br><span class="line">sayHello.say()                      <span class="comment">#导入模块之后可以调用模块中的函数，但是需要以 模块名.函数  的格式sayHello.cry()</span></span><br></pre></td></tr></table></figure></p>
+<p>得到 hello，另一种方式是直接导入模块里的函数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">sys.path.append(<span class="string">"c:\\test"</span>)</span><br><span class="line"><span class="keyword">from</span> sayHello <span class="keyword">import</span> say ,cry       <span class="comment">#直接导入模块中具体的函数，缺点是如果想使用模块中的其他函数，需要追加导入</span></span><br><span class="line"></span><br><span class="line">say()                               <span class="comment">#可以直接使用函数</span></span><br><span class="line">cry()</span><br></pre></td></tr></table></figure></p>
+<h3 id="模块的属性"><a href="#模块的属性" class="headerlink" title="模块的属性"></a>模块的属性</h3><p><strong>name</strong>属性</p>
+<ol>
+<li>如果模块是<strong>被导入</strong>，<strong>name</strong>的值为模块名字(文件名)</li>
+<li>如果模块是<strong>被直接执行</strong>，<strong>name</strong>的值为’<strong>main</strong>’</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"hello"</span>);</span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:         <span class="comment">#每个Python模块都有它的__name__，如果它是'__main__'，则输出“你好”</span></span><br><span class="line">    print(<span class="string">"你好"</span>)</span><br></pre></td></tr></table></figure>
+<p>输出你好</p>
+<p><strong>以模块的形式被调用，则什么都不会输出</strong></p>
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><p>当我们编写Python库模块的时候，我们往往运行一些测试语句。当这个程序作为库被import的时候，我们并不需要运行这些测试语句。一种解决方法是在import之前，将模块中的测试语句注释掉。而更优美的解决方法，就是使用<strong>name</strong>。</p>
+<p>下面是一个简单的库程序TestLib.py。当直接运行TestLib.py时，<strong>name</strong>为”<strong>main</strong>“。如果被import的话，<strong>name</strong>为”TestLib”。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lib_func</span><span class="params">(a)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> a + <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lib_func_another</span><span class="params">(b)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> b + <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    test = <span class="number">101</span></span><br><span class="line">    print(lib_func(test))</span><br></pre></td></tr></table></figure></p>
+<h4 id="doc属性"><a href="#doc属性" class="headerlink" title="doc属性"></a><strong>doc</strong>属性</h4><p>介绍模块的功能</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>math.__doc__</span><br><span class="line"><span class="string">'This module is always available.  It provides access to the\nmathematical functions defined by the C standard.'</span></span><br></pre></td></tr></table></figure>
+<h3 id="模块包"><a href="#模块包" class="headerlink" title="模块包"></a>模块包</h3><p>可以将功能相似的模块放在同一个文件夹（比如说this_dir）中，构成一个模块包。通过<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> this_dir.module     <span class="comment">#引入this_dir文件夹中的module模块.</span></span><br></pre></td></tr></table></figure></p>
+<p>该文件夹中必须包含一个<strong>init</strong>.py的文件，提醒Python，该文件夹为一个模块包。<strong>init</strong>.py可以是一个空文件。</p>
+<h3 id="Tips"><a href="#Tips" class="headerlink" title="Tips"></a>Tips</h3><p>在编译器中可以通过dir()函数来查看模块中的属性和函数。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> math</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>dir(math)</span><br><span class="line">[<span class="string">'__doc__'</span>, <span class="string">'__loader__'</span>, <span class="string">'__name__'</span>, <span class="string">'__package__'</span>, <span class="string">'__spec__'</span>, <span class="string">'acos'</span>, <span class="string">'acosh'</span>, <span class="string">'asin'</span>, <span class="string">'asinh'</span>, <span class="string">'atan'</span>, <span class="string">'atan2'</span>, <span class="string">'atanh'</span>, <span class="string">'ceil'</span>, <span class="string">'copysign'</span>, <span class="string">'cos'</span>, <span class="string">'cosh'</span>, <span class="string">'degrees'</span>, <span class="string">'e'</span>, <span class="string">'erf'</span>, <span class="string">'erfc'</span>, <span class="string">'exp'</span>, <span class="string">'expm1'</span>, <span class="string">'fabs'</span>, <span class="string">'factorial'</span>, <span class="string">'floor'</span>, <span class="string">'fmod'</span>, <span class="string">'frexp'</span>, <span class="string">'fsum'</span>, <span class="string">'gamma'</span>, <span class="string">'hypot'</span>, <span class="string">'isfinite'</span>, <span class="string">'isinf'</span>, <span class="string">'isnan'</span>, <span class="string">'ldexp'</span>, <span class="string">'lgamma'</span>, <span class="string">'log'</span>, <span class="string">'log10'</span>, <span class="string">'log1p'</span>, <span class="string">'log2'</span>, <span class="string">'modf'</span>, <span class="string">'pi'</span>, <span class="string">'pow'</span>, <span class="string">'radians'</span>, <span class="string">'sin'</span>, <span class="string">'sinh'</span>, <span class="string">'sqrt'</span>, <span class="string">'tan'</span>, <span class="string">'tanh'</span>, <span class="string">'trunc'</span>]</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/05/01/pynote05/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1073,216 +1247,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/04/03/install-archlinux-on-usb-storage-device/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/04/03/install-archlinux-on-usb-storage-device/" itemprop="url">Arch Linux安装到U盘上de安装教程</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-03T14:58:31+08:00">
-                2016-04-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/折腾笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">折腾笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/04/03/install-archlinux-on-usb-storage-device/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/04/03/install-archlinux-on-usb-storage-device/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><strong>如果只是想单纯的安装Arch Linux</strong><br>请移步<a href="http://bbs.archlinuxcn.org/viewtopic.php?id=1037" target="_blank" rel="noopener">Arch Linux安装教程</a><br><a href="https://wiki.archlinux.org/index.php/Main_page_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87" target="_blank" rel="noopener">完善的中文Wiki</a>)</p>
-<h3 id="Arch-Linux简介"><a href="#Arch-Linux简介" class="headerlink" title="Arch Linux简介"></a>Arch Linux简介</h3><p>Arch Linux(或称Arch)是一种以轻量简洁为设计理念的Linux发行版。<br>Arch Linux 将简洁定义为：避免任何不必要的添加、修改和复杂增加。它提供的软件都来自原始开发者(上游)，仅进行和发行版(下游)相关的最小修改。<br>Arch向GNU/Linux用户提供了许多新特性，包括systemd初始化系统、现代的文件系统（Ext2/3/4、Reiser、XFS、JFS、BTRFS）、LVM2/EVMS、软件磁盘阵列（软RAID）、udev支持、initcpio（附带mkinitcpio）以及最新的内核（目前是4.4）。</p>
-<p><a href="http://mirrors.163.com/archlinux/iso/" target="_blank" rel="noopener">速度不错的国内镜像</a></p>
-<h3 id="基本系统安装"><a href="#基本系统安装" class="headerlink" title="基本系统安装"></a>基本系统安装</h3><h4 id="关于分区"><a href="#关于分区" class="headerlink" title="关于分区"></a>关于分区</h4><p>本想使用GPT分区表，查了一些资料，为了使这个U盘在 BIOS 和 UEFI 电脑上都能用，需要创建一个BIOS boot分区，2M大小足够，位置尽量靠前。 多系统的话还要创建一个200M的 EFI System Partition(ESP)分区。但是有大神说GPT中的NTFS分区在Win7下不认（感觉Win8、Win10应该可以） 想用这个分区作为常规U盘使用就不行了，只好再回到MBR分区表。如果是移动硬盘用 GPT 应该没有问题。</p>
-<p>所以仍然使用MBR分区，所以就要用<strong>fdisk</strong>或者cfdisk了，不能使用支持GPT的gdisk和cgdisk，4k对齐也是自动完成。<br>为了在安装过程中能更好认清我的分区，我先在Windows下用DiskGenius进行了分区，只可惜不支持ext4，之后再格式化一下就好。16G的U盘分区规划如下：</p>
-<blockquote>
-<p>第一个分区 5G的ntfs分区，为了这个U盘还能进行一些拷拷文件的工作（非必须，看具体情况来吧)<br>  第二个分区 100M的分区 /boot；<br>  第三个分区 6G的分区，作为ArchLinux根分区；<br>  第四个分区 4G的分区，作为 /home；</p>
-</blockquote>
-<h4 id="先刻录一个U盘启动盘吧"><a href="#先刻录一个U盘启动盘吧" class="headerlink" title="先刻录一个U盘启动盘吧"></a>先刻录一个U盘启动盘吧</h4><p>开始用ultraISO刻了几次都无法启动（原因是ultraISO不分青红皂白的写了syslinux引导进去），看来Arch真的是与众不同，于是用了烧录树莓派的Win32 Disk Image，成功。同理，在Linux下用dd命令应该也是可以的。<br>启动，进入Arch Linux安装界面，选择合适的版本，直接就进root了！这时可以插上你要安装的U盘。</p>
-<h4 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h4><p>启动U盘是 /dev/sdb，目标U盘就成了 /dev/sdc。下面是在Linux显示的分区，并不是我的优盘，网上找来的,仅供参考：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># fdisk /dev/sdc</span><br><span class="line"></span><br><span class="line">Disk /dev/sdc: 8022 MB, 8022982656 bytes, 15669888 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk label type: dos</span><br><span class="line">Disk identifier: 0x00000000</span><br><span class="line"></span><br><span class="line">Device Boot Start End Blocks Id System</span><br><span class="line">/dev/sdc1 2048 1804287 901120 7 HPFS/NTFS/exFAT</span><br><span class="line">/dev/sdc2 * 1804288 2009087 102400 83 Linux</span><br><span class="line">/dev/sdc3 2009088 10405887 4198400 83 Linux</span><br><span class="line">/dev/sdc4 10405888 15669887 2632000 83 Linux</span><br></pre></td></tr></table></figure></p>
-<h5 id="在root下直接重新格式化为ext4"><a href="#在root下直接重新格式化为ext4" class="headerlink" title="在root下直接重新格式化为ext4"></a>在root下直接重新格式化为ext4</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># mkfs.ntfs -f /dev/sdc1 -L f004-c</span><br><span class="line"># mkfs.ext4 -b 4096 -m 0 -i 16384 -O &apos;^has_journal&apos; /dev/sdc2 -L f004-boot</span><br><span class="line"># mkfs.ext4 -b 4096 -m 1 -i 16384 -O &apos;^has_journal&apos; /dev/sdc3 -L f004-a</span><br><span class="line"># mkfs.ext4 -b 4096 -m 0 -i 16384 -O &apos;^has_journal&apos; /dev/sdc4 -L f004-b</span><br></pre></td></tr></table></figure>
-<p>-b 4096 是每个存储块的大小。 -m 1 是指定 root 保留空间为 1%，home 区就不留了。 -i 16384 是指定多少字节的数据设置一个 inode 节点， 增加它的值会减少 inode 的总数，占用的空间会少一些， 相应的能够存储的文件数量也减少了，这个稍微注意一下就好，一般都够用。 -O ‘^has_journal’ 是关掉文件系统日志，有点小危险。</p>
-<h5 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># mount /dev/sdc3 /mnt      //没有根什么也挂不上啊</span><br><span class="line"># mkdir /mnt/boot</span><br><span class="line"># mount /dev/sdc2 /mnt/boot</span><br><span class="line"># mkdir /mnt/home</span><br><span class="line"># mount /dev/sdc4 /mnt/home</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>用df -h检查一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//显示</span><br><span class="line"># ext4</span><br><span class="line">Filesystem Size Used Avail Use% Mounted on</span><br><span class="line">/dev/sdc3 5.9G 8.1M 6.0G 1% /mnt</span><br><span class="line">/dev/sdc2 96M 48K 96M 1% /mnt</span><br><span class="line">/dev/sdc4 3.8G 3.8M 3.9G 1% /mnt/home</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="基本系统安装-1"><a href="#基本系统安装-1" class="headerlink" title="基本系统安装"></a>基本系统安装</h4><p>只讲一些必须的步骤</p>
-<ul>
-<li>默认网络连接：<br>  dhcpcd（有线连接）</li>
-<li><p>网络连接：<br>  无线连接：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># wifi-menu</span><br></pre></td></tr></table></figure>
-<p>  ADSL 宽带连接：</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># pppoe-setup   #配置</span><br><span class="line"># systemctl start adsl  #连接</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="pacman-软件仓库镜像服务器："><a href="#pacman-软件仓库镜像服务器：" class="headerlink" title="pacman 软件仓库镜像服务器："></a>pacman 软件仓库镜像服务器：</h5><p>选择地理位置最为接近的镜像服务器以获得更高的下载速度。pacman优先使用位置靠前的镜像地址。将选定的镜像地址置于最前以便 pacman 使用。<br>注意：该配置不仅会应用到安装环境，也会应用至新系统中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># nano /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure></p>
-<p>更新本地数据库：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacman -Syy</span><br></pre></td></tr></table></figure></p>
-<p>查看中国大陆的镜像服务器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -A 1 &apos;China&apos; /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure></p>
-<p>选择所有的中国大陆的镜像服务器：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># sed -i &apos;/Score/&#123;/China/!&#123;n;s/^/#/&#125;&#125;&apos; /etc/pacman.d/mirrorlist</span><br></pre></td></tr></table></figure></p>
-<h5 id="安装基础系统"><a href="#安装基础系统" class="headerlink" title="安装基础系统"></a>安装基础系统</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacstrap -i /mnt base base-devel</span><br></pre></td></tr></table></figure>
-<p>提示共141个软件包，需要下载220.37M内容，安装完成后是 710.09M。</p>
-<blockquote>
-<p>需要等待一会，休息一下</p>
-</blockquote>
-<h5 id="生成fstab"><a href="#生成fstab" class="headerlink" title="生成fstab"></a>生成fstab</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fstab： # genfstab -p -U /mnt &gt;&gt; /mnt/etc/fstab</span><br></pre></td></tr></table></figure>
-<p>然后更改fstab（系统默认一般就比较好了，不优化也行）。</p>
-<h5 id="下面的操作可以在-chroot-环境下运行"><a href="#下面的操作可以在-chroot-环境下运行" class="headerlink" title="下面的操作可以在 chroot 环境下运行"></a>下面的操作可以在 chroot 环境下运行</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># arch-chroot /mnt</span><br></pre></td></tr></table></figure>
-<h5 id="设置-hostname"><a href="#设置-hostname" class="headerlink" title="设置 hostname"></a>设置 hostname</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &apos;nisuiyi&apos; &gt; /etc/hostname 。</span><br></pre></td></tr></table></figure>
-<h5 id="设置时区"><a href="#设置时区" class="headerlink" title="设置时区"></a>设置时区</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
-<h5 id="新建-etc-locale-conf-内容为"><a href="#新建-etc-locale-conf-内容为" class="headerlink" title="新建 /etc/locale.conf 内容为"></a>新建 /etc/locale.conf 内容为</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">LANG=&apos;en_US.UTF-8&apos;</span><br><span class="line">LC_COLLATE=&apos;C&apos;</span><br><span class="line">LC_MESSAGES=&apos;C&apos;</span><br></pre></td></tr></table></figure>
-<h5 id="编辑-etc-locale-gen"><a href="#编辑-etc-locale-gen" class="headerlink" title="编辑 /etc/locale.gen"></a>编辑 /etc/locale.gen</h5><p>取消 en_US.UTF-8, zh_CN.UTF-8, zh_TW.UTF-8 前面的注释，然后执行 locale-gen 命令。</p>
-<h5 id="更改-root-密码"><a href="#更改-root-密码" class="headerlink" title="更改 root 密码"></a>更改 root 密码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd root</span><br></pre></td></tr></table></figure>
-<h4 id="安装-Grub-引导系统"><a href="#安装-Grub-引导系统" class="headerlink" title="安装 Grub 引导系统"></a>安装 Grub 引导系统</h4><p>仍然在chroot环境中操作。编辑 /etc/mkinitcpio.conf，检查HOOKS段，让 block 参数紧挨着 udev 参数之后（早一点加载），然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># mkinitcpio -p linux</span><br></pre></td></tr></table></figure></p>
-<p>生成img文件。</p>
-<p><strong>使用pacman安装GRUB</strong>重要！</p>
-<p>GRUB<br>BIOS：<br>安装:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S grub os-prober</span><br></pre></td></tr></table></figure></p>
-<p>格式: grub-install –recheck /dev/&lt;目标磁盘&gt;,无论是32位还是64位系统，都是使用–target=i386-pc参数，–no-floppy是不检查软驱<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># grub-install --target=i386-pc --recheck --boot-directory=/boot --no-floppy /dev/sdc</span><br></pre></td></tr></table></figure></p>
-<p>生成grub:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># grub-mkconfig -o /boot/grub/grub.cfg</span><br><span class="line"># grep &apos;set=root&apos; /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></p>
-<p>确保:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># blkid /dev/sdc2</span><br></pre></td></tr></table></figure></p>
-<p>UEFI：注意，仅UEFI使用这种方式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># pacman -S dosfstools grub efibootmgr</span><br><span class="line"># grub-install --target=x86_64-efi --efi-directory=&lt;EFI 分区挂载点&gt; --bootloader-id=arch_grub --recheck</span><br><span class="line"># grub-mkconfig -o /boot/grub/grub.cfg</span><br></pre></td></tr></table></figure></p>
-<h4 id="退出收工"><a href="#退出收工" class="headerlink" title="退出收工"></a>退出收工</h4><ul>
-<li>退出chroot，Ctrl + d 即可。</li>
-<li><p>umount</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># umount /dev/sdc3</span><br><span class="line"># umount /dev/sdc2</span><br><span class="line"># umount /dev/sdc4</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>重启reboot</p>
-</li>
-</ul>
-<p>拔下启动U盘，用你的Arch Linux优盘启动吧。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1335,7 +1299,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">44</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
