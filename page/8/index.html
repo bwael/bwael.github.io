@@ -296,6 +296,251 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/22/pynote03/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/22/pynote03/" itemprop="url">python学习笔记03----运算符与表达式、序列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-22T00:10:59+08:00">
+                2016-03-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/22/pynote03/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/22/pynote03/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="运算符与表达式"><a href="#运算符与表达式" class="headerlink" title="运算符与表达式"></a>运算符与表达式</h2><h3 id="1-在解释器总执行运算"><a href="#1-在解释器总执行运算" class="headerlink" title="1.在解释器总执行运算"></a>1.在解释器总执行运算</h3><p>在Python的解释器中，你可以交互地使用解释器来进行计算。<br>例如输入:<br>`</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>222+222<br>`</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>解释器会直接显示结果：<br><code>&gt;&gt;&gt;444</code></p>
+<h3 id="2-运算符及用法"><a href="#2-运算符及用法" class="headerlink" title="2.运算符及用法"></a>2.运算符及用法</h3><p>运算符    名称    说明    例子</p>
+<p><strong>与其他语言基本一致</strong></p>
+<h3 id="3-运算符的优先级（由低到高）"><a href="#3-运算符的优先级（由低到高）" class="headerlink" title="3. 运算符的优先级（由低到高）"></a>3. 运算符的优先级（由低到高）</h3><p>默认地，运算符优先级表决定了哪个运算符在别的运算符之前计算。</p>
+<p>运算符    描述</p>
+<ul>
+<li>lambda    Lambda表达式</li>
+<li>or    布尔“或”</li>
+<li>and    布尔“与”</li>
+<li>not x    布尔“非”</li>
+<li>in，not in    成员测试</li>
+<li>is，is not    同一性测试</li>
+<li>&lt;，&lt;=，&gt;，&gt;=，!=，==    比较</li>
+<li>|    按位或</li>
+<li>^    按位异或</li>
+<li>&amp;    按位与</li>
+<li>&lt;&lt;，&gt;&gt;    移位</li>
+<li>+，-    加法与减法</li>
+<li>*，/，%    乘法、除法与取余</li>
+<li>+x，-x    正负号</li>
+<li>~x    按位翻转</li>
+<li>**    指数</li>
+<li>x.attribute    属性参考</li>
+<li>x[index]    下标</li>
+<li>x[index:index]    寻址段</li>
+<li>f(arguments…)    函数调用</li>
+<li>(experession,…)    绑定或元组显示</li>
+<li>[expression,…]    列表显示</li>
+<li>{key:datum,…}    字典显示</li>
+<li>‘expression,…’    字符串转换然而，如果你想要改变它们的计算顺序，你得使用圆括号。</li>
+</ul>
+<blockquote>
+</blockquote>
+<p>例如:&gt;&gt;&gt;3*(3+2)</p>
+<blockquote>
+</blockquote>
+<p>输出结果为&gt;&gt;&gt;15</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python  </span></span><br><span class="line"></span><br><span class="line">a=<span class="number">40</span>  </span><br><span class="line">b=<span class="number">60</span>  </span><br><span class="line">area=a*b  </span><br><span class="line">print(<span class="string">"Area is"</span>,area)</span><br></pre></td></tr></table></figure>
+<h2 id="序列"><a href="#序列" class="headerlink" title="序列"></a>序列</h2><ul>
+<li>在Python中最基本的数据结构是序列，序列中的每个元素被分配了一个序号——即元素的位置，叫做索引。第一个索引是0，第二个是1，而倒数第一个元素可以标记为-1，倒数第二个为-2以此类推。</li>
+<li>序列的元素可以是之前讲的所有基础数据类型，也可以是另一个序列，还可以是之后我们将要将的对象。</li>
+<li>序列最常用的有两类，元组(tuple)和列表(list)。两者的区别是，列表可以修改，而元组不行。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>student1=(<span class="string">"霸天虎"</span>,<span class="string">"男"</span>,<span class="number">19</span>)      <span class="comment">#student1就是元组  </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>student1                         <span class="comment">#在解释器中输入变量名称，可以显示变量值  </span></span><br><span class="line">(<span class="string">'霸天虎'</span>, <span class="string">'男'</span>, <span class="number">19</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>student2=[<span class="string">"汤姆猫"</span>,<span class="string">"男"</span>,<span class="number">22</span>]      <span class="comment">#student2就是列表  </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>student2  </span><br><span class="line">[<span class="string">'汤姆猫'</span>, <span class="string">'男'</span>, <span class="number">22</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>student3=(<span class="string">"王尼玛"</span>,<span class="string">"男"</span>,<span class="string">"未知"</span>,[<span class="string">"脑袋大"</span>,<span class="string">"脖子短"</span>,<span class="string">"屁股圆"</span>])   <span class="comment">#在序列中的元素也是序列  </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>student3  </span><br><span class="line">(<span class="string">'王尼玛'</span>, <span class="string">'男'</span>, <span class="string">'未知'</span>, [<span class="string">'脑袋大'</span>, <span class="string">'脖子短'</span>, <span class="string">'屁股圆'</span>])</span><br></pre></td></tr></table></figure>
+<h3 id="序列的操作"><a href="#序列的操作" class="headerlink" title="序列的操作"></a>序列的操作</h3><p>1.索引<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>student1[<span class="number">0</span>]            <span class="comment">#显示元组student1的第一个元素  </span></span><br><span class="line"><span class="string">'霸天虎'</span>  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>student1[<span class="number">-1</span>]           <span class="comment">#显示元组student1的最后一个元素  </span></span><br><span class="line"><span class="number">19</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>student3[<span class="number">-1</span>][<span class="number">0</span>]        <span class="comment">#显示元组student3最后一个元组元素中的第一个元素  </span></span><br><span class="line"><span class="string">'脑袋大'</span>  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>student3[<span class="number">-1</span>][<span class="number">0</span>][<span class="number">0</span>]     <span class="comment">#显示元组student3最后一个元组元素中的第一个元素字符串中的第一个字符  </span></span><br><span class="line"><span class="string">'脑'</span></span><br></pre></td></tr></table></figure>
+<p>1.1分片</p>
+<p>使用索引访问的是单个元素，而使用分片访问的是一坨元素<br>基本样式[下限:上限:步长]，步长省略默认步长为1.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers[<span class="number">0</span>:<span class="number">3</span>]                       <span class="comment">#显示从第一个（包括第一个）到第三个（包括第三个）之间的元素，类似for（int i=0，i&lt;3,i++）  </span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers[<span class="number">8</span>:<span class="number">11</span>]                      <span class="comment">#显示第9个到第11个元素，因为没有第11个，所以只输出第9个元素  </span></span><br><span class="line">[<span class="number">9</span>]  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers[<span class="number">-3</span>:<span class="number">-1</span>]                     <span class="comment">#显示末第三到末第一个元素  </span></span><br><span class="line">[<span class="number">7</span>, <span class="number">8</span>]  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers[<span class="number">-1</span>:<span class="number">-3</span>]                     <span class="comment">#如果顺序写反，不会输出元素  </span></span><br><span class="line">[]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers[:<span class="number">3</span>]                        <span class="comment">#如果索引空缺，则默认索引两端  </span></span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers[<span class="number">-3</span>:]  </span><br><span class="line">[<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers[<span class="number">7</span>:]  </span><br><span class="line">[<span class="number">8</span>, <span class="number">9</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers[<span class="number">0</span>:<span class="number">5</span>:<span class="number">2</span>]                     <span class="comment">#显示第1个到第5个元素，且步长为2  </span></span><br><span class="line">[<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers[::<span class="number">3</span>]                       <span class="comment">#步长3，从左向右输出  </span></span><br><span class="line">[<span class="number">1</span>, <span class="number">4</span>, <span class="number">7</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>numbers[::<span class="number">-1</span>]                      <span class="comment">#步长为1，从右向左输出  </span></span><br><span class="line">[<span class="number">9</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<p>2.赋值</p>
+<p>元组不可修改，而列表可以修改。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>student1[<span class="number">0</span>]=<span class="string">"擎天柱"</span>                         <span class="comment">#给元组student1第一个元素重新赋值，结果报错  </span></span><br><span class="line">Traceback (most recent call last):  </span><br><span class="line">  File <span class="string">"&lt;pyshell#22&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;  </span><br><span class="line">    student1[<span class="number">0</span>]=<span class="string">"擎天柱"</span>  </span><br><span class="line">TypeError: <span class="string">'tuple'</span> object does <span class="keyword">not</span> support item assignment  </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>student2[<span class="number">0</span>]=<span class="string">"纸巾"</span>                           <span class="comment">#给列表student2第一个元素复制，没有问题  </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>student2  </span><br><span class="line">[<span class="string">'纸巾'</span>, <span class="string">'男'</span>, <span class="number">22</span>]  </span><br><span class="line"><span class="number">3.</span>序列相加与乘法</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>[<span class="string">"王小明"</span>]+[<span class="string">"男"</span>]                            <span class="comment">#序列的加法  </span></span><br><span class="line">[<span class="string">'王小明'</span>, <span class="string">'男'</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a=[<span class="string">"王大头"</span>,<span class="string">"男"</span>]*<span class="number">11</span>                         <span class="comment">#序列的乘法  </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a  </span><br><span class="line">[<span class="string">'王大头'</span>, <span class="string">'男'</span>, <span class="string">'王大头'</span>, <span class="string">'男'</span>, <span class="string">'王大头'</span>, <span class="string">'男'</span>, <span class="string">'王大头'</span>, <span class="string">'男'</span>, <span class="string">'王大头'</span>, <span class="string">'男'</span>, <span class="string">'王大头'</span>, <span class="string">'男'</span>, <span class="string">'王大头'</span>, <span class="string">'男'</span>, <span class="string">'王大头'</span>, <span class="string">'男'</span>, <span class="string">'王大头'</span>, <span class="string">'男'</span>, <span class="string">'王大头'</span>, <span class="string">'男'</span>, <span class="string">'王大头'</span>, <span class="string">'男'</span>]</span><br></pre></td></tr></table></figure>
+<p>4.序列的循环调用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">student3=(<span class="string">"王尼玛"</span>,<span class="string">"男"</span>,<span class="string">"未知"</span>,[<span class="string">"脑袋大"</span>,<span class="string">"脖子短"</span>,<span class="string">"屁股圆"</span>])  </span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> student3:  </span><br><span class="line">    print(a)</span><br></pre></td></tr></table></figure></p>
+<p>输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">王尼玛  </span><br><span class="line">男  </span><br><span class="line">未知  </span><br><span class="line">[<span class="string">'脑袋大'</span>, <span class="string">'脖子短'</span>, <span class="string">'屁股圆'</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="词典"><a href="#词典" class="headerlink" title="词典"></a>词典</h3><p>1.词典的定义<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;dic = &#123;<span class="string">'tom'</span>:<span class="number">11</span>, <span class="string">'sam'</span>:<span class="number">57</span>,<span class="string">'lily'</span>:<span class="number">100</span>&#125;          <span class="comment">#tom是键，11是值</span></span><br></pre></td></tr></table></figure></p>
+<p>词典和表类似的地方，是包含有多个元素，每个元素以逗号分隔。但词典的元素包含有两部分，键和值，常见的是以字符串来表示键，也可以使用数字或者真值来表示键（不可变的对象可以作为键）。值可以是任意对象。键和值两者一一对应。</p>
+<p>与列表和元组不同的是，词典的元素没有顺序。你不能通过下标引用元素。词典是通过键来引用。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">'tom'</span>:<span class="number">11</span>, <span class="string">'sam'</span>:<span class="number">57</span>,<span class="string">'lily'</span>:<span class="number">100</span>&#125;  </span><br><span class="line">print(dic[<span class="string">'tom'</span>])  </span><br><span class="line">dic[<span class="string">'tom'</span>] = <span class="number">30</span>  </span><br><span class="line">dic[<span class="string">'王尼玛'</span>]=<span class="number">250</span>                                 <span class="comment">#可以通过这种形式向词典中添加元素  </span></span><br><span class="line">  </span><br><span class="line">print(dic)</span><br></pre></td></tr></table></figure>
+<p>输出结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">11</span>  </span><br><span class="line">&#123;<span class="string">'sam'</span>: <span class="number">57</span>, <span class="string">'王尼玛'</span>: <span class="number">250</span>, <span class="string">'tom'</span>: <span class="number">30</span>, <span class="string">'lily'</span>: <span class="number">100</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>2.词典的循环调用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dic = &#123;<span class="string">'tom'</span>:<span class="number">11</span>, <span class="string">'sam'</span>:<span class="number">57</span>,<span class="string">'lily'</span>:<span class="number">100</span>&#125;  </span><br><span class="line"><span class="keyword">for</span> key <span class="keyword">in</span> dic:  </span><br><span class="line">    print(key,dic[key])</span><br></pre></td></tr></table></figure></p>
+<p>输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lily <span class="number">100</span>  </span><br><span class="line">sam <span class="number">57</span>  </span><br><span class="line">tom <span class="number">11</span></span><br></pre></td></tr></table></figure>
+<p><strong>小提示：</strong></p>
+<ol>
+<li>在初始化序列时，单个元素的排列仍是排列，单个元素的元组不是元祖。<br><code>python</code><blockquote>
+<blockquote>
+<blockquote>
+<p>(“dd”)<br>‘dd’                             #不是元组<br>[“dd”]<br>[‘dd’]  </p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>其实tuple、list是python中的两个”类”。至于什么是类，之后我会提到</p>
+</li>
+<li><p>小括号是元组，中括号是列表，大括号是词典</p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/22/pynote02/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -418,173 +663,6 @@
 <p>2.Python中没有char类型！</p>
 <p>3.多个字符串放在一起会自动连接！<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"你"</span><span class="string">"好"</span>)  </span><br><span class="line">输出结果是 你好</span><br></pre></td></tr></table></figure></p>
 <p>4.Python是大小写敏感的，标识符的明明要求与C语言相同。标识符的第一个字母必须是字母或者下划线”_”，其他位置的字母可以是字母、数字、下划线。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/21/OSnote-3/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/03/21/OSnote-3/" itemprop="url">【OS学习笔记】进程同步与通信</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-21T16:10:40+08:00">
-                2016-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/21/OSnote-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/21/OSnote-3/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="进程同步与通信"><a href="#进程同步与通信" class="headerlink" title="进程同步与通信"></a>进程同步与通信</h2><h3 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h3><h4 id="并发进程的关系"><a href="#并发进程的关系" class="headerlink" title="并发进程的关系"></a>并发进程的关系</h4><ol>
-<li>间接制约关系：一组（两个或多个）进程共享一中资源，且该资源一次仅允许一个进程使用。</li>
-<li>直接制约关系：几个进程相互协作完成一项任务，这些进程要求必须按照规定好的顺序依次执行。<h4 id="进程的互斥与同步"><a href="#进程的互斥与同步" class="headerlink" title="进程的互斥与同步"></a>进程的互斥与同步</h4></li>
-</ol>
-<ul>
-<li>1.进程同步：若干进程为为完成一个共同的任务而互相合作等待对方的消息的协调关系称为进程同步。</li>
-<li>2.进程互斥：进程之间争夺互斥资源引起的。</li>
-<li>2.1 饥饿：一个就绪进程所申请的资源总是被优先于自己的其他进程占有，而始终处于不能被调度执行的状态，这种情况称为饥饿。</li>
-<li>2.2 <strong>死锁</strong>：一个进程集合中，已经占有部分资源的两个或两个以上的进程，还需要获得已被其他进程占有的资源才能继续执行；有可能出现某些进程相互之间都在等待对方的资源且无法运行的局面，即在进程集合中的这些进程处于永远的阻塞状态，这就是死锁。</li>
-<li>3.二者相似之处<br><strong>进程互斥实质上是进程同步的一种特殊情况。</strong></li>
-<li>4.进程同步与进程互斥的区别：~</li>
-</ul>
-<h4 id="临界资源与临界区"><a href="#临界资源与临界区" class="headerlink" title="临界资源与临界区"></a>临界资源与临界区</h4><ul>
-<li>一段时间内只能允许一个进程使用的资源（即互斥资源）称为临界资源。</li>
-<li>对临界资源的访问只能互斥进行，也即个进程对同一临界资源进行操作的程序段也应互斥执行，只有这样才能保证对临界资源的互斥访问。我们把进程中<strong>访问临界资源的代码段称为临界区</strong>。<h5 id="临界区同步机制的4条准则："><a href="#临界区同步机制的4条准则：" class="headerlink" title="临界区同步机制的4条准则："></a>临界区同步机制的4条准则：</h5>1 .空闲让进。<br>2 .忙则等待。<br>3 .有限等待。若干进程要求进入同一临界资源的临界区时，应在有限的时间内使一进程进入临界区，即不应出现各进程相互等待而都无法进入临界区的情况。<br>4 .让权等待。当进程不能进入其临界区时应立即释放所占有的CPU，以免陷入忙等（<strong>进程占用CPU的同时又一直等待</strong>）。</li>
-</ul>
 
           
         
@@ -844,6 +922,173 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/21/OSnote-3/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/03/21/OSnote-3/" itemprop="url">【OS学习笔记】进程同步与通信</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-21T16:10:40+08:00">
+                2016-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/03/21/OSnote-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/21/OSnote-3/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="进程同步与通信"><a href="#进程同步与通信" class="headerlink" title="进程同步与通信"></a>进程同步与通信</h2><h3 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h3><h4 id="并发进程的关系"><a href="#并发进程的关系" class="headerlink" title="并发进程的关系"></a>并发进程的关系</h4><ol>
+<li>间接制约关系：一组（两个或多个）进程共享一中资源，且该资源一次仅允许一个进程使用。</li>
+<li>直接制约关系：几个进程相互协作完成一项任务，这些进程要求必须按照规定好的顺序依次执行。<h4 id="进程的互斥与同步"><a href="#进程的互斥与同步" class="headerlink" title="进程的互斥与同步"></a>进程的互斥与同步</h4></li>
+</ol>
+<ul>
+<li>1.进程同步：若干进程为为完成一个共同的任务而互相合作等待对方的消息的协调关系称为进程同步。</li>
+<li>2.进程互斥：进程之间争夺互斥资源引起的。</li>
+<li>2.1 饥饿：一个就绪进程所申请的资源总是被优先于自己的其他进程占有，而始终处于不能被调度执行的状态，这种情况称为饥饿。</li>
+<li>2.2 <strong>死锁</strong>：一个进程集合中，已经占有部分资源的两个或两个以上的进程，还需要获得已被其他进程占有的资源才能继续执行；有可能出现某些进程相互之间都在等待对方的资源且无法运行的局面，即在进程集合中的这些进程处于永远的阻塞状态，这就是死锁。</li>
+<li>3.二者相似之处<br><strong>进程互斥实质上是进程同步的一种特殊情况。</strong></li>
+<li>4.进程同步与进程互斥的区别：~</li>
+</ul>
+<h4 id="临界资源与临界区"><a href="#临界资源与临界区" class="headerlink" title="临界资源与临界区"></a>临界资源与临界区</h4><ul>
+<li>一段时间内只能允许一个进程使用的资源（即互斥资源）称为临界资源。</li>
+<li>对临界资源的访问只能互斥进行，也即个进程对同一临界资源进行操作的程序段也应互斥执行，只有这样才能保证对临界资源的互斥访问。我们把进程中<strong>访问临界资源的代码段称为临界区</strong>。<h5 id="临界区同步机制的4条准则："><a href="#临界区同步机制的4条准则：" class="headerlink" title="临界区同步机制的4条准则："></a>临界区同步机制的4条准则：</h5>1 .空闲让进。<br>2 .忙则等待。<br>3 .有限等待。若干进程要求进入同一临界资源的临界区时，应在有限的时间内使一进程进入临界区，即不应出现各进程相互等待而都无法进入临界区的情况。<br>4 .让权等待。当进程不能进入其临界区时应立即释放所占有的CPU，以免陷入忙等（<strong>进程占用CPU的同时又一直等待</strong>）。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/21/OSnote-1/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1009,201 +1254,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/21/pynote01/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/03/21/pynote01/" itemprop="url">python学习笔记01----Hello World！</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-21T00:10:40+08:00">
-                2016-03-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">学习笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/03/21/pynote01/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/21/pynote01/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-Python命令行"><a href="#1-Python命令行" class="headerlink" title="1.Python命令行"></a>1.Python命令行</h3><p>在linux下输入python（windows下点击开始-&gt;程序-&gt;Python 2.3 -&gt;IDLE（Python GUI）<br>在&gt;&gt;&gt;提示符后输入print(‘Hello World!’)</p>
-<p><code>Hello World!</code></p>
-<h3 id="2-Python小程序"><a href="#2-Python小程序" class="headerlink" title="2.Python小程序"></a>2.Python小程序</h3><p>用文本编辑器写一个.py结尾的文件，比如说helloWorld.py中写入print(“Hello World”) 在命令提示符中输入Python helloWorld.py，会在窗口中显示以下结果</p>
-<p><code>Hello World!</code></p>
-<h3 id="3-Python脚本"><a href="#3-Python脚本" class="headerlink" title="3.Python脚本"></a>3.Python脚本</h3><p>下面将刚才的Python小程序改写成Python脚本</p>
-<pre><code>#!/usr/bin/env python
-print(&quot;&quot;&quot;Hello World!&quot;&quot;&quot;)
-</code></pre><p>更改helloWorld.py文件的权限</p>
-<p><code>sudo chmod 755 helloWorld.py</code></p>
-<p>输入./helloWorld.py即可之行该脚本，输入结果如下</p>
-<p><code>Hello World!</code></p>
-<h2 id="知识点："><a href="#知识点：" class="headerlink" title="知识点："></a>知识点：</h2><p><strong>1.单引号、双引号、多引号的区别</strong></p>
-<p>*先说双引号与3个双引号的区别，双引号所表示的字符串通常要写成一行如果要写成多行，那么就要使用\ (“连行符”)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s1 = &quot;hello,world&quot;                 # s2与s1是一样的。</span><br><span class="line">s2 = &quot;hello,\</span><br><span class="line">   world&quot;</span><br></pre></td></tr></table></figure>
-<p>如果你用3个双引号的话，就可以直接写了，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s3 = &quot;&quot;&quot;hello,                      #s3实际上就是&quot;hello,\nworld,\nhahaha.&quot;, “\n”是换行符。</span><br><span class="line">world,</span><br><span class="line">hahaha.&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
-<p>如果你的字符串里\n很多，你又不想在字符串中用\n的话，那么就可以使用3个双引号。而且使用3个双引号还可以在字符串中增加注释，如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">s3 = &quot;&quot;&quot;hello,                      #hoho, this is hello, 在3个双引号的字符串内可以有注释哦</span><br><span class="line">world,                              #hoho, this is world</span><br><span class="line">hahaha.&quot;&quot;&quot;</span><br><span class="line">另外，三个引号还可用于注释。例如：</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">大家好，我是注释</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>单引号与双引号的作用是相同的。但是为什么要引入单引号和双引号呢？<br>举个例子：<br>当我用单引号来表示一个字符串时，如果要表示 Let’s go 这个字符串，必须这样：</p>
-<p>  <code>s4 = &#39;Let\&#39;s go&#39;</code></p>
-<p>  注意没有，字符串中有一个’，而字符串又是用’来表示，所以这个时候就要使用转义符 \ （\，转义符应该知道吧）, 如果你的字符串中有一大堆的转义符，看起来肯定不舒服python也很好的解决了这个问题。<br>  如下：</p>
-<p>  <code>s5 = &quot;Let&#39;s go&quot;</code></p>
-<p>  这时，我们看，python知道你是用 “ 来表示字符串，所以python就把字符串中的那个单引号 ‘ , 当成普通的字符处理了，是不是很简单？<br>  对于双引号，也是一样的，下面举个例子</p>
-<p>  <code>s6 = &#39;I realy like &quot;python&quot;!&#39;</code></p>
-<p>  这就是单引号和双引号都可以表示字符串的原因了。</p>
-</li>
-</ul>
-<p><strong>2.在Python 2.x中，print还可以是一个关键字，可写成print ‘Hello World!’，但这在3.x中行不通。</strong></p>
-<p><strong>3.“#!/usr/bin/python”与”#!/usr/bin/env python”的区别（windows用户可以无视）</strong></p>
-<p>#!/usr/bin/python 是告诉操作系统执行这个脚本的时候，调用/usr/bin下的python解释器；相当于写死了Python的路径，如果Python的路径改变，脚本将无法执行。不推荐使用</p>
-<p>#!/usr/bin/env python 这种用法是为了防止操作系统用户没有将python装在默认的/usr/bin路径里。当系统看到这一行的时候，首先会到env设置里查找python的安装路径，再调用对应路径下的解释器程序完成操作。</p>
-<p><strong>4.如何通过直接输入helloWorld.py而不是./helloWorld来执行脚本？（windows用户请无视）</strong><br>在一般用户下输入PATH=$PATH：(注意后面的冒号)。  即可直接通过输入helloWorld.py执行脚本。<br>但是值得注意的是，千万不要用这种方法修改超级用户（一般是root）的PATH变量。这是一个安全网面 的漏洞，因为root用户管理员可能因此执行一个某个命令的伪装版本。</p>
-<p>5.<strong>如何使你的程序在任何位置执行？</strong></p>
-<pre><code>PATH=/home/userName/test:$PATH                             //将/home/userName/test加入PATH （注意中间的冒号！ PATH必须大写！）
-sudo cp helloWorld.py /home/userName/test/helloWorld
-</code></pre><p>然后输入helloWorld即可直接之行脚本</p>
-<p><strong>6.Python的注释</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#单行注释</span><br><span class="line"></span><br><span class="line">&lt;**</span><br><span class="line">多行注释1</span><br><span class="line">**&gt;</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">多行注释2</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1251,7 +1306,7 @@ sudo cp helloWorld.py /home/userName/test/helloWorld
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

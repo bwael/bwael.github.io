@@ -296,6 +296,177 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/06/04/pynote08/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="bwael">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Bwael's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2016/06/04/pynote08/" itemprop="url">python学习笔记08----文件操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-04T16:18:52+08:00">
+                2016-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/学习笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">学习笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2016/06/04/pynote08/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2016/06/04/pynote08/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>文本文件的读写主要通过open()所构建的文件对象来实现。</p>
+<p><strong>基本格式</strong></p>
+<p>f = open(文件名，模式)</p>
+<p><strong>最常用的模式有：</strong></p>
+<ol>
+<li>“r”       # 只读</li>
+<li>“w”     # 写入                                                               —-&gt;如果文件中已经有内容，会把内容抹掉，如果不存在该文件，会新建文件</li>
+<li>“a”      #追加模式                                                       —–&gt;在已有的文字后添加文字</li>
+<li>“b”      #二进制模式（还在其他模式中追加使用）—–&gt;一般在处理音频、图像等文件的时候使用</li>
+<li>“+”      #读/写模式(可在其他模式中追加使用)        —–&gt;r+、w+ 可读可写</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">f = open(<span class="string">'test1.txt'</span>, <span class="string">'w'</span>)       <span class="comment">#创建一个名为f的类文件对象，对test1.txt进行写操作</span></span><br><span class="line">f.write(<span class="string">"大家好，我是王尼玛"</span>)    <span class="comment">#像文件中写入字符串</span></span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">f = open(<span class="string">'test1.txt'</span>)            <span class="comment">#如果不写模式，默认为读模式</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    line = f.readline()          <span class="comment">#一次读一行</span></span><br><span class="line">    <span class="keyword">if</span> len(line) == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">print</span> (line,end=<span class="string">""</span>)          <span class="comment">#不换行</span></span><br><span class="line"></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">大家好，我是王尼玛</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">f=open(<span class="string">"test.txt"</span>,<span class="string">"w"</span>)</span><br><span class="line">f.write(<span class="string">"0123456789"</span>)</span><br><span class="line">f.seek(<span class="number">4</span>)                     <span class="comment">#跳到第4个字节</span></span><br><span class="line">f.write(<span class="string">"Hello"</span>)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line">f=open(<span class="string">"test.txt"</span>,<span class="string">"r"</span>)</span><br><span class="line">print(f.read())               <span class="comment">#把字符串全部输出</span></span><br><span class="line">f.seek(<span class="number">2</span>)                     <span class="comment">#跳回到第2个字符</span></span><br><span class="line">print(f.read(<span class="number">5</span>))              <span class="comment">#输出接下来的5个字节</span></span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0123</span>Hello9</span><br><span class="line"><span class="number">23</span>Hel</span><br></pre></td></tr></table></figure>
+<h3 id="Tips："><a href="#Tips：" class="headerlink" title="Tips："></a>Tips：</h3><p>1.<br>以上所讲的仅仅是Python最基本的文件读写功能。更加丰富的文件读写功能由Python的标准库提供。<br>2.<br>read() readline()以及readlines()用法<br>read() 每次读取整个文件，它通常用于将文件内容放到一个字符串变量中。然而 .read() 生成文件内容最直接的字符串表示，但对于连续的面向行的处理，它却是不必要的，并且如果文件大于可用内存，则不可能实现这种处理。</p>
+<p>.readline() 和 .readlines() 非常相似。它们都在类似于以下的结构中使用：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fh = open(<span class="string">'c:\\autoexec.bat'</span>)</span><br><span class="line"><span class="keyword">for</span>  line <span class="keyword">in</span>  fh.readlines():</span><br><span class="line">     <span class="keyword">print</span>（line）</span><br></pre></td></tr></table></figure></p>
+<p>.readline() 和 .readlines() 之间的差异是后者一次读取整个文件，象 .read() 一样。.readlines() 自动将文件内容分析成一个行的列表，该列表可以由 Python 的for … in …结构进行处理。另一方面，.readline() 每次只读取一行，通常比 .readlines() 慢得多。仅当没有足够内存可以一次读取整个文件时，才应该使用 .readline()。（readlines()的输出格式[“I’ll write this message for you\n”, “hehe,that’s will be ok.\n”]）</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/06/02/pynote07/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1031,197 +1202,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/04/19/windows-for-chromebook/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="bwael">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bwael's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2016/04/19/windows-for-chromebook/" itemprop="url">Windows 10 64 Bit Installation Guide Acer C720, HP Chromebook 14, Toshiba CB-30, and Dell Chromebook 11</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-04-19T23:50:57+08:00">
-                2016-04-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/折腾笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">折腾笔记</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2016/04/19/windows-for-chromebook/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/04/19/windows-for-chromebook/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Acer C740, Acer C910, Acer CB5-571, Toshiba Chromebook 2 and Dell Chromebook 13, see here:<a href="https://docs.google.com/document/d/1nFZmoRzQ03btPCGVSa4ku6JPQik-SxD__zOd1CoB2yg/edit" target="_blank" rel="noopener">Click</a></p>
-<h3 id="Flash-Custom-Coreboot-BIOS"><a href="#Flash-Custom-Coreboot-BIOS" class="headerlink" title="Flash Custom Coreboot BIOS"></a>Flash Custom Coreboot BIOS</h3><p><strong>Warning</strong>: this BIOS is only for the Acer C720, C720P, HP Chromebook 14, Toshiba CB-30, and Dell Chromebook 11.</p>
-<ol>
-<li><p>Please remove the write protect screw before flashing the BIOS.</p>
-</li>
-<li><p>Please check your CPU before flashing the BIOS.</p>
-</li>
-<li><p>Easy Flashing Script:<br><code>cd ~; curl -L -O https://goo.gl/1hFfO3; sudo bash 1hFfO3</code></p>
-</li>
-</ol>
-<p><em>Select the “Install/Update custom coreboot firmware” option.</em></p>
-<h3 id="Create-USB-Installer"><a href="#Create-USB-Installer" class="headerlink" title="Create USB Installer"></a>Create USB Installer</h3><p>Use rufus to create the Windows 10 <strong>64 bit</strong> USB installer. Select MBR for legacy BIOS and create the USB drive.</p>
-<p>You will need a USB keyboard/mouse for installation</p>
-<h3 id="Install-Chipset-Audio-WiFi-and-Bluetooth-Drivers"><a href="#Install-Chipset-Audio-WiFi-and-Bluetooth-Drivers" class="headerlink" title="Install Chipset, Audio, WiFi, and Bluetooth Drivers"></a>Install Chipset, Audio, WiFi, and Bluetooth Drivers</h3><p>Audio Driver: <a href="http://www.realtek.com.tw/downloads/downloadsCheck.aspx?Langid=1&amp;PNid=14&amp;PFid=24&amp;Level=4&amp;Conn=3&amp;DownTypeID=3&amp;GetDown=false" target="_blank" rel="noopener">Link</a></p>
-<p>Chipset Driver: Use the latest from Windows Update!</p>
-<p>WiFi Driver: Use the latest from Windows Update!</p>
-<p>Bluetooth Driver: Use the latest from Windows Update!</p>
-<p>Run the setup files for the audio and chipset drivers. For WiFi and Bluetooth, use Device Manager to update the driver.</p>
-<h3 id="Turn-on-testsigning"><a href="#Turn-on-testsigning" class="headerlink" title="Turn on testsigning"></a>Turn on testsigning</h3><p>Open Command Prompt as administrator, and type in “bcdedit /set testsigning on”. Then reboot.</p>
-<h3 id="Keyboard-Driver"><a href="#Keyboard-Driver" class="headerlink" title="Keyboard Driver"></a>Keyboard Driver</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/croskeyboard3.4.1.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Open Device Manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_GGL&amp;DEV_0303” or “ACPI\GGL0303”. Under the driver tab, click “Update Driver” and browse to the croskeyboard3 driver. Then install.</p>
-<h3 id="Trackpad-Driver-Cypress-Trackpad"><a href="#Trackpad-Driver-Cypress-Trackpad" class="headerlink" title="Trackpad Driver (Cypress Trackpad)"></a>Trackpad Driver (Cypress Trackpad)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostrackpad%203%20beta%2011.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Open Device manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_CYAP&amp;DEV_0000” or “ACPI\CYAP0000”. Under the driver tab, click “Update Driver” and browse to the crostrackpad3 driver. Then install.</p>
-<h3 id="Trackpad-Driver-Elan-Trackpad"><a href="#Trackpad-Driver-Elan-Trackpad" class="headerlink" title="Trackpad Driver (Elan Trackpad)"></a>Trackpad Driver (Elan Trackpad)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostrackpad%203%20beta%2011-elan.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Open Device manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_ELAN&amp;DEV_0000” or “ACPI\ELAN0000”. Under the driver tab, click “Update Driver” and browse to the crostrackpad3 driver. Then install.</p>
-<h3 id="Visual-Studio-2015-Redistributable"><a href="#Visual-Studio-2015-Redistributable" class="headerlink" title="Visual Studio 2015 Redistributable:"></a>Visual Studio 2015 Redistributable:</h3><p>Download: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48145" target="_blank" rel="noopener">Link</a></p>
-<h3 id="Trackpad-Driver-Helper-Utilities-Cypress-and-Elan-Trackpads"><a href="#Trackpad-Driver-Helper-Utilities-Cypress-and-Elan-Trackpads" class="headerlink" title="Trackpad Driver Helper Utilities (Cypress and Elan Trackpads)"></a>Trackpad Driver Helper Utilities (Cypress and Elan Trackpads)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostrackpad%203%20beta%2011.2%20utilities.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Place the trackpad driver utility in the Windows startup folder (Start &gt; Run &gt; shell:startup) and run it after installing the driver.</p>
-<h3 id="Touch-Screen-Driver-Acer-C720P-users-only"><a href="#Touch-Screen-Driver-Acer-C720P-users-only" class="headerlink" title="Touch Screen Driver (Acer C720P users only)"></a>Touch Screen Driver (Acer C720P users only)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/crostouchscreen2.3.zip" target="_blank" rel="noopener">Link</a></p>
-<p>Open Device manager and search for an unknown device that has a Hardware ID of either “ACPI\VEN_ATML&amp;DEV_0001” or “ACPI\ATML0001”. Under the driver tab, click “Update Driver” and browse to the crostouchscreen2 driver. Then install.</p>
-<h3 id="Graphics-Driver"><a href="#Graphics-Driver" class="headerlink" title="Graphics Driver"></a>Graphics Driver</h3><p><strong>Grab the latest Graphics Driver from Windows Update!</strong></p>
-<h3 id="Embedded-Controller-Driver-Utility-Optional"><a href="#Embedded-Controller-Driver-Utility-Optional" class="headerlink" title="Embedded Controller Driver + Utility (Optional)"></a>Embedded Controller Driver + Utility (Optional)</h3><p>Download: <a href="https://dl.dropboxusercontent.com/u/59964215/chromebook/x64/CrosPowerMan%201.1.zip" target="_blank" rel="noopener">Link</a></p>
-<h3 id="Visual-Studio-2013-Redistr"><a href="#Visual-Studio-2013-Redistr" class="headerlink" title="Visual Studio 2013 Redistr"></a>Visual Studio 2013 Redistr</h3><p>ibutable: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40784" target="_blank" rel="noopener">Download</a></p>
-<p>If you like running Windows on your chromebook, please donate if you are able to do so. I have made these drivers and the BIOS available free of charge and am relying on donations to be able to get Windows running on more chromebooks (Pixel 2, Dell Chromebook 13).<br>For support, please see <a href="https://reddit.com/r/chrultrabook" target="_blank" rel="noopener">https://reddit.com/r/chrultrabook</a><br>Please donate <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=AR25GXJD45KBW&amp;lc=US&amp;item_name=CoolStar%20Chromebook%20Dev%2e&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted" target="_blank" rel="noopener">here</a>.</p>
-<p><em>from : reddit.com chrultrabook</em></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1269,7 +1254,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">45</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="学习笔记,算法,">
+  <meta name="keywords" content="学习笔记,算法,笔试,">
 
 
 
@@ -81,34 +81,18 @@
 
 
 
-<meta name="description" content="问题描述：给定n种物品和一背包。物品i的重量是wi，其价值为vi，背包的容量为C。问应如何选择装入背包的物品，使得装入背包中物品的总价值最大?  对于一种物品，要么装入背包，要么不装。所以对于一种物品的装入状态可以取0和1.我们设物品i的装入状态为xi,xi∈ (0,1)，此问题称为0-11背包问题。  过程分析数据：物品个数n=5,物品重量w[n]={0，2，2，6，5，4},物品价值V[n]=">
-<meta name="keywords" content="学习笔记,算法">
+<meta name="description" content="不按照时间先后了，反正都是在一个晚上。 先是顺丰，若干选择，两道编程题。编程题：1.服务器管理（分配）；2.赏金猎人。 一道贪心，一道动规。题目本身不难，据后了解好多同学做题时都是走错了路。我只做了第一道，还没AC…… 1. 服务器管理题目描述小A有一批服务器要出租，每一个服务器有一个固定的带宽；客户根据自己需要的带宽租用服务器，一台服务器只能租给一个人。 小A现有n个服务器，第 i 台服务器对应">
+<meta name="keywords" content="学习笔记,算法,笔试">
 <meta property="og:type" content="article">
-<meta property="og:title" content="转：【算法学习笔记】动态规划0—1背包问题">
-<meta property="og:url" content="http://bwael.com/2016/03/24/ALG-3/index.html">
+<meta property="og:title" content="顺丰开发、商汤测开、有赞测开笔试 - 20200820">
+<meta property="og:url" content="http://bwael.com/2020/08/22/Test-youzan-shangtang-shunfeng-20200820/index.html">
 <meta property="og:site_name" content="Bwael&#39;s Blog">
-<meta property="og:description" content="问题描述：给定n种物品和一背包。物品i的重量是wi，其价值为vi，背包的容量为C。问应如何选择装入背包的物品，使得装入背包中物品的总价值最大?  对于一种物品，要么装入背包，要么不装。所以对于一种物品的装入状态可以取0和1.我们设物品i的装入状态为xi,xi∈ (0,1)，此问题称为0-11背包问题。  过程分析数据：物品个数n=5,物品重量w[n]={0，2，2，6，5，4},物品价值V[n]=">
+<meta property="og:description" content="不按照时间先后了，反正都是在一个晚上。 先是顺丰，若干选择，两道编程题。编程题：1.服务器管理（分配）；2.赏金猎人。 一道贪心，一道动规。题目本身不难，据后了解好多同学做题时都是走错了路。我只做了第一道，还没AC…… 1. 服务器管理题目描述小A有一批服务器要出租，每一个服务器有一个固定的带宽；客户根据自己需要的带宽租用服务器，一台服务器只能租给一个人。 小A现有n个服务器，第 i 台服务器对应">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64570543.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/27894142.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/50858835.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/1383357.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64404941.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/97461564.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/92409505.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/78719221.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/12275615.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/74489686.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/47520646.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/2659508.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/74515954.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/4158651.jpg">
-<meta property="og:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/34478495.jpg">
-<meta property="og:updated_time" content="2016-03-24T04:33:41.261Z">
+<meta property="og:updated_time" content="2020-08-22T15:02:29.066Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="转：【算法学习笔记】动态规划0—1背包问题">
-<meta name="twitter:description" content="问题描述：给定n种物品和一背包。物品i的重量是wi，其价值为vi，背包的容量为C。问应如何选择装入背包的物品，使得装入背包中物品的总价值最大?  对于一种物品，要么装入背包，要么不装。所以对于一种物品的装入状态可以取0和1.我们设物品i的装入状态为xi,xi∈ (0,1)，此问题称为0-11背包问题。  过程分析数据：物品个数n=5,物品重量w[n]={0，2，2，6，5，4},物品价值V[n]=">
-<meta name="twitter:image" content="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64570543.jpg">
+<meta name="twitter:title" content="顺丰开发、商汤测开、有赞测开笔试 - 20200820">
+<meta name="twitter:description" content="不按照时间先后了，反正都是在一个晚上。 先是顺丰，若干选择，两道编程题。编程题：1.服务器管理（分配）；2.赏金猎人。 一道贪心，一道动规。题目本身不难，据后了解好多同学做题时都是走错了路。我只做了第一道，还没AC…… 1. 服务器管理题目描述小A有一批服务器要出租，每一个服务器有一个固定的带宽；客户根据自己需要的带宽租用服务器，一台服务器只能租给一个人。 小A现有n个服务器，第 i 台服务器对应">
 
 
 
@@ -138,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://bwael.com/2016/03/24/ALG-3/">
+  <link rel="canonical" href="http://bwael.com/2020/08/22/Test-youzan-shangtang-shunfeng-20200820/">
 
 
 
 
 
-  <title>转：【算法学习笔记】动态规划0—1背包问题 | Bwael's Blog</title>
+  <title>顺丰开发、商汤测开、有赞测开笔试 - 20200820 | Bwael's Blog</title>
   
 
 
@@ -313,7 +297,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://bwael.com/2016/03/24/ALG-3/">
+    <link itemprop="mainEntityOfPage" href="http://bwael.com/2020/08/22/Test-youzan-shangtang-shunfeng-20200820/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="bwael">
@@ -330,7 +314,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">转：【算法学习笔记】动态规划0—1背包问题</h1>
+          <h1 class="post-title" itemprop="name headline">顺丰开发、商汤测开、有赞测开笔试 - 20200820</h1>
         
 
         <div class="post-meta">
@@ -342,8 +326,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-24T09:21:50+08:00">
-                2016-03-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-22T22:59:50+08:00">
+                2020-08-22
               </time>
             
 
@@ -383,8 +367,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/03/24/ALG-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2016/03/24/ALG-3/" itemprop="commentCount"></span>
+                <a href="/2020/08/22/Test-youzan-shangtang-shunfeng-20200820/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/08/22/Test-youzan-shangtang-shunfeng-20200820/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -412,14 +396,32 @@
       
 
       
-        <h4 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h4><p>给定n种物品和一背包。物品i的重量是wi，其价值为vi，背包的容量为C。问应如何选择装入背包的物品，使得装<br>入背包中物品的总价值最大?</p>
+        <p>不按照时间先后了，反正都是在一个晚上。</p>
+<p>先是顺丰，若干选择，两道编程题。编程题：1.服务器管理（分配）；2.赏金猎人。</p>
+<p>一道贪心，一道动规。题目本身不难，据后了解好多同学做题时都是走错了路。我只做了第一道，还没AC……</p>
+<h2 id="1-服务器管理"><a href="#1-服务器管理" class="headerlink" title="1. 服务器管理"></a>1. 服务器管理</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>小A有一批服务器要出租，每一个服务器有一个固定的带宽；客户根据自己需要的带宽租用服务器，一台服务器只能租给一个人。</p>
+<p>小A现有n个服务器，第 i 台服务器对应的带宽为a_i；现有m个客户需要服务器，第 i 位客户需要的带宽为b_i，预算为c_i（注意：这里 i 的含义不同）。现在求小A的服务器最多能租多少钱？</p>
+<p>要求：服务器带宽独立不可叠加，不能成功租出则输出0。输入输出规则和用例如下。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">3 4      【n m】</span><br><span class="line">1 2 3    【a1 a2 a3】</span><br><span class="line">2 1      【b1 c1】</span><br><span class="line">3 2	     【b2 c2】</span><br><span class="line">3 3      【b3 c3】</span><br><span class="line">1 1      【b4 c4】</span><br><span class="line"></span><br><span class="line">Output:</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>因为服务器带宽独立不可叠加，所以优先选择可以满足带宽需求的资金最充裕的客户。采用<strong>贪心算法</strong>求解，使用带宽最小的服务器来尝试满足客户需求，所以要先进行排序。</p>
+<a id="more"></a>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MainSF</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rentServer</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m, <span class="keyword">int</span>[] a, <span class="keyword">int</span>[][] bc)</span> </span>&#123;</span><br><span class="line">        Arrays.sort(a);</span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">// 为当前服务器a_i选择客户</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">int</span> index = -<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> need_a = a[i];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++) &#123;</span><br><span class="line">                <span class="comment">// 客户需求带宽多于供给，跳过</span></span><br><span class="line">                <span class="keyword">if</span> (bc[j][<span class="number">0</span>] &gt; need_a) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">// 保留满足需求且资金最大的客户的预算价格和对应索引</span></span><br><span class="line">                <span class="keyword">if</span> (bc[j][<span class="number">1</span>] &gt; temp) &#123;</span><br><span class="line">                    temp = bc[j][<span class="number">1</span>];</span><br><span class="line">                    index = j;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 表示已完成分配，需求变为无穷大</span></span><br><span class="line">            <span class="keyword">if</span> (index != -<span class="number">1</span>) &#123;</span><br><span class="line">                bc[index][<span class="number">0</span>] = Integer.MAX_VALUE;</span><br><span class="line">            &#125;</span><br><span class="line">            result = result + temp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// write your code here</span></span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> n = sc.nextInt();<span class="keyword">int</span> m = sc.nextInt();</span><br><span class="line">        <span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[n];<span class="keyword">int</span>[][] bc = <span class="keyword">new</span> <span class="keyword">int</span>[m][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) a[i] = sc.nextInt();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++) &#123;</span><br><span class="line">            bc[j][<span class="number">0</span>] = sc.nextInt();bc[j][<span class="number">1</span>] = sc.nextInt();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        MainSF sf = <span class="keyword">new</span> MainSF();</span><br><span class="line">        System.out.println(sf.rentServer(n, m, a, bc));</span><br><span class="line">        sc.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-赏金猎人"><a href="#2-赏金猎人" class="headerlink" title="2. 赏金猎人"></a>2. 赏金猎人</h2><h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>A是一名赏金猎人，最近他获得了一些任务，受时间限制只能完成其中一部分。任务用<code>l, r, w</code>来定义，其中<code>任务开始时间l</code>,<code>任务结束时间r</code>,<code>任务报酬w</code>。A非常贪心，他想知道在自己任务不冲突的情况下最多获得多少金钱。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Input:</span><br><span class="line">3</span><br><span class="line">1  3  5</span><br><span class="line">2  7  3</span><br><span class="line">5 10  1</span><br><span class="line"></span><br><span class="line">Output:</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
+<h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">n=int(input())    <span class="comment"># 读数据</span></span><br><span class="line">renwu=[] </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    renwu.append(list(map(int,input().split())))</span><br><span class="line"></span><br><span class="line">renwu.sort()      <span class="comment"># 任务按开始时间排序</span></span><br><span class="line">dp=[i[<span class="number">-1</span>] <span class="keyword">for</span> i <span class="keyword">in</span> renwu]  <span class="comment"># 动态规划数组初始化为每个任务的收益</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):         <span class="comment"># dp[i]是以当前任务 i 为最后一个任务可以取得的最大收益</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i):</span><br><span class="line">        <span class="keyword">if</span> renwu[j][<span class="number">1</span>]&lt;renwu[i][<span class="number">0</span>]:</span><br><span class="line">            <span class="comment"># 这个转移方程真是精华</span></span><br><span class="line">            dp[i]=max(dp[i],dp[j]+renwu[i][<span class="number">-1</span>])</span><br><span class="line">print(max(dp))</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Shunfeng2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Scanner scanner=<span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="keyword">int</span> a =scanner.nextInt();</span><br><span class="line">        <span class="keyword">long</span>[][] arr=<span class="keyword">new</span> <span class="keyword">long</span>[(<span class="keyword">int</span>) a][<span class="number">3</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a; i++) &#123;</span><br><span class="line">            arr[i][<span class="number">0</span>]=scanner.nextLong();</span><br><span class="line">            arr[i][<span class="number">1</span>]=scanner.nextLong();</span><br><span class="line">            arr[i][<span class="number">2</span>]=scanner.nextLong();</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(arr, <span class="keyword">new</span> Comparator&lt;<span class="keyword">long</span>[]&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(<span class="keyword">long</span>[] o1, <span class="keyword">long</span>[] o2)</span> </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> (<span class="keyword">int</span>) (o1[<span class="number">1</span>]-o2[<span class="number">1</span>]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="keyword">long</span>[] dp = <span class="keyword">new</span> <span class="keyword">long</span>[(<span class="keyword">int</span>) a];</span><br><span class="line">        dp[<span class="number">0</span>] = arr[<span class="number">0</span>][<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; a; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> begin = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (arr[begin][<span class="number">1</span>] &lt; arr[i][<span class="number">0</span>])&#123;</span><br><span class="line">                begin++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">long</span> tmp = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span> (begin &gt;= <span class="number">1</span>)&#123;</span><br><span class="line">                tmp = dp[begin-<span class="number">1</span>]+arr[i][<span class="number">2</span>];</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                tmp = arr[i][<span class="number">2</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            dp[i] = Math.max(tmp,dp[i-<span class="number">1</span>]);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(dp[a-<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>商汤</strong>应该是有三道题。记不太清了，基本上是LeetCode原题。</p>
 <blockquote>
-<p>对于一种物品，要么装入背包，要么不装。所以对于一种物品的装入状态可以取0和1.我们设物品i的装入状态为xi,xi∈ (0,1)，此问题称为0-11背包问题。</p>
+<p>1.给定字符串，包含字母数字和空格，问其中的字符能组成多少”Good”。</p>
+<p>2.给定一个区间的集合，找到移除区间的最小数量，使剩余区间不重叠。</p>
+<p>3.给定一个数字矩阵，找到一条最长的上升路径，只能上下左右移动。</p>
 </blockquote>
-<h4 id="过程分析"><a href="#过程分析" class="headerlink" title="过程分析"></a>过程分析</h4><p><strong>数据：物品个数n=5,物品重量w[n]={0，2，2，6，5，4},物品价值V[n]={0，6，3，5，4，6},<br>（第0位，置为0，不参与计算，只是便于与后面的下标进行统一，无特别用处，也可不这么处理。）总重量c=10.</strong><br>背包的最大容量为10，那么在设置数组m大小时，可以设行列值为6和11，那么，对于m(i,j)就表示可选物品为i…n背包容量为j(总重量)时背包中所放物品的最大价值。</p>
-<p><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64570543.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/27894142.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/50858835.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/1383357.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/64404941.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/97461564.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/92409505.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/78719221.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/12275615.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/74489686.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/47520646.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/2659508.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/74515954.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/4158651.jpg" alt=""><br><img src="http://7xrite.com1.z0.glb.clouddn.com/16-3-24/34478495.jpg" alt=""></p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> c = <span class="number">10</span>;             <span class="comment">//背包的容量</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> w[] = &#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>&#125;;<span class="comment">//物品的重量，其中0号位置不使用 。</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> v[] = &#123;<span class="number">0</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">6</span>&#125;;<span class="comment">//物品对应的待加，0号位置置为空。</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> n = <span class="keyword">sizeof</span>(w)/<span class="keyword">sizeof</span>(w[<span class="number">0</span>]) - <span class="number">1</span> ; <span class="comment">//n为物品的个数</span></span><br><span class="line"><span class="keyword">int</span> x[n+<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">package0_1</span><span class="params">(<span class="keyword">int</span> m[][<span class="number">11</span>],<span class="keyword">const</span> <span class="keyword">int</span> w[],<span class="keyword">const</span> <span class="keyword">int</span> v[],<span class="keyword">const</span> <span class="keyword">int</span> n)</span><span class="comment">//n代表物品的个数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//采用从底到顶的顺序来设置m[i][j]的值</span></span><br><span class="line">    <span class="comment">//首先放w[n]</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= c; j++)</span><br><span class="line">        <span class="keyword">if</span>(j &lt; w[n]) m[n][j] = <span class="number">0</span>;     <span class="comment">//j小于w[n],所对应的值设为0，否则就为可以放置</span></span><br><span class="line">        <span class="keyword">else</span>         m[n][j] = v[n];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//对剩下的n-1个物品进行放置。</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = n<span class="number">-1</span>; i &gt;= <span class="number">1</span>; i--)</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= c; j++)</span><br><span class="line">            <span class="keyword">if</span>(j &lt; w[i])</span><br><span class="line">                m[i][j] = m[i+<span class="number">1</span>][j];<span class="comment">//如果j &lt; w[i]则，当前位置就不能放置，它等于上一个位置的值。</span></span><br><span class="line">    <span class="comment">//否则，就比较到底是放置之后的值大，还是不放置的值大，选择其中较大者。</span></span><br><span class="line">            <span class="keyword">else</span>         m[i][j] = m[i+<span class="number">1</span>][j] &gt; m[i+<span class="number">1</span>][j-w[i]] + v[i]?</span><br><span class="line">                                       m[i+<span class="number">1</span>][j] : m[i+<span class="number">1</span>][j-w[i]] + v[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">answer</span><span class="params">(<span class="keyword">int</span> m[][<span class="number">11</span>],<span class="keyword">const</span> <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j = c;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt;= n<span class="number">-1</span>; i++)</span><br><span class="line">        <span class="keyword">if</span>(m[i][j] == m[i+<span class="number">1</span>][j]) x[i] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            x[i] = <span class="number">1</span>;</span><br><span class="line">            j = j - w[i];</span><br><span class="line">        &#125;</span><br><span class="line">    x[n] = m[i][j] ? <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> m[<span class="number">6</span>][<span class="number">11</span>]= &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">    package0_1(m,w,v,n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">5</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">10</span>; j++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%2d "</span>,m[i][j]);</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    answer(m,n);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"The best answer is:\n"</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">5</span>; i++)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; x[i] &lt;&lt; <span class="string">" "</span>;</span><br><span class="line">    system(<span class="string">"pause"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a href="http://blog.csdn.net/dapengbusi/article/details/7463968" target="_blank" rel="noopener">原文链接</a></p>
+<p><strong>有赞</strong>也是三道编程题。</p>
+<blockquote>
+<p>1.计算两个大数的模。我用了BigInteger但还是只过了一部分。</p>
+<p>2.统计日志里级别为ERROR的类名及其ERROR的次数，并输出。</p>
+<p>3.将文档目录层级转换成二叉树。</p>
+</blockquote>
 
       
     </div>
@@ -440,7 +442,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://bwael.com/2016/03/24/ALG-3/" title="转：【算法学习笔记】动态规划0—1背包问题">http://bwael.com/2016/03/24/ALG-3/</a>
+    <a href="http://bwael.com/2020/08/22/Test-youzan-shangtang-shunfeng-20200820/" title="顺丰开发、商汤测开、有赞测开笔试 - 20200820">http://bwael.com/2020/08/22/Test-youzan-shangtang-shunfeng-20200820/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -458,6 +460,8 @@
             <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
           
             <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+            <a href="/tags/笔试/" rel="tag"># 笔试</a>
           
         </div>
       
@@ -485,8 +489,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/22/pynote03/" rel="next" title="python学习笔记03----运算符与表达式、序列">
-                <i class="fa fa-chevron-left"></i> python学习笔记03----运算符与表达式、序列
+              <a href="/2020/08/18/Test-Yongyou-20200818/" rel="next" title="用友笔试 - 20200818 - Java后台开发工程师">
+                <i class="fa fa-chevron-left"></i> 用友笔试 - 20200818 - Java后台开发工程师
               </a>
             
           </div>
@@ -494,10 +498,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/04/03/ALG-4/" rel="prev" title="【算法学习笔记】贪心算法背包问题">
-                【算法学习笔记】贪心算法背包问题 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -693,7 +693,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#问题描述："><span class="nav-number">1.</span> <span class="nav-text">问题描述：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#过程分析"><span class="nav-number">2.</span> <span class="nav-text">过程分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-服务器管理"><span class="nav-number">1.</span> <span class="nav-text">1. 服务器管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-number">1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-赏金猎人"><span class="nav-number">2.</span> <span class="nav-text">2. 赏金猎人</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#题目描述-1"><span class="nav-number">2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路-1"><span class="nav-number">2.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></div>
             
 
           </div>
